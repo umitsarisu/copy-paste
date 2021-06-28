@@ -1,0 +1,150 @@
+body {
+    position: relative;
+}
+body::-webkit-scrollbar {  
+    display: none;
+}  
+.none {
+    display: none;
+}
+.accordion{
+    min-width: 1115px;
+}
+.accordion-collapse{
+    background-color: #ddd;
+}
+header {
+    display: flex;
+    height: 10vh;
+    min-height: 60px;
+    text-align: center;
+    background-color: #a4b0be;
+}
+header h1 {
+    margin: auto;
+    justify-self: center;
+}
+form {
+    width: 90%;
+}
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.card {
+    margin: 10px;
+    background-color: #edeeee;
+}
+.imgContainer{
+    overflow: hidden;
+}
+.imgContainer img {
+    width: 238px;
+    height: 238px;
+}
+.card-body {
+    padding: 5px 16px;
+}
+.container{
+    display: flex;
+}
+table.form-control{
+    padding: 0;
+}
+#panoButtons{
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+}
+#panoButtons h1{
+    font-size: 40px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#pano{
+    width: 500px;
+    min-height: 55px;
+    max-height: 200px;
+    overflow: scroll;
+    margin: 10px 0;
+    padding: 0px;
+}
+table#pano,tr,th,td{
+    border: 1px solid #999;
+    border-collapse: collapse;
+}
+table#pano tr{
+    height: 40px;
+}
+table#pano th:nth-child(1){
+    min-width: 200px;
+}
+table#pano th:nth-child(2){
+    min-width: 150px;
+}
+table#pano th:nth-child(3){
+    min-width: 50px;
+}
+input[type="number"]{
+    width: 60px;
+}
+.card-text {
+    padding: 10px 5px;
+    margin: 0;
+}
+.alertText {
+    position: absolute;
+    z-index: -1;
+}
+.imgContainer{
+    position: relative;
+    overflow: hidden;
+}
+.hoverAlert:hover div.alertText {
+    z-index: 0;
+    top: 155px;
+    right: 0px;
+}
+.normal-zoom {
+    transform: scale(1);
+    cursor: zoom-in;
+    transition: transform 50ms;
+} 
+.zoom-in {
+    transform: scale(1.6);
+    cursor: zoom-out;
+    transition: transform 50ms;
+}
+.panoContainer{
+    width: 80%;
+    justify-content: space-around;
+}
+@media screen and (max-width:1480px){
+    .accordion{
+        min-width: 80%;
+    }
+}
+@media screen and (max-width:1272px){
+    .accordion{
+        min-width: 80%;
+    }
+}
+@media screen and (max-width:768px){
+    .accordion{
+        min-width: 450px;
+    }
+    #panoButtons{
+        width: 100px;
+        align-items: flex-start;
+    }
+    #pano{
+        padding: 0%;
+    }
+    .panoContainer{
+        width: 100%;
+    }
+}

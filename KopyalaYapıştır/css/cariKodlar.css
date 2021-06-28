@@ -1,0 +1,53 @@
+html {
+    font-size: 20px;
+}
+
+body {
+    background-color: #a4b0be;
+}
+body::-webkit-scrollbar {  
+    display: none;
+}  
+tr,
+th,
+td {
+    padding: 10px !important;
+    border-color: black !important;
+}
+
+tr:nth-child(even) {
+    background-color: rgb(189, 188, 188) !important;
+}
+
+.containe {
+    width: 80% !important;
+    margin: auto;
+}
+
+input {
+    margin: 20px 0;
+}
+
+table {
+    width: 100%;
+    white-space: nowrap;
+    background-color: whitesmoke !important;
+}
+
+th {
+    width: 3rem;
+}
+
+td:nth-child(even) {
+    width: 4rem;
+    padding: 0 !important;
+}
+
+td:nth-child(3) {
+    width: 5rem;
+}
+
+button {
+    width: 4rem;
+    height: 2.5rem;
+}

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1">
+    <!-- Bootstrap CSS -->
+    <!-- dahili bootstrap -->
+    <link rel="stylesheet" href="../bootstrap-5.0.0-dist/css/bootstrap.min.css">
+    <!-- harici bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!-- yerel css dosyası -->
+    <!-- <link rel="stylesheet" href="css/main.css"> -->
+    <link rel="stylesheet" href="css/homePage.css">
+    <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+    <!-- dahili jquery -->
+    <script src="javascript/jquery-3.6.0.min.js"></script>
+    <!-- javascript user interface -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- sayfa bilgileri -->
+    <link rel="shortcut icon" href="images/logo1.png">
+    <!-- microscope için font awesome -->
+    <script src="https://kit.fontawesome.com/4ebb137696.js" crossorigin="anonymous"></script>
+    <title>Kopyala Yapıştır</title>
+</head>
+
+<body>
+    <div class="d-flex">
+        <aside class="">
+            <a href="#" class="ml-1 mt-2 text-white" onclick="pageTransition(0)">
+                <i class="fa fa-home fa-2x fa-fw" aria-hidden="true"></i>
+                <span class="fs-3">Ana Sayfa</span></a>
+            <hr>
+            <ul class="nav flex-column">
+                <li class="nav-item ms-2">
+                    <a href="#" class="nav-link text-white" onclick="pageTransition(1)">
+                        <i class="fa fa-copy fa-lg fa-fw"></i>
+                        Kopyala Yapıştır</a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link text-white" onclick="pageTransition(2)">
+                        <i class="fa fa-wrench fa-lg fa-fw"></i>Yedek Parçalar</a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link text-white" onclick="pageTransition(3)"><i
+                            class="fa fa-vcard fa-lg fa-fw"></i>Cari Kodlar</a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#rvgModal"
+                        onclick="rvgFunc(0)">
+                        <i class="fa fa-random fa-lg fa-fw"></i>Rastgele Değer Üretici</a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link text-white" onclick="pageTransition(4)">
+                        <i class="fa fa-file-text-o fa-lg fa-fw"></i>Cihaz Kayıt Formu</a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#büyüteçModal">
+                        <i class="fa fa-search fa-lg fa-fw"></i>Büyüteç</a>
+                </li>
+            </ul>
+        </aside>
+        <nav id="nav" class="navbar fixed-top navbar-expand-xl navbar-dark">
+            <div class="container-fluid">
+                <a href="#" class="text-white" onclick="pageTransition(0)">
+                    <i class="fa fa-home fa-2x" aria-hidden="true"></i>
+                    <span class="fs-3">Ana Sayfa</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a href="#" class="nav-link text-white" onclick="pageTransition(1)">
+                                <i class="fa fa-copy fa-lg fa-fw"></i>
+                                Kopyala Yapıştır</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white" onclick="pageTransition(2)">
+                                <i class="fa fa-wrench fa-lg fa-fw"></i>Yedek Parçalar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white" onclick="pageTransition(3)"><i
+                                    class="fa fa-vcard fa-lg fa-fw"></i>Cari Kodlar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#rvgModal"
+                                onclick="rvgFunc(0)">
+                                <i class="fa fa-random fa-lg fa-fw"></i>Rastgele Değer Üretici</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white" onclick="pageTransition(4)">
+                                <i class="fa fa-file-text-o fa-lg fa-fw"></i>Cihaz Kayıt Formu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white" data-bs-toggle="modal"
+                                data-bs-target="#büyüteçModal">
+                                <i class="fa fa-search fa-lg fa-fw"></i>Büyüteç</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <main>
+            <section>
+                <div class="carouselContainer shadow">
+                    <div id="informationCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#informationCarousel" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#informationCarousel" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#informationCarousel" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                            <button type="button" data-bs-target="#informationCarousel" data-bs-slide-to="3"
+                                aria-label="Slide 4"></button>
+                            <button type="button" data-bs-target="#informationCarousel" data-bs-slide-to="4"
+                                aria-label="Slide 5"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="images/carousel/kopyalaYapistir.jpg" class="d-block w-100 image-thumbnail"
+                                    alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Kopyala Yapıştır'a Hoş Geldiniz</h5>
+                                    <p>Form girmeyi oldukça kolaylaştıran bu uygulamaya bir göz atın</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/carousel/YedekParçalar.jpg" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Yedek Parçaların Resimli Listesi</h5>
+                                    <p>Arama ve filtrele bölümlerinden istenilen yedek parçayı bulabilirsiniz</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/carousel/YedekParçalar2.jpg" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <p>İsterseniz yeşil buton ile tek bir parçayı ya da panoya ekle diyerek birden çok
+                                        parçayı seçerek yedek parça talebi yapabilirsiniz.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/carousel/YdkTalep.jpg" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <p>Yazdır butonu ile çıktı alabilir ya da PDF olarak kaydedebilirsiniz. Excel butonu
+                                        ile
+                                        excel dosyası oluşturabilirsiniz.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/carousel/cihazkayıtformu.jpg" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <p>Form bilgilerini doldurarak cihazları panoya kaydedip yazdır butonu ile çıktı
+                                        alabilir, PDF olarak kaydedebilir ya da Excel butonu ile excel dosyası
+                                        oluşturabilirsiniz.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#informationCarousel"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#informationCarousel"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <svg height="42" id="svg1" width="750">
+                        <polyline points="335,0 335,8 337,10 363,10 365,12 365,28 363,30 
+                        280,30 258,32 257,33 257,38 258,39 280,41 375,41"
+                            style="fill:none;stroke:#666;stroke-width:1" />
+                        <polyline points="415,0 415,8 413,10 387,10 385,12 385,28 387,30
+                        470,30 492,32 493,33 493,38 492,39 470,41 375,41"
+                            style="fill:none;stroke:#666;stroke-width:1" />
+                    </svg>
+                    <svg height="42" id="svg2" width="750">
+                        <polyline points="310,0 310,8 312,10 338,10 340,12 340,28 338,30 
+                        255,30 233,32 232,33 232,38 233,39 255,41 350,41"
+                            style="fill:none;stroke:#666;stroke-width:1" />
+                        <polyline points="390,0 390,8 388,10 362,10 360,12 360,28 362,30
+                        445,30 467,32 468,33 468,38 467,39 445,41 350,41"
+                            style="fill:none;stroke:#666;stroke-width:1" />
+                    </svg>
+                </div>
+                <div id="innovations">
+                    <h2>Yenilikler!</h2>
+                </div>
+            </section>
+            <iframe class="none" src="CariKodlar.html" frameborder="0"></iframe>
+            <iframe class="none" src="KopyalaYapıştır.html" frameborder="0"></iframe>
+            <iframe class="none" src="YedekParçalar.html" frameborder="0"></iframe>
+            <iframe class="none" src="CihazKayıtFormu.html" frameborder="0"></iframe>
+        </main>
+    </div>
+
+    <!-- Sallamasyon Modal -->
+    <div class="modal fade" id="rvgModal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Rastgele Değer Üretici</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="rvg2" class="align-middle"></div>
+                    <div id="egt2" class="align-middle"></div>
+                </div>
+                <div class="modal-footer d-flex justify-content-end">
+                    <button type="button" onclick="rvgFunc(0)" class="btn btn-primary btn-lg">Yenile</button>
+                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Büyüteç Modal -->
+    <div class="modal fade" id="büyüteçModal" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Büyüteç</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <textarea class="form-control" id="büyüteçTextarea" cols="30" rows="4"
+                            placeholder="Buraya yazılan yazıları büyük harflere çevirir!"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-around">
+                    <button type="button" id="capitalButton" class="btn btn-primary"
+                        title="Yazıların ilk harflerini büyütür"><i class="fas fa-text-height"></i>Başı Büyük</button>
+                    <button type="button" id="microscopeButton" class="btn btn-primary"
+                        title="Yazıları küçük harflere çevirir"><i class="fas fa-microscope"></i>Mikroskop</button>
+                    <button type="button" id="büyüteçButton" class="btn btn-primary"
+                        title="Yazıları büyük harflere çevirir"><i class="fa fa-search"
+                            aria-hidden="true"></i>Büyüteç</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- dahili javascript -->
+    <script src="../bootstrap-5.0.0-dist/js/bootstrap.min.js"></script>
+    <script src="javascript/randomValueGenerator.js"></script>
+    <script src="javascript/cariKodlar.js"></script>
+    <script src="javascript/homePage.js"></script>
+    <script src="javascript/innovations.js"></script>
+
+</body>
+
+</html>

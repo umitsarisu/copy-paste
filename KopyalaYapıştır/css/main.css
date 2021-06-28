@@ -1,0 +1,3266 @@
+*, .col, .row, .container{
+    margin: 0%;
+    padding: 0%;
+    border: 0;
+    box-sizing: unset;
+    height: auto;
+}
+*::selection{
+    background-color: transparent;
+}
+label, h5, p, h6{
+    margin: 0;
+}
+body{
+    background-color: lightslategray;
+}
+body::-webkit-scrollbar {
+    display: none;
+  }
+.none{
+    display: none;
+}
+.hidden{
+    visibility: hidden;
+}
+.contentBgColor{
+    background-color: rgba(202, 211, 200,0.5);
+}
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+a{
+    text-decoration: none;
+    color: black;
+    height: 40px;
+    display: block;
+}
+.hoverUpDownli{
+    background-color: rgb(255, 71, 71) !important;
+}
+/* min1680px max1679-min1366px max1365px-min1200px max1199px-min768px max767px-min576px max575px */
+/* @media screen and (min-width:1385px){
+
+} */
+input[type="text"]{
+    width: 60px;
+    height: 30px;
+    font-size: 18px;
+    border-radius: 5px 5px;
+    margin: 5px;
+    padding: 4px;
+    border: 1px solid #ced4da;
+    float: left;
+    text-align: center;
+    text-transform: uppercase;
+}
+input[type="text"]:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+input[type="text"]::selection{
+    background-color: rgb(79, 149, 255);
+}
+input[value="Gönder"]{
+    width: 100px;
+    height: 40px;
+    margin: 5px 10px;
+    padding: 0%;
+    box-sizing: border-box;
+}
+img{
+    width: 30px;
+    padding: 10px;
+}
+input[value="Reset"]{
+    width: 70px;
+    height: 40px;
+    padding: 0%;
+    margin: 5px 10px;
+    box-sizing: border-box;
+}
+input[type="radio"]{
+    width: 30px;
+    height: 20px;
+    margin: 10px 0;
+    float: left;
+}
+input[type="checkbox"]{
+    width: 30px;
+    height: 20px;
+    margin: 10px 0;
+}
+.doubleclick{
+    background-color: rgba(192, 198, 204, 0.596);
+    text-shadow: 0.5px 0.5px 5px rgba(202, 91, 91, 0.774);
+    text-align: center;
+}
+/* Kopyala Yapıştır randomValueGenerator ve EGT CSS */
+.rvg,.egt {
+    width: 100px;
+    padding: 5px;
+    border: 1px solid black;
+    text-align: center;
+    background-color: white;
+    border-radius: 5px;
+    display: flex; flex-direction: column; justify-content: center;
+}
+
+.rvg p {
+    line-height: 25px;
+    font-size: 17px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+.egt p{
+    line-height: 25px;
+    font-size: 17px;
+    font-weight: bold;
+}
+#date1{
+    height: 36px;
+}
+.testsDiv{
+    width: 60%;
+    min-height: 38px;
+    padding: 3px 0;
+    border: 1px black solid;
+    border-radius: 5px;
+    color: black;
+    background-color: rgba(202, 211, 200,0.5);
+    box-sizing: border-box;
+    text-align: left;
+    font-size: 10px;
+    font-weight: bold;
+}
+.red{
+    color: red;
+    text-decoration: line-through;
+}
+.green{
+    color: green;
+}
+@media screen and (min-width:1200px){
+    .largeContainer{
+        width: 1200px;
+        margin: auto;
+        position: relative;
+        border: 1px transparent solid;
+        border-radius: 10px;
+        box-sizing: border-box;
+    }
+    div#headerTopSticky{
+        width: 1200px;
+        height: 40px;
+        text-align: center;
+        border: 1px solid white;
+        border-radius: 5px;
+        box-sizing: border-box;
+        z-index: 2;
+        position: sticky;
+        top: 0;
+    }
+    div#headerTopSticky h2{
+        font-size: 30px;
+        line-height: 40px;
+        margin: 0;
+        text-shadow: 2px 2px 5px white;
+    }
+    div#headerTopSticky img{
+        width: 36px;
+        margin: 1px 0;
+        padding: 0;
+        cursor: pointer;
+    }
+    div#headerTopSticky div:hover{
+        background-color: rgba(128, 128, 128, 0.5);
+        border: 1px solid transparent;
+        border-radius: 10px;
+    }
+    div#headerTopSticky div:active{
+        border: 2px coral solid;
+        border-radius: 10px;
+    }
+    div#headerTopSticky div#forward{      
+        position: absolute;  
+        top: 0;
+        right: 10px;        
+    }
+    div#headerTopSticky div#forward img{
+        float: right;
+    }
+    div#headerTopSticky div#forward span{
+        float: right;
+        line-height: 40px;
+        font-size: 15px;
+        font-weight: bold;
+        color: #212529;
+        margin-right: 10px;
+        text-shadow: 0.5px 0.5px 5px rgba(196, 115, 115, 0.774);
+    }
+    div#headerTopSticky div#backward{      
+        position: absolute;  
+        top: 0;
+        left: 10px;        
+    }
+    div#headerTopSticky div#backward img{
+        float: left;
+    }
+    div#headerTopSticky div#backward span{
+        float: left;
+        line-height: 40px;
+        font-size: 15px;
+        font-weight: bold;
+        color: #212529;
+        margin-left: 10px;
+        text-shadow: 0.5px 0.5px 5px rgba(196, 115, 115, 0.774);
+    }
+    div#headerTopSticky a {
+        width: 282px;
+        height: 37px;
+        margin: auto;        
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 38px;
+        padding: 0 10px;
+        color: #212529;       
+    }
+    /* *** HEADER BAŞLANGIÇ *** */
+    .limitedContainer{
+        width: 800px;
+        margin: auto;
+        position: relative;
+        border: 1px solid white;
+        border-radius: 10px;
+        border-top: 0;
+        border-bottom: 0;
+        box-sizing: border-box;
+    }
+    header form{
+        width: 600px;
+        margin: auto;
+    }
+    header h3{
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 30px;
+        text-align: center;
+        margin: 0;
+    }
+    /* Header Check Model */
+    header div.models{
+        width: 200px;
+        height: 40px;
+        border: 1px solid transparent;
+        border-radius: 20px;
+        border-bottom: 1px solid white;
+        border-right: 1px solid white;            
+        box-sizing: border-box;
+        float: left;
+    }
+    header div.models label{
+        width: 100%;
+        height: 40px;  
+        cursor: pointer;          
+    }
+    header div.models label strong{
+        display: inline-block;
+        width: 80px;
+        line-height: 40px;
+        margin-left: 15px;
+        text-shadow: 1px 1px 5px white;
+    } 
+    /* Müşteri Şikayeti*/
+    header div#errCode{
+        width: 570px;
+        height: 50px;
+        margin: 0 15px;
+        list-style-type: none;
+        border-bottom:1px solid white;
+        box-sizing: border-box;
+    }
+    header div#errCode p{
+        width: 130px;
+        line-height: 50px;
+        margin: 0;
+        margin-left: 5px;
+        float: left;
+    }
+    header div#errCode input[type="submit"]{
+        width: 65px;
+        height: 40px;
+        float: left;
+    }
+    header div#errCode a{
+        display: inline;
+    }
+    header div#errCode a img[alt="mediteralogo"]{
+        width: 200px;
+        height: 37px;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        padding: 4px;
+        margin: 1px 0;
+        float: right;
+        background-color: whitesmoke;
+    }
+    /* Hata Görüldü Mü? */
+    header div.yesNoQuestions{
+        width: 570px;
+        height: 40px;
+        border-bottom: 1px solid white;
+        margin: 0 15px;
+    }
+    header p{
+        width: 260px;
+        line-height: 40px;
+        font-size: 18px;
+        float: left;
+        text-align: right;
+    }
+    header label.yes{
+        width: 80px;
+        height: 40px;
+        line-height: 40px;
+        margin-left: 20px;
+        border: 1px solid white;
+        border-top: 0;
+        border-bottom: 0;
+        border-radius: 10px 10px;
+        box-sizing: border-box;
+        float: left;
+        transition: 0.2s ease-out;
+        background-color: rgba(40, 167, 69, 0.5);
+        cursor: pointer;
+    }
+    header label.yes:hover{
+        background-color: rgba(40, 167, 69, 1);
+        transform: scale(1.05);
+    }
+    header label.no{
+        width: 80px;
+        height: 40px;
+        line-height: 40px;
+        border: 1px solid white;
+        border-radius: 10px 10px;
+        box-sizing: border-box;
+        float: left;
+        transition: 0.2s ease-in-out;
+        background-color: rgba(220, 53, 69, 0.5);
+        cursor: pointer;
+    }
+    header label.no:hover{
+        background-color: rgba(220, 53, 69, 1);
+        transform: scale(1.05);
+    }
+
+    /* *** BULGULAR *** */
+    section.limitedContainer{
+        margin-top: 20px;
+    }
+    section div#findingsDiv{
+        width: 600px;
+        margin: auto;
+    }
+    section h4{
+        width: 150px;
+        line-height: 160px;
+        text-align: center;
+        margin: 10px 5px 10px 110px;
+        border-right: 1px solid white;
+        box-sizing: border-box;
+        float: left;
+    }
+    section div#divTests{
+        width: 225px;
+        margin: 10px 0;
+        float: left;
+    }
+    section div#divTests input[name="tests"]{
+        float: left;
+    }
+    section div#divTests label{
+        width: 225px;
+        height: 40px;
+        border-bottom: 1px solid black;
+        border-bottom-right-radius: 10px;
+        box-sizing: border-box;
+        background-color: rgba(135, 162, 187, 0.5);
+        cursor: pointer;
+    }
+    section div#divTests label strong{
+        font-size: 12px;
+        line-height: 40px;
+        float: left;
+    }
+    section ul#dropdownMenu{
+        width: 568px;
+        margin: auto;
+        margin-top: 10px;
+        list-style-type: none;
+    }
+    section ul#dropdownMenu li{
+        width: 140px;
+        line-height: 38px; 
+        border: 1px solid white;
+        border-radius: 5px 20px 20px 5px;
+        box-sizing: border-box;
+        text-align: center;
+        margin-right: 2px;
+        float: left;
+        cursor: pointer;        
+        background-color: rgba(129, 146, 168, 0.5);
+    }
+
+    /* *** TESTLER *** */
+    section#theTests{
+        width: 1000px;
+        margin:auto;
+        margin-top: 10px;
+        position: relative;
+        border: 1px solid transparent;
+        border-radius: 10px 10px;
+    }    
+    .sectionContent{
+        width: 1000px;
+        margin: auto;
+        border: 1px solid white;
+        border-radius: 10px 10px;
+        border-top: 0;
+        padding: 18px 0;
+    }
+    .flex-container{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+    }
+    /* *** VISUAL INSPECTION TEST *** */
+    div.flex-container-visual{
+        width: 100%;
+        justify-content: space-evenly;
+    }
+    .sparePartsContainer{
+        width: 350px;
+        text-align: center;
+    }   
+    section#theTests form.sectionContent h5, div.sectionContent h5{
+        width: 235px;
+        line-height: 30px;
+        text-align: center;
+        margin: auto;
+        margin-bottom: 5px;
+        border-bottom: black 1px solid;
+    }
+    section#theTests div.sparePartsContainer label{
+        line-height: 30px;
+        display: inline-block;
+    }
+    span#visualText1{
+        display: block;
+    }
+    span#visualText2{
+        display: none;
+    }
+    section#theTests div.sparePartsContainer select{
+        width: 250px;
+        height: 200px;
+        padding: 0 20px;
+        text-align: center;
+        border-radius: 5px 5px;
+        border: 1px solid lightblue;
+        box-sizing: border-box;
+    }
+    section#theTests div.sparePartsContainer select option{
+        border-bottom: 1px solid #e76c44;
+    }
+    section#theTests div.sparePartsContainer textarea{
+        width: 250px;
+        height: 70px;
+        line-height: 20px;
+        padding: 5px;
+        margin: auto;
+        display: block;
+        border-radius: 5px 5px;
+        border: 1px solid lightblue;
+        box-sizing: border-box;
+    }
+    section#theTests div#visualInspectionButtons-xs-display{
+        display: none;
+    }
+    section#theTests div#visualInspectionButtons{
+        width: 100px;
+        height: 300px;
+        /* margin-right: auto; */
+        margin-top: 30px;
+        display: block;
+        /* text-align: center; */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    section#theTests div#visualInspectionButtons input[value="Gönder"]{
+        margin: 0;
+    }    
+    section#theTests div#visualInspectionButtons input[value="Reset"]{
+        margin: 5px 15px;
+    }
+    section#theTests div#visualInspectionButtons img{
+        margin: 0 25px;
+    }
+    /* *** SELF TEST *** */
+    /* Top side */
+    section#theTests div.sectionContent ul{
+        width: 700px;
+        margin: auto;
+        list-style-type: none;
+    }
+    section#theTests div.sectionContent ul li{
+        width: 100px;
+        height: 40px;
+        border: 1px solid white;
+        border-radius: 5px 5px;
+        box-sizing: border-box;
+        position: relative;
+        float: left;
+        background-color: rgb(236, 236, 236);
+    }
+    section#theTests div.sectionContent ul li:nth-child(odd){
+        margin-bottom: 40px;
+    }
+    section#theTests div.sectionContent ul li:nth-child(odd):hover{
+        border: 1px solid rgba(0, 255, 42, 1);
+    }
+    section#theTests div.sectionContent ul li:nth-child(even){
+        margin-top: 40px;
+    }
+    section#theTests div.sectionContent ul li:nth-child(even):hover{
+        border: 1px solid rgba(255, 139, 85, 1);
+    }
+    section#theTests div.sectionContent ul li label{
+        width: 98px;
+        line-height: 38px;
+        font-size: 15px;
+    }
+    section#theTests div.sectionContent ul li label input, ul li div label input{
+        margin: 8px 0;
+        float: left;
+    }
+    section#theTests div.sectionContent ul li label span{
+        width: 68px;
+        line-height: 38px;
+        border: 0;
+        margin: 0;
+        text-align: center;
+        float: left;
+    }
+    section#theTests div.sectionContent ul li div.hoverDown, div.hoverUp, div.hoverUpAsmdoor, div.hoverDownShield{
+        width: 98px;
+        height: 40px;
+        line-height: 40px;
+        top: 0;
+        padding-left: 5px;
+        border: 1px solid white;
+        border-radius: 5px;
+        box-sizing: border-box;
+        position: absolute;
+        z-index: -1;
+    }
+    section#theTests div.sectionContent ul li:hover div.hoverDown{
+        z-index: 1;
+        top: 40px;
+        background: rgba(234, 255, 45, 0.404); 
+    }
+    section#theTests div.sectionContent ul li:hover div.hoverUp{
+        z-index: 1;
+        top: -41px;
+        background: rgba(255, 139, 85, 0.616);
+    }
+    li:hover div.hoverDownShield{
+        z-index: 1;
+        top: -1px;
+        left: 49px;
+        background: rgb(168, 199, 83); 
+    }
+    li:hover div.hoverUpAsmdoor{
+        z-index: 1;
+        top: -1px;
+        right: 49px;
+        background: rgb(253, 137, 84);
+    }
+    div.hoverUpAsmdoor, div.hoverDownShield{
+        padding: 0;
+    }
+    span.hoverUpDown{
+        line-height: 40px;
+        font-size: 15px;
+        margin-left: 30px;
+    }
+    /* Power Cpu */
+    #flexPowerCpu{
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    section#theTests form.cpuPowerContent, div.cpuPowerContent{
+        width: 350px;
+        margin: auto;
+        margin-top: 10px;
+        border: 1px solid white;
+        border-radius: 5px;
+        box-sizing: border-box;
+        background-color: rgba(129, 146, 168, 0.5);
+    }
+    section#theTests form#powerForm.cpuPowerContent{
+        margin-top: 0;
+    }
+    section#theTests form#cpuForm.cpuPowerContent{
+        margin-top: 0;
+    }
+    section#theTests form#selfTestMechanismForm.mechanismContent {
+        margin-top: 0;
+    }
+    section#theTests form.cpuPowerContent input[value="Gönder"]{
+        float: right;
+    }
+    section#theTests form.cpuPowerContent input[value="Reset"]{
+        float: left;
+    }
+    section#theTests form.cpuPowerContent img{
+        padding: 10px;
+        float: right;
+    }
+    section#theTests div.selfTestHeaderCheckBox{
+        height: 40px;
+        border-bottom: white 1px solid;
+        display: block;
+    }
+    section#theTests div.selfTestHeaderCheckBox label{
+        display: block;
+    }
+    section#theTests label div.selfTestHeaderCheckBoxDiv{
+        width: 50%;
+        height: 40px;
+        float: left;
+    }
+    section#theTests label div.b{
+        width: 30%;
+    }
+    section#theTests label div.selfTestHeaderCheckBoxDiv input{
+        float: right;
+        margin-right: 10px;
+    }
+    section#theTests label div.selfTestHeaderCheckBoxDiv strong{
+        line-height: 40px;
+        float: left;
+    }
+    section#theTests .mechanismSubContent{
+        display: flex;
+        align-items: center;
+    }
+    section#theTests .mechanismLabels{
+        display: block;
+        height: 45px;
+        line-height: 45px;
+    }
+    section#theTests .mechanismLabelSpans{
+        width: 156px;
+        line-height: 40px;
+        margin: 4px 4px 0 4px;
+        border-bottom: 1px black solid;
+        box-sizing: border-box;
+        float: left;
+    }
+    section#theTests input[placeholder="Hata"]{
+        margin: 4px 4px 0 4px;
+    }
+    section#theTests input[placeholder="Seri Numarası"]{
+        width: 160px;
+        height: 30px;
+        margin: 4px 4px 0 4px;
+        float: left;
+    }
+    /* Mechanism */
+    section#theTests .mechanismContent{
+        width: 733px;
+        margin: auto;
+        margin-top: 10px;
+        border: 1px solid white;
+        border-radius: 5px;
+        box-sizing: border-box;
+        background-color: rgba(129, 146, 168, 0.5);
+    }
+    section#theTests div.mechanismErrCodeDiv{
+        width: 242px;
+        height: 45px;
+        margin: auto;
+    }
+    section#theTests div.mechanismOptions{
+        width: 45%;
+        border-right: 1px black solid;
+        box-sizing: border-box;
+        float: left;
+        margin-top: 5px;
+    }
+    section#theTests div.mechanismOptions label{
+        height: 40px;
+        margin: 5px;
+        border: 1px solid white;
+        border-radius: 10px;
+        box-sizing: border-box;
+    }    
+    section#theTests div#forMechanismPCI{
+        border: none;
+        width: 100%;
+    }
+    .a{
+        width: 400px;
+        height: 45px;
+        margin: 3px;        
+    }
+    section#theTests div.mechanismSerialNumberDiv{
+        width: 55%;
+        min-height: 140px;
+        margin-top: 1px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        float: left;
+    }
+
+    section#theTests div#ifSelfTestAppChecked{
+        margin: 0 auto;
+    }
+    section#theTests div#ifSelfTestMechanismChecked{
+        margin: 0 auto;
+    }
+    section#theTests div#ifSelfTestDriverPwaChecked{
+        margin: 0 auto;
+    }    
+    section#theTests div.mechanismSerialNumberDiv label{
+        display: flex;
+        flex-direction: row;
+    }
+    section#theTests div.mechanismSerialNumberDiv label span{
+        width: 200px;
+        float: left;
+        text-align: center;
+    }
+    section#theTests div.mechanismSerialNumberDiv label input{
+        margin: auto;
+    }
+    section#theTests div.buttonsCover{
+        margin: auto;
+        height: 50px;
+        width: 100%;
+    }
+    div.flex-space{
+        display: flex;
+        justify-content: space-evenly;
+        margin: 0;
+    }
+    section#theTests div.mechanismSerialNumberDiv input[value="Gönder"]{
+        float: right;
+    }
+    section#theTests div.mechanismSerialNumberDiv input[value="Reset"]{
+        float: left;
+    }
+    section#theTests div.mechanismSerialNumberDiv img{
+        padding: 10px;
+        float: right;
+    }
+    section#theTests div#ifProxTestMechanismChecked{
+        margin: auto;
+    }
+    section#theTests div#ifProxTestAppChecked{
+        margin: auto;
+    }
+    section#theTests div#ifDistalTestMechanismChecked{
+        margin: auto;
+    }
+    footer input{
+        width: 100%;
+        height: 40px;
+        margin: 10px 0;
+        background-color: tomato;
+        color: white;
+        text-align: center;
+    }
+    /* *** Sonuç *** */
+    #sonuc .largeContainer{
+        width: 100%;
+    }
+    #sonuc section.sectionContent{
+        padding: 0%;
+    }
+    #sonuc div.sonucContent{
+        width: 100%;
+        min-height: 40px;
+        display: flex;
+        border-bottom: 1px solid black;
+        box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+        text-align: center;
+    }
+    #sonuc div.sonucContent:last-child{
+        border-bottom: 0;
+        box-shadow: unset;
+    }
+    #sonuc div.sonucContent h6{
+        width: 25%;
+        line-height: 25px;
+        font-size: 15px;
+        text-shadow: 0.5px 0.5px 5px rgba(196, 115, 115, 0.774);
+        margin: 0;
+        float: left;
+    }
+    #sonuc div.sonucContent button{
+        width: 15%;
+        height: 38px;
+        margin: 1px 0;
+        box-sizing: border-box;
+        float: left;
+    }
+    #sonuc div.sonucContent textarea{
+        width: 60%;
+        min-height: 38px;
+        margin: 1px 0;
+        color: black;
+        background-color: whitesmoke;
+        box-sizing: border-box;
+        float: left;
+    }
+    #sonuc #tamirKodu,#sonuc #analizKodu, #sonuc #arastirmaKodu{
+        width: 75%;
+    }
+    #sonuc div.aaCodesDiv textarea{
+        width: 358px;
+    }
+    #sonuc div.heightRow textarea{
+        min-height: 98px;
+    }
+    #sonuc footer#footer2{
+        width: 150px;
+        height: 50px;
+        margin: auto;
+        padding: 20px;
+    }
+    #sonuc footer#footer2 input{
+        width: 150px;
+        height: 50px;
+        box-sizing: border-box;
+        margin: auto;
+    }
+    #ydkPage section.sectionContent{
+        padding: 0%;
+    }
+    #ydkPage h4{
+        width: 90%;
+        height: 30px;
+        text-align: left;
+        line-height: 30px;
+        padding-left: 10px;
+        margin: 0;
+        background-color: #ced4da;
+        border: solid 1px #495057;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    #ydkPage div.ydkContent{
+        width: 100%;
+        height: 32px;
+        display: flex;
+        border-bottom: 1px solid black;
+        box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+        text-align: center;
+    }
+    #ydkPage div.ydkContent h6{
+        width: 25%;
+        line-height: 32px;
+        font-size: 15px;
+        text-shadow: 0.5px 0.5px 5px rgba(196, 115, 115, 0.774);
+        margin: 0;
+        float: left;
+    }
+    #ydkPage div.ydkContent button{
+        width: 10%;
+        height: 30px;
+        padding: 3px 5px;
+        box-sizing: border-box;
+        float: left;
+    }
+    #ydkPage div.ydkContent input[type="checkbox"]{
+        width: 20px;
+        height: 20px;
+        margin: 6px 10px;
+        float: left;
+    }
+    #ydkPage div.ydkContent input[type="text"]{
+        width: 60%;
+        height: 30px;
+        margin: 1px 0;
+        color: black;
+        text-align: left;
+        background-color: whitesmoke;
+        box-sizing: border-box;
+        float: left;
+    }
+    #ydkPage input[type="text"]::selection{
+        background-color: transparent;
+    }
+    
+}
+@media screen and (min-width:820px) and (max-width:1200px){
+    .largeContainer{
+        width: 100%;
+        margin: auto;
+        position: relative;
+        border: 1px transparent solid;
+        border-radius: 10px;
+        box-sizing: border-box;
+    }
+    div#headerTopSticky{
+        width: 100%;
+        height: 40px;
+        text-align: center;
+        border: 1px solid white;
+        border-radius: 5px;
+        box-sizing: border-box;
+        z-index: 2;
+        position: sticky;
+        top: 0;
+    }
+    div#headerTopSticky h2{
+        font-size: 30px;
+        line-height: 40px;
+        margin: 0;
+        text-shadow: 2px 2px 5px white;
+    }
+    div#headerTopSticky img{
+        width: 36px;
+        margin: 1px 0;
+        padding: 0;
+        cursor: pointer;
+    }
+    div#headerTopSticky div:hover{
+        background-color: rgba(128, 128, 128, 0.5);
+        border: 1px solid transparent;
+        border-radius: 10px;
+    }
+    div#headerTopSticky div:active{
+        border: 2px coral solid;
+        border-radius: 10px;
+    }
+    div#headerTopSticky div#forward{      
+        position: absolute;  
+        top: 0;
+        right: 10px;        
+    }
+    div#headerTopSticky div#forward img{
+        float: right;
+    }
+    div#headerTopSticky div#forward span{
+        float: right;
+        line-height: 40px;
+        font-size: 15px;
+        font-weight: bold;
+        color: #212529;
+        margin-right: 10px;
+        text-shadow: 0.5px 0.5px 5px rgba(196, 115, 115, 0.774);
+    }
+    div#headerTopSticky div#backward{      
+        position: absolute;  
+        top: 0;
+        left: 10px;        
+    }
+    div#headerTopSticky div#backward img{
+        float: left;
+    }
+    div#headerTopSticky div#backward span{
+        float: left;
+        line-height: 40px;
+        font-size: 15px;
+        font-weight: bold;
+        color: #212529;
+        margin-left: 10px;
+        text-shadow: 0.5px 0.5px 5px rgba(196, 115, 115, 0.774);
+    }
+    div#headerTopSticky a {
+        width: 282px;
+        height: 37px;
+        margin: auto;        
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 38px;
+        padding: 0 10px;
+        color: #212529;       
+    }
+    /* *** HEADER BAŞLANGIÇ *** */
+    .limitedContainer{
+        width: 600px;
+        margin: auto;
+        position: relative;
+        border: 1px solid white;
+        border-radius: 10px;
+        border-top: 0;
+        border-bottom: 0;
+        box-sizing: border-box;
+    }
+    header form{
+        width: 600px;
+        margin: auto;
+    }
+    header h3{
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 30px;
+        text-align: center;
+        margin: 0;
+    }
+    /* Header Check Model */
+    header div.models{
+        width: 200px;
+        height: 40px;
+        border: 1px solid transparent;
+        border-radius: 20px;
+        border-bottom: 1px solid white;
+        border-right: 1px solid white;            
+        box-sizing: border-box;
+        float: left;
+    }
+    header div.models label{
+        width: 100%;
+        height: 40px;  
+        cursor: pointer;          
+    }
+    header div.models label strong{
+        display: inline-block;
+        width: 80px;
+        line-height: 40px;
+        margin-left: 15px;
+        text-shadow: 1px 1px 5px white;
+    } 
+    /* Müşteri Şikayeti*/
+    header div#errCode{
+        width: 570px;
+        height: 50px;
+        margin: 0 15px;
+        list-style-type: none;
+        border-bottom:1px solid white;
+        box-sizing: border-box;
+    }
+    header div#errCode p{
+        width: 130px;
+        line-height: 50px;
+        margin: 0;
+        margin-left: 5px;
+        float: left;
+    }
+    header div#errCode input[type="submit"]{
+        width: 65px;
+        height: 40px;
+        float: left;
+    }
+    header div#errCode a{
+        display: inline;
+    }
+    header div#errCode a img[alt="mediteralogo"]{
+        width: 200px;
+        height: 37px;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        padding: 4px;
+        margin: 1px 0;
+        float: right;
+        background-color: whitesmoke;
+    }
+    /* Hata Görüldü Mü? */
+    header div.yesNoQuestions{
+        width: 570px;
+        height: 40px;
+        border-bottom: 1px solid white;
+        margin: 0 15px;
+    }
+    header p{
+        width: 260px;
+        line-height: 40px;
+        font-size: 18px;
+        float: left;
+        text-align: right;
+    }
+    header label.yes{
+        width: 80px;
+        height: 40px;
+        line-height: 40px;
+        margin-left: 20px;
+        border: 1px solid white;
+        border-top: 0;
+        border-bottom: 0;
+        border-radius: 10px 10px;
+        box-sizing: border-box;
+        float: left;
+        transition: 0.2s ease-out;
+        background-color: rgba(40, 167, 69, 0.5);
+        cursor: pointer;
+    }
+    header label.yes:hover{
+        background-color: rgba(40, 167, 69, 1);
+        transform: scale(1.05);
+    }
+    header label.no{
+        width: 80px;
+        height: 40px;
+        line-height: 40px;
+        border: 1px solid white;
+        border-radius: 10px 10px;
+        box-sizing: border-box;
+        float: left;
+        transition: 0.2s ease-in-out;
+        background-color: rgba(220, 53, 69, 0.5);
+        cursor: pointer;
+    }
+    header label.no:hover{
+        background-color: rgba(220, 53, 69, 1);
+        transform: scale(1.05);
+    }
+
+    /* *** BULGULAR *** */
+    section.limitedContainer{
+        margin-top: 20px;
+    }
+    section div#findingsDiv{
+        width: 600px;
+        margin: auto;
+    }
+    section h4{
+        width: 150px;
+        line-height: 160px;
+        text-align: center;
+        margin: 10px 5px 10px 110px;
+        border-right: 1px solid white;
+        box-sizing: border-box;
+        float: left;
+    }
+    section div#divTests{
+        width: 225px;
+        margin: 10px 0;
+        float: left;
+    }
+    section div#divTests input[name="tests"]{
+        float: left;
+    }
+    section div#divTests label{
+        width: 225px;
+        height: 40px;
+        border-bottom: 1px solid black;
+        border-bottom-right-radius: 10px;
+        box-sizing: border-box;
+        background-color: rgba(135, 162, 187, 0.5);
+        cursor: pointer;
+    }
+    section div#divTests label strong{
+        font-size: 12px;
+        line-height: 40px;
+        float: left;
+    }
+    section ul#dropdownMenu{
+        width: 568px;
+        margin: auto;
+        margin-top: 10px;
+        list-style-type: none;
+    }
+    section ul#dropdownMenu li{
+        width: 140px;
+        line-height: 38px; 
+        border: 1px solid white;
+        border-radius: 5px 20px 20px 5px;
+        box-sizing: border-box;
+        text-align: center;
+        margin-right: 2px;
+        float: left;
+        cursor: pointer;        
+        background-color: rgba(129, 146, 168, 0.5);
+    }
+
+    /* *** TESTLER *** */
+    section#theTests{
+        width: 800px;
+        margin:auto;
+        margin-top: 10px;
+        position: relative;
+        border: 1px solid transparent;
+        border-radius: 10px 10px;
+    }    
+    .sectionContent{
+        width: 800px;
+        margin: auto;
+        border: 1px solid white;
+        border-radius: 10px 10px;
+        border-top: 0;
+        padding: 18px 0;
+    }
+    .flex-container{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+    }
+    /* *** VISUAL INSPECTION TEST *** */
+    div.flex-container-visual{
+        width: 100%;
+        justify-content: space-evenly;
+    }
+    .sparePartsContainer{
+        width: 350px;
+        text-align: center;
+    }   
+    section#theTests form.sectionContent h5, div.sectionContent h5{
+        width: 235px;
+        line-height: 30px;
+        text-align: center;
+        margin: auto;
+        margin-bottom: 5px;
+        border-bottom: black 1px solid;
+    }
+    section#theTests div.sparePartsContainer label{
+        line-height: 30px;
+        display: inline-block;
+    }
+    span#visualText1{
+        display: block;
+    }
+    span#visualText2{
+        display: none;
+    }
+    section#theTests div.sparePartsContainer select{
+        width: 250px;
+        height: 200px;
+        padding: 0 20px;
+        text-align: center;
+        border-radius: 5px 5px;
+        border: 1px solid lightblue;
+        box-sizing: border-box;
+    }
+    section#theTests div.sparePartsContainer select option{
+        border-bottom: 1px solid #e76c44;
+    }
+    section#theTests div.sparePartsContainer textarea{
+        width: 250px;
+        height: 70px;
+        line-height: 20px;
+        padding: 5px;
+        margin: auto;
+        display: block;
+        border-radius: 5px 5px;
+        border: 1px solid lightblue;
+        box-sizing: border-box;
+    }
+    section#theTests div#visualInspectionButtons-xs-display{
+        display: none;
+    }
+    section#theTests div#visualInspectionButtons{
+        width: 100px;
+        height: 300px;
+        /* margin-right: auto; */
+        margin-top: 30px;
+        display: block;
+        /* text-align: center; */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    section#theTests div#visualInspectionButtons input[value="Gönder"]{
+        margin: 0;
+    }    
+    section#theTests div#visualInspectionButtons input[value="Reset"]{
+        margin: 5px 15px;
+    }
+    section#theTests div#visualInspectionButtons img{
+        margin: 0 25px;
+    }
+    /* *** SELF TEST *** */
+    /* Top side */
+    section#theTests div.sectionContent ul{
+        width: 700px;
+        margin: auto;
+        list-style-type: none;
+    }
+    section#theTests div.sectionContent ul li{
+        width: 100px;
+        height: 40px;
+        border: 1px solid white;
+        border-radius: 5px 5px;
+        box-sizing: border-box;
+        position: relative;
+        float: left;
+        background-color: rgb(236, 236, 236);
+    }
+    section#theTests div.sectionContent ul li:nth-child(odd){
+        margin-bottom: 40px;
+    }
+    section#theTests div.sectionContent ul li:nth-child(odd):hover{
+        border: 1px solid rgba(0, 255, 42, 1);
+    }
+    section#theTests div.sectionContent ul li:nth-child(even){
+        margin-top: 40px;
+    }
+    section#theTests div.sectionContent ul li:nth-child(even):hover{
+        border: 1px solid rgba(255, 139, 85, 1);
+    }
+    section#theTests div.sectionContent ul li label{
+        width: 98px;
+        line-height: 38px;
+        font-size: 15px;
+    }
+    section#theTests div.sectionContent ul li label input{
+        margin: 9px 0;
+        float: left;
+    }
+    section#theTests div.sectionContent ul li label span{
+        width: 68px;
+        line-height: 38px;
+        border: 0;
+        margin: 0;
+        text-align: center;
+        float: left;
+    }
+    section#theTests div.sectionContent ul li div.hoverDown, div.hoverUp, div.hoverUpAsmdoor, div.hoverDownShield{
+        width: 98px;
+        height: 40px;
+        line-height: 40px;
+        top: 0;
+        padding-left: 5px;
+        border: 1px solid white;
+        border-radius: 5px;
+        box-sizing: border-box;
+        position: absolute;
+        z-index: -1;
+    }
+    section#theTests div.sectionContent ul li:hover div.hoverDown{
+        z-index: 1;
+        top: 40px;
+        background: rgba(234, 255, 45, 0.404); 
+    }
+    section#theTests div.sectionContent ul li:hover div.hoverUp{
+        z-index: 1;
+        top: -41px;
+        background: rgba(255, 139, 85, 0.616);
+    }
+    li:hover div.hoverDownShield{
+        z-index: 1;
+        top: -1px;
+        left: 49px;
+        background: rgb(168, 199, 83); 
+    }
+    li:hover div.hoverUpAsmdoor{
+        z-index: 1;
+        top: -1px;
+        right: 49px;
+        background: rgb(253, 137, 84);
+    }
+    div.hoverUpAsmdoor, div.hoverDownShield{
+        padding: 0;
+    }
+    span.hoverUpDown{
+        line-height: 40px;
+        font-size: 15px;
+        margin-left: 30px;
+    }
+    /* Power Cpu */
+    #flexPowerCpu{
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    section#theTests form.cpuPowerContent, div.cpuPowerContent{
+        width: 350px;
+        margin: auto;
+        margin-top: 10px;
+        border: 1px solid white;
+        border-radius: 5px;
+        box-sizing: border-box;
+        background-color: rgba(129, 146, 168, 0.5);
+    }
+    section#theTests form#powerForm.cpuPowerContent{
+        margin-top: 0;
+    }
+    section#theTests form#cpuForm.cpuPowerContent{
+        margin-top: 0;
+    }
+    section#theTests form#selfTestMechanismForm.mechanismContent {
+        margin-top: 0;
+    }
+    section#theTests form.cpuPowerContent input[value="Gönder"]{
+        float: right;
+    }
+    section#theTests form.cpuPowerContent input[value="Reset"]{
+        float: left;
+    }
+    section#theTests form.cpuPowerContent img{
+        padding: 10px;
+        float: right;
+    }
+    section#theTests div.selfTestHeaderCheckBox{
+        height: 40px;
+        border-bottom: white 1px solid;
+        display: block;
+    }
+    section#theTests div.selfTestHeaderCheckBox label{
+        display: block;
+    }
+    section#theTests label div.selfTestHeaderCheckBoxDiv{
+        width: 50%;
+        height: 40px;
+        float: left;
+    }
+    section#theTests label div.b{
+        width: 30%;
+    }
+    section#theTests label div.selfTestHeaderCheckBoxDiv input{
+        float: right;
+        margin-right: 10px;
+    }
+    section#theTests label div.selfTestHeaderCheckBoxDiv strong{
+        line-height: 40px;
+        float: left;
+    }
+    section#theTests .mechanismSubContent{
+        display: flex;
+        align-items: center;
+    }
+    section#theTests .mechanismLabels{
+        display: block;
+        height: 45px;
+        line-height: 45px;
+    }
+    section#theTests .mechanismLabelSpans{
+        width: 156px;
+        line-height: 40px;
+        margin: 4px 4px 0 4px;
+        border-bottom: 1px black solid;
+        box-sizing: border-box;
+        float: left;
+    }
+    section#theTests input[placeholder="Hata"]{
+        margin: 4px 4px 0 4px;
+    }
+    section#theTests input[placeholder="Seri Numarası"]{
+        width: 160px;
+        height: 30px;
+        margin: 4px 4px 0 4px;
+        float: left;
+    }
+    /* Mechanism */
+    section#theTests .mechanismContent{
+        width: 733px;
+        margin: auto;
+        margin-top: 10px;
+        border: 1px solid white;
+        border-radius: 5px;
+        box-sizing: border-box;
+        background-color: rgba(129, 146, 168, 0.5);
+    }
+    section#theTests div.mechanismErrCodeDiv{
+        width: 242px;
+        height: 45px;
+        margin: auto;
+    }
+    section#theTests div.mechanismOptions{
+        width: 45%;
+        border-right: 1px black solid;
+        box-sizing: border-box;
+        float: left;
+        margin-top: 5px;
+    }
+    section#theTests div.mechanismOptions label{
+        height: 40px;
+        margin: 5px;
+        border: 1px solid white;
+        border-radius: 10px;
+        box-sizing: border-box;
+    }
+    section#theTests div#forMechanismPCI{
+        border: none;
+        width: 100%;
+    }
+    .a{
+        width: 400px;
+        height: 90px;
+    }
+    section#theTests div.mechanismSerialNumberDiv{
+        width: 55%;
+        min-height: 140px;
+        margin-top: 1px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        float: left;
+    }
+    section#theTests div#ifSelfTestAppChecked{
+        margin: auto;
+    }
+    section#theTests div#ifSelfTestMechanismChecked{
+        margin: auto;
+    }
+    section#theTests div#ifSelfTestDriverPwaChecked{
+        margin: 0 auto;
+    }    
+    section#theTests div.mechanismSerialNumberDiv label{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    section#theTests div.mechanismSerialNumberDiv label span{
+        width: 200px;
+        margin: auto;
+        text-align: center;
+    }
+    section#theTests div.mechanismSerialNumberDiv label input{
+        margin: 5px auto 0px;
+    }
+    section#theTests div.buttonsCover{
+        margin: auto;
+        height: 50px;
+        width: 100%;
+    }
+    div.flex-space{
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 5px;
+    }
+    section#theTests div.mechanismSerialNumberDiv input[value="Gönder"]{
+        float: right;
+    }
+    section#theTests div.mechanismSerialNumberDiv input[value="Reset"]{
+        float: left;
+    }
+    section#theTests div.mechanismSerialNumberDiv img{
+        padding: 10px;
+        float: right;
+    }
+    section#theTests div#ifProxTestMechanismChecked{
+        margin: auto;
+    }
+    section#theTests div#ifProxTestAppChecked{
+        margin: auto;
+    }
+    section#theTests div#ifDistalTestMechanismChecked{
+        margin: auto;
+    }
+    footer input{
+        width: 100%;
+        height: 40px;
+        margin: 10px 0;
+        background-color: tomato;
+        color: white;
+        text-align: center;
+    }
+    /* *** Sonuç *** */
+    #sonuc .largeContainer{
+        width: 100%;
+    }
+    #sonuc section.sectionContent{
+        padding: 0%;
+    }
+    #sonuc div.sonucContent{
+        width: 100%;
+        min-height: 40px;
+        display: flex;
+        border-bottom: 1px solid black;
+        box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+        text-align: center;
+    }
+    #sonuc div.sonucContent:last-child{
+        border-bottom: 0;
+        box-shadow: unset;
+    }
+    #sonuc div.sonucContent h6{
+        width: 25%;
+        line-height: 25px;
+        font-size: 15px;
+        text-shadow: 0.5px 0.5px 5px rgba(196, 115, 115, 0.774);
+        margin: 0;
+        float: left;
+    }
+    #sonuc div.sonucContent button{
+        width: 15%;
+        height: 38px;
+        margin: 1px 0;
+        box-sizing: border-box;
+        float: left;
+    }
+    #sonuc div.sonucContent textarea{
+        width: 60%;
+        min-height: 38px;
+        margin: 1px 0;
+        color: black;
+        background-color: whitesmoke;
+        box-sizing: border-box;
+        float: left;
+    }
+    #sonuc #tamirKodu,#sonuc #analizKodu, #sonuc #arastirmaKodu{
+        width: 75%;
+    }
+    #sonuc div.aaCodesDiv textarea{
+        width: 358px;
+    }
+    #sonuc div.heightRow textarea{
+        min-height: 98px;
+    }
+    #sonuc footer#footer2{
+        width: 150px;
+        height: 50px;
+        margin: auto;
+        padding: 20px;
+    }
+    #sonuc footer#footer2 input{
+        width: 150px;
+        height: 50px;
+        box-sizing: border-box;
+        margin: auto;
+    }
+    #ydkPage section.sectionContent{
+        padding: 0%;
+    }
+    #ydkPage h4{
+        width: 90%;
+        height: 30px;
+        text-align: left;
+        line-height: 30px;
+        padding-left: 10px;
+        margin: 0;
+        background-color: #ced4da;
+        border: solid 1px #495057;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    #ydkPage div.ydkContent{
+        width: 100%;
+        height: 32px;
+        display: flex;
+        border-bottom: 1px solid black;
+        box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+        text-align: center;
+    }
+    #ydkPage div.ydkContent h6{
+        width: 25%;
+        line-height: 32px;
+        font-size: 15px;
+        text-shadow: 0.5px 0.5px 5px rgba(196, 115, 115, 0.774);
+        margin: 0;
+        float: left;
+    }
+    #ydkPage div.ydkContent button{
+        width: 10%;
+        height: 30px;
+        padding: 3px 5px;
+        box-sizing: border-box;
+        float: left;
+    }
+    #ydkPage div.ydkContent input[type="checkbox"]{
+        width: 20px;
+        height: 20px;
+        margin: 6px 10px;
+        float: left;
+    }
+    #ydkPage div.ydkContent input[type="text"]{
+        width: 60%;
+        height: 30px;
+        margin: 1px 0;
+        color: black;
+        text-align: left;
+        background-color: whitesmoke;
+        box-sizing: border-box;
+        float: left;
+    }
+    #ydkPage input[type="text"]::selection{
+        background-color: transparent;
+    }
+}
+@media screen and (min-width:620px) and (max-width:820px){
+    .largeContainer{
+        width: 100%;
+        margin: auto;
+        position: relative;
+        border: 1px transparent solid;
+        border-radius: 10px;
+        box-sizing: border-box;
+    }
+    div#headerTopSticky{
+        width: 100%;
+        height: 40px;
+        text-align: center;
+        border: 1px solid white;
+        border-radius: 5px;
+        box-sizing: border-box;
+        z-index: 2;
+        position: sticky;
+        top: 0;
+    }
+    div#headerTopSticky h2{
+        font-size: 30px;
+        line-height: 40px;
+        margin: 0;
+        text-shadow: 2px 2px 5px white;
+    }
+    div#headerTopSticky img{
+        width: 36px;
+        margin: 1px 0;
+        padding: 0;
+        cursor: pointer;
+    }
+    div#headerTopSticky div:hover{
+        background-color: rgba(128, 128, 128, 0.5);
+        border: 1px solid transparent;
+        border-radius: 10px;
+    }
+    div#headerTopSticky div:active{
+        border: 2px coral solid;
+        border-radius: 10px;
+    }
+    div#headerTopSticky div#forward{      
+        position: absolute;  
+        top: 0;
+        right: 10px;        
+    }
+    div#headerTopSticky div#forward img{
+        float: right;
+    }
+    div#headerTopSticky div#forward span{
+        float: right;
+        line-height: 40px;
+        font-size: 15px;
+        font-weight: bold;
+        color: #212529;
+        margin-right: 10px;
+        text-shadow: 0.5px 0.5px 5px rgba(196, 115, 115, 0.774);
+    }
+    div#headerTopSticky div#backward{      
+        position: absolute;  
+        top: 0;
+        left: 10px;        
+    }
+    div#headerTopSticky div#backward img{
+        float: left;
+    }
+    div#headerTopSticky div#backward span{
+        float: left;
+        line-height: 40px;
+        font-size: 15px;
+        font-weight: bold;
+        color: #212529;
+        margin-left: 10px;
+        text-shadow: 0.5px 0.5px 5px rgba(196, 115, 115, 0.774);
+    }
+    div#headerTopSticky a {
+        width: 282px;
+        height: 37px;
+        margin: auto;        
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 38px;
+        padding: 0 10px;
+        color: #212529;       
+    }
+    /* *** HEADER BAŞLANGIÇ *** */
+    .limitedContainer{
+        width: 600px;
+        margin: auto;
+        position: relative;
+        border: 1px solid white;
+        border-radius: 10px;
+        border-top: 0;
+        border-bottom: 0;
+        box-sizing: border-box;
+    }
+    header form{
+        width: 600px;
+        margin: auto;
+    }
+    header h3{
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 30px;
+        text-align: center;
+        margin: 0;
+    }
+    /* Header Check Model */
+    header div.models{
+        width: 200px;
+        height: 40px;
+        border: 1px solid transparent;
+        border-radius: 20px;
+        border-bottom: 1px solid white;
+        border-right: 1px solid white;            
+        box-sizing: border-box;
+        float: left;
+    }
+    header div.models label{
+        width: 100%;
+        height: 40px;  
+        cursor: pointer;          
+    }
+    header div.models label strong{
+        display: inline-block;
+        width: 80px;
+        line-height: 40px;
+        margin-left: 15px;
+        text-shadow: 1px 1px 5px white;
+    } 
+    /* Müşteri Şikayeti*/
+    header div#errCode{
+        width: 570px;
+        height: 50px;
+        margin: 0 15px;
+        list-style-type: none;
+        border-bottom:1px solid white;
+        box-sizing: border-box;
+    }
+    header div#errCode p{
+        width: 130px;
+        line-height: 50px;
+        margin: 0;
+        margin-left: 5px;
+        float: left;
+    }
+    header div#errCode input[type="submit"]{
+        width: 65px;
+        height: 40px;
+        float: left;
+    }
+    header div#errCode a{
+        display: inline;
+    }
+    header div#errCode a img[alt="mediteralogo"]{
+        width: 200px;
+        height: 37px;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        padding: 4px;
+        margin: 1px 0;
+        float: right;
+        background-color: whitesmoke;
+    }
+    /* Hata Görüldü Mü? */
+    header div.yesNoQuestions{
+        width: 570px;
+        height: 40px;
+        border-bottom: 1px solid white;
+        margin: 0 15px;
+    }
+    header p{
+        width: 260px;
+        line-height: 40px;
+        font-size: 18px;
+        float: left;
+        text-align: right;
+    }
+    header label.yes{
+        width: 80px;
+        height: 40px;
+        line-height: 40px;
+        margin-left: 20px;
+        border: 1px solid white;
+        border-top: 0;
+        border-bottom: 0;
+        border-radius: 10px 10px;
+        box-sizing: border-box;
+        float: left;
+        transition: 0.2s ease-out;
+        background-color: rgba(40, 167, 69, 0.5);
+        cursor: pointer;
+    }
+    header label.yes:hover{
+        background-color: rgba(40, 167, 69, 1);
+        transform: scale(1.05);
+    }
+    header label.no{
+        width: 80px;
+        height: 40px;
+        line-height: 40px;
+        border: 1px solid white;
+        border-radius: 10px 10px;
+        box-sizing: border-box;
+        float: left;
+        transition: 0.2s ease-in-out;
+        background-color: rgba(220, 53, 69, 0.5);
+        cursor: pointer;
+    }
+    header label.no:hover{
+        background-color: rgba(220, 53, 69, 1);
+        transform: scale(1.05);
+    }
+
+    /* *** BULGULAR *** */
+    section.limitedContainer{
+        margin-top: 20px;
+    }
+    section div#findingsDiv{
+        width: 600px;
+        margin: auto;
+    }
+    section h4{
+        width: 150px;
+        line-height: 160px;
+        text-align: center;
+        margin: 10px 5px 10px 110px;
+        border-right: 1px solid white;
+        box-sizing: border-box;
+        float: left;
+    }
+    section div#divTests{
+        width: 225px;
+        margin: 10px 0;
+        float: left;
+    }
+    section div#divTests input[name="tests"]{
+        float: left;
+    }
+    section div#divTests label{
+        width: 225px;
+        height: 40px;
+        border-bottom: 1px solid black;
+        border-bottom-right-radius: 10px;
+        box-sizing: border-box;
+        background-color: rgba(135, 162, 187, 0.5);
+        cursor: pointer;
+    }
+    section div#divTests label strong{
+        font-size: 12px;
+        line-height: 40px;
+        float: left;
+    }
+    section ul#dropdownMenu{
+        width: 568px;
+        margin: auto;
+        margin-top: 10px;
+        list-style-type: none;
+    }
+    section ul#dropdownMenu li{
+        width: 140px;
+        line-height: 38px; 
+        border: 1px solid white;
+        border-radius: 5px 20px 20px 5px;
+        box-sizing: border-box;
+        text-align: center;
+        margin-right: 2px;
+        float: left;
+        cursor: pointer;        
+        background-color: rgba(129, 146, 168, 0.5);
+    }
+
+    /* *** TESTLER *** */
+    section#theTests{
+        width: 600px;
+        margin: auto;
+        margin-top: 10px;
+        position: relative;
+        border: 1px solid transparent;
+        border-radius: 10px 10px;
+    }    
+    .sectionContent{
+        width: 600px;
+        margin: auto;
+        border: 1px solid white;
+        border-radius: 10px 10px;
+        border-top: 0;
+        padding: 18px 0;
+    }
+    .flex-container{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    /* *** VISUAL INSPECTION TEST *** */
+    .sparePartsContainer{
+        width: 300px;
+        height: 335px;
+        text-align: center;
+        float: right;
+    }   
+    section#theTests div#divSparePartsVisual{
+        float: left;
+    }
+    section#theTests form.sectionContent h5, div.sectionContent h5{
+        width: 235px;
+        line-height: 30px;
+        text-align: center;
+        margin: auto;
+        margin-bottom: 5px;
+        border-bottom: black 1px solid;
+    }
+    section#theTests div.sparePartsContainer label{
+        width: 300px;
+        line-height: 30px;
+        display: inline-block;
+    }
+    span#visualText1{
+        display: none;
+    }
+    span#visualText2{
+        display: block;
+    }
+    section#theTests div.sparePartsContainer select{
+        width: 250px;
+        height: 200px;
+        padding: 0 20px;
+        text-align: center;
+        border-radius: 5px 5px;
+        border: 1px solid lightblue;
+        box-sizing: border-box;
+    }
+    section#theTests div.sparePartsContainer select option{
+        border-bottom: 1px solid #e76c44;
+    }
+    section#theTests div.sparePartsContainer textarea{
+        width: 250px;
+        height: 70px;
+        line-height: 20px;
+        padding: 5px;
+        margin: auto;
+        display: block;
+        border-radius: 5px 5px;
+        border: 1px solid lightblue;
+        box-sizing: border-box;
+    }
+    section#theTests div#visualInspectionButtons-xs-display{
+        width: 260px;
+        text-align: center;
+        margin: auto;
+        display: inline-block;
+    }
+    section#theTests div#visualInspectionButtons{
+        display: none;
+    }
+    section#theTests div#visualInspectionButtons-xs-display input[value="Gönder"]{
+        float: right;
+    }
+    section#theTests div#visualInspectionButtons-xs-display img{
+        float: right;
+    }
+    section#theTests div#visualInspectionButtons-xs-display input[value="Reset"]{
+        float: left;
+    }
+    /* *** SELF TEST *** */
+    /* Top side */
+    section#theTests div.sectionContent ul{
+        width: 480px;
+        margin: auto;
+        list-style-type: none;
+    }
+    section#theTests div.sectionContent ul li{
+        width: 96px;
+        height: 40px;
+        border: 1px solid white;
+        border-radius: 5px 5px;
+        box-sizing: border-box;
+        position: relative;
+        float: left;
+        background-color: rgb(236, 236, 236);
+    }
+    section#theTests div.sectionContent ul li:nth-child(even){
+        margin-bottom: 40px;
+    }
+    section#theTests div.sectionContent ul li:nth-child(odd):hover{
+        border: 1px solid rgba(0, 255, 42, 1);
+    }
+    section#theTests div.sectionContent ul li:nth-child(odd){
+        margin-top: 40px;
+    }
+    section#theTests div.sectionContent ul li:nth-child(even):hover{
+        border: 1px solid rgba(255, 139, 85, 1);
+    }
+    section#theTests div.sectionContent ul li label{
+        width: 94px;
+        line-height: 38px;
+        font-size: 15px;
+    }
+    section#theTests div.sectionContent ul li label input{
+        margin: 9px 0;
+        float: left;
+    }
+    section#theTests div.sectionContent ul li label span{
+        width: 64px;
+        line-height: 38px;
+        font-size: 14px;
+        border: 0;
+        margin: 0;
+        text-align: center;
+        float: left;
+    }
+    section#theTests div.sectionContent ul li div.hoverDown, div.hoverUp, div.hoverUpAsmdoor, div.hoverDownShield{
+        width: 96px;
+        height: 40px;
+        line-height: 40px;
+        top: 0;
+        padding-left: 5px;
+        border: 1px solid white;
+        border-radius: 5px;
+        box-sizing: border-box;
+        position: absolute;
+        z-index: -1;       
+    }
+    section#theTests div.sectionContent ul li:hover div.hoverDown{
+        z-index: 1;
+        top: -40px;
+        background: rgba(234, 255, 45, 0.404); 
+    }
+    section#theTests div.sectionContent ul li:hover div.hoverUp{
+        z-index: 1;
+        top: 40px;
+        background: rgba(255, 139, 85, 0.616);
+    }
+    li:hover div.hoverDownShield{
+        z-index: 1;
+        top: 20px;
+        left: -1px;
+        background: rgb(168, 199, 83); 
+    }
+    li:hover div.hoverUpAsmdoor{
+        z-index: 1;
+        top: -20px;
+        left: -1px;
+        background: rgb(253, 137, 84);
+    }
+    div.hoverUpAsmdoor, div.hoverDownShield{
+        padding: 0;
+    }
+    span.hoverUpDown{
+        line-height: 40px;
+        font-size: 15px;
+        margin-left: 30px;
+    }
+    section#theTests div.sectionContent ul li:nth-child(6){
+        margin-left: 96px;
+        margin-bottom: 0;
+    }
+    section#theTests div.sectionContent ul li:nth-child(7){
+        margin-left: 96px;
+        margin-top: 0;
+    }
+    section#theTests div.sectionContent ul li:nth-child(7):hover{
+        border: 1px solid rgba(255, 139, 85, 1);
+    }
+    section#theTests div.sectionContent ul li:nth-child(7):hover div.hoverDown{
+        z-index: 1;
+        top: -40px;
+        background: rgba(255, 139, 85, 0.616); 
+    }
+    section#theTests div.sectionContent ul li:nth-child(6):hover div.hoverUp{
+        z-index: 1;
+        top: -40px;
+        background: rgba(255, 139, 85, 0.616); 
+    }
+    /* Power Cpu */
+    #flexPowerCpu{
+        flex-direction: column;
+    }
+    section#theTests form.cpuPowerContent, div.cpuPowerContent{
+        width: 350px;
+        margin: auto;
+        margin-top: 10px;
+        border: 1px solid white;
+        border-radius: 5px;
+        box-sizing: border-box;
+        background-color: rgba(129, 146, 168, 0.5);
+    }    
+    section#theTests form#powerForm.cpuPowerContent{
+        margin-top: 0;
+    }
+    section#theTests form#cpuForm.cpuPowerContent{
+        margin-top: 0;
+    }
+    section#theTests form#selfTestMechanismForm.mechanismContent {
+        margin-top: 0;
+    }
+    section#theTests form.cpuPowerContent input[value="Gönder"]{
+        float: right;
+    }
+    section#theTests form.cpuPowerContent input[value="Reset"]{
+        float: left;
+    }
+    section#theTests form.cpuPowerContent img{
+        padding: 10px;
+        float: right;
+    }
+    section#theTests div.selfTestHeaderCheckBox{
+        height: 40px;
+        border-bottom: white 1px solid;
+        display: block;
+    }
+    section#theTests div.selfTestHeaderCheckBox label{
+        display: block;
+    }
+    section#theTests label div.selfTestHeaderCheckBoxDiv{
+        width: 50%;
+        height: 40px;
+        float: left;
+    }
+    section#theTests label div.b{
+        width: 30%;
+    }
+    section#theTests label div.selfTestHeaderCheckBoxDiv input{
+        float: right;
+        margin-right: 10px;
+    }
+    section#theTests label div.selfTestHeaderCheckBoxDiv strong{
+        line-height: 40px;
+        float: left;
+    }
+    section#theTests .mechanismSubContent{
+        display: flex;
+        align-items: center;
+    }
+    section#theTests .mechanismLabels{
+        display: block;        
+        height: 45px;
+        line-height: 45px;
+    }
+    section#theTests .mechanismLabelSpans{
+        width: 156px;
+        line-height: 40px;
+        margin: 4px 4px 0 4px;
+        border-bottom: 1px black solid;
+        box-sizing: border-box;
+        float: left;
+    }
+    
+    section#theTests input[placeholder="Hata"]{
+        margin: 4px 4px 0 4px;
+    }
+    section#theTests input[placeholder="Seri Numarası"]{
+        width: 160px;
+        height: 30px;
+        margin: 4px 4px 0 4px;
+        float: left;
+    }
+    /* Mechanism */
+    section#theTests .mechanismContent{
+        width: 576px;
+        margin: auto;
+        margin-top: 10px;
+        border: 1px solid white;
+        border-radius: 5px;
+        box-sizing: border-box;
+        background-color: rgba(129, 146, 168, 0.5);
+    }
+    section#theTests div.mechanismErrCodeDiv{
+        width: 242px;
+        height: 45px;
+        margin: auto;
+    }
+    section#theTests div.mechanismOptions{
+        width: 55%;
+        border-right: 1px black solid;
+        box-sizing: border-box;
+        float: left;
+        margin-top: 5px;
+    }
+    section#theTests div.mechanismOptions label{
+        height: 40px;
+        margin: 5px;
+        border: 1px solid white;
+        border-radius: 10px;
+        box-sizing: border-box;
+    }    
+    section#theTests div#forMechanismPCI{
+        border: none;
+        width: 100%;
+    }
+    .a{
+        width: 200px;
+        height: 91px;
+    }
+    section#theTests div.mechanismSerialNumberDiv{
+        width: 45%;
+        min-height: 140px;
+        margin-top: 1px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        float: left;
+    }
+
+    section#theTests div#ifSelfTestAppChecked{
+        margin: auto;
+    }
+    section#theTests div#ifSelfTestMechanismChecked{
+        margin: 0 auto;
+    }
+    section#theTests div#ifSelfTestDriverPwaChecked{
+        margin: 0 auto;
+    }    
+    section#theTests div.mechanismSerialNumberDiv label{
+        display: flex;
+        flex-direction: column;
+    }    
+    section#theTests div.mechanismSerialNumberDiv label span{
+        width: 200px;
+        margin: auto;
+        text-align: center;
+    }
+    section#theTests div.mechanismSerialNumberDiv label input{
+        margin: 5px auto 0;
+    }
+    section#theTests div.buttonsCover{
+        margin: auto;
+        height: 50px;
+        width: 100%;
+    }
+    div.flex-space{
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 5px;
+    }
+    section#theTests div.mechanismSerialNumberDiv input[value="Gönder"]{
+        float: right;
+    }
+    section#theTests div.mechanismSerialNumberDiv input[value="Reset"]{
+        float: left;
+    }
+    section#theTests div.mechanismSerialNumberDiv img{
+        padding: 10px;
+        float: right;
+    }
+    section#theTests div#ifProxTestMechanismChecked{
+        margin: auto;
+    }
+    section#theTests div#ifProxTestAppChecked{
+        margin: auto;
+    }
+    section#theTests div#ifDistalTestMechanismChecked{
+        margin: auto;
+    }
+    footer input{
+        width: 100%;
+        height: 40px;
+        margin: 10px 0;
+        background-color: tomato;
+        color: white;
+        text-align: center;
+    }
+    /* *** Sonuç *** */
+    #sonuc .largeContainer{
+        width: 100%;
+    }
+    #sonuc section.sectionContent{
+        padding: 0%;
+    }
+    #sonuc div.sonucContent{
+        width: 100%;
+        min-height: 40px;
+        display: flex;
+        border-bottom: 1px solid black;
+        box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+        text-align: center;
+    }
+    #sonuc div.sonucContent:last-child{
+        border-bottom: 0;
+        box-shadow: unset;
+    }
+    #sonuc div.sonucContent h6{
+        width: 25%;
+        line-height: 25px;
+        font-size: 15px;
+        text-shadow: 0.5px 0.5px 5px rgba(196, 115, 115, 0.774);
+        margin: 0;
+        float: left;
+    }
+    #sonuc div.sonucContent button{
+        width: 15%;
+        height: 38px;
+        margin: 1px 0;
+        box-sizing: border-box;
+        float: left;
+    }
+    #sonuc div.sonucContent textarea{
+        width: 60%;
+        min-height: 38px;
+        margin: 1px 0;
+        color: black;
+        background-color: whitesmoke;
+        box-sizing: border-box;
+        float: left;
+    }
+    #sonuc #tamirKodu,#sonuc #analizKodu, #sonuc #arastirmaKodu{
+        width: 75%;
+    }
+    #sonuc div.aaCodesDiv textarea{
+        width: 358px;
+    }
+    #sonuc div.heightRow textarea{
+        min-height: 98px;
+    }
+    #sonuc footer#footer2{
+        width: 150px;
+        height: 50px;
+        margin: auto;
+        padding: 20px;
+    }
+    #sonuc footer#footer2 input{
+        width: 150px;
+        height: 50px;
+        box-sizing: border-box;
+        margin: auto;
+    }
+    #ydkPage section.sectionContent{
+        padding: 0%;
+    }
+    #ydkPage h4{
+        width: 90%;
+        height: 30px;
+        text-align: left;
+        line-height: 30px;
+        padding-left: 10px;
+        margin: 0;
+        background-color: #ced4da;
+        border: solid 1px #495057;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    #ydkPage div.ydkContent{
+        width: 100%;
+        height: 32px;
+        display: flex;
+        border-bottom: 1px solid black;
+        box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+        text-align: center;
+    }
+    #ydkPage div.ydkContent h6{
+        width: 25%;
+        line-height: 32px;
+        font-size: 15px;
+        text-shadow: 0.5px 0.5px 5px rgba(196, 115, 115, 0.774);
+        margin: 0;
+        float: left;
+    }
+    #ydkPage div.ydkContent button{
+        width: 10%;
+        height: 30px;
+        padding: 3px 5px;
+        box-sizing: border-box;
+        float: left;
+    }
+    #ydkPage div.ydkContent input[type="checkbox"]{
+        width: 20px;
+        height: 20px;
+        margin: 6px 10px;
+        float: left;
+    }
+    #ydkPage div.ydkContent input[type="text"]{
+        width: 60%;
+        height: 30px;
+        margin: 1px 0;
+        color: black;
+        text-align: left;
+        background-color: whitesmoke;
+        box-sizing: border-box;
+        float: left;
+    }
+    #ydkPage input[type="text"]::selection{
+        background-color: transparent;
+    }
+}
+@media screen and (max-width:620px){
+    .largeContainer{
+        width: 100%;
+        margin: auto;
+        position: relative;
+        border: 1px transparent solid;
+        border-radius: 10px;
+        box-sizing: border-box;
+    }
+    div#headerTopSticky{
+        width: 100%;
+        height: 40px;
+        text-align: center;
+        border: 1px solid white;
+        border-radius: 5px;
+        box-sizing: border-box;
+        z-index: 2;
+        position: sticky;
+        top: 0;
+    }
+    div#headerTopSticky h2{
+        font-size: 25px;
+        line-height: 40px;
+        margin: 0;
+        text-shadow: 2px 2px 5px white;
+    }
+    div#headerTopSticky img{
+        width: 36px;
+        margin: 1px 1px;
+        padding: 0;
+        cursor: pointer;
+    }
+    div#headerTopSticky div:hover{
+        background-color: rgba(128, 128, 128, 0.5);
+        border: 1px solid transparent;
+        border-radius: 10px;
+    }
+    div#headerTopSticky div:active{
+        border: 2px coral solid;
+        border-radius: 10px;
+    }
+    div#headerTopSticky div#forward{      
+        position: absolute;  
+        top: 0;
+        right: 1px;        
+    }
+    div#headerTopSticky div#forward img{
+        float: right;
+    }
+    div#headerTopSticky div#forward span{
+        float: right;
+        line-height: 40px;
+        font-size: 12px;
+        font-weight: bold;
+        color: #212529;
+        margin-right: 1px;
+        text-shadow: 0.5px 0.5px 5px rgba(196, 115, 115, 0.774);
+    }
+    div#headerTopSticky div#backward{      
+        position: absolute;  
+        top: 0;
+        left: 1px;        
+    }
+    div#headerTopSticky div#backward img{
+        float: left;
+    }
+    div#headerTopSticky div#backward span{
+        float: left;
+        line-height: 40px;
+        font-size: 12px;
+        color: #212529;
+        font-weight: bold;
+        margin-left: 1px;
+        text-shadow: 0.5px 0.5px 5px rgba(196, 115, 115, 0.774);
+    }
+    div#headerTopSticky a {
+        width: 282px;
+        height: 37px;
+        margin: auto;        
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 38px;
+        padding: 0 10px;
+        color: #212529;       
+    }
+    /* *** HEADER BAŞLANGIÇ *** */
+    .limitedContainer{
+        width: 100%;
+        margin: auto;
+        position: relative;
+        border: 1px solid white;
+        border-radius: 10px;
+        border-top: 0;
+        border-bottom: 0;
+        box-sizing: border-box;
+    }
+    header form{
+        width: 480px;
+        margin: auto;
+    }
+    header h3{
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 30px;
+        text-align: center;
+        margin: 0;
+    }
+    /* Header Check Model */
+    header div.models{
+        width: 160px;
+        height: 40px;
+        border: 1px solid transparent;
+        border-radius: 20px;
+        border-bottom: 1px solid white;
+        border-right: 1px solid white;            
+        box-sizing: border-box;
+        float: left;
+    }
+    header div.models label{
+        width: 100%;
+        height: 40px;  
+        cursor: pointer;          
+    }
+    header div.models label strong{
+        display: inline-block;
+        width: 80px;
+        line-height: 40px;
+        margin-left: 15px;
+        text-shadow: 1px 1px 5px white;
+    } 
+    /* Müşteri Şikayeti*/
+    header div#errCode{
+        width: 450px;
+        height: 50px;
+        margin: 0 15px;
+        list-style-type: none;
+        border-bottom:1px solid white;
+        box-sizing: border-box;
+    }
+    header div#errCode p{
+        width: 130px;
+        line-height: 50px;
+        margin: 0;
+        margin-left: 5px;
+        float: left;
+    }
+    header div#errCode input[type="submit"]{
+        width: 65px;
+        height: 40px;
+        float: left;
+    }
+    header div#errCode a {
+        display: none;
+    }
+    header div#errCode a img{
+        display: none;
+    }
+    /* Hata Görüldü Mü? */
+    header div.yesNoQuestions{
+        width: 450px;
+        height: 40px;
+        border-bottom: 1px solid white;
+        margin: 0 15px;
+    }
+    header p{
+        width: 250px;
+        line-height: 40px;
+        font-size: 18px;
+        float: left;
+        text-align: right;
+    }
+    header label.yes{
+        width: 80px;
+        height: 40px;
+        line-height: 40px;
+        margin-left: 20px;
+        border: 1px solid white;
+        border-top: 0;
+        border-bottom: 0;
+        border-radius: 10px 10px;
+        box-sizing: border-box;
+        float: left;
+        transition: 0.2s ease-out;
+        background-color: rgba(40, 167, 69, 0.5);
+        cursor: pointer;
+    }
+    header label.yes:hover{
+        background-color: rgba(40, 167, 69, 1);
+        transform: scale(1.05);
+    }
+    header label.no{
+        width: 80px;
+        height: 40px;
+        line-height: 40px;
+        border-right: 1px solid white;
+        border-radius: 10px 10px;
+        box-sizing: border-box;
+        float: left;
+        transition: 0.2s ease-in-out;
+        background-color: rgba(220, 53, 69, 0.5);
+        cursor: pointer;
+    }
+    header label.no:hover{
+        background-color: rgba(220, 53, 69, 1);
+        transform: scale(1.05);
+    }
+
+    /* *** BULGULAR *** */
+    section.limitedContainer{
+        margin-top: 20px;
+    }
+    section div#findingsDiv{
+        width: 480px;
+        margin: auto;
+    }
+    section h4{
+        width: 150px;
+        line-height: 160px;
+        text-align: center;
+        margin: 10px 5px 10px 52px;
+        border-right: 1px solid white;
+        box-sizing: border-box;
+        float: left;
+    }
+    section div#divTests{
+        width: 225px;
+        margin: 10px 0;
+        float: left;
+    }
+    section div#divTests input[name="tests"]{
+        float: left;
+    }
+    section div#divTests label{
+        width: 225px;
+        height: 40px;
+        border-bottom: 1px solid black;
+        border-bottom-right-radius: 10px;
+        box-sizing: border-box;
+        background-color: rgba(135, 162, 187, 0.5);
+        cursor: pointer;
+    }
+    section div#divTests label strong{
+        font-size: 12px;
+        line-height: 40px;
+        float: left;
+    }
+    section ul#dropdownMenu{
+        width: 284px;
+        margin: auto;
+        margin-top: 10px;
+        list-style-type: none;
+    }
+    section ul#dropdownMenu li{
+        width: 140px;
+        line-height: 38px; 
+        border: 1px solid white;
+        border-radius: 5px 20px 20px 5px;
+        box-sizing: border-box;
+        text-align: center;
+        margin-right: 2px;
+        float: left;
+        cursor: pointer;
+        background-color: rgba(129, 146, 168, 0.5);
+    }
+
+    /* *** TESTLER *** */
+    section#theTests{
+        width: 100%;
+        margin-top: 10px;
+        position: relative;
+        border: 1px solid transparent;
+        border-radius: 10px 10px;
+    }    
+    .sectionContent{
+        border: 1px solid white;
+        border-radius: 10px 10px;
+        border-top: 0;
+        padding: 18px 0;
+    }
+    .flex-container{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    /* *** VISUAL INSPECTION TEST *** */
+    .sparePartsContainer{
+        width: 240px;
+        height: 335px;
+        text-align: center;
+        float: right;
+    }
+    section#theTests div#divSparePartsVisual{
+        float: left;
+    }
+    section#theTests form.sectionContent h5, div.sectionContent h5{
+        width: 235px;
+        line-height: 30px;
+        text-align: center;
+        margin: auto;
+        margin-bottom: 5px;
+        border-bottom: black 1px solid;
+    }
+    section#theTests div.sparePartsContainer label{
+        width: 230px;
+        line-height: 30px;
+        display: inline-block;
+    }
+    span#visualText1{
+        display: none;
+    }
+    span#visualText2{
+        display: block;
+    }
+    section#theTests div.sparePartsContainer select{
+        width: 230px;
+        height: 200px;
+        padding: 0 10px;
+        text-align: center;
+        border-radius: 5px 5px;
+        border: 1px solid lightblue;
+        box-sizing: border-box;
+    }
+    section#theTests div.sparePartsContainer select option{
+        border-bottom: 1px solid #e76c44;
+    }
+    section#theTests div.sparePartsContainer textarea{
+        width: 230px;
+        height: 70px;
+        line-height: 20px;
+        padding: 5px;
+        margin: auto;
+        display: block;
+        border-radius: 5px 5px;
+        border: 1px solid lightblue;
+        box-sizing: border-box;
+    }
+    section#theTests div#visualInspectionButtons-xs-display{
+        width: 260px;
+        text-align: center;
+        margin: auto;
+        display: block;
+        
+    }
+    section#theTests div#visualInspectionButtons{
+        display: none;
+    }
+    section#theTests div#visualInspectionButtons-xs-display input[value="Gönder"]{
+        float: right;
+    }
+    section#theTests div#visualInspectionButtons-xs-display img{
+        float: right;
+    }
+    section#theTests div#visualInspectionButtons-xs-display input[value="Reset"]{
+        float: left;
+    }
+
+    /* *** SELF TEST *** */
+    /* Top side */
+    section#theTests div.sectionContent ul{
+        width: 480px;
+        height: 80px;
+        margin: auto;
+        list-style-type: none;
+    }
+    section#theTests div.sectionContent ul li{
+        width: 96px;
+        height: 40px;
+        border: 1px solid white;
+        border-radius: 5px 5px;
+        box-sizing: border-box;
+        position: relative;
+        float: left;
+        background-color: rgb(236, 236, 236);
+    }
+    section#theTests div.sectionContent ul li:nth-child(even){
+        margin-bottom: 40px;
+    }
+    section#theTests div.sectionContent ul li:nth-child(odd):hover{
+        border: 1px solid rgba(0, 255, 42, 1);
+    }
+    section#theTests div.sectionContent ul li:nth-child(odd){
+        margin-top: 40px;
+    }
+    section#theTests div.sectionContent ul li:nth-child(even):hover{
+        border: 1px solid rgba(255, 139, 85, 1);
+    }
+    section#theTests div.sectionContent ul li label{
+        width: 94px;
+        line-height: 38px;
+        font-size: 15px;
+    }
+    section#theTests div.sectionContent ul li label input{
+        margin: 9px 0;
+        float: left;
+    }
+    section#theTests div.sectionContent ul li label span{
+        width: 64px;
+        line-height: 38px;
+        font-size: 14px;
+        border: 0;
+        margin: 0;
+        text-align: center;
+        float: left;
+    }
+    section#theTests div.sectionContent ul li div.hoverDown, div.hoverUp, div.hoverUpAsmdoor, div.hoverDownShield{
+        width: 96px;
+        height: 40px;
+        line-height: 40px;
+        top: 0;
+        padding-left: 5px;
+        border: 1px solid white;
+        border-radius: 5px;
+        box-sizing: border-box;
+        position: absolute;
+        z-index: -1;       
+    }
+    li:hover div.hoverDownShield{
+        z-index: 1;
+        top: 20px;
+        left: -1px;
+        background: rgb(168, 199, 83); 
+    }
+    li:hover div.hoverUpAsmdoor{
+        z-index: 1;
+        top: -20px;
+        left: -1px;
+        background: rgb(253, 137, 84);
+    }
+    div.hoverUpAsmdoor, div.hoverDownShield{
+        padding: 0;
+    }
+    span.hoverUpDown{
+        line-height: 40px;
+        font-size: 15px;
+        margin-left: 30px;
+    }
+    section#theTests div.sectionContent ul li:hover div.hoverDown{
+        z-index: 1;
+        top: -40px;
+        background: rgba(234, 255, 45, 0.404); 
+    }
+    section#theTests div.sectionContent ul li:hover div.hoverUp{
+        z-index: 1;
+        top: 40px;
+        background: rgba(255, 139, 85, 0.616);
+    }
+    section#theTests div.sectionContent ul li:nth-child(6){
+        margin-bottom: 10px;
+        margin-left: 96px;
+    }
+    section#theTests div.sectionContent ul li:nth-child(7){
+        margin-left: 96px;
+        margin-top: 0;
+    }
+    section#theTests div.sectionContent ul li:nth-child(7):hover{
+        border: 1px solid rgba(255, 139, 85, 1);
+    }
+    section#theTests div.sectionContent ul li:nth-child(7):hover div.hoverDown{
+        z-index: 1;
+        top: -40px;
+        background: rgba(255, 139, 85, 0.616); 
+    }
+    section#theTests div.sectionContent ul li:nth-child(6):hover div.hoverUp{
+        z-index: 1;
+        top: -40px;
+        background: rgba(255, 139, 85, 0.616); 
+    }
+    /* Power Cpu */
+    section#theTests form.cpuPowerContent, div.cpuPowerContent{
+        width: 350px;
+        margin: auto;
+        margin-top: 10px;
+        border: 1px solid white;
+        border-radius: 5px;
+        box-sizing: border-box;
+        background-color: rgba(129, 146, 168, 0.5);
+    }
+    section#theTests form#powerForm.cpuPowerContent{
+        margin-top: 0;
+    }
+    section#theTests form#cpuForm.cpuPowerContent{
+        margin-top: 0;
+    }
+    section#theTests form#selfTestMechanismForm.mechanismContent {
+        margin-top: 0;
+    }
+    section#theTests form.cpuPowerContent input[value="Gönder"]{
+        float: right;
+    }
+    section#theTests form.cpuPowerContent input[value="Reset"]{
+        float: left;
+    }
+    section#theTests form.cpuPowerContent img{
+        padding: 10px;
+        float: right;
+    }
+    section#theTests div.selfTestHeaderCheckBox{
+        height: 40px;
+        border-bottom: white 1px solid;
+        display: block;
+    }
+    section#theTests div.selfTestHeaderCheckBox label{
+        display: block;
+    }
+    section#theTests label div.selfTestHeaderCheckBoxDiv{
+        width: 50%;
+        height: 40px;
+        float: left;
+    }
+    section#theTests label div.b{
+        width: 25%;
+    }
+    section#theTests label div.selfTestHeaderCheckBoxDiv input{
+        float: right;
+        margin-right: 10px;
+    }
+    section#theTests label div.selfTestHeaderCheckBoxDiv strong{
+        width: 170px;
+        line-height: 40px;
+        float: left;
+    }
+    section#theTests .mechanismSubContent{
+        display: flex;
+        align-items: center;
+    }
+    section#theTests form.mechanismContent label, div.mechanismSubContent label, form.selfTestContent label, div.mechanismContent label{
+        display: block;        
+        height: 45px;
+        line-height: 45px;
+    }
+    section#theTests form.mechanismContent label span, div.mechanismSubContent label span, form.selfTestContent label span, div.mechanismContent label span{
+        width: 156px;
+        line-height: 40px;
+        margin: 4px 4px 0 4px;
+        border-bottom: 1px black solid;
+        box-sizing: border-box;
+        float: left;
+    }
+    
+    section#theTests input[placeholder="Hata"]{
+        margin: 4px 4px 0 4px;
+    }
+    section#theTests input[placeholder="Seri Numarası"]{
+        width: 160px;
+        height: 30px;
+        margin: 4px 4px 0 4px;
+        float: left;
+    }
+    /* Mechanism */
+    section#theTests .mechanismContent{
+        width: 478px;
+        margin: auto;
+        margin-top: 10px;
+        border: 1px solid white;
+        border-radius: 5px;
+        box-sizing: border-box;
+        background-color: rgba(129, 146, 168, 0.5);
+    }
+    section#theTests div.mechanismErrCodeDiv{
+        width: 242px;
+        height: 45px;
+        margin: auto;
+    }
+    section#theTests div.mechanismOptions{
+        width: 55%;
+        border-right: 1px black solid;
+        box-sizing: border-box;
+        float: left;
+        margin-top: 5px;
+    }
+    section#theTests div.mechanismOptions label{
+        height: 40px;
+        margin: 5px;
+        border: 1px solid white;
+        border-radius: 10px;
+        box-sizing: border-box;
+    }    
+    section#theTests div#forMechanismPCI{
+        border: none;
+        width: 100%;
+    }
+    .a{
+        width: 200px;
+        height: 91px;
+    }
+    section#theTests div.mechanismSerialNumberDiv{
+        width: 45%;
+        min-height: 140px;
+        margin-top: 1px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        float: left;
+    }
+
+    section#theTests div#ifSelfTestAppChecked{
+        margin: auto;
+    }
+    section#theTests div#ifSelfTestMechanismChecked{
+        margin: 0 auto;
+    }
+    section#theTests div#ifSelfTestDriverPwaChecked{
+        margin: 0 auto;
+    }    
+    section#theTests div.mechanismSerialNumberDiv label{
+        display: flex;
+        flex-direction: column;
+    }    
+    section#theTests div.mechanismSerialNumberDiv label span{
+        width: 200px;
+        margin: auto;
+        text-align: center;
+    }
+    section#theTests div.mechanismSerialNumberDiv label input{
+        margin: 5px auto 0;
+    }
+    section#theTests div.buttonsCover{
+        margin: auto;
+        height: 50px;
+        width: 100%;
+    }
+    div.flex-space{
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 5px;
+    }
+    section#theTests div.mechanismSerialNumberDiv input[value="Gönder"]{
+        float: right;
+    }
+    section#theTests div.mechanismSerialNumberDiv input[value="Reset"]{
+        float: left;
+    }
+    section#theTests div.mechanismSerialNumberDiv img{
+        padding: 10px;
+        float: right;
+    }
+    section#theTests div#ifProxTestMechanismChecked{
+        margin: auto;
+    }
+    section#theTests div#ifProxTestAppChecked{
+        margin: auto;
+    }
+    section#theTests div#ifDistalTestMechanismChecked{
+        margin: auto;
+    }
+    footer input{
+        width: 100%;
+        height: 40px;
+        margin: 10px 0;
+        background-color: tomato;
+        color: white;
+        text-align: center;
+    }
+    /* *** Sonuç *** */
+    #sonuc .largeContainer{
+        width: 100%;
+    }
+    #sonuc section.sectionContent{
+        padding: 0%;
+    }
+    #sonuc div.sonucContent{
+        width: 100%;
+        min-height: 40px;
+        display: flex;
+        border-bottom: 1px solid black;
+        box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+        text-align: center;
+    }
+    #sonuc div.sonucContent:last-child{
+        border-bottom: 0;
+        box-shadow: unset;
+    }
+    #sonuc div.sonucContent h6{
+        width: 25%;
+        line-height: 25px;
+        font-size: 15px;
+        text-shadow: 0.5px 0.5px 5px rgba(196, 115, 115, 0.774);
+        margin: 0;
+        float: left;
+    }
+    #sonuc div.sonucContent button{
+        width: 15%;
+        height: 38px;
+        margin: 1px 0;
+        box-sizing: border-box;
+        float: left;
+    }
+    #sonuc div.sonucContent textarea{
+        width: 60%;
+        min-height: 38px;
+        margin: 1px 0;
+        color: black;
+        background-color: whitesmoke;
+        box-sizing: border-box;
+        float: left;
+    }
+    #sonuc #tamirKodu,#sonuc #analizKodu, #sonuc #arastirmaKodu{
+        width: 75%;
+    }
+    #sonuc div.aaCodesDiv textarea{
+        width: 358px;
+    }
+    #sonuc div.heightRow textarea{
+        min-height: 98px;
+    }
+    #sonuc footer#footer2{
+        width: 150px;
+        height: 50px;
+        float: right;
+        padding: 20px;
+    }
+    #sonuc footer#footer2 input{
+        width: 150px;
+        height: 50px;
+        box-sizing: border-box;
+        margin: auto;
+    }    
+    #ydkPage section.sectionContent{
+        padding: 0%;
+        padding-right: 2px;
+    }
+    #ydkPage h4{
+        width: 90%;
+        height: 30px;
+        text-align: left;
+        line-height: 30px;
+        padding-left: 10px;
+        margin: 0;
+        background-color: #ced4da;
+        border: solid 1px #495057;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    #ydkPage div.ydkContent{
+        width: 100%;
+        height: 32px;
+        display: flex;
+        border-bottom: 1px solid black;
+        box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+        text-align: center;
+
+    }
+    #ydkPage div.ydkContent h6{
+        width: 25%;
+        line-height: 32px;
+        font-size: 15px;
+        text-shadow: 0.5px 0.5px 5px rgba(196, 115, 115, 0.774);
+        margin: 0;
+        float: left;
+    }
+    #ydkPage div.ydkContent button{
+        width: 10%;
+        height: 30px;
+        padding: 3px 5px;
+        box-sizing: border-box;
+        float: left;
+    }
+    #ydkPage div.ydkContent input[type="checkbox"]{
+        width: 20px;
+        height: 20px;
+        margin: 6px 10px;
+        float: left;
+    }
+    #ydkPage div.ydkContent input[type="text"]{
+        width: 60%;
+        height: 30px;
+        margin: 1px 0;
+        color: black;
+        text-align: left;
+        background-color: whitesmoke;
+        box-sizing: border-box;
+        float: left;
+    }
+    #ydkPage input[type="text"]::selection{
+        background-color: transparent;
+    }
+}
+
+#AACodes{
+    background-color: rgb(167, 167, 167);
+}
+.sonucSectionColor{
+    background-color: rgb(170, 170, 170) !important;
+    border: rgba(196, 115, 115, 0.774) 1px solid;
+}
+.sonucSectionColor:focus{
+    background-color: rgb(170, 170, 170);
+    border: rgba(196, 115, 115, 0.774) 1px solid;
+}
+.sonucSectionColor:read-only{
+    background-color: rgb(170, 170, 170);
+    border: rgba(196, 115, 115, 0.774) 1px solid;
+}
+.border-3 {
+    border-width:3px !important;
+    border-color: rgb(248, 222, 222) !important;
+}
