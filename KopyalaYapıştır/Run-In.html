@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="css/cihazKayıtFormu.css">
     <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
     <!-- dahili jquery -->
-    <script src="javascript/jquery-3.6.0.min.js"></script>
+    <script src="../bootstrap-5.0.0-dist/jquery/jquery-3.6.0.min.js"></script>
     <!-- JQuery Excel oluşturma -->
     <script src="../node_modules/jquery-table2excel/dist/jquery.table2excel.js"></script>
     <!-- javascript user interface -->
@@ -85,6 +85,7 @@
         // Device List Bilgilerini Ekleme
         $(function () {
             for (i = 0; i < deviceLists.length; i++) {
+                console.log("asd")
                 $("#runinListNumbers").append('<option value="' + deviceLists[i] + '">' + deviceLists[i] + '</option>');
             }
         })
