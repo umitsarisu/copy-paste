@@ -2,8 +2,5 @@ node_modules/
 bootstrap-5.0.0-dist/
 font-awesome/
 imagesYdk/
-images/
-*.jpg
-*.png
 jquery-3.6.0.min.js
-package-lock.json
+package-lock.jsongit
