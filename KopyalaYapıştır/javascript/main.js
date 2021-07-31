@@ -39,41 +39,26 @@ $(function () {
     })
 })
 // Main Page Buttons
-var forwardCounter = 0;
 $(function () {
     $("#backwardSpan1").hide();
     $("#forward").click(function () {
-        if (forwardCounter == 0) {
-            $("#mainPage").hide();
-            $("#sonuc").show();
-            forwardCounter++;
-            $("#backwardSpan1").show();
-            $("#forwardSpan1").hide();
-            $("#forwardSpan2").show();
-        }
-        // else if (forwardCounter == 1) {
-        //     $("#sonuc").hide();
-        //     $("#ydkPage").show();
-        //     forwardCounter++;
-        //     $("#backwardSpan1").hide();
-        //     $("#backwardSpan2").show();
-        //     $("#forwardSpan2").hide();
-        // }
+        $("#mainPage").hide();
+        $("#sonuc").show();
+        $("#backwardSpan1").show();
+        $("#forwardSpan1").hide();
+        $("#forwardSpan2").show();
     })
     $("#backward").click(function () {
-        if (forwardCounter == 1) {
-            $("#mainPage").show();
-            $("#sonuc").hide();
-            forwardCounter--;
-            $("#backwardSpan1").hide();
-            $("#forwardSpan1").show();
-            $("#forwardSpan2").hide();
-        }
+        $("#mainPage").show();
+        $("#sonuc").hide();
+        $("#backwardSpan1").hide();
+        $("#forwardSpan1").show();
+        $("#forwardSpan2").hide();
     })
     $("#customerExperienceForm").submit(function () {
         experience = $("#customerExperience").val().toUpperCase();
         $("#question1").text(experience + " Görüldü Mü?");
-        $("#isIt950").show();
+        $("#isIt950").css("display", "flex");
         // 122, 141 visual settings.
         $(function () {
             for (k = 0; k < sparePartsVisual.length; k++) sparePartsVisual.options[k].style.display = "block";
@@ -107,19 +92,38 @@ $(function () {
     })
     // Cihazda arıza görüldü
     $("#no2").click(function () {
-        $("#findings").show();
+        $("#findings").css("display", "flex");
         $("#theTests").show();
     })
-    // Bulgular 
-    $("#liVI").click(function () { testStandart.dropdownShow("#visualInspection") })
-    $("#liST").click(function () { testStandart.dropdownShow("#selfTest") })
-    $("#liPO").click(function () { testStandart.dropdownShow("#proximalOcclusion") })
-    $("#liDO").click(function () { testStandart.dropdownShow("#distalOcclusion") })
+    // Bulgular
+    function active(x) {
+        $("#liVI").removeClass("bg-success text-light");
+        $("#liST").removeClass("bg-success text-light");
+        $("#liPO").removeClass("bg-success text-light");
+        $("#liDO").removeClass("bg-success text-light");
+        $(x).addClass("bg-success text-light");
+    }
+    $("#liVI").click(function () {
+        active(this);
+        testStandart.dropdownShow("#visualInspection")
+    })
+    $("#liST").click(function () {
+        active(this);
+        testStandart.dropdownShow("#selfTest")
+    })
+    $("#liPO").click(function () {
+        active(this);
+        testStandart.dropdownShow("#proximalOcclusion")
+    })
+    $("#liDO").click(function () {
+        active(this);
+        testStandart.dropdownShow("#distalOcclusion")
+    })
 })
 var testStandart = {
     standartShow: function (x, y) {
         $(x).show();
-        $("#dropdownMenu").show();
+        $("#downMenu").css("display", "flex");
         $("#theTests").show();
         $("#footer1").show();
 
@@ -137,7 +141,7 @@ var testStandart = {
         else if (proximalOccFail.checked) $("#proximalOcclusion").show();
         else if (distalOccFail.checked) $("#distalOcclusion").show();
         else {
-            $("#dropdownMenu").hide();
+            $("#downMenu").hide();
             $("#theTests").hide();
         }
     },
