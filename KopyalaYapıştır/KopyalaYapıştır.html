@@ -25,40 +25,40 @@
 
 <body class="d-flex">
     <aside>
-        <a href="HomePage.html" class="ml-1 mt-2 text-white">
+        <a href="HomePage.html" class="ms-1 mt-2 text-white">
             <i class="fas fa-home fa-2x fa-fw" aria-hidden="true"></i>
             <span class="fs-3">Ana Sayfa</span></a>
         <hr>
         <ul class="nav flex-column">
             <li class="nav-item ms-2">
                 <a href="KopyalaYapıştır.html" class="nav-link text-white">
-                    <i class="fa fa-copy fa-lg fa-fw"></i>
+                    <i class="fa fa-copy fa-lg fa-fw ms-2"></i>
                     Kopyala Yapıştır</a>
             </li>
             <li>
                 <a href="YedekParçalar.html" class="nav-link text-white">
-                    <i class="fa fa-wrench fa-lg fa-fw me-1"></i>Yedek Parçalar</a>
+                    <i class="fa fa-wrench fa-lg fa-fw ms-2 me-2"></i>Yedek Parçalar</a>
             </li>
             <li>
-                <a href="CariKodlar.html" class="nav-link text-white"><i class="fa fa-vcard fa-lg fa-fw me-1"></i>Cari
+                <a href="CariKodlar.html" class="nav-link text-white"><i class="fa fa-vcard fa-lg fa-fw ms-2 me-2"></i>Cari
                     Kodlar</a>
             </li>
             <li>
                 <a href="#" class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#rvgModal"
                     onclick="rvgFunc(0)">
-                    <i class="fa fa-random fa-lg fa-fw me-1"></i>Rastgele Değer Üretici</a>
+                    <i class="fa fa-random fa-lg fa-fw ms-2 me-2"></i>Rastgele Değer Üretici</a>
             </li>
             <li>
                 <a href="CihazKayıtFormu.html" class="nav-link text-white">
-                    <i class="fa fa-file-text-o fa-lg fa-fw me-1"></i>Cihaz Kayıt Formu</a>
+                    <i class="fa fa-file-text-o fa-lg fa-fw ms-2 me-2"></i>Cihaz Kayıt Formu</a>
             </li>
             <li>
                 <a href="Run-In.html" class="nav-link text-white">
-                    <i class="fa fa-file-text-o fa-lg fa-fw me-1"></i>Run-In Formu</a>
+                    <i class="fa fa-file-text-o fa-lg fa-fw ms-2 me-2"></i>Run-In Formu</a>
             </li>
             <li>
                 <a href="#" class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#büyüteçModal">
-                    <i class="fa fa-search fa-lg fa-fw me-1"></i>Büyüteç</a>
+                    <i class="fa fa-search fa-lg fa-fw ms-2 me-2"></i>Büyüteç</a>
             </li>
         </ul>
     </aside>
@@ -151,7 +151,7 @@
                         </div>
                     </div>
                     <!--Müşteri Şikayeti:-->
-                    <div id="errCode" class="clearfix">
+                    <div id="errCode">
                         <!-- kaynak: main.js Main Page Buttons customerExperienceForm -->
                         <!-- müşteri şikayetini işler ve 122-141 hatalarına göre visual inspection testini düzenler. -->
                         <p>Müşteri Şikayeti:</p>
@@ -200,7 +200,7 @@
                         </label>
                     </div>
                 </div>
-                <ul id="downMenu" class="none">
+                <ul id="downMenu" class="none mb-1">
                     <li id="liVI" class="none">Visual Inspection</li>
                     <li id="liST" class="none">Cassette A. Test</li>
                     <li id="liPO" class="none">Proximal Occlusion</li>
@@ -214,7 +214,7 @@
                     class="sectionContent border-lr none">
                     <h5>Visual İnspection Fail</h5>
                     <p class="doubleclick">Seçim Yapmak İçin Çift Tıklayın</p>
-                    <div class="d-flex justify-content-sm-center">
+                    <div class="d-flex justify-content-center">
                         <div id="divSparePartsVisual" class="sparePartsContainer">
                             <label for="sparePartsVisual">Visual Inspection'dan arızalı YDK
                                 <select multiple id="sparePartsVisual" ondblclick="selectedVisual(3)">
@@ -242,7 +242,7 @@
                             </div>
                         </div>
                         <!-- Visual Buttons -->
-                        <div id="visualInspectionButtons" class="d-flex flex-md-column justify-content-center">
+                        <div id="visualInspectionButtons">
                             <input type="submit" value="Gönder" class="btn btn-outline-warning">
                             <img src="images/checkicon.png" id="checkicon1" width="25px;" class="none">
                             <input type="reset" value="Reset" class="btn btn-outline-danger">
@@ -280,6 +280,11 @@
                                 </label>
                             </div>
                         </div>
+                    </div>
+                    <div id="visualInspectionButtons-xs-display">
+                        <input type="submit" value="Gönder" class="btn btn-outline-warning">
+                        <img src="images/checkicon.png" id="checkicon11" width="25px;" class="none">
+                        <input type="reset" value="Reset" class="btn btn-outline-danger">
                     </div>
                 </form>
                 <div id="selfTest" class="sectionContent border-lr none">
@@ -355,7 +360,7 @@
                         </li>
                     </ul>
                     <div style="clear: both;"></div>
-                    <div class="flex-container" id="flexPowerCpu">
+                    <div class="d-flex mt-2 flex-column flex-md-row" style="justify-content: space-evenly;">
                         <!-- Power -->
                         <div>
                             <div class="selfTestHeaderCheckBox cpuPowerContent">
@@ -370,17 +375,23 @@
                             </div>
                             <form action='javascript: $("#checkicon2").show(); powerBool = true;' id="powerForm"
                                 class="cpuPowerContent none selfTestContent">
-                                <label for="powerErrorCode" class="mechanismLabels">
-                                    <span class="mechanismLabelSpans">Hata kodunu girin:</span>
-                                    <input type="text" id="powerErrorCode" maxlength="4" placeholder="Hata"
-                                        onkeydown="return enterKeyPress(event)">
-                                </label>
-                                <label for="powerSN" class="mechanismLabels">
-                                    <span class="mechanismLabelSpans">Power seri no girin:</span>
-                                    <input type="text" id="powerSN" maxlength="12" placeholder="Seri Numarası"
-                                        onkeydown="return enterKeyPress(event)">
-                                </label>
-                                <div class="flex-space">
+                                <div class="d-flex mt-2" style="justify-content: space-evenly;">
+                                    <div style="width: 156px;">
+                                        <span class="mechanismLabelSpans">Hata kodunu girin:</span>
+                                        <span class="mechanismLabelSpans">Power seri no girin:</span>
+                                    </div>
+                                    <div>
+                                        <label for="powerErrorCode" class="mechanismLabels">
+                                            <input type="text" id="powerErrorCode" maxlength="4" placeholder="Hata"
+                                                onkeydown="return enterKeyPress(event)">
+                                        </label>
+                                        <label for="powerSN" class="mechanismLabels">
+                                            <input type="text" id="powerSN" maxlength="12" placeholder="Seri Numarası"
+                                                onkeydown="return enterKeyPress(event)">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="d-flex" style="justify-content: space-evenly;">
                                     <input type="reset" value="Reset" class="btn btn-outline-danger">
                                     <img src="images/checkicon.png" id="checkicon2" class="none">
                                     <input type="submit" value="Gönder" class="btn btn-outline-warning">
@@ -389,7 +400,7 @@
                             </form>
                         </div>
                         <!-- CPU -->
-                        <div>
+                        <div class="mt-1 mt-md-0">
                             <div class="selfTestHeaderCheckBox cpuPowerContent">
                                 <label for="cpu">
                                     <div class="selfTestHeaderCheckBoxDiv">
@@ -402,17 +413,23 @@
                             </div>
                             <form action='javascript: $("#checkicon3").show(); cpuBool = true;' id="cpuForm"
                                 class="cpuPowerContent none selfTestContent">
-                                <label for="cpuErrorCode" class="mechanismLabels">
-                                    <span class="mechanismLabelSpans">Hata kodunu girin:</span>
-                                    <input type="text" id="cpuErrorCode" maxlength="4" placeholder="Hata"
-                                        onkeydown="return enterKeyPress(event)">
-                                </label>
-                                <label for="cpuSN" class="mechanismLabels">
-                                    <span class="mechanismLabelSpans">CPU seri no girin:</span>
-                                    <input type="text" id="cpuSN" maxlength="12" placeholder="Seri Numarası"
-                                        onkeydown="return enterKeyPress(event)">
-                                </label>
-                                <div class="flex-space">
+                                <div class="d-flex mt-2" style="justify-content: space-evenly;">
+                                    <div style="width: 156px;">
+                                        <span class="mechanismLabelSpans">Hata kodunu girin:</span>
+                                        <span class="mechanismLabelSpans">CPU seri no girin:</span>
+                                    </div>
+                                    <div>
+                                        <label for="cpuErrorCode" class="mechanismLabels">
+                                            <input type="text" id="cpuErrorCode" maxlength="4" placeholder="Hata"
+                                                onkeydown="return enterKeyPress(event)">
+                                        </label>
+                                        <label for="cpuSN" class="mechanismLabels">
+                                            <input type="text" id="cpuSN" maxlength="12" placeholder="Seri Numarası"
+                                                onkeydown="return enterKeyPress(event)">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="d-flex" style="justify-content: space-evenly;">
                                     <input type="reset" value="Reset" class="btn btn-outline-danger">
                                     <img src="images/checkicon.png" id="checkicon3" class="none">
                                     <input type="submit" value="Gönder" class="btn btn-outline-warning">
@@ -422,8 +439,8 @@
                         </div>
                     </div>
                     <!-- Mekanizma -->
-                    <div class="selfTestHeaderCheckBox mechanismContent">
-                        <label for="selfTestMechanism" class="mechanismLabels">
+                    <div class="selfTestHeaderCheckBox mechanismContent mt-1">
+                        <label for="selfTestMechanism">
                             <div class="selfTestHeaderCheckBoxDiv">
                                 <input type="checkbox" id="selfTestMechanism">
                             </div>
@@ -433,7 +450,7 @@
                         </label>
                     </div>
                     <form action="javascript:$('#checkicon4').show();selfMechanismBool = true;"
-                        id="selfTestMechanismForm" class="mechanismContent none ">
+                        id="selfTestMechanismForm" class="mechanismContent none">
                         <label for="selfTestMechanismErrorCode" class="mechanismLabels">
                             <div class="mechanismErrCodeDiv">
                                 <span class="mechanismLabelSpans">Hata kodunu girin:</span>
@@ -441,7 +458,7 @@
                                     onkeydown="return enterKeyPress(event)">
                             </div>
                         </label>
-                        <div class="mechanismSubContent">
+                        <div class="mechanismSubContent d-flex" style="justify-content: space-evenly;">
                             <div class="mechanismOptions">
                                 <label for="selfTestMechanismReplaced" class="mechanismLabels">
                                     <input type="radio" id="selfTestMechanismReplaced" name="radio2">
@@ -460,11 +477,11 @@
                                     PRESSURE D. CALIBRATED
                                 </label>
                                 <label for="selfTestForMechanismPCI" class="mechanismLabels">
-                                    <div class="selfTestHeaderCheckBoxDiv b">
+                                    <div class="selfTestHeaderCheckBoxDiv" style="width: 25%;">
                                         <input type="checkbox" id="selfTestForMechanismPCI">
                                     </div>
-                                    <div class="selfTestHeaderCheckBoxDiv">
-                                        <strong>For Mechanism PCI</strong>
+                                    <div class="selfTestHeaderCheckBoxDiv" style="width: 70%;">
+                                        <strong>More Mechanism Options</strong>
                                     </div>
                                 </label>
                                 <div id="forMechanismPCI" class="mechanismOptions none">
@@ -495,29 +512,29 @@
                                 </div>
                             </div>
                             <div class="mechanismSerialNumberDiv">
-                                <div id="ifSelfTestAppChecked" class="none a">
+                                <div id="ifSelfTestAppChecked" class="none">
                                     <label for="selfTestAppSN">
                                         <span class="mechanismLabelSpans">App seri no girin:</span>
                                         <input type="text" id="selfTestAppSN" maxlength="12" placeholder="Seri Numarası"
                                             onkeydown="return enterKeyPress(event)">
                                     </label>
                                 </div>
-                                <div id="ifSelfTestMechanismChecked" class="none a">
+                                <div id="ifSelfTestMechanismChecked" class="none">
                                     <label for="selfTestMechanismSN">
                                         <span class="mechanismLabelSpans">Mekanizma seri no girin:</span>
                                         <input type="text" id="selfTestMechanismSN" maxlength="7"
                                             placeholder="Seri Numarası" onkeydown="return enterKeyPress(event)">
                                     </label>
                                 </div>
-                                <div id="ifSelfTestDriverPwaChecked" class="none a">
+                                <div id="ifSelfTestDriverPwaChecked" class="none mt-1">
                                     <label for="selfTestDriverPwaSN">
                                         <span class="mechanismLabelSpans">Driver pwa seri no girin:</span>
                                         <input type="text" id="selfTestDriverPwaSN" maxlength="12"
                                             placeholder="Seri Numarası" onkeydown="return enterKeyPress(event)">
                                     </label>
                                 </div>
-                                <div class="buttonsCover a">
-                                    <div class="flex-space">
+                                <div class="buttonsCover">
+                                    <div class="d-flex" style="justify-content: space-evenly;">
                                         <input type="reset" value="Reset" class="btn btn-outline-danger">
                                         <img src="images/checkicon.png" id="checkicon4" width="25px;" class="none">
                                         <input type="submit" class="btn btn-outline-warning" value="Gönder">
@@ -539,7 +556,7 @@
                                     autocomplete autocapitalize="on" onkeydown="return enterKeyPress(event)">
                             </div>
                         </label>
-                        <div class="mechanismSubContent">
+                        <div class="mechanismSubContent d-flex" style="justify-content: space-evenly;">
                             <div class="mechanismOptions">
                                 <label for="proximalTestMechanismReplaced" class="mechanismLabels">
                                     <input type="radio" id="proximalTestMechanismReplaced" name="radio3" required>
@@ -569,13 +586,14 @@
                                             placeholder="Seri Numarası" onkeydown="return enterKeyPress(event)">
                                     </label>
                                 </div>
-                                <div class="buttonsCover flex-space">
-                                    <input type="reset" value="Reset" class="btn btn-outline-danger">
-                                    <img src="images/checkicon.png" id="checkicon5" width="25px;" class="none">
-                                    <input type="submit" value="Gönder" class="btn btn-outline-warning">
+                                <div class="buttonsCover">
+                                    <div class="d-flex" style="justify-content: space-evenly;">
+                                        <input type="reset" value="Reset" class="btn btn-outline-danger">
+                                        <img src="images/checkicon.png" id="checkicon5" width="25px;" class="none">
+                                        <input type="submit" value="Gönder" class="btn btn-outline-warning">
+                                    </div>
                                 </div>
                             </div>
-                            <div style="clear: both;"></div>
                         </div>
                     </div>
                 </form>
@@ -583,7 +601,7 @@
                     class="sectionContent border-lr none">
                     <h5>Distal Occlusion (3-9) Test</h5>
                     <div class="mechanismContent">
-                        <div class="mechanismSubContent">
+                        <div class="mechanismSubContent d-flex" style="justify-content: space-evenly;">
                             <div class="mechanismOptions">
                                 <label for="distalTestMechanismReplaced" class="mechanismLabels">
                                     <input type="radio" id="distalTestMechanismReplaced" name="radio4" required>
@@ -607,10 +625,12 @@
                                             onkeydown="return enterKeyPress(event)">
                                     </label>
                                 </div>
-                                <div class="buttonsCover flex-space">
-                                    <input type="reset" value="Reset" class="btn btn-outline-danger">
-                                    <img src="images/checkicon.png" class="none" id="checkicon6" width="25px;">
-                                    <input type="submit" value="Gönder" class="btn btn-outline-warning">
+                                <div class="buttonsCover">
+                                    <div class="d-flex" style="justify-content: space-evenly;">
+                                        <input type="reset" value="Reset" class="btn btn-outline-danger">
+                                        <img src="images/checkicon.png" class="none" id="checkicon6" width="25px;">
+                                        <input type="submit" value="Gönder" class="btn btn-outline-warning">
+                                    </div>
                                 </div>
                             </div>
                             <div style="clear: both;"></div>

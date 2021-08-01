@@ -5,51 +5,35 @@
     box-sizing: unset;
     height: auto;
 }
+*::selection { background-color: transparent;}
 
-*::selection {
-    background-color: transparent;
-}
+label, h5, p, h6 { margin: 0;}
 
-label, h5, p, h6 {
-    margin: 0;
-}
+body { background-color: lightslategray;}
 
-body {
-    background-color: lightslategray;
-}
+body::-webkit-scrollbar {display: none;}
 
-body::-webkit-scrollbar {
-    display: none;
-}
+.none {display: none;}
 
-.none {
-    display: none;
-}
+.hidden {visibility: hidden;}
 
-.hidden {
-    visibility: hidden;
-}
-
-.contentBgColor {
-    background-color: rgba(202, 211, 200, 0.5);
-}
+.contentBgColor {background-color: rgba(202, 211, 200, 0.5);}
 
 .clearfix::after {
     content: "";
     clear: both;
     display: table;
 }
-
 a {
     text-decoration: none;
     color: black;
     height: 40px;
     display: block;
 }
-
-.hoverUpDownli {
-    background-color: rgb(255, 71, 71) !important;
+hr{
+    margin: 10px 0;
 }
+.hoverUpDownli { background-color: rgb(255, 71, 71) !important;}
 
 input[type="text"] {
     width: 60px;
@@ -63,7 +47,6 @@ input[type="text"] {
     text-align: center;
     text-transform: uppercase;
 }
-
 input[type="text"]:focus {
     color: #495057;
     background-color: #fff;
@@ -71,10 +54,7 @@ input[type="text"]:focus {
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
 }
-
-input[type="text"]::selection {
-    background-color: rgb(79, 149, 255);
-}
+input[type="text"]::selection { background-color: rgb(79, 149, 255);}
 
 input[value="Gönder"] {
     width: 100px;
@@ -84,10 +64,7 @@ input[value="Gönder"] {
     box-sizing: border-box;
 }
 
-img {
-    width: 30px;
-    padding: 10px;
-}
+img { width: 30px; padding: 10px;}
 
 input[value="Reset"] {
     width: 70px;
@@ -96,28 +73,23 @@ input[value="Reset"] {
     margin: 5px 10px;
     box-sizing: border-box;
 }
-
 input[type="radio"] {
     width: 30px;
     height: 20px;
     margin: 10px 0;
     float: left;
 }
-
 input[type="checkbox"] {
     width: 30px;
     height: 20px;
     margin: 10px 0;
 }
-
 .doubleclick {
     background-color: rgba(192, 198, 204, 0.596);
     text-shadow: 0.5px 0.5px 5px rgba(202, 91, 91, 0.774);
     text-align: center;
 }
-
 /* Kopyala Yapıştır randomValueGenerator ve EGT CSS */
-
 .rvg, .egt {
     width: 100px;
     padding: 5px;
@@ -129,24 +101,20 @@ input[type="checkbox"] {
     flex-direction: column;
     justify-content: center;
 }
-
 .rvg p {
     line-height: 25px;
     font-size: 17px;
     font-weight: bold;
     margin: 5px 0;
 }
-
 .egt p {
     line-height: 25px;
     font-size: 17px;
     font-weight: bold;
 }
-
 #date1 {
     height: 36px;
 }
-
 .testsDiv {
     width: 60%;
     min-height: 38px;
@@ -160,27 +128,23 @@ input[type="checkbox"] {
     font-size: 10px;
     font-weight: bold;
 }
-
 .red {
     color: red;
     text-decoration: line-through;
 }
-
 .green {
     color: green;
 }
-
 .border-lr {
     border-left: 1px solid white;
     border-right: 1px solid white;
     border-radius: 10px;
     box-sizing: border-box;
 }
-
 @media screen and (min-width:1400px) {
     /* left sidebar start*/
     aside {
-        width: 280px;
+        width: 270px;
         height: 100vh;
         display: flex;
         flex-direction: column;
@@ -226,12 +190,9 @@ input[type="checkbox"] {
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         font-weight: bold;
     }
-    #rvgModal #rvg2 p {
-        margin: 20px 0;
-    }
-    #rvgModal #egt2 p {
-        margin: 5px 0;
-    }
+    #rvgModal #rvg2 p { margin: 20px 0;}
+    #rvgModal #egt2 p { margin: 5px 0;}
+
     #büyüteçModal #büyüteçTextarea {
         width: 460px;
         max-width: 490px;
@@ -240,19 +201,13 @@ input[type="checkbox"] {
     }
     /* Left sidebar end */
     /* top navbar */
-    #nav {
-        display: none;
-    }
+    #nav {display: none;}
     /* main */
-    main {
-        width: 100%;
-        margin-left: 280px;
-    }
+    main { width: 100%; margin-left: 270px;}
+
     /* Containers */
-    .largeContainer {
-        width: 1000px;
-        margin: auto;
-    }
+    .largeContainer { width: 1000px; margin: auto; }
+
     .limitedContainer {
         width: 800px;
         margin: auto;
@@ -295,9 +250,8 @@ input[type="checkbox"] {
         top: 0;
         right: 10px;
     }
-    div#headerTopSticky div#forward img {
-        float: right;
-    }
+    div#headerTopSticky div#forward img { float: right; }
+
     div#headerTopSticky div#forward span {
         float: right;
         line-height: 40px;
@@ -312,9 +266,8 @@ input[type="checkbox"] {
         top: 0;
         left: 10px;
     }
-    div#headerTopSticky div#backward img {
-        float: left;
-    }
+    div#headerTopSticky div#backward img { float: left; }
+
     div#headerTopSticky div#backward span {
         float: left;
         line-height: 40px;
@@ -378,8 +331,9 @@ input[type="checkbox"] {
         justify-content: space-around;
     }
     header div#errCode p {
-        width: 130px;
+        display: inline-flex;
         line-height: 50px;
+        font-size: 18px;
     }
     header div#errCode input[type="submit"] {
         width: 65px;
@@ -394,10 +348,11 @@ input[type="checkbox"] {
         background-color: whitesmoke;
     }
     /* Hata Görüldü Mü? */
-    #isIt950 {
+    header div#isIt950 {
         justify-content: center;
     }
-    header p {
+    header div#isIt950 p{
+        display: inline-flex;
         line-height: 40px;
         font-size: 18px;
     }
@@ -492,21 +447,20 @@ input[type="checkbox"] {
         background-color: rgba(129, 146, 168, 0.5);
     }
     /* Findings end */
+
     /* Tests start */
     section#theTests {
+        width: 90%;
+        margin: auto;
         border-radius: 10px;
     }
     .sectionContent {
-        width: inherit;
+        width: 100%;
         margin: auto;
         padding: 18px 0;
         margin-top: 10px;
     }
-    .flex-container {
-        display: flex;
-        justify-content: center;
-        flex-direction: row;
-    }
+
     /* Visual inspection test start */
     .sparePartsContainer {
         width: 350px;
@@ -524,12 +478,9 @@ input[type="checkbox"] {
         line-height: 30px;
         /* display: inline-block; */
     }
-    span#visualText1 {
-        display: block;
-    }
-    span#visualText2 {
-        display: none;
-    }
+    span#visualText1 { display: block; } 
+    span#visualText2 { display: none; }
+
     section#theTests div.sparePartsContainer select {
         width: 250px;
         height: 200px;
@@ -556,20 +507,20 @@ input[type="checkbox"] {
     section#theTests div#visualInspectionButtons-xs-display {
         display: none;
     }
+    section#theTests div#visualInspectionButtons{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
     section#theTests div#visualInspectionButtons input {
         margin: 10px 0 !important;
         align-self: center;
     }
-    section#theTests div#visualInspectionButtons input[value="Gönder"] {
-        margin: 0;
-    }
-    section#theTests div#visualInspectionButtons input[value="Reset"] {
-        margin: 5px 15px;
-    }
-    section#theTests div#visualInspectionButtons img {
-        margin: 0 25px;
-    }
+    section#theTests div#visualInspectionButtons input[value="Gönder"] { margin: 0; }
+    section#theTests div#visualInspectionButtons input[value="Reset"] { margin: 5px 15px; }
+    section#theTests div#visualInspectionButtons img { margin: 0 25px; }
     /* Visual inspection test end */
+
     /* Cassette alarm test start */
     /* Checkboxes start */
     section#theTests div.sectionContent ul {
@@ -587,15 +538,11 @@ input[type="checkbox"] {
         float: left;
         background-color: rgb(236, 236, 236);
     }
-    section#theTests div.sectionContent ul li:nth-child(odd) {
-        margin-bottom: 40px;
-    }
-    section#theTests div.sectionContent ul li:nth-child(odd):hover {
+    section#theTests div.sectionContent ul li:nth-child(odd) { margin-bottom: 40px; }
+    section#theTests div.sectionContent ul li:nth-child(odd):hover { 
         border: 1px solid rgba(0, 255, 42, 1);
     }
-    section#theTests div.sectionContent ul li:nth-child(even) {
-        margin-top: 40px;
-    }
+    section#theTests div.sectionContent ul li:nth-child(even) { margin-top: 40px;}
     section#theTests div.sectionContent ul li:nth-child(even):hover {
         border: 1px solid rgba(255, 139, 85, 1);
     }
@@ -616,7 +563,8 @@ input[type="checkbox"] {
         text-align: center;
         float: left;
     }
-    section#theTests div.sectionContent ul li div.hoverDown, div.hoverUp, div.hoverUpAsmdoor, div.hoverDownShield {
+    section#theTests div.sectionContent ul li div.hoverDown,
+    div.hoverUp, div.hoverUpAsmdoor, div.hoverDownShield {
         width: 98px;
         height: 40px;
         line-height: 40px;
@@ -659,54 +607,25 @@ input[type="checkbox"] {
         margin-left: 30px;
     }
     /* Checkboxes end */
+
     /* Power & Cpu start */
-    #flexPowerCpu {
-        flex-direction: row;
-        justify-content: space-evenly;
-    }
-    section#theTests form.cpuPowerContent, div.cpuPowerContent {
+    section#theTests .cpuPowerContent {
         width: 350px;
         margin: auto;
-        margin-top: 10px;
         border: 1px solid white;
         border-radius: 5px;
         box-sizing: border-box;
         background-color: rgba(129, 146, 168, 0.5);
     }
-    section#theTests form#powerForm.cpuPowerContent {
-        margin-top: 0;
-    }
-    section#theTests form#cpuForm.cpuPowerContent {
-        margin-top: 0;
-    }
-    section#theTests form#selfTestMechanismForm.mechanismContent {
-        margin-top: 0;
-    }
-    section#theTests form.cpuPowerContent input[value="Gönder"] {
-        float: right;
-    }
-    section#theTests form.cpuPowerContent input[value="Reset"] {
-        float: left;
-    }
-    section#theTests form.cpuPowerContent img {
-        padding: 10px;
-        float: right;
-    }
-    section#theTests div.selfTestHeaderCheckBox {
-        height: 40px;
-        border-bottom: white 1px solid;
-        display: block;
-    }
-    section#theTests div.selfTestHeaderCheckBox label {
-        display: block;
-    }
+
+    section#theTests form.cpuPowerContent img { padding: 10px; }
+    section#theTests div.selfTestHeaderCheckBox { height: 40px; }
+    section#theTests div.selfTestHeaderCheckBox label { display: block; }
+
     section#theTests label div.selfTestHeaderCheckBoxDiv {
         width: 50%;
         height: 40px;
         float: left;
-    }
-    section#theTests label div.b {
-        width: 30%;
     }
     section#theTests label div.selfTestHeaderCheckBoxDiv input {
         float: right;
@@ -715,6 +634,13 @@ input[type="checkbox"] {
     section#theTests label div.selfTestHeaderCheckBoxDiv strong {
         line-height: 40px;
         float: left;
+    }
+
+    section#theTests input[placeholder="Hata"] { margin: 0;}
+    section#theTests input[placeholder="Seri Numarası"] {
+        width: 160px;
+        height: 30px;
+        margin: 0;
     }
     section#theTests .mechanismSubContent {
         display: flex;
@@ -728,25 +654,15 @@ input[type="checkbox"] {
     section#theTests .mechanismLabelSpans {
         width: 156px;
         line-height: 40px;
-        margin: 4px 4px 0 4px;
         border-bottom: 1px black solid;
         box-sizing: border-box;
         float: left;
-    }
-    section#theTests input[placeholder="Hata"] {
-        margin: 4px 4px 0 4px;
-    }
-    section#theTests input[placeholder="Seri Numarası"] {
-        width: 160px;
-        height: 30px;
-        margin: 4px 4px 0 4px;
-        float: left;
+        text-align: left;
     }
     /* Mechanism */
     section#theTests .mechanismContent {
-        width: 733px;
+        width: 800px;
         margin: auto;
-        margin-top: 10px;
         border: 1px solid white;
         border-radius: 5px;
         box-sizing: border-box;
@@ -775,20 +691,16 @@ input[type="checkbox"] {
         border: none;
         width: 100%;
     }
-    .a {
-        width: 400px;
-        height: 45px;
-        margin: 3px;
-    }
+    
     section#theTests div.mechanismSerialNumberDiv {
-        width: 55%;
+        width: 370px;
         min-height: 140px;
         margin-top: 1px;
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
         align-items: center;
-        float: left;
+        text-align: left;
     }
     section#theTests div#ifSelfTestAppChecked {
         margin: 0 auto;
@@ -806,7 +718,6 @@ input[type="checkbox"] {
     section#theTests div.mechanismSerialNumberDiv label span {
         width: 200px;
         float: left;
-        text-align: center;
     }
     section#theTests div.mechanismSerialNumberDiv label input {
         margin: auto;
@@ -815,11 +726,6 @@ input[type="checkbox"] {
         margin: auto;
         height: 50px;
         width: 100%;
-    }
-    div.flex-space {
-        display: flex;
-        justify-content: space-evenly;
-        margin: 0;
     }
     section#theTests div.mechanismSerialNumberDiv input[value="Gönder"] {
         float: right;
@@ -971,17 +877,81 @@ input[type="checkbox"] {
     }
 }
 
-@media screen and (min-width:820px) and (max-width:1200px) {
-    .largeContainer {
+@media screen and (min-width:992px) and (max-width:1400px) {
+    /* left sidebar start*/
+    aside {
+        width: 270px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        color: white;
+        background-color: #222222;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    aside li {
+        display: flex;
+        border-bottom: 1px solid gray;
+        margin: 0 10px 0 24px;
+    }
+    aside a, nav a {
+        height: auto;
+    }
+    .modal-content {
+        width: 500px;
+    }
+    .modal-body {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    #rvgModal #egt2 h5 {
+        line-height: 25px;
+        text-align: center;
+        font-size: 18px;
+    }
+    #rvgModal #rvg2, #egt2 {
+        width: 200px;
+        padding: 10px;
+        text-align: center;
+        background-color: whitesmoke;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+    #rvgModal #rvg2 p, #egt2 p {
+        display: block;
+        line-height: 30px;
+        font-size: 18px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: bold;
+    }
+    #rvgModal #rvg2 p { margin: 20px 0;}
+    #rvgModal #egt2 p { margin: 5px 0;}
+
+    #büyüteçModal #büyüteçTextarea {
+        width: 460px;
+        max-width: 490px;
+        min-height: 200px;
+        margin-bottom: 3px;
+    }
+    /* Left sidebar end */
+    /* top navbar */
+    #nav {display: none;}
+    /* main */
+    main { width: 100%; margin-left: 270px;}
+
+    /* Containers */
+    .largeContainer { width: 722px; margin: auto; }
+
+    .limitedContainer {
         width: 100%;
         margin: auto;
         position: relative;
-        border: 1px transparent solid;
-        border-radius: 10px;
         box-sizing: border-box;
     }
+    /* Header Start */
     div#headerTopSticky {
-        width: 100%;
         height: 40px;
         text-align: center;
         border: 1px solid white;
@@ -1005,7 +975,6 @@ input[type="checkbox"] {
     }
     div#headerTopSticky div:hover {
         background-color: rgba(128, 128, 128, 0.5);
-        border: 1px solid transparent;
         border-radius: 10px;
     }
     div#headerTopSticky div:active {
@@ -1017,9 +986,8 @@ input[type="checkbox"] {
         top: 0;
         right: 10px;
     }
-    div#headerTopSticky div#forward img {
-        float: right;
-    }
+    div#headerTopSticky div#forward img { float: right; }
+
     div#headerTopSticky div#forward span {
         float: right;
         line-height: 40px;
@@ -1034,9 +1002,8 @@ input[type="checkbox"] {
         top: 0;
         left: 10px;
     }
-    div#headerTopSticky div#backward img {
-        float: left;
-    }
+    div#headerTopSticky div#backward img { float: left; }
+
     div#headerTopSticky div#backward span {
         float: left;
         line-height: 40px;
@@ -1056,17 +1023,6 @@ input[type="checkbox"] {
         padding: 0 10px;
         color: #212529;
     }
-    /* *** HEADER BAŞLANGIÇ *** */
-    .limitedContainer {
-        width: 600px;
-        margin: auto;
-        position: relative;
-        border: 1px solid white;
-        border-radius: 10px;
-        border-top: 0;
-        border-bottom: 0;
-        box-sizing: border-box;
-    }
     header form {
         width: 600px;
         margin: auto;
@@ -1079,23 +1035,23 @@ input[type="checkbox"] {
         margin: 0;
     }
     /* Header Check Model */
+    header #headerCheckModel {
+        display: flex;
+        justify-content: space-around;
+    }
     header div.models {
-        width: 200px;
+        width: 190px;
         height: 40px;
-        border: 1px solid transparent;
         border-radius: 20px;
         border-bottom: 1px solid white;
         border-right: 1px solid white;
-        box-sizing: border-box;
-        float: left;
     }
     header div.models label {
         width: 100%;
-        height: 40px;
+        line-height: 40px;
         cursor: pointer;
     }
     header div.models label strong {
-        display: inline-block;
         width: 80px;
         line-height: 40px;
         margin-left: 15px;
@@ -1103,63 +1059,45 @@ input[type="checkbox"] {
     }
     /* Müşteri Şikayeti*/
     header div#errCode {
-        width: 570px;
+        width: 600px;
         height: 50px;
-        margin: 0 15px;
-        list-style-type: none;
         border-bottom: 1px solid white;
         box-sizing: border-box;
+        display: flex;
+        justify-content: space-around;
     }
     header div#errCode p {
-        width: 130px;
+        display: inline-flex;
         line-height: 50px;
-        margin: 0;
-        margin-left: 5px;
-        float: left;
+        font-size: 18px;
     }
     header div#errCode input[type="submit"] {
         width: 65px;
         height: 40px;
-        float: left;
-    }
-    header div#errCode a {
-        display: inline;
     }
     header div#errCode a img[alt="mediteralogo"] {
         width: 200px;
         height: 37px;
-        border: 1px solid transparent;
         border-radius: 5px;
         padding: 4px;
-        margin: 1px 0;
-        float: right;
+        margin-top: 1px;
         background-color: whitesmoke;
     }
     /* Hata Görüldü Mü? */
-    header div.yesNoQuestions {
-        width: 570px;
-        height: 40px;
-        border-bottom: 1px solid white;
-        margin: 0 15px;
+    header div#isIt950 {
+        justify-content: center;
     }
-    header p {
-        width: 260px;
+    header div#isIt950 p{
+        display: inline-flex;
         line-height: 40px;
         font-size: 18px;
-        float: left;
-        text-align: right;
     }
     header label.yes {
         width: 80px;
         height: 40px;
         line-height: 40px;
         margin-left: 20px;
-        border: 1px solid white;
-        border-top: 0;
-        border-bottom: 0;
         border-radius: 10px 10px;
-        box-sizing: border-box;
-        float: left;
         transition: 0.2s ease-out;
         background-color: rgba(40, 167, 69, 0.5);
         cursor: pointer;
@@ -1172,10 +1110,7 @@ input[type="checkbox"] {
         width: 80px;
         height: 40px;
         line-height: 40px;
-        border: 1px solid white;
         border-radius: 10px 10px;
-        box-sizing: border-box;
-        float: left;
         transition: 0.2s ease-in-out;
         background-color: rgba(220, 53, 69, 0.5);
         cursor: pointer;
@@ -1184,27 +1119,33 @@ input[type="checkbox"] {
         background-color: rgba(220, 53, 69, 1);
         transform: scale(1.05);
     }
-    /* *** BULGULAR *** */
+    /* Header End */
+    /* Findings start */
     section.limitedContainer {
-        margin-top: 20px;
+        margin-top: 10px;
+        flex-direction: column;
     }
     section div#findingsDiv {
         width: 600px;
+        min-height: 200px;
         margin: auto;
+        display: flex;
+        justify-content: center;
     }
     section h4 {
-        width: 150px;
-        line-height: 160px;
+        align-self: center;
         text-align: center;
-        margin: 10px 5px 10px 110px;
-        border-right: 1px solid white;
+        margin: 10px;
         box-sizing: border-box;
-        float: left;
     }
     section div#divTests {
         width: 225px;
         margin: 10px 0;
-        float: left;
+        padding-left: 10px;
+        border-left: 1px solid white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
     }
     section div#divTests input[name="tests"] {
         float: left;
@@ -1224,50 +1165,37 @@ input[type="checkbox"] {
         float: left;
     }
     section ul#downMenu {
-        width: 568px;
+        width: 600px;
         margin: auto;
-        margin-top: 10px;
         list-style-type: none;
+        display: flex;
+        justify-content: center;
     }
     section ul#downMenu li {
         width: 140px;
         line-height: 38px;
         border: 1px solid white;
         border-radius: 5px 20px 20px 5px;
+        margin-right: 3px;
         box-sizing: border-box;
         text-align: center;
-        margin-right: 2px;
-        float: left;
         cursor: pointer;
         background-color: rgba(129, 146, 168, 0.5);
     }
-    /* *** TESTLER *** */
+    /* Findings end */
+
+    /* Tests start */
     section#theTests {
-        width: 800px;
-        margin: auto;
-        margin-top: 10px;
-        position: relative;
-        border: 1px solid transparent;
-        border-radius: 10px 10px;
+        border-radius: 10px;
     }
     .sectionContent {
-        width: 800px;
+        width: inherit;
         margin: auto;
-        border: 1px solid white;
-        border-radius: 10px 10px;
-        border-top: 0;
         padding: 18px 0;
+        margin-top: 10px;
     }
-    .flex-container {
-        display: flex;
-        justify-content: center;
-        flex-direction: row;
-    }
-    /* *** VISUAL INSPECTION TEST *** */
-    div.flex-container-visual {
-        width: 100%;
-        justify-content: space-evenly;
-    }
+
+    /* Visual inspection test start */
     .sparePartsContainer {
         width: 350px;
         text-align: center;
@@ -1282,14 +1210,11 @@ input[type="checkbox"] {
     }
     section#theTests div.sparePartsContainer label {
         line-height: 30px;
-        display: inline-block;
+        /* display: inline-block; */
     }
-    span#visualText1 {
-        display: block;
-    }
-    span#visualText2 {
-        display: none;
-    }
+    span#visualText1 { display: block; } 
+    span#visualText2 { display: none; }
+
     section#theTests div.sparePartsContainer select {
         width: 250px;
         height: 200px;
@@ -1316,31 +1241,26 @@ input[type="checkbox"] {
     section#theTests div#visualInspectionButtons-xs-display {
         display: none;
     }
-    section#theTests div#visualInspectionButtons {
-        width: 100px;
-        height: 300px;
-        /* margin-right: auto; */
-        margin-top: 30px;
-        display: block;
-        /* text-align: center; */
+    section#theTests div#visualInspectionButtons{
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: center;
     }
-    section#theTests div#visualInspectionButtons input[value="Gönder"] {
-        margin: 0;
+    section#theTests div#visualInspectionButtons input {
+        margin: 10px 0 !important;
+        align-self: center;
     }
-    section#theTests div#visualInspectionButtons input[value="Reset"] {
-        margin: 5px 15px;
-    }
-    section#theTests div#visualInspectionButtons img {
-        margin: 0 25px;
-    }
-    /* *** SELF TEST *** */
-    /* Top side */
+    section#theTests div#visualInspectionButtons input[value="Gönder"] { margin: 0; }
+    section#theTests div#visualInspectionButtons input[value="Reset"] { margin: 5px 15px; }
+    section#theTests div#visualInspectionButtons img { margin: 0 25px; }
+    /* Visual inspection test end */
+
+    /* Cassette alarm test start */
+    /* Checkboxes start */
     section#theTests div.sectionContent ul {
         width: 700px;
         margin: auto;
+        padding: 0;
         list-style-type: none;
     }
     section#theTests div.sectionContent ul li {
@@ -1353,15 +1273,11 @@ input[type="checkbox"] {
         float: left;
         background-color: rgb(236, 236, 236);
     }
-    section#theTests div.sectionContent ul li:nth-child(odd) {
-        margin-bottom: 40px;
-    }
-    section#theTests div.sectionContent ul li:nth-child(odd):hover {
+    section#theTests div.sectionContent ul li:nth-child(odd) { margin-bottom: 40px; }
+    section#theTests div.sectionContent ul li:nth-child(odd):hover { 
         border: 1px solid rgba(0, 255, 42, 1);
     }
-    section#theTests div.sectionContent ul li:nth-child(even) {
-        margin-top: 40px;
-    }
+    section#theTests div.sectionContent ul li:nth-child(even) { margin-top: 40px;}
     section#theTests div.sectionContent ul li:nth-child(even):hover {
         border: 1px solid rgba(255, 139, 85, 1);
     }
@@ -1370,8 +1286,8 @@ input[type="checkbox"] {
         line-height: 38px;
         font-size: 15px;
     }
-    section#theTests div.sectionContent ul li label input {
-        margin: 9px 0;
+    section#theTests div.sectionContent ul li label input, ul li div label input {
+        margin: 8px 0;
         float: left;
     }
     section#theTests div.sectionContent ul li label span {
@@ -1382,7 +1298,8 @@ input[type="checkbox"] {
         text-align: center;
         float: left;
     }
-    section#theTests div.sectionContent ul li div.hoverDown, div.hoverUp, div.hoverUpAsmdoor, div.hoverDownShield {
+    section#theTests div.sectionContent ul li div.hoverDown,
+    div.hoverUp, div.hoverUpAsmdoor, div.hoverDownShield {
         width: 98px;
         height: 40px;
         line-height: 40px;
@@ -1424,54 +1341,26 @@ input[type="checkbox"] {
         font-size: 15px;
         margin-left: 30px;
     }
-    /* Power Cpu */
-    #flexPowerCpu {
-        flex-direction: row;
-        justify-content: space-evenly;
-    }
-    section#theTests form.cpuPowerContent, div.cpuPowerContent {
+    /* Checkboxes end */
+
+    /* Power & Cpu start */
+    section#theTests .cpuPowerContent {
         width: 350px;
         margin: auto;
-        margin-top: 10px;
         border: 1px solid white;
         border-radius: 5px;
         box-sizing: border-box;
         background-color: rgba(129, 146, 168, 0.5);
     }
-    section#theTests form#powerForm.cpuPowerContent {
-        margin-top: 0;
-    }
-    section#theTests form#cpuForm.cpuPowerContent {
-        margin-top: 0;
-    }
-    section#theTests form#selfTestMechanismForm.mechanismContent {
-        margin-top: 0;
-    }
-    section#theTests form.cpuPowerContent input[value="Gönder"] {
-        float: right;
-    }
-    section#theTests form.cpuPowerContent input[value="Reset"] {
-        float: left;
-    }
-    section#theTests form.cpuPowerContent img {
-        padding: 10px;
-        float: right;
-    }
-    section#theTests div.selfTestHeaderCheckBox {
-        height: 40px;
-        border-bottom: white 1px solid;
-        display: block;
-    }
-    section#theTests div.selfTestHeaderCheckBox label {
-        display: block;
-    }
+
+    section#theTests form.cpuPowerContent img { padding: 10px; }
+    section#theTests div.selfTestHeaderCheckBox { height: 40px; }
+    section#theTests div.selfTestHeaderCheckBox label { display: block; }
+
     section#theTests label div.selfTestHeaderCheckBoxDiv {
         width: 50%;
         height: 40px;
         float: left;
-    }
-    section#theTests label div.b {
-        width: 30%;
     }
     section#theTests label div.selfTestHeaderCheckBoxDiv input {
         float: right;
@@ -1480,6 +1369,13 @@ input[type="checkbox"] {
     section#theTests label div.selfTestHeaderCheckBoxDiv strong {
         line-height: 40px;
         float: left;
+    }
+
+    section#theTests input[placeholder="Hata"] { margin: 0;}
+    section#theTests input[placeholder="Seri Numarası"] {
+        width: 160px;
+        height: 30px;
+        margin: 0;
     }
     section#theTests .mechanismSubContent {
         display: flex;
@@ -1493,25 +1389,15 @@ input[type="checkbox"] {
     section#theTests .mechanismLabelSpans {
         width: 156px;
         line-height: 40px;
-        margin: 4px 4px 0 4px;
         border-bottom: 1px black solid;
         box-sizing: border-box;
         float: left;
-    }
-    section#theTests input[placeholder="Hata"] {
-        margin: 4px 4px 0 4px;
-    }
-    section#theTests input[placeholder="Seri Numarası"] {
-        width: 160px;
-        height: 30px;
-        margin: 4px 4px 0 4px;
-        float: left;
+        text-align: left;
     }
     /* Mechanism */
     section#theTests .mechanismContent {
-        width: 733px;
+        width: 700px;
         margin: auto;
-        margin-top: 10px;
         border: 1px solid white;
         border-radius: 5px;
         box-sizing: border-box;
@@ -1540,50 +1426,41 @@ input[type="checkbox"] {
         border: none;
         width: 100%;
     }
-    .a {
-        width: 400px;
-        height: 90px;
-    }
+    
     section#theTests div.mechanismSerialNumberDiv {
-        width: 55%;
+        width: 370px;
         min-height: 140px;
         margin-top: 1px;
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
         align-items: center;
-        float: left;
+        text-align: left;
     }
     section#theTests div#ifSelfTestAppChecked {
-        margin: auto;
+        margin: 0 auto;
     }
     section#theTests div#ifSelfTestMechanismChecked {
-        margin: auto;
+        margin: 0 auto;
     }
     section#theTests div#ifSelfTestDriverPwaChecked {
         margin: 0 auto;
     }
     section#theTests div.mechanismSerialNumberDiv label {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
     }
     section#theTests div.mechanismSerialNumberDiv label span {
         width: 200px;
-        margin: auto;
-        text-align: center;
+        float: left;
     }
     section#theTests div.mechanismSerialNumberDiv label input {
-        margin: 5px auto 0px;
+        margin: auto;
     }
     section#theTests div.buttonsCover {
         margin: auto;
         height: 50px;
         width: 100%;
-    }
-    div.flex-space {
-        display: flex;
-        justify-content: space-evenly;
-        margin-top: 5px;
     }
     section#theTests div.mechanismSerialNumberDiv input[value="Gönder"] {
         float: right;
@@ -1735,17 +1612,78 @@ input[type="checkbox"] {
     }
 }
 
-@media screen and (min-width:620px) and (max-width:820px) {
-    .largeContainer {
+@media screen and (min-width:768px) and (max-width:992px) {
+    aside{display: none;}
+    /* Left sidebar end */
+    /* top navbar */
+    #nav{
         width: 100%;
+        min-height: 40px;
+        display: flex;
+        background-color: #222222;
+    }
+    #nav li{
+        font-size: 13px;
+        border-left: 1px solid #555;
+        margin-left: 20px;
+    }
+    #nav a{
+        line-height: 40px;
+        padding: 0;
+    }
+    /* modals start */
+    .modal-content {
+        width: 500px;
+    }
+    .modal-body {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    #rvgModal #egt2 h5 {
+        line-height: 25px;
+        text-align: center;
+        font-size: 18px;
+    }
+    #rvgModal #rvg2, #egt2 {
+        width: 200px;
+        padding: 10px;
+        text-align: center;
+        background-color: whitesmoke;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+    #rvgModal #rvg2 p, #egt2 p {
+        display: block;
+        line-height: 30px;
+        font-size: 18px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: bold;
+    }
+    #rvgModal #rvg2 p { margin: 20px 0;}
+    #rvgModal #egt2 p { margin: 5px 0;}
+
+    #büyüteçModal #büyüteçTextarea {
+        width: 460px;
+        max-width: 490px;
+        min-height: 200px;
+        margin-bottom: 3px;
+    }
+    /* modals end */
+    /* main */
+    main { width: 100%; margin-top: 56px;}
+
+    /* Containers */
+    .largeContainer { width: 100%; margin: auto; box-sizing: border-box; }
+
+    .limitedContainer {
+        width: 768px;
         margin: auto;
         position: relative;
-        border: 1px transparent solid;
-        border-radius: 10px;
         box-sizing: border-box;
     }
+    /* Header Start */
     div#headerTopSticky {
-        width: 100%;
         height: 40px;
         text-align: center;
         border: 1px solid white;
@@ -1769,7 +1707,6 @@ input[type="checkbox"] {
     }
     div#headerTopSticky div:hover {
         background-color: rgba(128, 128, 128, 0.5);
-        border: 1px solid transparent;
         border-radius: 10px;
     }
     div#headerTopSticky div:active {
@@ -1781,9 +1718,8 @@ input[type="checkbox"] {
         top: 0;
         right: 10px;
     }
-    div#headerTopSticky div#forward img {
-        float: right;
-    }
+    div#headerTopSticky div#forward img { float: right; }
+
     div#headerTopSticky div#forward span {
         float: right;
         line-height: 40px;
@@ -1798,9 +1734,8 @@ input[type="checkbox"] {
         top: 0;
         left: 10px;
     }
-    div#headerTopSticky div#backward img {
-        float: left;
-    }
+    div#headerTopSticky div#backward img { float: left; }
+
     div#headerTopSticky div#backward span {
         float: left;
         line-height: 40px;
@@ -1820,17 +1755,6 @@ input[type="checkbox"] {
         padding: 0 10px;
         color: #212529;
     }
-    /* *** HEADER BAŞLANGIÇ *** */
-    .limitedContainer {
-        width: 600px;
-        margin: auto;
-        position: relative;
-        border: 1px solid white;
-        border-radius: 10px;
-        border-top: 0;
-        border-bottom: 0;
-        box-sizing: border-box;
-    }
     header form {
         width: 600px;
         margin: auto;
@@ -1843,23 +1767,23 @@ input[type="checkbox"] {
         margin: 0;
     }
     /* Header Check Model */
+    header #headerCheckModel {
+        display: flex;
+        justify-content: space-around;
+    }
     header div.models {
-        width: 200px;
+        width: 190px;
         height: 40px;
-        border: 1px solid transparent;
         border-radius: 20px;
         border-bottom: 1px solid white;
         border-right: 1px solid white;
-        box-sizing: border-box;
-        float: left;
     }
     header div.models label {
         width: 100%;
-        height: 40px;
+        line-height: 40px;
         cursor: pointer;
     }
     header div.models label strong {
-        display: inline-block;
         width: 80px;
         line-height: 40px;
         margin-left: 15px;
@@ -1867,63 +1791,45 @@ input[type="checkbox"] {
     }
     /* Müşteri Şikayeti*/
     header div#errCode {
-        width: 570px;
+        width: 600px;
         height: 50px;
-        margin: 0 15px;
-        list-style-type: none;
         border-bottom: 1px solid white;
         box-sizing: border-box;
+        display: flex;
+        justify-content: space-around;
     }
     header div#errCode p {
-        width: 130px;
+        display: inline-flex;
         line-height: 50px;
-        margin: 0;
-        margin-left: 5px;
-        float: left;
+        font-size: 18px;
     }
     header div#errCode input[type="submit"] {
         width: 65px;
         height: 40px;
-        float: left;
-    }
-    header div#errCode a {
-        display: inline;
     }
     header div#errCode a img[alt="mediteralogo"] {
         width: 200px;
         height: 37px;
-        border: 1px solid transparent;
         border-radius: 5px;
         padding: 4px;
-        margin: 1px 0;
-        float: right;
+        margin-top: 1px;
         background-color: whitesmoke;
     }
     /* Hata Görüldü Mü? */
-    header div.yesNoQuestions {
-        width: 570px;
-        height: 40px;
-        border-bottom: 1px solid white;
-        margin: 0 15px;
+    header div#isIt950 {
+        justify-content: center;
     }
-    header p {
-        width: 260px;
+    header div#isIt950 p{
+        display: inline-flex;
         line-height: 40px;
         font-size: 18px;
-        float: left;
-        text-align: right;
     }
     header label.yes {
         width: 80px;
         height: 40px;
         line-height: 40px;
         margin-left: 20px;
-        border: 1px solid white;
-        border-top: 0;
-        border-bottom: 0;
         border-radius: 10px 10px;
-        box-sizing: border-box;
-        float: left;
         transition: 0.2s ease-out;
         background-color: rgba(40, 167, 69, 0.5);
         cursor: pointer;
@@ -1936,10 +1842,7 @@ input[type="checkbox"] {
         width: 80px;
         height: 40px;
         line-height: 40px;
-        border: 1px solid white;
         border-radius: 10px 10px;
-        box-sizing: border-box;
-        float: left;
         transition: 0.2s ease-in-out;
         background-color: rgba(220, 53, 69, 0.5);
         cursor: pointer;
@@ -1948,27 +1851,33 @@ input[type="checkbox"] {
         background-color: rgba(220, 53, 69, 1);
         transform: scale(1.05);
     }
-    /* *** BULGULAR *** */
+    /* Header End */
+    /* Findings start */
     section.limitedContainer {
-        margin-top: 20px;
+        margin-top: 10px;
+        flex-direction: column;
     }
     section div#findingsDiv {
         width: 600px;
+        min-height: 200px;
         margin: auto;
+        display: flex;
+        justify-content: center;
     }
     section h4 {
-        width: 150px;
-        line-height: 160px;
+        align-self: center;
         text-align: center;
-        margin: 10px 5px 10px 110px;
-        border-right: 1px solid white;
+        margin: 10px;
         box-sizing: border-box;
-        float: left;
     }
     section div#divTests {
         width: 225px;
         margin: 10px 0;
-        float: left;
+        padding-left: 10px;
+        border-left: 1px solid white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
     }
     section div#divTests input[name="tests"] {
         float: left;
@@ -1988,55 +1897,40 @@ input[type="checkbox"] {
         float: left;
     }
     section ul#downMenu {
-        width: 568px;
+        width: 600px;
         margin: auto;
-        margin-top: 10px;
         list-style-type: none;
+        display: flex;
+        justify-content: center;
     }
     section ul#downMenu li {
         width: 140px;
         line-height: 38px;
         border: 1px solid white;
         border-radius: 5px 20px 20px 5px;
+        margin-right: 3px;
         box-sizing: border-box;
         text-align: center;
-        margin-right: 2px;
-        float: left;
         cursor: pointer;
         background-color: rgba(129, 146, 168, 0.5);
     }
-    /* *** TESTLER *** */
+    /* Findings end */
+
+    /* Tests start */
     section#theTests {
-        width: 600px;
-        margin: auto;
-        margin-top: 10px;
-        position: relative;
-        border: 1px solid transparent;
-        border-radius: 10px 10px;
+        border-radius: 10px;
     }
     .sectionContent {
-        width: 600px;
+        width: inherit;
         margin: auto;
-        border: 1px solid white;
-        border-radius: 10px 10px;
-        border-top: 0;
         padding: 18px 0;
+        margin-top: 10px;
     }
-    .flex-container {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        flex-direction: column;
-    }
-    /* *** VISUAL INSPECTION TEST *** */
+
+    /* Visual inspection test start */
     .sparePartsContainer {
-        width: 300px;
-        height: 335px;
+        width: 350px;
         text-align: center;
-        float: right;
-    }
-    section#theTests div#divSparePartsVisual {
-        float: left;
     }
     section#theTests form.sectionContent h5, div.sectionContent h5 {
         width: 235px;
@@ -2047,16 +1941,12 @@ input[type="checkbox"] {
         border-bottom: black 1px solid;
     }
     section#theTests div.sparePartsContainer label {
-        width: 300px;
         line-height: 30px;
-        display: inline-block;
+        /* display: inline-block; */
     }
-    span#visualText1 {
-        display: none;
-    }
-    span#visualText2 {
-        display: block;
-    }
+    span#visualText1 { display: block; } 
+    span#visualText2 { display: none; }
+
     section#theTests div.sparePartsContainer select {
         width: 250px;
         height: 200px;
@@ -2081,32 +1971,32 @@ input[type="checkbox"] {
         box-sizing: border-box;
     }
     section#theTests div#visualInspectionButtons-xs-display {
-        width: 260px;
-        text-align: center;
-        margin: auto;
-        display: inline-block;
-    }
-    section#theTests div#visualInspectionButtons {
         display: none;
     }
-    section#theTests div#visualInspectionButtons-xs-display input[value="Gönder"] {
-        float: right;
+    section#theTests div#visualInspectionButtons{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
-    section#theTests div#visualInspectionButtons-xs-display img {
-        float: right;
+    section#theTests div#visualInspectionButtons input {
+        margin: 10px 0 !important;
+        align-self: center;
     }
-    section#theTests div#visualInspectionButtons-xs-display input[value="Reset"] {
-        float: left;
-    }
-    /* *** SELF TEST *** */
-    /* Top side */
+    section#theTests div#visualInspectionButtons input[value="Gönder"] { margin: 0; }
+    section#theTests div#visualInspectionButtons input[value="Reset"] { margin: 5px 15px; }
+    section#theTests div#visualInspectionButtons img { margin: 0 25px; }
+    /* Visual inspection test end */
+
+    /* Cassette alarm test start */
+    /* Checkboxes start */
     section#theTests div.sectionContent ul {
-        width: 480px;
+        width: 700px;
         margin: auto;
+        padding: 0;
         list-style-type: none;
     }
     section#theTests div.sectionContent ul li {
-        width: 96px;
+        width: 100px;
         height: 40px;
         border: 1px solid white;
         border-radius: 5px 5px;
@@ -2115,38 +2005,34 @@ input[type="checkbox"] {
         float: left;
         background-color: rgb(236, 236, 236);
     }
-    section#theTests div.sectionContent ul li:nth-child(even) {
-        margin-bottom: 40px;
-    }
-    section#theTests div.sectionContent ul li:nth-child(odd):hover {
+    section#theTests div.sectionContent ul li:nth-child(odd) { margin-bottom: 40px; }
+    section#theTests div.sectionContent ul li:nth-child(odd):hover { 
         border: 1px solid rgba(0, 255, 42, 1);
     }
-    section#theTests div.sectionContent ul li:nth-child(odd) {
-        margin-top: 40px;
-    }
+    section#theTests div.sectionContent ul li:nth-child(even) { margin-top: 40px;}
     section#theTests div.sectionContent ul li:nth-child(even):hover {
         border: 1px solid rgba(255, 139, 85, 1);
     }
     section#theTests div.sectionContent ul li label {
-        width: 94px;
+        width: 98px;
         line-height: 38px;
         font-size: 15px;
     }
-    section#theTests div.sectionContent ul li label input {
-        margin: 9px 0;
+    section#theTests div.sectionContent ul li label input, ul li div label input {
+        margin: 8px 0;
         float: left;
     }
     section#theTests div.sectionContent ul li label span {
-        width: 64px;
+        width: 68px;
         line-height: 38px;
-        font-size: 14px;
         border: 0;
         margin: 0;
         text-align: center;
         float: left;
     }
-    section#theTests div.sectionContent ul li div.hoverDown, div.hoverUp, div.hoverUpAsmdoor, div.hoverDownShield {
-        width: 96px;
+    section#theTests div.sectionContent ul li div.hoverDown,
+    div.hoverUp, div.hoverUpAsmdoor, div.hoverDownShield {
+        width: 98px;
         height: 40px;
         line-height: 40px;
         top: 0;
@@ -2159,24 +2045,24 @@ input[type="checkbox"] {
     }
     section#theTests div.sectionContent ul li:hover div.hoverDown {
         z-index: 1;
-        top: -40px;
+        top: 40px;
         background: rgba(234, 255, 45, 0.404);
     }
     section#theTests div.sectionContent ul li:hover div.hoverUp {
         z-index: 1;
-        top: 40px;
+        top: -41px;
         background: rgba(255, 139, 85, 0.616);
     }
     li:hover div.hoverDownShield {
         z-index: 1;
-        top: 20px;
-        left: -1px;
+        top: -1px;
+        left: 49px;
         background: rgb(168, 199, 83);
     }
     li:hover div.hoverUpAsmdoor {
         z-index: 1;
-        top: -20px;
-        left: -1px;
+        top: -1px;
+        right: 49px;
         background: rgb(253, 137, 84);
     }
     div.hoverUpAsmdoor, div.hoverDownShield {
@@ -2187,74 +2073,26 @@ input[type="checkbox"] {
         font-size: 15px;
         margin-left: 30px;
     }
-    section#theTests div.sectionContent ul li:nth-child(6) {
-        margin-left: 96px;
-        margin-bottom: 0;
-    }
-    section#theTests div.sectionContent ul li:nth-child(7) {
-        margin-left: 96px;
-        margin-top: 0;
-    }
-    section#theTests div.sectionContent ul li:nth-child(7):hover {
-        border: 1px solid rgba(255, 139, 85, 1);
-    }
-    section#theTests div.sectionContent ul li:nth-child(7):hover div.hoverDown {
-        z-index: 1;
-        top: -40px;
-        background: rgba(255, 139, 85, 0.616);
-    }
-    section#theTests div.sectionContent ul li:nth-child(6):hover div.hoverUp {
-        z-index: 1;
-        top: -40px;
-        background: rgba(255, 139, 85, 0.616);
-    }
-    /* Power Cpu */
-    #flexPowerCpu {
-        flex-direction: column;
-    }
-    section#theTests form.cpuPowerContent, div.cpuPowerContent {
+    /* Checkboxes end */
+
+    /* Power & Cpu start */
+    section#theTests .cpuPowerContent {
         width: 350px;
         margin: auto;
-        margin-top: 10px;
         border: 1px solid white;
         border-radius: 5px;
         box-sizing: border-box;
         background-color: rgba(129, 146, 168, 0.5);
     }
-    section#theTests form#powerForm.cpuPowerContent {
-        margin-top: 0;
-    }
-    section#theTests form#cpuForm.cpuPowerContent {
-        margin-top: 0;
-    }
-    section#theTests form#selfTestMechanismForm.mechanismContent {
-        margin-top: 0;
-    }
-    section#theTests form.cpuPowerContent input[value="Gönder"] {
-        float: right;
-    }
-    section#theTests form.cpuPowerContent input[value="Reset"] {
-        float: left;
-    }
-    section#theTests form.cpuPowerContent img {
-        padding: 10px;
-        float: right;
-    }
-    section#theTests div.selfTestHeaderCheckBox {
-        height: 40px;
-        border-bottom: white 1px solid;
-        display: block;
-    }
-    section#theTests div.selfTestHeaderCheckBox label {
-        display: block;
-    }
+
+    section#theTests form.cpuPowerContent img { padding: 10px; }
+    section#theTests div.selfTestHeaderCheckBox { height: 40px; }
+    section#theTests div.selfTestHeaderCheckBox label { display: block; }
+
     section#theTests label div.selfTestHeaderCheckBoxDiv {
         width: 50%;
         height: 40px;
         float: left;
-    }
-    section#theTests label div.b {
-        width: 30%;
     }
     section#theTests label div.selfTestHeaderCheckBoxDiv input {
         float: right;
@@ -2263,6 +2101,13 @@ input[type="checkbox"] {
     section#theTests label div.selfTestHeaderCheckBoxDiv strong {
         line-height: 40px;
         float: left;
+    }
+
+    section#theTests input[placeholder="Hata"] { margin: 0;}
+    section#theTests input[placeholder="Seri Numarası"] {
+        width: 160px;
+        height: 30px;
+        margin: 0;
     }
     section#theTests .mechanismSubContent {
         display: flex;
@@ -2276,25 +2121,15 @@ input[type="checkbox"] {
     section#theTests .mechanismLabelSpans {
         width: 156px;
         line-height: 40px;
-        margin: 4px 4px 0 4px;
         border-bottom: 1px black solid;
         box-sizing: border-box;
         float: left;
-    }
-    section#theTests input[placeholder="Hata"] {
-        margin: 4px 4px 0 4px;
-    }
-    section#theTests input[placeholder="Seri Numarası"] {
-        width: 160px;
-        height: 30px;
-        margin: 4px 4px 0 4px;
-        float: left;
+        text-align: left;
     }
     /* Mechanism */
     section#theTests .mechanismContent {
-        width: 576px;
+        width: 733px;
         margin: auto;
-        margin-top: 10px;
         border: 1px solid white;
         border-radius: 5px;
         box-sizing: border-box;
@@ -2306,7 +2141,7 @@ input[type="checkbox"] {
         margin: auto;
     }
     section#theTests div.mechanismOptions {
-        width: 55%;
+        width: 45%;
         border-right: 1px black solid;
         box-sizing: border-box;
         float: left;
@@ -2323,22 +2158,19 @@ input[type="checkbox"] {
         border: none;
         width: 100%;
     }
-    .a {
-        width: 200px;
-        height: 91px;
-    }
+
     section#theTests div.mechanismSerialNumberDiv {
-        width: 45%;
+        width: 370px;
         min-height: 140px;
         margin-top: 1px;
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
         align-items: center;
-        float: left;
+        text-align: left;
     }
     section#theTests div#ifSelfTestAppChecked {
-        margin: auto;
+        margin: 0 auto;
     }
     section#theTests div#ifSelfTestMechanismChecked {
         margin: 0 auto;
@@ -2348,25 +2180,19 @@ input[type="checkbox"] {
     }
     section#theTests div.mechanismSerialNumberDiv label {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
     }
     section#theTests div.mechanismSerialNumberDiv label span {
         width: 200px;
-        margin: auto;
-        text-align: center;
+        float: left;
     }
     section#theTests div.mechanismSerialNumberDiv label input {
-        margin: 5px auto 0;
+        margin: auto;
     }
     section#theTests div.buttonsCover {
         margin: auto;
         height: 50px;
         width: 100%;
-    }
-    div.flex-space {
-        display: flex;
-        justify-content: space-evenly;
-        margin-top: 5px;
     }
     section#theTests div.mechanismSerialNumberDiv input[value="Gönder"] {
         float: right;
@@ -2518,17 +2344,78 @@ input[type="checkbox"] {
     }
 }
 
-@media screen and (max-width:620px) {
-    .largeContainer {
+@media screen and (max-width:768px) {
+    aside{display: none;}
+    /* Left sidebar end */
+    /* top navbar */
+    #nav{
         width: 100%;
+        min-height: 40px;
+        display: flex;
+        background-color: #222222;
+    }
+    #nav li{
+        font-size: 13px;
+        border-left: 1px solid #555;
+        margin-left: 20px;
+    }
+    #nav a{
+        line-height: 40px;
+        padding: 0;
+    }
+    /* modals start */
+    .modal-content {
+        width: 500px;
+    }
+    .modal-body {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    #rvgModal #egt2 h5 {
+        line-height: 25px;
+        text-align: center;
+        font-size: 18px;
+    }
+    #rvgModal #rvg2, #egt2 {
+        width: 200px;
+        padding: 10px;
+        text-align: center;
+        background-color: whitesmoke;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+    #rvgModal #rvg2 p, #egt2 p {
+        display: block;
+        line-height: 30px;
+        font-size: 18px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: bold;
+    }
+    #rvgModal #rvg2 p { margin: 20px 0;}
+    #rvgModal #egt2 p { margin: 5px 0;}
+
+    #büyüteçModal #büyüteçTextarea {
+        width: 460px;
+        max-width: 490px;
+        min-height: 200px;
+        margin-bottom: 3px;
+    }
+    /* modals end */
+    /* main */
+    main { width: 100%; margin-top: 56px;}
+
+    /* Containers */
+    .largeContainer { width: 100%; margin: auto; box-sizing: border-box; }
+
+    .limitedContainer {
+        width: 500px;
         margin: auto;
         position: relative;
-        border: 1px transparent solid;
-        border-radius: 10px;
         box-sizing: border-box;
     }
+    /* Header Start */
     div#headerTopSticky {
-        width: 100%;
         height: 40px;
         text-align: center;
         border: 1px solid white;
@@ -2539,20 +2426,19 @@ input[type="checkbox"] {
         top: 0;
     }
     div#headerTopSticky h2 {
-        font-size: 25px;
+        font-size: 24px;
         line-height: 40px;
         margin: 0;
         text-shadow: 2px 2px 5px white;
     }
     div#headerTopSticky img {
         width: 36px;
-        margin: 1px 1px;
+        margin: 1px 0;
         padding: 0;
         cursor: pointer;
     }
     div#headerTopSticky div:hover {
         background-color: rgba(128, 128, 128, 0.5);
-        border: 1px solid transparent;
         border-radius: 10px;
     }
     div#headerTopSticky div:active {
@@ -2562,35 +2448,33 @@ input[type="checkbox"] {
     div#headerTopSticky div#forward {
         position: absolute;
         top: 0;
-        right: 1px;
+        right: 10px;
     }
-    div#headerTopSticky div#forward img {
-        float: right;
-    }
+    div#headerTopSticky div#forward img { float: right; }
+
     div#headerTopSticky div#forward span {
         float: right;
         line-height: 40px;
         font-size: 12px;
         font-weight: bold;
         color: #212529;
-        margin-right: 1px;
+        margin-right: 10px;
         text-shadow: 0.5px 0.5px 5px rgba(196, 115, 115, 0.774);
     }
     div#headerTopSticky div#backward {
         position: absolute;
         top: 0;
-        left: 1px;
+        left: 10px;
     }
-    div#headerTopSticky div#backward img {
-        float: left;
-    }
+    div#headerTopSticky div#backward img { float: left; }
+
     div#headerTopSticky div#backward span {
         float: left;
         line-height: 40px;
         font-size: 12px;
-        color: #212529;
         font-weight: bold;
-        margin-left: 1px;
+        color: #212529;
+        margin-left: 10px;
         text-shadow: 0.5px 0.5px 5px rgba(196, 115, 115, 0.774);
     }
     div#headerTopSticky a {
@@ -2603,19 +2487,8 @@ input[type="checkbox"] {
         padding: 0 10px;
         color: #212529;
     }
-    /* *** HEADER BAŞLANGIÇ *** */
-    .limitedContainer {
-        width: 100%;
-        margin: auto;
-        position: relative;
-        border: 1px solid white;
-        border-radius: 10px;
-        border-top: 0;
-        border-bottom: 0;
-        box-sizing: border-box;
-    }
     header form {
-        width: 480px;
+        width: 500px;
         margin: auto;
     }
     header h3 {
@@ -2626,23 +2499,23 @@ input[type="checkbox"] {
         margin: 0;
     }
     /* Header Check Model */
+    header #headerCheckModel {
+        display: flex;
+        justify-content: space-around;
+    }
     header div.models {
-        width: 160px;
+        width: 190px;
         height: 40px;
-        border: 1px solid transparent;
         border-radius: 20px;
         border-bottom: 1px solid white;
         border-right: 1px solid white;
-        box-sizing: border-box;
-        float: left;
     }
     header div.models label {
         width: 100%;
-        height: 40px;
+        line-height: 40px;
         cursor: pointer;
     }
     header div.models label strong {
-        display: inline-block;
         width: 80px;
         line-height: 40px;
         margin-left: 15px;
@@ -2650,56 +2523,40 @@ input[type="checkbox"] {
     }
     /* Müşteri Şikayeti*/
     header div#errCode {
-        width: 450px;
+        width: 500px;
         height: 50px;
-        margin: 0 15px;
-        list-style-type: none;
         border-bottom: 1px solid white;
         box-sizing: border-box;
+        display: flex;
+        justify-content: center;
     }
     header div#errCode p {
-        width: 130px;
+        display: inline-flex;
         line-height: 50px;
-        margin: 0;
-        margin-left: 5px;
-        float: left;
+        font-size: 18px;
     }
     header div#errCode input[type="submit"] {
         width: 65px;
         height: 40px;
-        float: left;
     }
-    header div#errCode a {
-        display: none;
-    }
-    header div#errCode a img {
+    header div#errCode a img[alt="mediteralogo"] {
         display: none;
     }
     /* Hata Görüldü Mü? */
-    header div.yesNoQuestions {
-        width: 450px;
-        height: 40px;
-        border-bottom: 1px solid white;
-        margin: 0 15px;
+    header div#isIt950 {
+        justify-content: center;
     }
-    header p {
-        width: 250px;
+    header div#isIt950 p{
+        display: inline-flex;
         line-height: 40px;
         font-size: 18px;
-        float: left;
-        text-align: right;
     }
     header label.yes {
         width: 80px;
         height: 40px;
         line-height: 40px;
         margin-left: 20px;
-        border: 1px solid white;
-        border-top: 0;
-        border-bottom: 0;
         border-radius: 10px 10px;
-        box-sizing: border-box;
-        float: left;
         transition: 0.2s ease-out;
         background-color: rgba(40, 167, 69, 0.5);
         cursor: pointer;
@@ -2712,10 +2569,7 @@ input[type="checkbox"] {
         width: 80px;
         height: 40px;
         line-height: 40px;
-        border-right: 1px solid white;
         border-radius: 10px 10px;
-        box-sizing: border-box;
-        float: left;
         transition: 0.2s ease-in-out;
         background-color: rgba(220, 53, 69, 0.5);
         cursor: pointer;
@@ -2724,27 +2578,33 @@ input[type="checkbox"] {
         background-color: rgba(220, 53, 69, 1);
         transform: scale(1.05);
     }
-    /* *** BULGULAR *** */
+    /* Header End */
+    /* Findings start */
     section.limitedContainer {
-        margin-top: 20px;
+        margin-top: 10px;
+        flex-direction: column;
     }
     section div#findingsDiv {
         width: 480px;
+        min-height: 200px;
         margin: auto;
+        display: flex;
+        justify-content: center;
     }
     section h4 {
-        width: 150px;
-        line-height: 160px;
+        align-self: center;
         text-align: center;
-        margin: 10px 5px 10px 52px;
-        border-right: 1px solid white;
+        margin: 10px;
         box-sizing: border-box;
-        float: left;
     }
     section div#divTests {
         width: 225px;
         margin: 10px 0;
-        float: left;
+        padding-left: 10px;
+        border-left: 1px solid white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
     }
     section div#divTests input[name="tests"] {
         float: left;
@@ -2764,52 +2624,41 @@ input[type="checkbox"] {
         float: left;
     }
     section ul#downMenu {
-        width: 284px;
+        width: 400px;
         margin: auto;
-        margin-top: 10px;
+        padding: 0;
         list-style-type: none;
+        display: flex;
+        justify-content: center;
     }
     section ul#downMenu li {
-        width: 140px;
-        line-height: 38px;
+        width: 100px;
+        line-height: 25px;
         border: 1px solid white;
         border-radius: 5px 20px 20px 5px;
+        margin-right: 3px;
         box-sizing: border-box;
         text-align: center;
-        margin-right: 2px;
-        float: left;
         cursor: pointer;
         background-color: rgba(129, 146, 168, 0.5);
     }
-    /* *** TESTLER *** */
+    /* Findings end */
+
+    /* Tests start */
     section#theTests {
-        width: 100%;
-        margin-top: 10px;
-        position: relative;
-        border: 1px solid transparent;
-        border-radius: 10px 10px;
+        border-radius: 10px;
     }
     .sectionContent {
-        border: 1px solid white;
-        border-radius: 10px 10px;
-        border-top: 0;
+        width: inherit;
+        margin: auto;
         padding: 18px 0;
+        margin-top: 10px;
     }
-    .flex-container {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        flex-wrap: wrap;
-    }
+    /* Visual inspection test start *
     /* *** VISUAL INSPECTION TEST *** */
     .sparePartsContainer {
-        width: 240px;
-        height: 335px;
+        width: 350px;
         text-align: center;
-        float: right;
-    }
-    section#theTests div#divSparePartsVisual {
-        float: left;
     }
     section#theTests form.sectionContent h5, div.sectionContent h5 {
         width: 235px;
@@ -2824,12 +2673,9 @@ input[type="checkbox"] {
         line-height: 30px;
         display: inline-block;
     }
-    span#visualText1 {
-        display: none;
-    }
-    span#visualText2 {
-        display: block;
-    }
+    span#visualText1 { display: none; } 
+    span#visualText2 { display: block; }
+
     section#theTests div.sparePartsContainer select {
         width: 230px;
         height: 200px;
@@ -2853,29 +2699,25 @@ input[type="checkbox"] {
         border: 1px solid lightblue;
         box-sizing: border-box;
     }
+    section#theTests div#visualInspectionButtons {
+        display: none;
+    }
     section#theTests div#visualInspectionButtons-xs-display {
         width: 260px;
         text-align: center;
         margin: auto;
-        display: block;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
     }
-    section#theTests div#visualInspectionButtons {
-        display: none;
-    }
-    section#theTests div#visualInspectionButtons-xs-display input[value="Gönder"] {
-        float: right;
-    }
-    section#theTests div#visualInspectionButtons-xs-display img {
-        float: right;
-    }
-    section#theTests div#visualInspectionButtons-xs-display input[value="Reset"] {
-        float: left;
-    }
-    /* *** SELF TEST *** */
-    /* Top side */
+    /* Visual inspection test end */
+
+    /* Cassette alarm test start */
+    /* Checkboxes start */
     section#theTests div.sectionContent ul {
         width: 480px;
         height: 80px;
+        padding: 0;
         margin: auto;
         list-style-type: none;
     }
@@ -2982,124 +2824,94 @@ input[type="checkbox"] {
         top: -40px;
         background: rgba(255, 139, 85, 0.616);
     }
-    /* Power Cpu */
-    section#theTests form.cpuPowerContent, div.cpuPowerContent {
+    /* Checkboxes end */
+
+    /* Power & Cpu start */
+    section#theTests .cpuPowerContent {
         width: 350px;
         margin: auto;
-        margin-top: 10px;
         border: 1px solid white;
         border-radius: 5px;
         box-sizing: border-box;
         background-color: rgba(129, 146, 168, 0.5);
     }
-    section#theTests form#powerForm.cpuPowerContent {
-        margin-top: 0;
-    }
-    section#theTests form#cpuForm.cpuPowerContent {
-        margin-top: 0;
-    }
-    section#theTests form#selfTestMechanismForm.mechanismContent {
-        margin-top: 0;
-    }
-    section#theTests form.cpuPowerContent input[value="Gönder"] {
-        float: right;
-    }
-    section#theTests form.cpuPowerContent input[value="Reset"] {
-        float: left;
-    }
-    section#theTests form.cpuPowerContent img {
-        padding: 10px;
-        float: right;
-    }
-    section#theTests div.selfTestHeaderCheckBox {
-        height: 40px;
-        border-bottom: white 1px solid;
-        display: block;
-    }
-    section#theTests div.selfTestHeaderCheckBox label {
-        display: block;
-    }
+
+    section#theTests form.cpuPowerContent img { padding: 10px; }
+    section#theTests div.selfTestHeaderCheckBox { height: 40px; }
+    section#theTests div.selfTestHeaderCheckBox label { display: block; }
+
     section#theTests label div.selfTestHeaderCheckBoxDiv {
         width: 50%;
         height: 40px;
         float: left;
-    }
-    section#theTests label div.b {
-        width: 25%;
     }
     section#theTests label div.selfTestHeaderCheckBoxDiv input {
         float: right;
         margin-right: 10px;
     }
     section#theTests label div.selfTestHeaderCheckBoxDiv strong {
-        width: 170px;
         line-height: 40px;
         float: left;
+        font-size: 14px !important;
+    }
+
+    section#theTests input[placeholder="Hata"] { margin: 0;}
+    section#theTests input[placeholder="Seri Numarası"] {
+        width: 160px;
+        height: 30px;
+        margin: 0;
     }
     section#theTests .mechanismSubContent {
         display: flex;
         align-items: center;
     }
-    section#theTests form.mechanismContent label, div.mechanismSubContent label, form.selfTestContent label, div.mechanismContent label {
+    section#theTests .mechanismLabels {
         display: block;
         height: 45px;
         line-height: 45px;
     }
-    section#theTests form.mechanismContent label span, div.mechanismSubContent label span, form.selfTestContent label span, div.mechanismContent label span {
+    section#theTests .mechanismLabelSpans {
         width: 156px;
         line-height: 40px;
-        margin: 4px 4px 0 4px;
         border-bottom: 1px black solid;
         box-sizing: border-box;
         float: left;
-    }
-    section#theTests input[placeholder="Hata"] {
-        margin: 4px 4px 0 4px;
-    }
-    section#theTests input[placeholder="Seri Numarası"] {
-        width: 160px;
-        height: 30px;
-        margin: 4px 4px 0 4px;
-        float: left;
+        text-align: left;
     }
     /* Mechanism */
-    section#theTests .mechanismContent {
+    section#theTests .mechanismContent{
         width: 478px;
         margin: auto;
-        margin-top: 10px;
         border: 1px solid white;
         border-radius: 5px;
         box-sizing: border-box;
         background-color: rgba(129, 146, 168, 0.5);
     }
-    section#theTests div.mechanismErrCodeDiv {
+    section#theTests div.mechanismErrCodeDiv{
         width: 242px;
         height: 45px;
         margin: auto;
     }
-    section#theTests div.mechanismOptions {
+    section#theTests div.mechanismOptions{
         width: 55%;
         border-right: 1px black solid;
         box-sizing: border-box;
         float: left;
         margin-top: 5px;
     }
-    section#theTests div.mechanismOptions label {
+    section#theTests div.mechanismOptions label{
         height: 40px;
         margin: 5px;
         border: 1px solid white;
         border-radius: 10px;
         box-sizing: border-box;
-    }
-    section#theTests div#forMechanismPCI {
+    }    
+    section#theTests div#forMechanismPCI{
         border: none;
         width: 100%;
     }
-    .a {
-        width: 200px;
-        height: 91px;
-    }
-    section#theTests div.mechanismSerialNumberDiv {
+
+    section#theTests div.mechanismSerialNumberDiv{
         width: 45%;
         min-height: 140px;
         margin-top: 1px;
@@ -3109,54 +2921,49 @@ input[type="checkbox"] {
         align-items: center;
         float: left;
     }
-    section#theTests div#ifSelfTestAppChecked {
+    section#theTests div#ifSelfTestAppChecked{
         margin: auto;
     }
-    section#theTests div#ifSelfTestMechanismChecked {
+    section#theTests div#ifSelfTestMechanismChecked{
         margin: 0 auto;
     }
-    section#theTests div#ifSelfTestDriverPwaChecked {
+    section#theTests div#ifSelfTestDriverPwaChecked{
         margin: 0 auto;
-    }
-    section#theTests div.mechanismSerialNumberDiv label {
+    }    
+    section#theTests div.mechanismSerialNumberDiv label{
         display: flex;
         flex-direction: column;
-    }
-    section#theTests div.mechanismSerialNumberDiv label span {
+    }    
+    section#theTests div.mechanismSerialNumberDiv label span{
         width: 200px;
         margin: auto;
         text-align: center;
     }
-    section#theTests div.mechanismSerialNumberDiv label input {
+    section#theTests div.mechanismSerialNumberDiv label input{
         margin: 5px auto 0;
     }
-    section#theTests div.buttonsCover {
+    section#theTests div.buttonsCover{
         margin: auto;
         height: 50px;
         width: 100%;
     }
-    div.flex-space {
-        display: flex;
-        justify-content: space-evenly;
-        margin-top: 5px;
-    }
-    section#theTests div.mechanismSerialNumberDiv input[value="Gönder"] {
+    section#theTests div.mechanismSerialNumberDiv input[value="Gönder"]{
         float: right;
     }
-    section#theTests div.mechanismSerialNumberDiv input[value="Reset"] {
+    section#theTests div.mechanismSerialNumberDiv input[value="Reset"]{
         float: left;
     }
-    section#theTests div.mechanismSerialNumberDiv img {
+    section#theTests div.mechanismSerialNumberDiv img{
         padding: 10px;
         float: right;
     }
-    section#theTests div#ifProxTestMechanismChecked {
+    section#theTests div#ifProxTestMechanismChecked{
         margin: auto;
     }
-    section#theTests div#ifProxTestAppChecked {
+    section#theTests div#ifProxTestAppChecked{
         margin: auto;
     }
-    section#theTests div#ifDistalTestMechanismChecked {
+    section#theTests div#ifDistalTestMechanismChecked{
         margin: auto;
     }
     footer input {
@@ -3222,7 +3029,7 @@ input[type="checkbox"] {
     #sonuc footer#footer2 {
         width: 150px;
         height: 50px;
-        float: right;
+        margin: auto;
         padding: 20px;
     }
     #sonuc footer#footer2 input {
@@ -3233,7 +3040,6 @@ input[type="checkbox"] {
     }
     #ydkPage section.sectionContent {
         padding: 0%;
-        padding-right: 2px;
     }
     #ydkPage h4 {
         width: 90%;
