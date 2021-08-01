@@ -21,120 +21,254 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <!-- sayfa bilgileri -->
     <link rel="shortcut icon" href="images/logo1.png">
-    <title>Kopyala Yapıştır</title>
+    <title>Run In</title>
 </head>
 
-<body>
-    <div class="container">
-        <div class="header">
-            <h5>Cihaz Kayıt Formu</h5>
+<body class="d-flex">
+    <aside>
+        <a href="HomePage.html" class="ms-1 mt-2 text-white">
+            <i class="fas fa-home fa-2x fa-fw" aria-hidden="true"></i>
+            <span class="fs-3">Ana Sayfa</span></a>
+        <hr>
+        <ul class="nav flex-column">
+            <li class="nav-item ms-2">
+                <a href="KopyalaYapıştır.html" class="nav-link text-white">
+                    <i class="fa fa-copy fa-lg fa-fw ms-2"></i>
+                    Kopyala Yapıştır</a>
+            </li>
+            <li>
+                <a href="YedekParçalar.html" class="nav-link text-white">
+                    <i class="fa fa-wrench fa-lg fa-fw ms-2 me-2"></i>Yedek Parçalar</a>
+            </li>
+            <li>
+                <a href="CariKodlar.html" class="nav-link text-white"><i
+                        class="fa fa-vcard fa-lg fa-fw ms-2 me-2"></i>Cari
+                    Kodlar</a>
+            </li>
+            <li>
+                <a href="#" class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#rvgModal"
+                    onclick="rvgFunc(0)">
+                    <i class="fa fa-random fa-lg fa-fw ms-2 me-2"></i>Rastgele Değer Üretici</a>
+            </li>
+            <li>
+                <a href="CihazKayıtFormu.html" class="nav-link text-white">
+                    <i class="fa fa-file-text-o fa-lg fa-fw ms-2 me-2"></i>Cihaz Kayıt Formu</a>
+            </li>
+            <li>
+                <a href="Run-In.html" class="nav-link text-white">
+                    <i class="fa fa-file-text-o fa-lg fa-fw ms-2 me-2"></i>Run-In Formu</a>
+            </li>
+            <li>
+                <a href="#" class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#büyüteçModal">
+                    <i class="fa fa-search fa-lg fa-fw ms-2 me-2"></i>Büyüteç</a>
+            </li>
+        </ul>
+    </aside>
+    <nav id="nav" class="navbar fixed-top navbar-expand-xl navbar-dark">
+        <div class="container-fluid">
+            <a href="HomePage.html" class="text-white">
+                <i class="fa fa-home fa-2x" aria-hidden="true"></i>
+                <span class="fs-3">Ana Sayfa</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a href="KopyalaYapıştır.html" class="nav-link text-white">
+                            <i class="fa fa-copy fa-lg fa-fw" style="margin-right: 5px;"></i>
+                            Kopyala Yapıştır</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="YedekParçalar.html" class="nav-link text-white">
+                            <i class="fa fa-wrench fa-lg fa-fw ms-1"></i>Yedek Parçalar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="CariKodlar.html" class="nav-link text-white"><i
+                                class="fa fa-vcard fa-lg fa-fw ms-1"></i>Cari Kodlar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#rvgModal"
+                            onclick="rvgFunc(0)">
+                            <i class="fa fa-random fa-lg fa-fw"></i>Rastgele Değer Üretici</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="CihazKayıtFormu.html" class="nav-link text-white">
+                            <i class="fa fa-file-text-o fa-lg fa-fw"></i>Cihaz Kayıt Formu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Run-In.html" class="nav-link text-white">
+                            <i class="fa fa-file-text-o fa-lg fa-fw ms-1"></i>Run-In Formu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#büyüteçModal">
+                            <i class="fa fa-search fa-lg fa-fw"></i>Büyüteç</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="content">
-            <form method="post" action="javascript: 2+2;" id="kayıt" autocomplete="off">
-                <div class="formContent">
-                    <p>List #: </p>
-                    <p>Serial #: </p>
+    </nav>
+    <main>
+        <div class="container">
+            <div class="header">
+                <h5>Cihaz Kayıt Formu</h5>
+            </div>
+            <div class="content">
+                <form method="post" action="javascript: 2+2;" id="kayıt" autocomplete="off">
+                    <div class="formContent">
+                        <p>List #: </p>
+                        <p>Serial #: </p>
+                    </div>
+                    <div class="formContent">
+                        <div class="form-group">
+                            <input list="runinListNumbers" auto-complete="on" type="text" name="runinList"
+                                class="form-control" placeholder="List" required tabindex="1" />
+                            <datalist id="runinListNumbers"></datalist>
+                        </div>
+                        <div class="form-group">
+                            <input maxlength="8" minlength="8" name="runinSerial" class="form-control"
+                                placeholder="Serial" required tabindex="2">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="submit" class="form-control btn-danger" value="Gönder"
+                                tabindex="3" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <section>
+            <div class="container2">
+                <h1>Pano</h1>
+                <button id="yazdır3" class="btn btn-secondary"><i class="fa fa-print" aria-hidden="true"></i>
+                    Yazdır</button>
+                <button id="excel" class="btn btn-secondary"><i class="fa fa-file-excel-o" aria-hidden="true"></i>
+                    Excel'e
+                    Aktar
+                </button>
+            </div>
+            <div class="form-control">
+                <table id="pano3">
+                    <tr>
+                        <th>No</th>
+                        <th>List No</th>
+                        <th>Serial</th>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        <script>
+            // Excel 
+            $("#excel").click(function () {
+                $("#pano3").table2excel({
+                    name: "Cihazlar", // Çalışma sayfası adı - Worksheet
+                    filename: "dosya.xls" // Dosya Adı
+                });
+            })
+            // Device List Bilgilerini Ekleme
+            $(function () {
+                for (i = 0; i < deviceLists.length; i++) {
+                    console.log("asd")
+                    $("#runinListNumbers").append('<option value="' + deviceLists[i] + '">' + deviceLists[i] + '</option>');
+                }
+            })
+            //Yazdır Butonu
+            $("#yazdır3").click(function () {
+                var divToPrint = document.getElementById("pano3");
+                var htmlToPrint = '' +
+                    '<style type="text/css">' +
+                    'table, tr, th, td {' +
+                    'border:1px solid #999;' +
+                    'border-collapse: collapse;' +
+                    'padding:0.5em;' +
+                    '}' +
+                    '</style>';
+                htmlToPrint += divToPrint.outerHTML;
+                newWin = window.open("");
+                newWin.document.write(htmlToPrint);
+                newWin.print();
+                newWin.close();
+            })
+            //Panoya Ekleme
+            $(function () {
+                $("#kayıt").submit(function () {
+                    var list = $("input[name='runinList']").val();
+                    var serial = $("input[name='runinSerial']").val();
+                    $("#pano3").append(
+                        + '<tr><th>No</th><th>List #: </th><th>Serial #: </th><th></th></tr>'
+                        + '<tr><td><span class="spantd"></span></td>'
+                        + '<td>' + list + '</td>'
+                        + '<td>' + serial + '</td>'
+                        + '<td><button class="btn btn-danger btn-sm" class="delete" type="button" title="Delete"><i class="fa fa-trash"></i></button></td>'
+                        + '</tr>')
+                    //Sıra Numarası Ekleme
+                    for (i = 0; i < $(".spantd").length; i++) {
+                        $(".spantd")[i].innerHTML = i + 1 + ".";
+                    }
+                    $("input[name='runinList']").val("");
+                    $("input[name='runinSerial']").val("");
+                    $("input[name='runinList']").focus();
+                })
+                //Silme Fonksiyonu  
+                $("#pano3").on("click", "button", function () {
+                    $(this).parents("tr").remove();
+                    //Sıra Numarası Güncelleme
+                    for (i = 0; i < $(".spantd").length; i++) {
+                        $(".spantd")[i].innerHTML = i + 1 + ".";
+                    }
+                })
+            })
+        </script>
+    </main>
+    <!-- Sallamasyon Modal -->
+    <div class="modal fade" id="rvgModal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Rastgele Değer Üretici</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="formContent">
-                    <div class="form-group">
-                        <input list="runinListNumbers" auto-complete="on" type="text" name="runinList" class="form-control" placeholder="List" required
-                            tabindex="1" />
-                        <datalist id="runinListNumbers"></datalist>
-                    </div>
-                    <div class="form-group">
-                        <input maxlength="8" minlength="8" name="runinSerial" class="form-control" placeholder="Serial" required
-                            tabindex="2">
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" name="submit" class="form-control btn-danger" value="Gönder"
-                            tabindex="3" />
-                    </div>
+                <div class="modal-body">
+                    <div id="rvg2" class="align-middle"></div>
+                    <div id="egt2" class="align-middle"></div>
                 </div>
-            </form>
+                <div class="modal-footer d-flex justify-content-end">
+                    <button type="button" onclick="rvgFunc(0)" class="btn btn-primary btn-lg">Yenile</button>
+                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                </div>
+            </div>
         </div>
     </div>
-    <section>
-        <div class="container2">
-            <h1>Pano</h1>
-            <button id="yazdır3" class="btn btn-secondary"><i class="fa fa-print" aria-hidden="true"></i>
-                Yazdır</button>
-            <button id="excel" class="btn btn-secondary"><i class="fa fa-file-excel-o" aria-hidden="true"></i> Excel'e
-                Aktar
-            </button>
+    <!-- Büyüteç Modal -->
+    <div class="modal fade" id="büyüteçModal" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Büyüteç</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <textarea class="form-control" id="büyüteçTextarea" cols="30" rows="4"
+                            placeholder="Buraya yazılan yazıları büyük harflere çevirir!"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-around">
+                    <button type="button" id="capitalButton" class="btn btn-primary"
+                        title="Yazıların ilk harflerini büyütür"><i class="fa fa-text-height me-1"></i>Başı
+                        Büyük</button>
+                    <button type="button" id="microscopeButton" class="btn btn-primary"
+                        title="Yazıları küçük harflere çevirir"><i class="fa fa-microscope me-1"></i>Mikroskop</button>
+                    <button type="button" id="büyüteçButton" class="btn btn-primary"
+                        title="Yazıları büyük harflere çevirir"><i class="fa fa-search me-1
+                        " aria-hidden="true"></i>Büyüteç</button>
+                </div>
+            </div>
         </div>
-        <div class="form-control">
-            <table id="pano3">
-                <tr>
-                    <th>No</th>
-                    <th>List No</th>
-                    <th>Serial</th>
-                </tr>
-            </table>
-        </div>
-    </section>
-    <script>
-        // Excel 
-        $("#excel").click(function () {
-            $("#pano3").table2excel({
-                name: "Cihazlar", // Çalışma sayfası adı - Worksheet
-                filename: "dosya.xls" // Dosya Adı
-            });
-        })
-        // Device List Bilgilerini Ekleme
-        $(function () {
-            for (i = 0; i < deviceLists.length; i++) {
-                console.log("asd")
-                $("#runinListNumbers").append('<option value="' + deviceLists[i] + '">' + deviceLists[i] + '</option>');
-            }
-        })
-        //Yazdır Butonu
-        $("#yazdır3").click(function () {
-            var divToPrint = document.getElementById("pano3");
-            var htmlToPrint = '' +
-                '<style type="text/css">' +
-                'table, tr, th, td {' +
-                'border:1px solid #999;' +
-                'border-collapse: collapse;' +
-                'padding:0.5em;' +
-                '}' +
-                '</style>';
-            htmlToPrint += divToPrint.outerHTML;
-            newWin = window.open("");
-            newWin.document.write(htmlToPrint);
-            newWin.print();
-            newWin.close();
-        })
-        //Panoya Ekleme
-        $(function () {
-            $("#kayıt").submit(function () {
-                var list = $("input[name='runinList']").val();
-                var serial = $("input[name='runinSerial']").val();
-                $("#pano3").append(
-                    + '<tr><th>No</th><th>List #: </th><th>Serial #: </th><th></th></tr>'
-                    + '<tr><td><span class="spantd"></span></td>'
-                    + '<td>' + list + '</td>'
-                    + '<td>' + serial + '</td>'
-                    + '<td><button class="btn btn-danger btn-sm" class="delete" type="button" title="Delete"><i class="fa fa-trash"></i></button></td>'
-                    + '</tr>')
-                //Sıra Numarası Ekleme
-                for (i = 0; i < $(".spantd").length; i++) {
-                    $(".spantd")[i].innerHTML = i + 1 + ".";
-                }
-                $("input[name='runinList']").val("");
-                $("input[name='runinSerial']").val("");
-                $("input[name='runinList']").focus();
-            })
-            //Silme Fonksiyonu  
-            $("#pano3").on("click", "button", function () {
-                $(this).parents("tr").remove();
-                //Sıra Numarası Güncelleme
-                for (i = 0; i < $(".spantd").length; i++) {
-                    $(".spantd")[i].innerHTML = i + 1 + ".";
-                }
-            })
-        })
-    </script>
-
+    </div>
     <script src="javascript/cariKodlar.js"></script>
 
 </body>

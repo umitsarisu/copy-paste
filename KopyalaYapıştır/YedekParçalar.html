@@ -5,16 +5,19 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1">
+    <!-- Bootstrap CSS -->
     <!-- dahili bootstrap -->
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <!-- css dosyası -->
     <link rel="stylesheet" href="css/ydk.css">
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+    <!-- microscope için font awesome -->
+    <script src="https://kit.fontawesome.com/4ebb137696.js" crossorigin="anonymous"></script>
     <!-- dahili javascript -->
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- dahili jquery -->
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-    <!-- font-awesome -->
-    <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
     <!-- JQuery Excel oluşturma -->
     <script src="../node_modules/jquery-table2excel/dist/jquery.table2excel.min.js"></script>
     <!-- sayfa bilgileri -->
@@ -22,113 +25,200 @@
     <title>Yedek Parçalar</title>
 </head>
 
-<body>
-    <header>
-        <h1>Yedek Parçalar</h1>
-    </header>
-    <nav class="navbar navbar-light bg-light">
+<body class="d-flex">
+    <aside>
+        <a href="HomePage.html" class="ms-1 mt-2 text-white">
+            <i class="fas fa-home fa-2x fa-fw" aria-hidden="true"></i>
+            <span class="fs-3">Ana Sayfa</span></a>
+        <hr>
+        <ul class="nav flex-column">
+            <li class="nav-item ms-2">
+                <a href="KopyalaYapıştır.html" class="nav-link text-white">
+                    <i class="fa fa-copy fa-lg fa-fw ms-2"></i>
+                    Kopyala Yapıştır</a>
+            </li>
+            <li>
+                <a href="YedekParçalar.html" class="nav-link text-white">
+                    <i class="fa fa-wrench fa-lg fa-fw ms-2 me-2"></i>Yedek Parçalar</a>
+            </li>
+            <li>
+                <a href="CariKodlar.html" class="nav-link text-white"><i
+                        class="fa fa-vcard fa-lg fa-fw ms-2 me-2"></i>Cari
+                    Kodlar</a>
+            </li>
+            <li>
+                <a href="#" class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#rvgModal"
+                    onclick="rvgFunc(0)">
+                    <i class="fa fa-random fa-lg fa-fw ms-2 me-2"></i>Rastgele Değer Üretici</a>
+            </li>
+            <li>
+                <a href="CihazKayıtFormu.html" class="nav-link text-white">
+                    <i class="fa fa-file-text-o fa-lg fa-fw ms-2 me-2"></i>Cihaz Kayıt Formu</a>
+            </li>
+            <li>
+                <a href="Run-In.html" class="nav-link text-white">
+                    <i class="fa fa-file-text-o fa-lg fa-fw ms-2 me-2"></i>Run-In Formu</a>
+            </li>
+            <li>
+                <a href="#" class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#büyüteçModal">
+                    <i class="fa fa-search fa-lg fa-fw ms-2 me-2"></i>Büyüteç</a>
+            </li>
+        </ul>
+    </aside>
+    <nav id="nav" class="navbar fixed-top navbar-expand-xl navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand">Arama</a>
-            <form class="d-flex" action="javascript: myFunction()">
-                <input class="form-control me-2" type="search" id="search" placeholder="Search" aria-label="Search"
-                    autocomplete="off">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-        </div>
-        <div class="input-group mt-3 filterDiv">
-            <label class="input-group-text" for="filter">Filtrele</label>
-            <select class="form-select" id="filter">
-                <!-- Kaynak: ydkList.js Select Menu Filtreleme -->
-                <option selected value="allParts">Bütün parçalar</option>
-            </select>
+            <a href="HomePage.html" class="text-white">
+                <i class="fa fa-home fa-2x" aria-hidden="true"></i>
+                <span class="fs-3">Ana Sayfa</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a href="KopyalaYapıştır.html" class="nav-link text-white">
+                            <i class="fa fa-copy fa-lg fa-fw" style="margin-right: 5px;"></i>
+                            Kopyala Yapıştır</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="YedekParçalar.html" class="nav-link text-white">
+                            <i class="fa fa-wrench fa-lg fa-fw ms-1"></i>Yedek Parçalar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="CariKodlar.html" class="nav-link text-white"><i
+                                class="fa fa-vcard fa-lg fa-fw ms-1"></i>Cari Kodlar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#rvgModal"
+                            onclick="rvgFunc(0)">
+                            <i class="fa fa-random fa-lg fa-fw"></i>Rastgele Değer Üretici</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="CihazKayıtFormu.html" class="nav-link text-white">
+                            <i class="fa fa-file-text-o fa-lg fa-fw"></i>Cihaz Kayıt Formu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Run-In.html" class="nav-link text-white">
+                            <i class="fa fa-file-text-o fa-lg fa-fw ms-1"></i>Run-In Formu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#büyüteçModal">
+                            <i class="fa fa-search fa-lg fa-fw"></i>Büyüteç</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
-    <div class="container panoContainer">
-        <div id="panoButtons">
-            <h1>Pano</h1>
-            <button id="yazdır" class="btn btn-secondary"><i class="fa fa-print" aria-hidden="true"></i> Yazdır</button>
-            <button id="excel" class="btn btn-secondary"><i class="fa fa-file-excel-o" aria-hidden="true"></i>
-                Excel</button>
+    <main>
+        <header>
+            <h1>Yedek Parçalar</h1>
+        </header>
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand">Arama</a>
+                <form class="d-flex" action="javascript: myFunction()">
+                    <input class="form-control me-2" type="search" id="search" placeholder="Search" aria-label="Search"
+                        autocomplete="off">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+            <div class="input-group mt-3 filterDiv">
+                <label class="input-group-text" for="filter">Filtrele</label>
+                <select class="form-select" id="filter">
+                    <!-- Kaynak: ydkList.js Select Menu Filtreleme -->
+                    <option selected value="allParts">Bütün parçalar</option>
+                </select>
+            </div>
+        </nav>
+        <div class="container panoContainer">
+            <div id="panoButtons">
+                <h1>Pano</h1>
+                <button id="yazdır" class="btn btn-secondary"><i class="fa fa-print" aria-hidden="true"></i>
+                    Yazdır</button>
+                <button id="excel" class="btn btn-secondary"><i class="fa fa-file-excel-o" aria-hidden="true"></i>
+                    Excel</button>
+            </div>
+            <table class="form-control" id="pano">
+                <tr>
+                    <th>Parça Adı</th>
+                    <th>Stok kodu</th>
+                    <th>Adet</th>
+                </tr>
+            </table>
         </div>
-        <table class="form-control" id="pano">
-            <tr>
-                <th>Parça Adı</th>
-                <th>Stok kodu</th>
-                <th>Adet</th>
-            </tr>
-        </table>
-    </div>
-    <!-- Pano Kaynak: ydkList.js Switch Yazdırma -->
-    <div class="container">
-        <div class="accordion" id="accordionExample">
+        <!-- Pano Kaynak: ydkList.js Switch Yazdırma -->
+        <div class="container">
             <div class="accordion" id="accordionExample">
-                <!-- Plum A Yedek Parçalar -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Plum A Yedek Parçalar
-                        </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                        data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <!-- Kaynak: ydkList.js Sayfaya Yazdırma -->
-                            <div class="flex" id="plumAYdk"></div>
+                <div class="accordion" id="accordionExample">
+                    <!-- Plum A Yedek Parçalar -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Plum A Yedek Parçalar
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <!-- Kaynak: ydkList.js Sayfaya Yazdırma -->
+                                <div class="flex" id="plumAYdk"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Plum 360 Yedek Parçalar -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            Plum 360 Yedek Parçalar
-                        </button>
-                    </h2>
-                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                        data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <!-- Kaynak: ydkList.js Sayfaya Yazdırma -->
-                            <div class="flex" id="plum360Ydk"></div>
+                    <!-- Plum 360 Yedek Parçalar -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Plum 360 Yedek Parçalar
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <!-- Kaynak: ydkList.js Sayfaya Yazdırma -->
+                                <div class="flex" id="plum360Ydk"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Mekanizma Yedek Parçalar -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Mekanizma Parçaları
-                        </button>
-                    </h2>
-                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                        data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <!-- Kaynak: ydkList.js Sayfaya Yazdırma -->
-                            <div class="flex" id="mechanismYdk"></div>
+                    <!-- Mekanizma Yedek Parçalar -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Mekanizma Parçaları
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <!-- Kaynak: ydkList.js Sayfaya Yazdırma -->
+                                <div class="flex" id="mechanismYdk"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Küçük Yedek Parçalar -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingFour">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                            Küçük Yedek Parçalar
-                        </button>
-                    </h2>
-                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
-                        data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <!-- Kaynak: ydkList.js Sayfaya Yazdırma -->
-                            <div class="flex" id="küçükYdk"></div>
+                    <!-- Küçük Yedek Parçalar -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                Küçük Yedek Parçalar
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <!-- Kaynak: ydkList.js Sayfaya Yazdırma -->
+                                <div class="flex" id="küçükYdk"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
     <!-- dahili jquery -->
     <script src="javascript/jquery-3.6.0.min.js"></script>
     <script src="../node_modules/jquery-table2excel/dist/jquery.table2excel.min.js"></script>

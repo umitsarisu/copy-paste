@@ -1,8 +1,79 @@
-
+a {
+    text-decoration: none;
+    color: black;
+    height: 40px;
+    display: block;
+    line-height: 40px;
+}
+hr{
+    margin: 10px 0;
+}
 @media screen and (min-width:1150px){
     body{
         display: flex;
     }
+    /* left sidebar start*/
+    aside {
+        width: 270px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        color: white;
+        background-color: #222222;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    aside li {
+        display: flex;
+        border-bottom: 1px solid gray;
+        margin: 0 10px 0 24px;
+    }
+    aside a, nav a {
+        height: auto;
+    }
+    .modal-content {
+        width: 500px;
+    }
+    .modal-body {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    #rvgModal #egt2 h5 {
+        line-height: 25px;
+        text-align: center;
+        font-size: 18px;
+    }
+    #rvgModal #rvg2, #egt2 {
+        width: 200px;
+        padding: 10px;
+        text-align: center;
+        background-color: whitesmoke;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+    #rvgModal #rvg2 p, #egt2 p {
+        display: block;
+        line-height: 30px;
+        font-size: 18px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: bold;
+    }
+    #rvgModal #rvg2 p { margin: 20px 0;}
+    #rvgModal #egt2 p { margin: 5px 0;}
+
+    #büyüteçModal #büyüteçTextarea {
+        width: 460px;
+        max-width: 490px;
+        min-height: 200px;
+        margin-bottom: 3px;
+    }
+    /* Left sidebar end */
+    /* top navbar */
+    #nav {display: none;}
+    /* main */
+    main { margin-left: 270px;}
     input{
         float: right;
         width: 300px;
@@ -52,7 +123,7 @@
         user-select: none;
     }
     section{
-        width: 70%;
+        width: 90%;
         margin: 0 40px;
     }
     section div.container2{
@@ -87,6 +158,65 @@
         display: flex;
         flex-direction: column;
     }
+    aside{display: none;}
+    /* Left sidebar end */
+    /* top navbar */
+    #nav{
+        min-height: 35px;
+        display: block !important;
+        background-color: #222222;
+    }
+    #nav li{
+        font-size: 13px;
+        border-left: 1px solid #555;
+        margin-left: 5px;
+    }
+    #nav a{
+        /* line-height: 40px; */
+        padding: 0;
+    }
+    .modal-content {
+        width: 500px;
+    }
+    .modal-body {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    #rvgModal #egt2 h5 {
+        line-height: 25px;
+        text-align: center;
+        font-size: 18px;
+    }
+    #rvgModal #rvg2, #egt2 {
+        width: 200px;
+        padding: 10px;
+        text-align: center;
+        background-color: whitesmoke;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+    #rvgModal #rvg2 p, #egt2 p {
+        display: block;
+        line-height: 30px;
+        font-size: 18px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: bold;
+    }
+    #rvgModal #rvg2 p { margin: 20px 0;}
+    #rvgModal #egt2 p { margin: 5px 0;}
+
+    #büyüteçModal #büyüteçTextarea {
+        width: 460px;
+        max-width: 490px;
+        min-height: 200px;
+        margin-bottom: 3px;
+    }
+    /* Left sidebar end */
+    /* top navbar */
+    #nav {display: none;}
+    /* main */
+    main { margin-top: 78px;}
     input{
         float: right;
         width: 300px;
@@ -137,7 +267,7 @@
     }
     section{
         width: 90%;
-        margin-left: 40px;
+        margin: 0 40px;
     }
     section div.container2{
         margin: 0 0 10px 10px;
@@ -171,6 +301,65 @@
         display: flex;
         flex-direction: column;
     }
+    aside{display: none;}
+    /* Left sidebar end */
+    /* top navbar */
+    #nav{
+        min-height: 35px;
+        display: block !important;
+        background-color: #222222;
+    }
+    #nav li{
+        font-size: 13px;
+        border-left: 1px solid #555;
+        margin-left: 5px;
+    }
+    #nav a{
+        /* line-height: 40px; */
+        padding: 0;
+    }
+    .modal-content {
+        width: 500px;
+    }
+    .modal-body {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    #rvgModal #egt2 h5 {
+        line-height: 25px;
+        text-align: center;
+        font-size: 18px;
+    }
+    #rvgModal #rvg2, #egt2 {
+        width: 200px;
+        padding: 10px;
+        text-align: center;
+        background-color: whitesmoke;
+        border: 1px solid gray;
+        border-radius: 10px;
+    }
+    #rvgModal #rvg2 p, #egt2 p {
+        display: block;
+        line-height: 30px;
+        font-size: 18px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: bold;
+    }
+    #rvgModal #rvg2 p { margin: 20px 0;}
+    #rvgModal #egt2 p { margin: 5px 0;}
+
+    #büyüteçModal #büyüteçTextarea {
+        width: 460px;
+        max-width: 490px;
+        min-height: 200px;
+        margin-bottom: 3px;
+    }
+    /* Left sidebar end */
+    /* top navbar */
+    #nav {display: none;}
+    /* main */
+    main { margin-top: 78px;}
     input{
         float: right;
         width: 300px;
