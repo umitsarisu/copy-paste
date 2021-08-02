@@ -45,6 +45,10 @@ button {
     width: 4rem;
     height: 2.5rem;
 }
+.btn{
+    width: auto;
+    height: auto;
+}
 a {
     text-decoration: none;
     color: black;
@@ -65,9 +69,6 @@ a.nav-link i{
 }
 #nav ul{
     margin-left: 5px;
-}
-i{
-    margin-left: 10px;
 }
 @media screen and (min-width:1071px){
     /* left sidebar start*/

@@ -219,11 +219,58 @@
             </div>
         </div>
     </main>
+    <!-- Sallamasyon Modal -->
+    <div class="modal fade" id="rvgModal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Rastgele Değer Üretici</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="rvg2" class="align-middle"></div>
+                    <div id="egt2" class="align-middle"></div>
+                </div>
+                <div class="modal-footer d-flex justify-content-end">
+                    <button type="button" onclick="rvgFunc(0)" class="btn btn-primary btn-lg">Yenile</button>
+                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Büyüteç Modal -->
+    <div class="modal fade" id="büyüteçModal" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Büyüteç</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <textarea class="form-control" id="büyüteçTextarea" cols="30" rows="4"
+                            placeholder="Buraya yazılan yazıları büyük harflere çevirir!"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-around">
+                    <button type="button" id="capitalButton" class="btn btn-primary"
+                        title="Yazıların ilk harflerini büyütür"><i class="fa fa-text-height me-1"></i>Başı
+                        Büyük</button>
+                    <button type="button" id="microscopeButton" class="btn btn-primary"
+                        title="Yazıları küçük harflere çevirir"><i class="fa fa-microscope me-1"></i>Mikroskop</button>
+                    <button type="button" id="büyüteçButton" class="btn btn-primary"
+                        title="Yazıları büyük harflere çevirir"><i class="fa fa-search me-1
+                        " aria-hidden="true"></i>Büyüteç</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- dahili jquery -->
-    <script src="javascript/jquery-3.6.0.min.js"></script>
-    <script src="../node_modules/jquery-table2excel/dist/jquery.table2excel.min.js"></script>
     <script src="javascript/ydkList.js"></script>
     <script src="javascript/yedekParçalar.js"></script>
+    <script src="javascript/randomValueGenerator.js"></script>
 </body>
 
 </html>

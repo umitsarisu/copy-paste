@@ -3,11 +3,23 @@ a {
     color: black;
     height: 40px;
     display: block;
-    line-height: 40px;
 }
 hr{
     margin: 10px 0;
 }
+.nav-link{
+    line-height: 40px;
+    margin: 0;
+    padding: 0;
+}
+a.nav-link i{
+    margin: 0;
+    padding: 0;
+}
+#nav ul{
+    margin-left: 5px;
+}
+
 @media screen and (min-width:1150px){
     body{
         display: flex;

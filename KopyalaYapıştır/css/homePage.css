@@ -4,9 +4,6 @@ body{
 .none{
     display: none;
 }
-i{
-    margin: 0 10px 0 5px;
-}
 hr{
     margin: 10px 0;
 }
@@ -14,24 +11,33 @@ a{
     text-decoration: none;
 }
 @media screen and (min-width:1136px){
-    aside{
-        width: 20vw;
-        min-width: 280px;
+    /* left sidebar start*/
+    aside {
+        width: 270px;
         height: 100vh;
         display: flex;
         flex-direction: column;
         color: white;
         background-color: #222222;
+        position: fixed;
+        top: 0;
+        left: 0;
     }
-    aside li{
+    aside li {
         display: flex;
         border-bottom: 1px solid gray;
         margin: 0 10px 0 24px;
     }
-    #nav{display: none;}
-    .modal-content{
+    .nav-link{
+        padding-left: 0;
+    }
+    aside a, nav a {
+        height: auto;
+    }
+    .modal-content {
         width: 500px;
     }
+    #nav{display: none;}
     .modal-body{
         display: flex;
         justify-content: space-around;
@@ -69,11 +75,9 @@ a{
         min-height: 200px;
         margin-bottom: 3px;
     }    
-    main{
-        width: 80vw;
-        height: 100vh;
-        background: #ddd;
-        border-bottom: 10px solid #212529;
+    main { 
+        width: 100%;
+        margin-left: 270px;
     }
     .carouselContainer{
         width: 750px;
@@ -95,6 +99,7 @@ a{
     section{
         display: flex;
         flex-direction: column;
+        justify-content: center;
     }
     #svg1{
         display: unset;
@@ -122,8 +127,10 @@ a{
 }
 @media screen and (min-width:768px) and (max-width:1136px){
     aside{display: none;}
+    /* Left sidebar end */
+    /* top navbar */
     #nav{
-        min-height: 9vh;
+        min-height: 57px;
         display: block;
         background-color: #222222;
     }
@@ -173,12 +180,9 @@ a{
         margin-bottom: 3px;
     }
     
-    main{
-        width: 100vw;
-        height: 90.9vh;
-        margin-top: 9.1vh;
-        background: #ddd;
-        border-bottom: 10px solid #212529;
+    main { 
+        width: 100%;
+        margin-top: 77px;
     }
     .carouselContainer{
         width: 750px;
@@ -277,12 +281,9 @@ a{
         margin-bottom: 3px;
     }
     
-    main{
-        width: 100vw;
-        height: 90.9vh;
-        margin-top: 9.1vh;
-        background: #ddd;
-        border-bottom: 10px solid #222222;
+    main { 
+        width: 100%;
+        margin-top: 78px;
     }
     .carouselContainer{
         width: 480px;

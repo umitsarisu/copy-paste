@@ -1633,15 +1633,18 @@ a.nav-link i{
     /* Left sidebar end */
     /* top navbar */
     #nav{
-        width: 100%;
-        min-height: 40px;
-        display: flex;
+        min-height: 35px;
+        display: block;
         background-color: #222222;
     }
     #nav li{
         font-size: 13px;
         border-left: 1px solid #555;
-        margin-left: 20px;
+        margin-left: 5px;
+    }
+    #nav a{
+        /* line-height: 40px; */
+        padding: 0;
     }
     #nav a{
         line-height: 40px;
@@ -1687,7 +1690,7 @@ a.nav-link i{
     }
     /* modals end */
     /* main */
-    main { width: 100%; margin-top: 56px;}
+    main { width: 100%; margin-top: 61px;}
 
     /* Containers */
     .largeContainer { width: 100%; margin: auto; box-sizing: border-box; }
@@ -2418,7 +2421,7 @@ a.nav-link i{
     }
     /* modals end */
     /* main */
-    main { width: 100%; margin-top: 57px;}
+    main { width: 100%; margin-top: 61px;}
 
     /* Containers */
     .largeContainer { width: 100%; margin: auto; box-sizing: border-box; }
