@@ -662,42 +662,53 @@ $(function () {
 }) // Distal Test End //
 
 function mainPageFormsVerification() {
-    if ($("#no2").is(":checked")) {
-        if (visualInspectionFail.checked || selfTestFail.checked || proximalOccFail.checked || distalOccFail.checked) {
-            if (visualBool == true) {
-                if (selfTestFail.checked) {
-                    if (battery.checked || sDBattery.checked || n252.checked || e439.checked || e302.checked || power.checked || cpu.checked || n250Shield.checked || n250Asmdoor.checked || n251Asmdoor.checked || n251Shield.checked || selfTestMechanism.checked) {
-                        verificationContinue();
-                    }
-                    else alert("Cassette Alarm Testte herhangi bir işaretleme yapmadınız.\nCassette Alarm Testte bir arıza yoksa kutucuğundaki işareti kaldırınız.");
-                }
-                else {
+    if (visualInspectionFail.checked || selfTestFail.checked || proximalOccFail.checked || distalOccFail.checked) {
+        if (visualBool == true) {
+            if (selfTestFail.checked) {
+                if (battery.checked || sDBattery.checked || n252.checked || e439.checked || e302.checked || power.checked || cpu.checked || n250Shield.checked || n250Asmdoor.checked || n251Asmdoor.checked || n251Shield.checked || selfTestMechanism.checked) {
                     verificationContinue();
                 }
-                function verificationContinue() {
-                    if (powerBool == true) {
-                        if (cpuBool == true) {
-                            if (selfMechanismBool == true) {
-                                if (proximalBool == true) {
-                                    if (distalBool == true) {
-                                        result();
-                                    }
-                                    else alert("Distal Occlusion Test bilgileri gönderilmemiştir!")
-                                }
-                                else alert("Proximal Occlusion Test bilgileri gönderilmemiştir!")
-                            }
-                            else alert("Mekanizma bilgileri gönderilmemiştir!")
-                        }
-                        else alert("Cpu bilgileri gönderilmemiştir!");
-                    }
-                    else alert("Power bilgileri gönderilmemiştir!");
-                }
+                else alert("Cassette Alarm Testte herhangi bir işaretleme yapmadınız.\nCassette Alarm Testte bir arıza yoksa kutucuğundaki işareti kaldırınız.");
             }
-            else alert("Visual Inspection Test bilgileri gönderilmemiştir!");
+            else {
+                verificationContinue();
+            }
+            function verificationContinue() {
+                if (powerBool == true) {
+                    if (cpuBool == true) {
+                        if (selfMechanismBool == true) {
+                            if (proximalBool == true) {
+                                if (distalBool == true) {
+                                    if ($("#no2").is(":checked")) result();
+                                    if ($("#yes2").is(":checked")) {
+                                        if (visualInspectionFail.checked) alert("Cihaz sağlamsa Visual Inspection Test kutucuğundaki işareti kaldırınız.");
+                                        else if (selfTestFail.checked) alert("Cihaz sağlamsa Cassette Alarm Test kutucuğundaki işareti kaldırınız.");
+                                        else if (proximalOccFail.checked) alert("Cihaz sağlamsa Proximal Occlusion Test kutucuğundaki işareti kaldırınız.");
+                                        else if (proximalOccFail.checked) alert("Cihaz sağlamsa Distal Occlusion Test kutucuğundaki işareti kaldırınız.");
+                                        else result()
+                                    }
+                                }
+                                else alert("Distal Occlusion Test bilgileri gönderilmemiştir!")
+                            }
+                            else alert("Proximal Occlusion Test bilgileri gönderilmemiştir!")
+                        }
+                        else alert("Mekanizma bilgileri gönderilmemiştir!")
+                    }
+                    else alert("Cpu bilgileri gönderilmemiştir!");
+                }
+                else alert("Power bilgileri gönderilmemiştir!");
+            }
         }
+        else alert("Visual Inspection Test bilgileri gönderilmemiştir!");
     }
     else {
-        if ($("#yes2").is(":checked")) result();
+        if ($("#yes2").is(":checked")) {
+            if (visualInspectionFail.checked) alert("Cihaz sağlamsa Visual Inspection Test kutucuğundaki işareti kaldırınız.");
+            else if (selfTestFail.checked) alert("Cihaz sağlamsa Cassette Alarm Test kutucuğundaki işareti kaldırınız.");
+            else if (proximalOccFail.checked) alert("Cihaz sağlamsa Proximal Occlusion Test kutucuğundaki işareti kaldırınız.");
+            else if (proximalOccFail.checked) alert("Cihaz sağlamsa Distal Occlusion Test kutucuğundaki işareti kaldırınız.");
+            else result()
+        }
         else alert("\nHiçbir hata belirtilmedi! \n\nCihaz 950 olarak kapatılacaksa \"Cihaz sağlam mı?\" sorusunu \"Evet\" olarak cevaplayın!");
     }
 }
