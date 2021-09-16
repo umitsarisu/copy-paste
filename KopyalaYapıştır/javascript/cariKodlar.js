@@ -17,7 +17,8 @@ var ozelHastaneler = [
     ["M05E006", "Emsey Sağlık Hizmetleri"],
     ["M01S072", "istanbul Medeniyet Üniversitesi, Göztepe"],
     ["M01İ007", "Başakşehir Şehir Hastanesi, Çam ve Sakura"],
-    ["M01S076", "Cemil Taşçıoğlu Şehir Hastanesi, Okmeydanı"]
+    ["M01S076", "Cemil Taşçıoğlu Şehir Hastanesi, Okmeydanı"],
+    ["M04A001", "Beykent Üniversitesi Hastanesi"]
 ]
 var istanbulHastaneleri = [
     ["M03I013", "istanbul Üniversitesi Cerrahpaşa Tıp Fakültesi"],

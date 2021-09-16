@@ -1710,7 +1710,7 @@ a.nav-link i{
         box-sizing: border-box;
         z-index: 2;
         position: sticky;
-        top: 0;
+        top: 61px;
     }
     div#headerTopSticky h2 {
         font-size: 30px;
@@ -2441,7 +2441,7 @@ a.nav-link i{
         box-sizing: border-box;
         z-index: 2;
         position: sticky;
-        top: 0;
+        top: 61px;
     }
     div#headerTopSticky h2 {
         font-size: 24px;

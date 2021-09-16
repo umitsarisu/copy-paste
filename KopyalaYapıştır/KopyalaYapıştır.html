@@ -40,7 +40,8 @@
                     <i class="fa fa-wrench fa-lg fa-fw ms-2 me-2"></i>Yedek Parçalar</a>
             </li>
             <li>
-                <a href="CariKodlar.html" class="nav-link text-white"><i class="fa fa-vcard fa-lg fa-fw ms-2 me-2"></i>Cari
+                <a href="CariKodlar.html" class="nav-link text-white"><i
+                        class="fa fa-vcard fa-lg fa-fw ms-2 me-2"></i>Cari
                     Kodlar</a>
             </li>
             <li>
@@ -646,7 +647,7 @@
         </div>
 
         <!-- Sonuç çıktılarının alındığı sayfa -->
-        <div id="sonuc" class="largeContainer none">
+        <div id="sonuc" class="largeContainer non">
             <!-- <div style="display:block; text-align: center;"><a href="büyüteç.html" target="_blank">Büyüteç</a><a
                         href="Rastgele Değer Üretici.html" target="_blank">Random Value</a></div> -->
             <section class="sectionContent border-lr">
@@ -721,6 +722,28 @@
                     <h6 name="resulth6">Araştırma Kodları</h6>
                     <textarea name="resultTextareas" class="sonucSectionColor" id="arastirmaKodu" rows="1"
                         readonly></textarea>
+                </div>
+                <div class="sonucContent aaCodesDiv">
+                    <h6 name="resulth6">Şikayet Onaylandı</h6>
+                    <label for="resultYes" class="resultLabel">
+                        <input type="radio" id="resultYes" name="resultRadio"> EVET
+                    </label>
+                    <label for="resultNo" class="resultLabel">
+                        <input type="radio" id="resultNo" name="resultRadio"> HAYIR
+                    </label>
+                    <label for="resultDifferent" class="resultLabel">
+                        <input type="radio" id="resultDifferent" name="resultRadio"> FARKLI
+                    </label>
+                    <style>
+                        .resultLabel {
+                            line-height: 41px;
+                            font-size: 15px;
+                            font-weight: bold;
+                            color: rgb(53, 47, 47);
+                            text-shadow: 0.5px 0.5px 5px rgb(196 115 115 / 77%);
+                            margin-left: 10px;
+                        }
+                    </style>
                 </div>
                 <div class="sonucContent heightRow">
                     <h6 name="resulth6">Yorum</h6>

@@ -31,6 +31,8 @@
                 probableCauseArray.push(this.probableCause);
             }
         }
+        resultYesNoDifferent();
+        $("#resultNo").prop("checked", true).prop("disabled", false);
         if (experience.length < 4) {
             saglamObj.errorHistoryLogs = experience + " CAN'T BE SHOWN ON A PUMP AS AN ERROR CODE.";
             saglamObj.firstSentence = experience + " CAN'T BE SHOWN ON A PUMP AS AN ERROR CODE. NO PROBABLE CAUSE. ";
@@ -126,6 +128,8 @@
             else if (distalTestPressureReplaced.checked) distalPrint(distalPressRepObj);
             else if (distalTestPressureCalibrated.checked) distalPrint(distalPressCalObj);
         }
+        resultYesNoDifferent();
+        $("#resultDifferent").prop("checked", true).prop("disabled", false);
     }
     $(function () {
         if (experience.length < 4) {
@@ -555,7 +559,7 @@ function AAcodes() {
                     $("#pumpTests > p:eq(" + (i - 1) + ")").addClass("red");
                     $("#pumpTests > p:eq(" + i + ")").addClass("green");
                 }
-                if((pumpTestsArray[i]==166)&&(damaged.length != 0)){
+                if ((pumpTestsArray[i] == 166) && (damaged.length != 0)) {
                     $("#pumpTests > p:eq(" + (i) + ")").addClass("red");
                 }
                 y = item;
@@ -591,10 +595,17 @@ function AAcodes() {
     function sxcvarmı() {
         for (i = 0; i < investigationCode.length; i++) {
             if (investigationCode[i] == "SXC") {
+                resultYesNoDifferent();
+                $("#resultYes").prop("checked", true).prop("disabled", false);
                 return true;
             }
         }
-    }    
+    }
+}
+function resultYesNoDifferent() {
+    for (i = 0; i < $('[name = "resultRadio"]').length; i++) {
+        $('[name = "resultRadio"]').eq(i).prop("checked", false).attr("disabled", "disabled")
+    }
 }
 function sonucReset() {
     selfTestCommentCounter = 0;
