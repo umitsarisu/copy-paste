@@ -298,8 +298,8 @@ var mechanismSparePartsObj = {
 //Plum360 Yedek Parçaları
 var plum360SparePartsObj = {
     frontcase: {
-        ad: "Front Case",
-        kod: "YDK-712-94863-404",
+        ad: "Housıng Front",
+        kod: "YDK-MEC0000925",
         fullName: function () {
             return this.ad + " (" + this.kod + ")";
         },
