@@ -1,38 +1,28 @@
 function dateFunc() {
-    var b = document.getElementById("date1").value;
-    var day = parseInt(b[8] + b[9]);
-    var month = parseInt(b[5] + b[6]);
-    var year = parseInt(b[0] + b[1] + b[2] + b[3]);
-    var day1, month1, monthtext, x;
+    let date = document.getElementById("date1").value;
+    date = date.replace(/-/g, "");
+    var year = parseInt(date.slice(0, 4));
+    var month = parseInt(date.slice(4, 6));
+    var day = parseInt(date.slice(6, 8));
     var months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
-    function monthFunc() {
-        while (true) {
-            x = Math.floor((Math.random() * 12) + 1);
-            if (x <= month && x > month - 3) {
-                month1 = x;
-                return months[x - 1];
-                break;
-            }
+    function randomDate() {
+        if (month == 1) {
+            randomMonth = Math.floor((Math.random() * 3) + 10);
+            randomDay = Math.floor((Math.random() * 28) + 1);
+            return `${randomDay} ${months[randomMonth - 1]} ${year - 1}`;
         }
-    }
-    function dayFunc() {
-        while (true) {
-            x = Math.floor((Math.random() * 28) + 1);
-            if (month1 < month) {
-                return x;
-                break;
-            }
-            else if (month1 == month) {
-                if (x < day) {
-                    return x;
-                    break;
+        else {
+            while (true) {
+                randomMonth = Math.floor((Math.random() * month) + 1);
+                randomDay = Math.floor((Math.random() * 28) + 1);
+                if ((randomMonth < month && randomMonth > month - 3) || (randomMonth == month && randomDay < day)) {
+                    return `${randomDay} ${months[randomMonth - 1]} ${year}`;
                 }
             }
+
         }
     }
-    monthtext = monthFunc();
-    day1 = dayFunc();
-    document.getElementById("dateResult").innerHTML = (day1 + " " + monthtext + " " + year + " TO " + day + " " + months[month - 1] + " " + year);
+    $("#dateResult").text(`${randomDate()} TO ${day} ${months[month - 1]} ${year}`);
 }
 function rvgFunc(x) {
     var psi6, psi10, egt1, egt2, egt3, egt4, egt5;
@@ -45,22 +35,22 @@ function rvgFunc(x) {
             break;
         }
     }
-    egt1=0;
-    egt2=0;
-    egt3=Math.floor(Math.random() * (17 - 10) + 10);
-    egt4=Math.floor(Math.random() * (50 - 30) + 30);
-    egt5=Math.floor(Math.random() * (120 - 70) + 70);
+    egt1 = 0;
+    egt2 = 0;
+    egt3 = Math.floor(Math.random() * (17 - 10) + 10);
+    egt4 = Math.floor(Math.random() * (50 - 30) + 30);
+    egt5 = Math.floor(Math.random() * (120 - 70) + 70);
     if (x == 0) {
         //Home Page
         $("#rvg2").empty();
         $("#egt2").empty();
         $("#rvg2").append('<p class="rvg2p">' + psi6 + '</p> <p class="rvg2p">' + psi10 + '</p>');
         $("#egt2").append('<h5>PVT</h5><hr>')
-        $("#egt2").append('<p class="egt2p">'+egt1+'</p><p class="egt2p">'+egt2+'</p><p class="egt2p">' + egt3 + '</p><p class="egt2p">' + egt4 + '</p><p class="egt2p">' + egt5 + '</p>');
+        $("#egt2").append('<p class="egt2p">' + egt1 + '</p><p class="egt2p">' + egt2 + '</p><p class="egt2p">' + egt3 + '</p><p class="egt2p">' + egt4 + '</p><p class="egt2p">' + egt5 + '</p>');
     }
     else {
         //Kopyala Yapıştır
         $(".rvg").append('<p class="rvg2p">' + psi6 + '</p> <p class="rvg2p">' + psi10 + '</p>');
-        $(".egt").append('<p class="egt2p">'+egt1+'</p><p class="egt2p">'+egt2+'</p><p class="egt2p">' + egt3 + '</p><p class="egt2p">' + egt4 + '</p><p class="egt2p">' + egt5 + '</p>');        
+        $(".egt").append('<p class="egt2p">' + egt1 + '</p><p class="egt2p">' + egt2 + '</p><p class="egt2p">' + egt3 + '</p><p class="egt2p">' + egt4 + '</p><p class="egt2p">' + egt5 + '</p>');
     }
 }
