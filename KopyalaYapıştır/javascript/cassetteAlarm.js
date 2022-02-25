@@ -223,7 +223,7 @@ var selfTestDriverPwaObj = {
     probableCause: "DEFECTIVE DRIVER PWA",
     changedPart: function () {
         return plum360YdkObj.driverPwa(1) + $("#selfTestDriverPwaSN").val().toUpperCase() + ")";
-    },    
+    },
 }
 var selfTestLSMotorObj = {
     replaced: "L/S MOTOR",

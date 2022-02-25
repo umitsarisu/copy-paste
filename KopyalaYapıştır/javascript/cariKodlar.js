@@ -1,4 +1,6 @@
-var ozelHastaneler = [
+"use strict";
+// Özel Hastanelerin Bilgileri
+const privateHospitals = [
     ["M17M001", "Meditera"],
     ["M04K001", "Koç Üniversitesi"],
     ["M05M021", "Moment, Amerikan Hastanesi"],
@@ -19,8 +21,9 @@ var ozelHastaneler = [
     ["M01İ007", "Başakşehir Şehir Hastanesi, Çam ve Sakura"],
     ["M01S076", "Cemil Taşçıoğlu Şehir Hastanesi, Okmeydanı"],
     ["M04A001", "Beykent Üniversitesi Hastanesi"]
-]
-var istanbulHastaneleri = [
+];
+// İstanbul İçi Hastanelerin Bilgileri
+const istanbulHospitals = [
     ["M03I013", "istanbul Üniversitesi Cerrahpaşa Tıp Fakültesi"],
     ["M03I003", "istanbul Üniversitesi İstanbul Çapa Tıp Fakültesi"],
     ["M03I009", "istanbul Üniversitesi Onkoloji Enstitüsü"],
@@ -29,7 +32,7 @@ var istanbulHastaneleri = [
     ["M01B003", "Sadi Konuk, Bakırköy Devlet Hastanesi"],
     ["M01S074", "Kanuni Sultan Süleyman Hastanesi, KSS"],
     ["M01T027", "Sultanbeyli Devlet Hastanesi"],
-    ["M01G007", "Gaziosmanpaşa EAH"],
+    ["M01G007", "Gaziosmanpaşa EAH, GOP"],
     ["M01T084", "Taksim EAH"],
     ["M01E019", "Eyüp Devlet Hastanesi"],
     ["M01S138", "Şişli Etfal EAH"],
@@ -44,8 +47,9 @@ var istanbulHastaneleri = [
     ["M01S151", "Süreyyapaşa Gögüs Hastanesi"],
     ["M01B001", "Bağcılar EAH"],
     ["M01B055", "Beylikdüzü Devlet Hastanesi"]
-]
-var istanbulDısıHastaneler = [
+];
+// İstanbul Dışı Hastanelerin Bilgileri
+const hospitalsOutsideOfIstanbul = [
     ["M03K002", "Kocaeli Üniversitesi"],
     ["M01S094", "Kocaeli Derince Devlet"],
     ["M01S006", "Sakarya Üniversitesi"],
@@ -54,15 +58,16 @@ var istanbulDısıHastaneler = [
     ["M01T080", "Sakarya Toyotosa"],
     ["M03T004", "Trakya Üniversitesi"],
     ["M01E001", "Edirne Sultan 1.Murat  Devlet Hastanesi"],
-    ["M01T034", "Tekirdağ Devlet Hastanesi"],
+    ["M01T085", "Tekirdağ Şehir Hastanesi"],
     ["M01B005", "Balıkesir Devlet Hastanesi"],
     ["M03B001", "Bolu İzzet Baysal Hastanesi"],
     ["M03U001", "Uludağ Üniversitesi"],
     ["M01S050", "Bursa Çekirge Devlet Hastanesi"],
     ["M03N001", "Namık Kemal Üniversitesi"],
     ["M03D005", "Düzce Üniversitesi"]
-]
-var departments = [
+];
+// Servis isimleri
+const departments = [
     ["Acil"],
     ["Acil Ameliyathane"],
     ["Acil Cerrahi"],
@@ -220,44 +225,62 @@ var departments = [
     ["Yoğun Bakım 1. Basamak"],
     ["Yoğun Bakım 2. Basamak"],
     ["Yoğun Bakım 3. Basamak"]
-]
-var deviceLists = [
+];
+const deviceListNo = [
     ["30010-06-05"],
     ["11971-36-03"],
     ["12391-06-01"],
     ["12391-36-01"]
-]
+];
+//Hastaneleri Listeleme
 $(function () {
-    $("#myTable").append('<tr><th colspan="5">Özel Hastaneler</th></tr>');
-    for (i = 1; i <= ozelHastaneler.length; i++) {
-        $("#myTable").append('<tr><th>' + i + '</th><td><button type="button" class="btn btn-outline-primary" name="cariButtons">Copy</button></td>' +
-            '<td>' + ozelHastaneler[i - 1][0] + '</td><td><button type="button" class="btn btn-outline-danger" name="hastaneButtons">Copy</button></td>' +
-            '<td>' + ozelHastaneler[i - 1][1] + '</td></tr>');
+    const listingOfHeaders = (area) => {
+        return (
+            $("#hospitalTable").append(`
+                <tr>
+                    <th colspan="5">${area}</th>
+                </tr>
+            `)
+        )
     }
-    $("#myTable").append('<tr><th colspan="5">İstanbul Hastaneleri</th></tr>');
-    for (i = 1; i <= istanbulHastaneleri.length; i++) {
-        $("#myTable").append('<tr><th>' + i + '</th><td><button type="button" class="btn btn-outline-primary" name="cariButtons">Copy</button></td>' +
-            '<td>' + istanbulHastaneleri[i - 1][0] + '</td><td><button type="button" class="btn btn-outline-danger" name="hastaneButtons">Copy</button></td>' +
-            '<td>' + istanbulHastaneleri[i - 1][1] + '</td></tr>');
+    const listingOfHospitals = (hospital, i) => {
+        return (
+            `<tr>
+                <th>${i + 1}</th>
+                <td><button type="button" class="btn btn-outline-primary" name="cariButtons">Copy</button></td>
+                <td name="hospitalCode">${hospital[0]}</td>
+                <td><button type="button" class="btn btn-outline-danger" name="hastaneButtons">Copy</button></td>
+                <td name="hospitalName">${hospital[1]}</td>
+            </tr>`
+        )
     }
-    $("#myTable").append('<tr><th colspan="5">İstanbul Dışı Hastaneler</th></tr>');
-    for (i = 1; i <= istanbulDısıHastaneler.length; i++) {
-        $("#myTable").append('<tr><th>' + i + '</th><td><button type="button" class="btn btn-outline-primary" name="cariButtons">Copy</button></td>' +
-            '<td>' + istanbulDısıHastaneler[i - 1][0] + '</td><td><button type="button" class="btn btn-outline-danger" name="hastaneButtons">Copy</button></td>' +
-            '<td>' + istanbulDısıHastaneler[i - 1][1] + '</td></tr>');
-    }
+    //Özel Hastanelerin Listelenmesi
+    listingOfHeaders("Özel Hastaneler")
+    privateHospitals.map((hospital, i) => {
+        $("#hospitalTable").append(listingOfHospitals(hospital, i))
+    })
+    //İstanbul Hastanelerinin Listelenmesi
+    listingOfHeaders("İstanbul Hastaneleri")
+    istanbulHospitals.map((hospital, i) => {
+        $("#hospitalTable").append(listingOfHospitals(hospital, i))
+    })
+    // İstanbul Dışı Hastanelerin Listelenmesi
+    listingOfHeaders("İstanbul Dışı Hastaneler")
+    hospitalsOutsideOfIstanbul.map((hospital, i) => {
+        $("#hospitalTable").append(listingOfHospitals(hospital, i))
+    })
 });
-$("#myTable").addClass("table table-fixed table-bordered overflow-auto");
+
+// Filtreleme işlemi
 function myFunction() {
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("myInput");
-    filter = input.value.toLowerCase();
-    table = document.getElementById("myTable");
-    tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[3];
+    let table = document.getElementById("hospitalTable");
+    let tr = table.getElementsByTagName("tr");
+    let input = document.getElementById("myInput");
+    let filter = input.value.toLowerCase();
+    for (let i = 0; i < tr.length; i++) {
+        let td = tr[i].getElementsByTagName("td")[3];
         if (td) {
-            txtValue = td.textContent || td.innerText;
+            let txtValue = td.textContent || td.innerText;
             if (txtValue.toLowerCase().indexOf(filter) > -1) {
                 tr[i].style.display = "";
             } else {
@@ -266,21 +289,23 @@ function myFunction() {
         }
     }
 }
+
+// Copy Butonları
 $(function () {
     $("button[name ='cariButtons']").click(function () {
-        var cariClipboard = document.createElement("textarea");
-        cariClipboard.value = $(this).parents("td").siblings("td:first()").text();
-        document.body.appendChild(cariClipboard);
-        cariClipboard.select();
+        let clipboard = document.createElement("textarea");
+        clipboard.value = $(this).parents("td").siblings("td:first()").text();
+        document.body.appendChild(clipboard);
+        clipboard.select();
         document.execCommand("copy");
-        document.body.removeChild(cariClipboard);
+        document.body.removeChild(clipboard);
     })
     $("button[name ='hastaneButtons']").click(function () {
-        var cariClipboard2 = document.createElement("textarea");
-        document.body.appendChild(cariClipboard2);
-        cariClipboard2.value = $(this).parents("td").siblings("td:last()").text();
-        cariClipboard2.select();
+        let clipboard = document.createElement("textarea");
+        document.body.appendChild(clipboard);
+        clipboard.value = $(this).parents("td").siblings("td:last()").text();
+        clipboard.select();
         document.execCommand("copy");
-        document.body.removeChild(cariClipboard2);
+        document.body.removeChild(clipboard);
     })
 })
