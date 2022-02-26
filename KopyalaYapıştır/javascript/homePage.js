@@ -19,9 +19,9 @@ function pageTransition(x) {
     $("iframe").addClass("none");
     $("section").addClass("none");
     if (x == 0) $("section").removeClass("none");
-    else if (x == 1) $("iframe[src='KopyalaYapıştır.html']").removeClass("none");
+    else if (x == 1) $("iframe[src='copy-paste.html']").removeClass("none");
     else if (x == 2) $("iframe[src='YedekParçalar.html']").removeClass("none");
     else if (x == 3) $("iframe[src='./pages/cari-kodlar/cari-kodlar.html']").removeClass("none");
-    else if (x == 4) $("iframe[src='CihazKayıtFormu.html']").removeClass("none");
-    else if (x == 5) $("iframe[src='Run-In.html']").removeClass("none");
+    else if (x == 4) $("iframe[src='./pages/forms/device-register-form.html']").removeClass("none");
+    else if (x == 5) $("iframe[src='./pages/forms/run-in-form.html']").removeClass("none");
 }

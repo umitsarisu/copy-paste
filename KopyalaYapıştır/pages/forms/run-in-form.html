@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1">
+    <!-- Bootstrap CSS -->
+    <!-- dahili bootstrap -->
+    <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- css dosyası -->
+    <link rel="stylesheet" href="style.css">
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="../../../font-awesome/css/font-awesome.min.css">
+    <!-- microscope için font awesome -->
+    <script src="https://kit.fontawesome.com/4ebb137696.js" crossorigin="anonymous"></script>
+    <!-- dahili javascript -->
+    <script src="../../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- dahili jquery -->
+    <script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- JQuery Excel oluşturma -->
+    <script src="../../../node_modules/jquery-table2excel/dist/jquery.table2excel.js"></script>
+    <!-- sayfa bilgileri -->
+    <title>Run-In Formu</title>
+</head>
+
+<body class="d-flex">
+    <form method="post" action="javascript: 2+2;" id="kayıt" autocomplete="off">
+        <div class="header">
+            <h5>Run-In Formu</h5>
+        </div>
+        <div class="formContainer">
+            <div class="formContent">
+                <p>List #: </p>
+                <p>Serial #: </p>
+            </div>
+            <div class="formContent">
+                <div class="form-group">
+                    <input list="runinListNumbers" auto-complete="on" type="text" name="runinList" class="form-control"
+                        placeholder="List" required tabindex="1" />
+                    <datalist id="runinListNumbers"></datalist>
+                </div>
+                <div class="form-group">
+                    <input maxlength="8" minlength="8" name="runinSerial" class="form-control" placeholder="Serial"
+                        required tabindex="2">
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="submit" class="form-control btn-danger" value="Gönder" tabindex="3" />
+                </div>
+            </div>
+        </div>
+    </form>
+    <section>
+        <div class="panoHeader">
+            <h1>Pano</h1>
+            <button id="yazdır3" class="btn btn-secondary"><i class="fa fa-print" aria-hidden="true"></i>
+                Yazdır</button>
+            <button id="excel" class="btn btn-secondary"><i class="fa fa-file-excel-o" aria-hidden="true"></i>
+                Excel'e
+                Aktar
+            </button>
+        </div>
+        <table id="pano3">
+            <tr>
+                <th>No</th>
+                <th>List No</th>
+                <th>Serial</th>
+            </tr>
+        </table>
+    </section>
+    <script>
+        // Excel 
+        $("#excel").click(function () {
+            $("#pano3").table2excel({
+                name: "Cihazlar", // Çalışma sayfası adı - Worksheet
+                filename: "dosya.xls" // Dosya Adı
+            });
+        })
+        // Device List Bilgilerini Ekleme
+        $(function () {
+            for (i = 0; i < deviceLists.length; i++) {
+                console.log("asd")
+                $("#runinListNumbers").append('<option value="' + deviceLists[i] + '">' + deviceLists[i] + '</option>');
+            }
+        })
+        //Yazdır Butonu
+        $("#yazdır3").click(function () {
+            var divToPrint = document.getElementById("pano3");
+            var htmlToPrint = '' +
+                '<style type="text/css">' +
+                'table, tr, th, td {' +
+                'border:1px solid #999;' +
+                'border-collapse: collapse;' +
+                'padding:0.5em;' +
+                '}' +
+                '</style>';
+            htmlToPrint += divToPrint.outerHTML;
+            newWin = window.open("");
+            newWin.document.write(htmlToPrint);
+            newWin.print();
+            newWin.close();
+        })
+        //Panoya Ekleme
+        $(function () {
+            $("#kayıt").submit(function () {
+                var list = $("input[name='runinList']").val();
+                var serial = $("input[name='runinSerial']").val();
+                $("#pano3").append(
+                    + '<tr><th>No</th><th>List #: </th><th>Serial #: </th><th></th></tr>'
+                    + '<tr><td><span class="spantd"></span></td>'
+                    + '<td>' + list + '</td>'
+                    + '<td>' + serial + '</td>'
+                    + '<td><button class="btn btn-danger btn-sm" class="delete" type="button" title="Delete"><i class="fa fa-trash"></i></button></td>'
+                    + '</tr>')
+                //Sıra Numarası Ekleme
+                for (i = 0; i < $(".spantd").length; i++) {
+                    $(".spantd")[i].innerHTML = i + 1 + ".";
+                }
+                $("input[name='runinList']").val("");
+                $("input[name='runinSerial']").val("");
+                $("input[name='runinList']").focus();
+            })
+            //Silme Fonksiyonu  
+            $("#pano3").on("click", "button", function () {
+                $(this).parents("tr").remove();
+                //Sıra Numarası Güncelleme
+                for (i = 0; i < $(".spantd").length; i++) {
+                    $(".spantd")[i].innerHTML = i + 1 + ".";
+                }
+            })
+        })
+    </script>
+    <script src="javascript/cariKodlar.js"></script>
+    <script src="javascript/randomValueGenerator.js"></script>
+</body>
+
+</html>

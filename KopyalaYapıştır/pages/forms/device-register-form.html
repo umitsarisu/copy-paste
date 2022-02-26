@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1">
+    <!-- Bootstrap CSS -->
+    <!-- dahili bootstrap -->
+    <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- css dosyası -->
+    <link rel="stylesheet" href="style.css">
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="../../../font-awesome/css/font-awesome.min.css">
+    <!-- microscope için font awesome -->
+    <script src="https://kit.fontawesome.com/4ebb137696.js" crossorigin="anonymous"></script>
+    <!-- dahili javascript -->
+    <script src="../../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- dahili jquery -->
+    <script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- JQuery Excel oluşturma -->
+    <script src="../../../node_modules/jquery-table2excel/dist/jquery.table2excel.js"></script>
+    <!-- sayfa bilgileri -->
+    <title>Cihaz Kayıt Formu</title>
+</head>
+
+<body>
+    <form method="post" action="javascript: 2+2;" id="kayıt" autocomplete="off">
+        <div class="header">
+            <h5>Cihaz Kayıt Formu</h5>
+        </div>
+        <div class="formContainer">
+            <div class="formContent">
+                <p>Meditera: </p>
+                <p>Hastane: </p>
+                <p>Bölüm: </p>
+                <p>Hata Kodu: </p>
+            </div>
+            <div class="formContent">
+                <div class="form-group">
+                    <input type="text" name="Meditera" class="form-control" placeholder="Meditera No" required
+                        maxlength="5" tabindex="1" />
+                </div>
+                <div class="form-group">
+                    <input list="hastaneler" name="Hastane" class="form-control" placeholder="Hastaneyi Girin" required
+                        tabindex="2">
+                    <datalist id="hastaneler"></datalist>
+                </div>
+                <div class="form-group">
+                    <input list="bolumler" name="Bolum" class="form-control" placeholder="Bölüm Girin" tabindex="3">
+                    <datalist id="bolumler">
+                        <option value="-----">Yok</option>
+                    </datalist>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="HataKodu" class="form-control" placeholder="Hata Kodu" maxlength="5"
+                        tabindex="4" />
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="submit" class="form-control btn-danger" value="Gönder" tabindex="5" />
+                </div>
+            </div>
+        </div>
+    </form>
+    <section>
+        <div class="panoHeader">
+            <h1>Pano</h1>
+            <button id="yazdır2" class="btn btn-secondary"><i class="fa fa-print" aria-hidden="true"></i>
+                Yazdır</button>
+            <button id="excel" class="btn btn-secondary"><i class="fa fa-file-excel-o" aria-hidden="true"></i>
+                Excel'e Aktar
+            </button>
+        </div>
+        <table id="pano2">
+            <tr>
+                <th>No</th>
+                <th>Meditera</th>
+                <th>Hastane</th>
+                <th>Bölüm</th>
+                <th>Hata Kodu</th>
+                <th></th>
+            </tr>
+        </table>
+    </section>
+    <script>
+        // Excel 
+        $("#excel").click(function () {
+            $("#pano2").table2excel({
+                name: "Cihazlar", // Çalışma sayfası adı - Worksheet
+                filename: "dosya.xls" // Dosya Adı
+            });
+        })
+        // Hastane ve Bölüm Bilgilerini Ekleme
+        $(function () {
+            for (i = 0; i < ozelHastaneler.length; i++) {
+                $("#hastaneler").append('<option value="' + ozelHastaneler[i][1] + '">' + ozelHastaneler[i][1] + '</option>');
+            }
+            for (i = 0; i < istanbulHastaneleri.length; i++) {
+                $("#hastaneler").append('<option value="' + istanbulHastaneleri[i][1] + '">' + istanbulHastaneleri[i][1] + '</option>');
+            }
+            for (i = 0; i < istanbulDısıHastaneler.length; i++) {
+                $("#hastaneler").append('<option value="' + istanbulDısıHastaneler[i][1] + '">' + istanbulDısıHastaneler[i][1] + '</option>');
+            }
+            for (i = 0; i < departments.length; i++) {
+                $("#bolumler").append('<option value="' + departments[i] + '">' + departments[i] + '</option>');
+            }
+        })
+        //Yazdır Butonu
+        $("#yazdır2").click(function () {
+            var divToPrint = document.getElementById("pano2");
+            var htmlToPrint = '' +
+                '<style type="text/css">' +
+                'table, tr, th, td {' +
+                'border:1px solid #999;' +
+                'border-collapse: collapse;' +
+                'padding:0.5em;' +
+                '}' +
+                '</style>';
+            htmlToPrint += divToPrint.outerHTML;
+            newWin = window.open("");
+            newWin.document.write(htmlToPrint);
+            newWin.print();
+            newWin.close();
+        })
+        //Panoya Ekleme
+        $(function () {
+            $("#kayıt").submit(function () {
+                var meditera = $("input[name='Meditera']").val();
+                var hastane = $("input[name='Hastane']").val();
+                var bölüm = $("input[name='Bolum']").val();
+                var hatakodu = $("input[name='HataKodu']").val()
+                $("#pano2").append(
+                    + '<tr><th>No</th><th>Meditera</th><th>Hastane</th><th>Bölüm</th><th>Hata Kodu</th><th></th></tr>'
+                    + '<tr><td><span class="spantd"></span></td>'
+                    + '<td>' + meditera + '</td>'
+                    + '<td>' + hastane + '</td>'
+                    + '<td>' + bölüm + '</td>'
+                    + '<td>' + hatakodu + '</td>'
+                    + '<td><button class="btn btn-danger btn-sm" class="delete" type="button" title="Delete"><i class="fa fa-trash"></i></button></td>'
+                    + '</tr>')
+                //Sıra Numarası Ekleme
+                for (i = 0; i < $(".spantd").length; i++) {
+                    $(".spantd")[i].innerHTML = i + 1 + ".";
+                }
+                $("input[name='Meditera']").val("");
+                $("input[name='Hastane']").val("");
+                $("input[name='Bolum']").val("");
+                $("input[name='HataKodu']").val("");
+                $("input[name='Meditera']").focus();
+            })
+            //Silme Fonksiyonu  
+            $("#pano2").on("click", "button", function () {
+                $(this).parents("tr").remove();
+                //Sıra Numarası Güncelleme
+                for (i = 0; i < $(".spantd").length; i++) {
+                    $(".spantd")[i].innerHTML = i + 1 + ".";
+                }
+            })
+        })
+    </script>
+    <script src="javascript/cariKodlar.js"></script>
+    <script src="javascript/randomValueGenerator.js"></script>
+</body>
+
+</html>

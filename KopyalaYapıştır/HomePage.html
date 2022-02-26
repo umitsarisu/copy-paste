@@ -20,45 +20,45 @@
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <!-- sayfa bilgileri -->
     <link rel="shortcut icon" href="images/logo1.png">
-    <title>Ana Sayfa</title>
+    <title>Anasayfa</title>
 </head>
 
 <body class="d-flex">
-    <aside class="">
+    <aside>
         <a href="#" class="ml-1 mt-2 text-white" onclick="pageTransition(0)">
-            <i class="fa fa-home fa-2x fa-fw" aria-hidden="true"></i>
-            <span class="fs-3">Ana Sayfa</span></a>
+            <i class="fas fa-home fa-2x fa-fw" aria-hidden="true"></i>
+            <span class="fs-3">Anasayfa</span></a>
         <hr>
         <ul class="nav flex-column">
             <li class="nav-item ms-2">
                 <a href="#" class="nav-link text-white" onclick="pageTransition(1)">
-                    <i class="fa fa-copy fa-lg fa-fw"></i>
+                    <i class="fa fa-copy fa-lg fa-fw ms-2"></i>
                     Kopyala Yapıştır</a>
             </li>
             <li>
                 <a href="#" class="nav-link text-white" onclick="pageTransition(2)">
-                    <i class="fa fa-wrench fa-lg fa-fw"></i>Yedek Parçalar</a>
+                    <i class="fa fa-wrench fa-lg fa-fw ms-2 me-2"></i>Yedek Parçalar</a>
             </li>
             <li>
                 <a href="#" class="nav-link text-white" onclick="pageTransition(3)"><i
-                        class="fa fa-vcard fa-lg fa-fw"></i>Cari Kodlar</a>
+                        class="fa fa-vcard fa-lg fa-fw ms-2 me-2"></i>Cari Kodlar</a>
             </li>
             <li>
                 <a href="#" class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#rvgModal"
                     onclick="rvgFunc(0)">
-                    <i class="fa fa-random fa-lg fa-fw"></i>Rastgele Değer Üretici</a>
+                    <i class="fa fa-random fa-lg fa-fw ms-2 me-2"></i>Rastgele Değer Üretici</a>
             </li>
             <li>
                 <a href="#" class="nav-link text-white" onclick="pageTransition(4)">
-                    <i class="fa fa-file-text-o fa-lg fa-fw"></i>Cihaz Kayıt Formu</a>
+                    <i class="fa fa-file-text-o fa-lg fa-fw ms-2 me-2"></i>Cihaz Kayıt Formu</a>
             </li>
             <li>
                 <a href="#" class="nav-link text-white" onclick="pageTransition(5)">
-                    <i class="fa fa-file-text-o fa-lg fa-fw"></i>Run-In Formu</a>
+                    <i class="fa fa-file-text-o fa-lg fa-fw ms-2 me-2"></i>Run-In Formu</a>
             </li>
             <li>
                 <a href="#" class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#büyüteçModal">
-                    <i class="fa fa-search fa-lg fa-fw"></i>Büyüteç</a>
+                    <i class="fa fa-search fa-lg fa-fw ms-2 me-2"></i>Büyüteç</a>
             </li>
         </ul>
     </aside>
@@ -94,6 +94,10 @@
                     <li class="nav-item">
                         <a href="#" class="nav-link text-white" onclick="pageTransition(4)">
                             <i class="fa fa-file-text-o fa-lg fa-fw"></i>Cihaz Kayıt Formu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white" onclick="pageTransition(5)">
+                            <i class="fa fa-file-text-o fa-lg fa-fw"></i>Run-In Formu</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link text-white" data-bs-toggle="modal"
@@ -188,11 +192,11 @@
                 <h2>Yenilikler!</h2>
             </div>
         </section>
-        <iframe class="non" src="./pages/cari-kodlar/cari-kodlar.html" frameborder="0"></iframe>
+        <iframe class="none" src="./pages/cari-kodlar/cari-kodlar.html" frameborder="0"></iframe>
         <iframe class="none" src="copy-paste.html" frameborder="0"></iframe>
         <iframe class="none" src="YedekParçalar.html" frameborder="0"></iframe>
-        <iframe class="none" src="CihazKayıtFormu.html" frameborder="0"></iframe>
-        <iframe class="none" src="Run-In.html" frameborder="0"></iframe>
+        <iframe class="none" src="./pages/forms/device-register-form.html" frameborder="0"></iframe>
+        <iframe class="non" src="./pages/forms/run-in-form.html" frameborder="0"></iframe>
     </main>
 
     <!-- Sallamasyon Modal -->
