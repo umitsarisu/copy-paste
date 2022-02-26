@@ -182,7 +182,7 @@ a{
     
     main { 
         width: 100%;
-        margin-top: 77px;
+        margin-top: 57px;
     }
     .carouselContainer{
         width: 750px;
@@ -225,7 +225,7 @@ a{
     }    
     iframe{
         width: 100%;
-        height: 100%;
+        height: 100vh;
     }
 }
 @media screen and (max-width:768px){
@@ -283,7 +283,7 @@ a{
     
     main { 
         width: 100%;
-        margin-top: 78px;
+        margin-top: 57px;
     }
     .carouselContainer{
         width: 480px;
@@ -327,7 +327,7 @@ a{
     }    
     iframe{
         width: 100vw;
-        height: 100%;
+        height: 100vh;
     }
 }
 
@@ -369,7 +369,7 @@ a{
     }    
     iframe{
         width: 100%;
-        height: 100%;
+        height: 100vh;
     }
 }
 @media screen and (max-height:650px) and (min-width:1136px){    
@@ -388,6 +388,6 @@ a{
     }    
     iframe{
         width: 100%;
-        height: 100%;
+        height: 100vh;
     }
 }

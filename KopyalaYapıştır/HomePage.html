@@ -24,48 +24,47 @@
 </head>
 
 <body class="d-flex">
-    <aside>
-        <a href="HomePage.html" class="ms-1 mt-2 text-white">
-            <i class="fas fa-home fa-2x fa-fw" aria-hidden="true"></i>
+    <aside class="">
+        <a href="#" class="ml-1 mt-2 text-white" onclick="pageTransition(0)">
+            <i class="fa fa-home fa-2x fa-fw" aria-hidden="true"></i>
             <span class="fs-3">Ana Sayfa</span></a>
         <hr>
         <ul class="nav flex-column">
             <li class="nav-item ms-2">
-                <a href="KopyalaYapıştır.html" class="nav-link text-white">
-                    <i class="fa fa-copy fa-lg fa-fw ms-2"></i>
+                <a href="#" class="nav-link text-white" onclick="pageTransition(1)">
+                    <i class="fa fa-copy fa-lg fa-fw"></i>
                     Kopyala Yapıştır</a>
             </li>
             <li>
-                <a href="YedekParçalar.html" class="nav-link text-white">
-                    <i class="fa fa-wrench fa-lg fa-fw ms-2 me-2"></i>Yedek Parçalar</a>
+                <a href="#" class="nav-link text-white" onclick="pageTransition(2)">
+                    <i class="fa fa-wrench fa-lg fa-fw"></i>Yedek Parçalar</a>
             </li>
             <li>
-                <a href="CariKodlar.html" class="nav-link text-white"><i
-                        class="fa fa-vcard fa-lg fa-fw ms-2 me-2"></i>Cari
-                    Kodlar</a>
+                <a href="#" class="nav-link text-white" onclick="pageTransition(3)"><i
+                        class="fa fa-vcard fa-lg fa-fw"></i>Cari Kodlar</a>
             </li>
             <li>
                 <a href="#" class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#rvgModal"
                     onclick="rvgFunc(0)">
-                    <i class="fa fa-random fa-lg fa-fw ms-2 me-2"></i>Rastgele Değer Üretici</a>
+                    <i class="fa fa-random fa-lg fa-fw"></i>Rastgele Değer Üretici</a>
             </li>
             <li>
-                <a href="CihazKayıtFormu.html" class="nav-link text-white">
-                    <i class="fa fa-file-text-o fa-lg fa-fw ms-2 me-2"></i>Cihaz Kayıt Formu</a>
+                <a href="#" class="nav-link text-white" onclick="pageTransition(4)">
+                    <i class="fa fa-file-text-o fa-lg fa-fw"></i>Cihaz Kayıt Formu</a>
             </li>
             <li>
-                <a href="Run-In.html" class="nav-link text-white">
-                    <i class="fa fa-file-text-o fa-lg fa-fw ms-2 me-2"></i>Run-In Formu</a>
+                <a href="#" class="nav-link text-white" onclick="pageTransition(5)">
+                    <i class="fa fa-file-text-o fa-lg fa-fw"></i>Run-In Formu</a>
             </li>
             <li>
                 <a href="#" class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#büyüteçModal">
-                    <i class="fa fa-search fa-lg fa-fw ms-2 me-2"></i>Büyüteç</a>
+                    <i class="fa fa-search fa-lg fa-fw"></i>Büyüteç</a>
             </li>
         </ul>
     </aside>
     <nav id="nav" class="navbar fixed-top navbar-expand-xl navbar-dark">
         <div class="container-fluid">
-            <a href="HomePage.html" class="text-white">
+            <a href="#" class="text-white" onclick="pageTransition(0)">
                 <i class="fa fa-home fa-2x" aria-hidden="true"></i>
                 <span class="fs-3">Ana Sayfa</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -75,17 +74,17 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a href="KopyalaYapıştır.html" class="nav-link text-white">
-                            <i class="fa fa-copy fa-lg fa-fw" style="margin-right: 5px;"></i>
+                        <a href="#" class="nav-link text-white" onclick="pageTransition(1)">
+                            <i class="fa fa-copy fa-lg fa-fw"></i>
                             Kopyala Yapıştır</a>
                     </li>
                     <li class="nav-item">
-                        <a href="YedekParçalar.html" class="nav-link text-white">
-                            <i class="fa fa-wrench fa-lg fa-fw ms-1"></i>Yedek Parçalar</a>
+                        <a href="#" class="nav-link text-white" onclick="pageTransition(2)">
+                            <i class="fa fa-wrench fa-lg fa-fw"></i>Yedek Parçalar</a>
                     </li>
                     <li class="nav-item">
-                        <a href="CariKodlar.html" class="nav-link text-white"><i
-                                class="fa fa-vcard fa-lg fa-fw ms-1"></i>Cari Kodlar</a>
+                        <a href="#" class="nav-link text-white" onclick="pageTransition(3)"><i
+                                class="fa fa-vcard fa-lg fa-fw"></i>Cari Kodlar</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#rvgModal"
@@ -93,15 +92,12 @@
                             <i class="fa fa-random fa-lg fa-fw"></i>Rastgele Değer Üretici</a>
                     </li>
                     <li class="nav-item">
-                        <a href="CihazKayıtFormu.html" class="nav-link text-white">
+                        <a href="#" class="nav-link text-white" onclick="pageTransition(4)">
                             <i class="fa fa-file-text-o fa-lg fa-fw"></i>Cihaz Kayıt Formu</a>
                     </li>
                     <li class="nav-item">
-                        <a href="Run-In.html" class="nav-link text-white">
-                            <i class="fa fa-file-text-o fa-lg fa-fw ms-1"></i>Run-In Formu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#büyüteçModal">
+                        <a href="#" class="nav-link text-white" data-bs-toggle="modal"
+                            data-bs-target="#büyüteçModal">
                             <i class="fa fa-search fa-lg fa-fw"></i>Büyüteç</a>
                     </li>
                 </ul>
@@ -109,7 +105,7 @@
         </div>
     </nav>
     <main>
-        <section>
+        <section class="none">
             <div class="carouselContainer shadow">
                 <div id="informationCarousel" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
@@ -177,25 +173,26 @@
                 </div>
                 <svg height="42" id="svg1" width="750">
                     <polyline points="335,0 335,8 337,10 363,10 365,12 365,28 363,30 
-                        280,30 258,32 257,33 257,38 258,39 280,41 375,41"
-                        style="fill:none;stroke:#666;stroke-width:1" />
+                    280,30 258,32 257,33 257,38 258,39 280,41 375,41" style="fill:none;stroke:#666;stroke-width:1" />
                     <polyline points="415,0 415,8 413,10 387,10 385,12 385,28 387,30
-                        470,30 492,32 493,33 493,38 492,39 470,41 375,41"
-                        style="fill:none;stroke:#666;stroke-width:1" />
+                    470,30 492,32 493,33 493,38 492,39 470,41 375,41" style="fill:none;stroke:#666;stroke-width:1" />
                 </svg>
                 <svg height="42" id="svg2" width="750">
                     <polyline points="310,0 310,8 312,10 338,10 340,12 340,28 338,30 
-                        255,30 233,32 232,33 232,38 233,39 255,41 350,41"
-                        style="fill:none;stroke:#666;stroke-width:1" />
+                    255,30 233,32 232,33 232,38 233,39 255,41 350,41" style="fill:none;stroke:#666;stroke-width:1" />
                     <polyline points="390,0 390,8 388,10 362,10 360,12 360,28 362,30
-                        445,30 467,32 468,33 468,38 467,39 445,41 350,41"
-                        style="fill:none;stroke:#666;stroke-width:1" />
+                    445,30 467,32 468,33 468,38 467,39 445,41 350,41" style="fill:none;stroke:#666;stroke-width:1" />
                 </svg>
             </div>
             <div id="innovations">
                 <h2>Yenilikler!</h2>
             </div>
         </section>
+        <iframe class="non" src="./pages/cari-kodlar/cari-kodlar.html" frameborder="0"></iframe>
+        <iframe class="none" src="copy-paste.html" frameborder="0"></iframe>
+        <iframe class="none" src="YedekParçalar.html" frameborder="0"></iframe>
+        <iframe class="none" src="CihazKayıtFormu.html" frameborder="0"></iframe>
+        <iframe class="none" src="Run-In.html" frameborder="0"></iframe>
     </main>
 
     <!-- Sallamasyon Modal -->

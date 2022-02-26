@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1">
+    <!-- Bootstrap CSS -->
+    <!-- dahili bootstrap -->
+    <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- css dosyası -->
+    <link rel="stylesheet" href="style.css">
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="../../../font-awesome/css/font-awesome.min.css">
+    <!-- microscope için font awesome -->
+    <script src="https://kit.fontawesome.com/4ebb137696.js" crossorigin="anonymous"></script>
+    <!-- dahili javascript -->
+    <script src="../../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- dahili jquery -->
+    <script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- sayfa bilgileri -->
+    <link rel="shortcut icon" href="images/logo1.png">
+    <title>Cari Kodlar</title>
+</head>
+
+<body>
+    <main>
+        <div class="container-cari">
+            <div class="cari-content">
+                <input type="text" id="myInput" class="form-control" onkeyup="myFunction()"
+                    style="font-family: FontAwesome;" placeholder="&#xf002 Search for names.." title="Type in a name"
+                    autocomplete="off">
+                <div class="table-responsive-lg">
+                    <table id="hospitalTable" class="table table-fixed overflow-auto">
+                    </table>
+                </div>
+            </div>
+        </div>        
+    </main>
+    <script src="cariKodlar.js"></script>
+</body>
+
+</html>

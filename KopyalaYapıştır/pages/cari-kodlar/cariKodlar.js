@@ -234,19 +234,19 @@ const deviceListNo = [
 ];
 //Hastaneleri Listeleme
 $(function () {
-    const listingOfHeaders = (area) => {
+    const listingOfHeaders = (title) => {
         return (
             $("#hospitalTable").append(`
                 <tr>
-                    <th colspan="5">${area}</th>
+                    <th colspan="5" class="title">${title}</th>
                 </tr>
             `)
         )
-    }
+    };
     const listingOfHospitals = (hospital, i) => {
         return (
             `<tr>
-                <th>${i + 1}</th>
+                <th>${i + 1}.</th>
                 <td><button type="button" class="btn btn-outline-primary" name="cariButtons">Copy</button></td>
                 <td name="hospitalCode">${hospital[0]}</td>
                 <td><button type="button" class="btn btn-outline-danger" name="hastaneButtons">Copy</button></td>
