@@ -242,7 +242,7 @@ $(function () {
                 </tr>
             `)
         )
-    };
+    }
     const listingOfHospitals = (hospital, i) => {
         return (
             `<tr>

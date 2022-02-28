@@ -1,75 +1,76 @@
-var commonYdkObj = {
-    battery: function (x) {
+"use strict";
+const commonYdkObj = {
+    battery: () => {
         return plum360SparePartsObj.battery.fullName();
     },
-    pressurededector: function (x) {
+    pressurededector: () => {
         return mechanismSparePartsObj.pressurededector.fullName();
     },
-    app: function (x) {
+    app: () => {
         return mechanismSparePartsObj.apppwa.fullName();
     },
-    cpu: function (x) {
+    cpu: () => {
         return plum360SparePartsObj.cpu.fullName();
-    },
-}
-var plum360YdkObj = {
-    asmdoor: function (x) {
+    }
+};
+const plum360YdkObj = {
+    asmdoor: () => {
         return plum360SparePartsObj.asmdoor.fullName();
     },
-    shield: function (x) {
+    shield: () => {
         return plum360SparePartsObj.shield.fullName();
     },
-    keypad360: function (x) {
+    keypad360: () => {
         return plum360SparePartsObj.keypad.fullName();
     },
-    display: function (x) {
+    display: () => {
         return plum360SparePartsObj.display.fullName();
     },
-    power: function (x) {
+    power: () => {
         return plum360SparePartsObj.powerpwa.fullName();
     },
-    mechanism: function (x) {
+    mechanism: () => {
         return mechanismSparePartsObj.mechanism360.fullName();
     },
-    driverPwa: function (x) {
+    driverPwa: () => {
         return mechanismSparePartsObj.driverpwa.fullName();
     },
-    lsMotor: function (x) {
+    lsMotor: () => {
         return mechanismSparePartsObj.lsmotor.fullName();
     },
-    ioMotor: function (x) {
+    ioMotor: () => {
         return mechanismSparePartsObj.iomotor.fullName();
     },
-    plungerMotor: function (x) {
+    plungerMotor: () => {
         return mechanismSparePartsObj.plungermotor.fullName();
     },
-    switchPwa: function (x) {
+    switchPwa: () => {
         return mechanismSparePartsObj.switchpwa.fullName();
     },
-    peripheralPwa: function (x) {
+    peripheralPwa: () => {
         return plum360SparePartsObj.peripheralpwa.fullName();
     }
-}
-var plumaYdkObj = {
-    asmdoor: function (x) {
+};
+const plumaYdkObj = {
+    asmdoor: () => {
         return plumaSparePartsObj.asmdoor.fullName();
     },
-    shield: function (x) {
+    shield: () => {
         return plumaSparePartsObj.shield.fullName();
     },
-    keypadTr: function (x) {
+    keypadTr: () => {
         return plumaSparePartsObj.keypadtr.fullName();
     },
-    keypadEn: function (x) {
+    keypadEn: () => {
         return plumaSparePartsObj.keypaden.fullName();
     },
-    display: function (x) {
+    display: () => {
         return plum360SparePartsObj.display.fullName();
     },
-    power: function (x) {
+    power: () => {
         return plumaSparePartsObj.powerpwa.fullName();
     },
-    mechanism: function (x) {
+    mechanism: () => {
         return mechanismSparePartsObj.mechanism.fullName();
-    },
-}
+    }
+};

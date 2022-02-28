@@ -56,8 +56,7 @@
             <button id="yazdır3" class="btn btn-secondary"><i class="fa fa-print" aria-hidden="true"></i>
                 Yazdır</button>
             <button id="excel" class="btn btn-secondary"><i class="fa fa-file-excel-o" aria-hidden="true"></i>
-                Excel'e
-                Aktar
+                Excel'e Aktar
             </button>
         </div>
         <table id="pano3">
@@ -78,22 +77,22 @@
         })
         // Device List Bilgilerini Ekleme
         $(function () {
-            for (i = 0; i < deviceLists.length; i++) {
-                console.log("asd")
-                $("#runinListNumbers").append('<option value="' + deviceLists[i] + '">' + deviceLists[i] + '</option>');
-            }
+            deviceListNo.map((listNo) => {
+                $("#runinListNumbers").append(`<option value="${listNo}">${listNo}</option>`);
+            })
         })
         //Yazdır Butonu
         $("#yazdır3").click(function () {
-            var divToPrint = document.getElementById("pano3");
-            var htmlToPrint = '' +
-                '<style type="text/css">' +
-                'table, tr, th, td {' +
-                'border:1px solid #999;' +
-                'border-collapse: collapse;' +
-                'padding:0.5em;' +
-                '}' +
-                '</style>';
+            const divToPrint = document.getElementById("pano3");
+            let htmlToPrint = `
+                <style type="text/css">
+                    table, tr, th, td {
+                        border:1px solid #999;
+                        border-collapse: collapse;
+                        padding:0.5em;
+                    }
+                </style>
+            `
             htmlToPrint += divToPrint.outerHTML;
             newWin = window.open("");
             newWin.document.write(htmlToPrint);
@@ -105,13 +104,26 @@
             $("#kayıt").submit(function () {
                 var list = $("input[name='runinList']").val();
                 var serial = $("input[name='runinSerial']").val();
-                $("#pano3").append(
-                    + '<tr><th>No</th><th>List #: </th><th>Serial #: </th><th></th></tr>'
-                    + '<tr><td><span class="spantd"></span></td>'
-                    + '<td>' + list + '</td>'
-                    + '<td>' + serial + '</td>'
-                    + '<td><button class="btn btn-danger btn-sm" class="delete" type="button" title="Delete"><i class="fa fa-trash"></i></button></td>'
-                    + '</tr>')
+                $("#pano3").append(`
+                    <tr>
+                        <th>No</th>
+                        <th>List #: </th>
+                        <th>Serial #: </th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="spantd"></span>
+                        </td>
+                        <td>list</td>
+                        <td>serial</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm" class="delete" type="button" title="Delete">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `)
                 //Sıra Numarası Ekleme
                 for (i = 0; i < $(".spantd").length; i++) {
                     $(".spantd")[i].innerHTML = i + 1 + ".";
@@ -130,8 +142,7 @@
             })
         })
     </script>
-    <script src="javascript/cariKodlar.js"></script>
-    <script src="javascript/randomValueGenerator.js"></script>
+    <script src="../cari-kodlar/cariKodlar.js"></script>
 </body>
 
 </html>

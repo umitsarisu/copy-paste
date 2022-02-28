@@ -11,7 +11,7 @@
     <!-- css dosyası -->
     <link rel="stylesheet" href="style.css">
     <!-- font-awesome -->
-    <link rel="stylesheet" href="../../../font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../../node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css">
     <!-- microscope için font awesome -->
     <script src="https://kit.fontawesome.com/4ebb137696.js" crossorigin="anonymous"></script>
     <!-- dahili javascript -->
@@ -72,14 +72,6 @@
             </button>
         </div>
         <table id="pano2">
-            <tr>
-                <th>No</th>
-                <th>Meditera</th>
-                <th>Hastane</th>
-                <th>Bölüm</th>
-                <th>Hata Kodu</th>
-                <th></th>
-            </tr>
         </table>
     </section>
     <script>
@@ -92,30 +84,34 @@
         })
         // Hastane ve Bölüm Bilgilerini Ekleme
         $(function () {
-            for (i = 0; i < ozelHastaneler.length; i++) {
-                $("#hastaneler").append('<option value="' + ozelHastaneler[i][1] + '">' + ozelHastaneler[i][1] + '</option>');
+            const addHospital = (hospital) => {
+                $("#hastaneler").append(`<option value="${hospital[1]}">${hospital[1]}</option>`)
             }
-            for (i = 0; i < istanbulHastaneleri.length; i++) {
-                $("#hastaneler").append('<option value="' + istanbulHastaneleri[i][1] + '">' + istanbulHastaneleri[i][1] + '</option>');
-            }
-            for (i = 0; i < istanbulDısıHastaneler.length; i++) {
-                $("#hastaneler").append('<option value="' + istanbulDısıHastaneler[i][1] + '">' + istanbulDısıHastaneler[i][1] + '</option>');
-            }
-            for (i = 0; i < departments.length; i++) {
-                $("#bolumler").append('<option value="' + departments[i] + '">' + departments[i] + '</option>');
-            }
+            privateHospitals.map((item) => {
+                addHospital(item);
+            })
+            istanbulHospitals.map((item) => {
+                addHospital(item);
+            })
+            hospitalsOutsideOfIstanbul.map((item) => {
+                addHospital(item);
+            })
+            departments.map((department) => {
+                $("#bolumler").append(`<option value="${department}">${department}</option>`);
+            })
         })
         //Yazdır Butonu
         $("#yazdır2").click(function () {
             var divToPrint = document.getElementById("pano2");
-            var htmlToPrint = '' +
-                '<style type="text/css">' +
-                'table, tr, th, td {' +
-                'border:1px solid #999;' +
-                'border-collapse: collapse;' +
-                'padding:0.5em;' +
-                '}' +
-                '</style>';
+            var htmlToPrint = `
+                <style type="text/css">
+                    table, tr, th, td {
+                        border:1px solid #999;
+                        border-collapse: collapse;
+                        padding:0.5em;
+                    }
+                </style>
+            `
             htmlToPrint += divToPrint.outerHTML;
             newWin = window.open("");
             newWin.document.write(htmlToPrint);
@@ -125,19 +121,32 @@
         //Panoya Ekleme
         $(function () {
             $("#kayıt").submit(function () {
-                var meditera = $("input[name='Meditera']").val();
-                var hastane = $("input[name='Hastane']").val();
-                var bölüm = $("input[name='Bolum']").val();
-                var hatakodu = $("input[name='HataKodu']").val()
-                $("#pano2").append(
-                    + '<tr><th>No</th><th>Meditera</th><th>Hastane</th><th>Bölüm</th><th>Hata Kodu</th><th></th></tr>'
-                    + '<tr><td><span class="spantd"></span></td>'
-                    + '<td>' + meditera + '</td>'
-                    + '<td>' + hastane + '</td>'
-                    + '<td>' + bölüm + '</td>'
-                    + '<td>' + hatakodu + '</td>'
-                    + '<td><button class="btn btn-danger btn-sm" class="delete" type="button" title="Delete"><i class="fa fa-trash"></i></button></td>'
-                    + '</tr>')
+                let meditera = $("input[name='Meditera']").val();
+                let hastane = $("input[name='Hastane']").val();
+                let bölüm = $("input[name='Bolum']").val();
+                let hatakodu = $("input[name='HataKodu']").val()
+                $("#pano2").append(`
+                    <tr>
+                        <th>No</th>
+                        <th>Meditera</th>
+                        <th>Hastane</th>
+                        <th>Bölüm</th>
+                        <th>Hata Kodu</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="spantd"></span>
+                        </td>
+                        <td>${meditera}</td>
+                        <td>${hastane}</td>
+                        <td>${bölüm}</td>
+                        <td>${hatakodu}</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm" class="delete" type="button" title="Delete"><i class="fa fa-trash"></i></button>
+                        </td>
+                    </tr>                    
+                `)
                 //Sıra Numarası Ekleme
                 for (i = 0; i < $(".spantd").length; i++) {
                     $(".spantd")[i].innerHTML = i + 1 + ".";
@@ -158,8 +167,7 @@
             })
         })
     </script>
-    <script src="javascript/cariKodlar.js"></script>
-    <script src="javascript/randomValueGenerator.js"></script>
+    <script src="../cari-kodlar/cariKodlar.js"></script>
 </body>
 
 </html>
