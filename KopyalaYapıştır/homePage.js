@@ -20,7 +20,7 @@ function pageTransition(x) {
     $("iframe").addClass("none");
     $("section").addClass("none");
     if (x == 0) { $("section").removeClass("none"); }
-    else if (x == 1) { $("iframe[src='copy-paste.html']").removeClass("none"); }
+    else if (x == 1) { $("iframe[src='./pages/copy-paste/copy-paste.html']").removeClass("none"); }
     else if (x == 2) { $("iframe[src='./pages/spare-parts/spare-parts.html']").removeClass("none"); }
     else if (x == 3) { $("iframe[src='./pages/cari-kodlar/cari-kodlar.html']").removeClass("none"); }
     else if (x == 4) { $("iframe[src='./pages/forms/device-register-form.html']").removeClass("none"); }
