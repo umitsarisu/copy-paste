@@ -11,8 +11,6 @@
     <!-- css dosyası -->
     <link rel="stylesheet" href="style.css">
     <!-- font-awesome -->
-    <link rel="stylesheet" href="../../../font-awesome/css/font-awesome.min.css">
-    <!-- microscope için font awesome -->
     <script src="https://kit.fontawesome.com/4ebb137696.js" crossorigin="anonymous"></script>
     <!-- dahili javascript -->
     <script src="../../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -106,17 +104,11 @@
                 var serial = $("input[name='runinSerial']").val();
                 $("#pano3").append(`
                     <tr>
-                        <th>No</th>
-                        <th>List #: </th>
-                        <th>Serial #: </th>
-                        <th></th>
-                    </tr>
-                    <tr>
                         <td>
                             <span class="spantd"></span>
                         </td>
-                        <td>list</td>
-                        <td>serial</td>
+                        <td>${list}</td>
+                        <td>${serial}</td>
                         <td>
                             <button class="btn btn-danger btn-sm" class="delete" type="button" title="Delete">
                                 <i class="fa fa-trash"></i>

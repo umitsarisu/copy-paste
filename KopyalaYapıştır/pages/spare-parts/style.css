@@ -116,6 +116,32 @@ main .container .accordion .accordion-body .flex .card .imgContainer img {
   height: 228px;
 }
 
+main .container .accordion .accordion-body .flex .card .imgContainer .normal-zoom {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  cursor: -webkit-zoom-in;
+  cursor: zoom-in;
+  -webkit-transition: -webkit-transform 50ms;
+  transition: -webkit-transform 50ms;
+  transition: transform 50ms;
+  transition: transform 50ms, -webkit-transform 50ms;
+}
+
+main .container .accordion .accordion-body .flex .card .imgContainer .zoom-in {
+  -webkit-transform: scale(1.6);
+          transform: scale(1.6);
+  cursor: -webkit-zoom-out;
+  cursor: zoom-out;
+  -webkit-transition: -webkit-transform 50ms;
+  transition: -webkit-transform 50ms;
+  transition: transform 50ms;
+  transition: transform 50ms, -webkit-transform 50ms;
+}
+
+main .container .accordion .accordion-body .flex .card .card-body {
+  padding: 0;
+}
+
 main .container .accordion .accordion-body .flex .card input[type="number"] {
   width: 60px;
   margin-left: 5px;
@@ -133,29 +159,7 @@ main .container .accordion .accordion-body .flex .card .alertText {
 
 main .container .accordion .accordion-body .flex .card .hoverAlert:hover div.alertText {
   z-index: 0;
-  top: 155px;
+  top: 146px;
   right: 0px;
-}
-
-main .container .accordion .accordion-body .flex .card .normal-zoom {
-  -webkit-transform: scale(1);
-          transform: scale(1);
-  cursor: -webkit-zoom-in;
-  cursor: zoom-in;
-  -webkit-transition: -webkit-transform 50ms;
-  transition: -webkit-transform 50ms;
-  transition: transform 50ms;
-  transition: transform 50ms, -webkit-transform 50ms;
-}
-
-main .container .accordion .accordion-body .flex .card .zoom-in {
-  -webkit-transform: scale(1.6);
-          transform: scale(1.6);
-  cursor: -webkit-zoom-out;
-  cursor: zoom-out;
-  -webkit-transition: -webkit-transform 50ms;
-  transition: -webkit-transform 50ms;
-  transition: transform 50ms;
-  transition: transform 50ms, -webkit-transform 50ms;
 }
 /*# sourceMappingURL=style.css.map */

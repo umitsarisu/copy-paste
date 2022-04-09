@@ -72,6 +72,14 @@
             </button>
         </div>
         <table id="pano2">
+            <tr>
+                <th>No</th>
+                <th>Meditera</th>
+                <th>Hastane</th>
+                <th>Bölüm</th>
+                <th>Hata Kodu</th>
+                <th></th>
+            </tr>
         </table>
     </section>
     <script>
@@ -126,14 +134,6 @@
                 let bölüm = $("input[name='Bolum']").val();
                 let hatakodu = $("input[name='HataKodu']").val()
                 $("#pano2").append(`
-                    <tr>
-                        <th>No</th>
-                        <th>Meditera</th>
-                        <th>Hastane</th>
-                        <th>Bölüm</th>
-                        <th>Hata Kodu</th>
-                        <th></th>
-                    </tr>
                     <tr>
                         <td>
                             <span class="spantd"></span>

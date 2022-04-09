@@ -32,7 +32,7 @@ $(function () {
         else if (spareParts.model == model.plum360) { $("#plum360Ydk").append(cardValue); }
         else if (spareParts.model == model.mechanism) { $("#mechanismYdk").append(cardValue); }
         else if (spareParts.model == model.littleParts) { $("#küçükYdk").append(cardValue); }
-        else {$("body").append(cardValue);}
+        else { $("body").append(cardValue); }
     });
 });
 // Excel
@@ -120,7 +120,7 @@ $(function () {
 })
 //copy function
 $(function () {
-    $("button[name ='ydkNameButtons']").on("click", () => {
+    $("button[name ='ydkNameButtons']").click(function(){
         let b = $(this).parents("div.card-header").siblings("p:first()").text();
         let c = $(this).siblings("span").find("input").val();
         for (let i = 0; i < allSparePartsJSON.length; i++) {
@@ -141,7 +141,7 @@ $(function () {
 //resim üzerinde mouse ile gezinme
 $(function () {
     // Zoom in/out clothing img
-    $('.image').on("click", () =>{
+    $('.image').on("click", function () {
         $(this).toggleClass('normal-zoom zoom-in');
     });
     $('.image').on('mousemove', function (event) {

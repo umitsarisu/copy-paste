@@ -316,8 +316,8 @@ let plum360SparePartsObj = {
         definition: definition.cases
     },
     rearcase: {
-        name: "Rear Case",
-        code: "YDK-712-94862-404",
+        name: "Housıng Back",
+        code: "YDK-MEC0000923",
         fullName: function () {
             return `${this.name} (${this.code})`;
         },
@@ -427,7 +427,7 @@ let plum360SparePartsObj = {
     },
     cpu: {
         name: "CPU",
-        code: "YDK-810-11949-506",
+        code: "YDK-EE0000118",
         fullName: function () {
             return this.name + " (" + this.code + " SN: ";
         },
