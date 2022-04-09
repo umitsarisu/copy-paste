@@ -40,6 +40,6 @@ __Not: Uygulama bütün sekmeleri kontrol eder ve herhangi bir yanlışlık ya d
 
 ---
 
-![kopyalayapistir_ornek](/KopyalaYapıştır/images/readme/readme-kopyala-yapistir.jpg)
+![kopyalayapistir_ornek](/CopyPaste/images/readme/readme-kopyala-yapistir.jpg)
 
-![kopyalayapistir_ornek](/KopyalaYapıştır/images/readme/readme-sonuc.jpg)
+![kopyalayapistir_ornek](/CopyPaste/images/readme/readme-sonuc.jpg)

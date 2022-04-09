@@ -7,17 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1">
     <!-- Bootstrap CSS -->
     <!-- dahili bootstrap -->
-    <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
+    <!-- bootstrap cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- bootstrap js cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
     <!-- css dosyası -->
     <link rel="stylesheet" href="main.css">
     <!-- font-awesome -->
-    <link rel="stylesheet" href="../../../node_modules/@fortawesome/fontawesome-free/css/fontawesome.min.css">
-    <!-- microscope için font awesome -->
     <script src="https://kit.fontawesome.com/4ebb137696.js" crossorigin="anonymous"></script>
-    <!-- dahili javascript -->
-    <script src="../../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- dahili jquery -->
-    <script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
     <!-- sayfa bilgileri -->
     <title>Kopyala Yapıştır</title>
 </head>
@@ -300,11 +300,11 @@
                                     <div>
                                         <label for="powerErrorCode" class="mechanismLabels">
                                             <input type="text" id="powerErrorCode" maxlength="4" placeholder="Hata"
-                                                onkeydown="return enterKeyPress(event)">
+                                                onkeydown="enterKeyPress(event)">
                                         </label>
                                         <label for="powerSN" class="mechanismLabels">
                                             <input type="text" id="powerSN" maxlength="12" placeholder="Seri Numarası"
-                                                onkeydown="return enterKeyPress(event)">
+                                                onkeydown="enterKeyPress(event)">
                                         </label>
                                     </div>
                                 </div>
@@ -338,11 +338,11 @@
                                     <div>
                                         <label for="cpuErrorCode" class="mechanismLabels">
                                             <input type="text" id="cpuErrorCode" maxlength="4" placeholder="Hata"
-                                                onkeydown="return enterKeyPress(event)">
+                                                onkeydown="enterKeyPress(event)">
                                         </label>
                                         <label for="cpuSN" class="mechanismLabels">
                                             <input type="text" id="cpuSN" maxlength="12" placeholder="Seri Numarası"
-                                                onkeydown="return enterKeyPress(event)">
+                                                onkeydown="enterKeyPress(event)">
                                         </label>
                                     </div>
                                 </div>
@@ -372,7 +372,7 @@
                             <div class="mechanismErrCodeDiv">
                                 <span class="mechanismLabelSpans">Hata kodunu girin:</span>
                                 <input type="text" id="selfTestMechanismErrorCode" maxlength="4" placeholder="Hata"
-                                    onkeydown="return enterKeyPress(event)">
+                                    onkeydown="enterKeyPress(event)">
                             </div>
                         </label>
                         <div class="mechanismSubContent d-flex" style="justify-content: space-evenly;">
@@ -433,21 +433,21 @@
                                     <label for="selfTestAppSN">
                                         <span class="mechanismLabelSpans">App seri no girin:</span>
                                         <input type="text" id="selfTestAppSN" maxlength="12" placeholder="Seri Numarası"
-                                            onkeydown="return enterKeyPress(event)">
+                                            onkeydown="enterKeyPress(event)">
                                     </label>
                                 </div>
                                 <div id="ifSelfTestMechanismChecked" class="none">
                                     <label for="selfTestMechanismSN">
                                         <span class="mechanismLabelSpans">Mekanizma seri no girin:</span>
                                         <input type="text" id="selfTestMechanismSN" maxlength="7"
-                                            placeholder="Seri Numarası" onkeydown="return enterKeyPress(event)">
+                                            placeholder="Seri Numarası" onkeydown="enterKeyPress(event)">
                                     </label>
                                 </div>
                                 <div id="ifSelfTestDriverPwaChecked" class="none mt-1">
                                     <label for="selfTestDriverPwaSN">
                                         <span class="mechanismLabelSpans">Driver pwa seri no girin:</span>
                                         <input type="text" id="selfTestDriverPwaSN" maxlength="12"
-                                            placeholder="Seri Numarası" onkeydown="return enterKeyPress(event)">
+                                            placeholder="Seri Numarası" onkeydown="enterKeyPress(event)">
                                     </label>
                                 </div>
                                 <div class="buttonsCover">
@@ -470,7 +470,7 @@
                             <div class="mechanismErrCodeDiv">
                                 <span class="mechanismLabelSpans">Hata kodunu girin:</span>
                                 <input type="text" id="proximalTestErrorCode" maxlength="4" placeholder="Hata"
-                                    autocomplete autocapitalize="on" onkeydown="return enterKeyPress(event)">
+                                    autocomplete autocapitalize="on" onkeydown="enterKeyPress(event)">
                             </div>
                         </label>
                         <div class="mechanismSubContent d-flex" style="justify-content: space-evenly;">
@@ -493,14 +493,14 @@
                                     <label for="proximalAppSN">
                                         <span class="mechanismLabelSpans">App seri no girin:</span>
                                         <input type="text" id="proximalAppSN" maxlength="12" placeholder="Seri Numarası"
-                                            onkeydown="return enterKeyPress(event)">
+                                            onkeydown="enterKeyPress(event)">
                                     </label>
                                 </div>
                                 <div id="ifProxTestMechanismChecked" class="none a">
                                     <label for="proximalMechanismSN">
                                         <span class="mechanismLabelSpans">Mekanizma seri no girin:</span>
                                         <input type="text" id="proximalMechanismSN" maxlength="7"
-                                            placeholder="Seri Numarası" onkeydown="return enterKeyPress(event)">
+                                            placeholder="Seri Numarası" onkeydown="enterKeyPress(event)">
                                     </label>
                                 </div>
                                 <div class="buttonsCover">
@@ -539,7 +539,7 @@
                                         <span class="mechanismLabelSpans">Mekanizma seri no girin:</span>
                                         <input type="text" id="distalMechanismSN" maxlength="7"
                                             placeholder="Seri Numarası" autocomplete="off"
-                                            onkeydown="return enterKeyPress(event)">
+                                            onkeydown="enterKeyPress(event)">
                                     </label>
                                 </div>
                                 <div class="buttonsCover">
