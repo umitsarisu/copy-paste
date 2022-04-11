@@ -1941,7 +1941,6 @@ a.nav-link i {
     /* main */
     main {
         width: 100%;
-        margin-top: 61px;
     }
 
     /* Containers */
@@ -1967,7 +1966,7 @@ a.nav-link i {
         box-sizing: border-box;
         z-index: 2;
         position: sticky;
-        top: 61px;
+        top: 0;
     }
 
     div#headerTopSticky h2 {
@@ -2844,7 +2843,6 @@ a.nav-link i {
     /* main */
     main {
         width: 100%;
-        margin-top: 61px;
     }
 
     /* Containers */
@@ -2870,7 +2868,7 @@ a.nav-link i {
         box-sizing: border-box;
         z-index: 2;
         position: sticky;
-        top: 61px;
+        top: 0;
     }
 
     div#headerTopSticky h2 {

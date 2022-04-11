@@ -22,8 +22,8 @@
     <link rel="stylesheet" href="style.css">
     <!-- font-awesome -->
     <script src="https://kit.fontawesome.com/4ebb137696.js" crossorigin="anonymous"></script>
-    <!-- JQuery Excel oluşturma -->
-    <script src="../../../node_modules/jquery-table2excel/dist/jquery.table2excel.js"></script>
+    <!-- JS Excel oluşturma -->
+    <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
     <!-- sayfa bilgileri -->
     <title>Run-In Formu</title>
 </head>
@@ -74,10 +74,14 @@
     <script>
         // Excel 
         $("#excel").click(function () {
-            $("#pano3").table2excel({
-                name: "Cihazlar", // Çalışma sayfası adı - Worksheet
-                filename: "dosya.xls" // Dosya Adı
-            });
+            function ExportToExcel(type, fn, dl) {
+                var elt = document.getElementById('pano3');
+                var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+                return dl ?
+                    XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+                    XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+            }
+            ExportToExcel('xlsx');
         })
         // Device List Bilgilerini Ekleme
         // $(function () {

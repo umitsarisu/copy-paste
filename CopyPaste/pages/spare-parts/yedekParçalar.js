@@ -36,11 +36,15 @@ $(function () {
     });
 });
 // Excel
-$("#excel").on("click", () => {
-    $("#pano").table2excel({
-        name: "Yedek Parçalar", // Çalışma sayfası adı - Worksheet
-        filename: "dosya.xls" // Dosya Adı
-    });
+$("#excelBtn").click(function () {
+    function ExportToExcel(type, fn, dl) {
+        let elt = document.getElementById('pano');
+        let wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+        return dl ?
+            XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+            XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+    }
+    ExportToExcel('xlsx');
 });
 //Yazdır Butonu
 $("#yazdır").on("click", () => {
@@ -120,7 +124,7 @@ $(function () {
 })
 //copy function
 $(function () {
-    $("button[name ='ydkNameButtons']").click(function(){
+    $("button[name ='ydkNameButtons']").click(function () {
         let b = $(this).parents("div.card-header").siblings("p:first()").text();
         let c = $(this).siblings("span").find("input").val();
         for (let i = 0; i < allSparePartsJSON.length; i++) {

@@ -18,8 +18,8 @@
     <link rel="stylesheet" href="style.css">
     <!-- font-awesome -->
     <script src="https://kit.fontawesome.com/4ebb137696.js" crossorigin="anonymous"></script>
-    <!-- JQuery Excel oluşturma -->
-    <script src="../../../node_modules/jquery-table2excel/dist/jquery.table2excel.js"></script>
+    <!-- JS Excel oluşturma -->
+    <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
     <!-- sayfa bilgileri -->
     <title>Yedek Parçalar</title>
 </head>
@@ -48,7 +48,7 @@
             <div class="panoContainer">
                 <div class="panoButtons">
                     <h1>Pano</h1>
-                    <button id="excel" class="btn btn-secondary"><i class="fa fa-file-excel-o" aria-hidden="true"></i>
+                    <button id="excelBtn" class="btn btn-secondary"><i class="fa fa-file-excel-o" aria-hidden="true"></i>
                         Excel</button>
                     <button id="yazdır" class="btn btn-secondary mt-2"><i class="fa fa-print" aria-hidden="true"></i>
                         Yazdır</button>
