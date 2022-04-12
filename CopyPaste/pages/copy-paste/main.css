@@ -1858,89 +1858,10 @@ a.nav-link i {
 }
 
 @media screen and (min-width:768px) and (max-width:992px) {
-    aside {
-        display: none;
-    }
-
-    /* Left sidebar end */
-    /* top navbar */
-    #nav {
-        min-height: 35px;
-        display: block;
-        background-color: #222222;
-    }
-
-    #nav li {
-        font-size: 13px;
-        border-left: 1px solid #555;
-        margin-left: 5px;
-    }
-
-    #nav a {
-        /* line-height: 40px; */
-        padding: 0;
-    }
-
-    #nav a {
-        line-height: 40px;
-        padding: 0;
-    }
-
-    /* modals start */
-    .modal-content {
-        width: 500px;
-    }
-
-    .modal-body {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    }
-
-    #rvgModal #egt2 h5 {
-        line-height: 25px;
-        text-align: center;
-        font-size: 18px;
-    }
-
-    #rvgModal #rvg2,
-    #egt2 {
-        width: 200px;
-        padding: 10px;
-        text-align: center;
-        background-color: whitesmoke;
-        border: 1px solid gray;
-        border-radius: 10px;
-    }
-
-    #rvgModal #rvg2 p,
-    #egt2 p {
-        display: block;
-        line-height: 30px;
-        font-size: 18px;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        font-weight: bold;
-    }
-
-    #rvgModal #rvg2 p {
-        margin: 20px 0;
-    }
-
-    #rvgModal #egt2 p {
-        margin: 5px 0;
-    }
-
-    #büyüteçModal #büyüteçTextarea {
-        width: 460px;
-        max-width: 490px;
-        min-height: 200px;
-        margin-bottom: 3px;
-    }
-
-    /* modals end */
     /* main */
     main {
         width: 100%;
+        margin-bottom: 57px;
     }
 
     /* Containers */
@@ -2765,84 +2686,10 @@ a.nav-link i {
 }
 
 @media screen and (max-width:768px) {
-    aside {
-        display: none;
-    }
-
-    /* Left sidebar end */
-    /* top navbar */
-    #nav {
-        min-height: 35px;
-        display: block;
-        background-color: #222222;
-    }
-
-    #nav li {
-        font-size: 13px;
-        border-left: 1px solid #555;
-        margin-left: 5px;
-    }
-
-    #nav a {
-        /* line-height: 40px; */
-        padding: 0;
-    }
-
-    /* modals start */
-    .modal-content {
-        width: 500px;
-    }
-
-    .modal-body {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    }
-
-    #rvgModal #egt2 h5 {
-        line-height: 25px;
-        text-align: center;
-        font-size: 18px;
-    }
-
-    #rvgModal #rvg2,
-    #egt2 {
-        width: 200px;
-        padding: 10px;
-        text-align: center;
-        background-color: whitesmoke;
-        border: 1px solid gray;
-        border-radius: 10px;
-    }
-
-    #rvgModal #rvg2 p,
-    #egt2 p {
-        display: block;
-        line-height: 30px;
-        font-size: 18px;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        font-weight: bold;
-    }
-
-    #rvgModal #rvg2 p {
-        margin: 20px 0;
-    }
-
-    #rvgModal #egt2 p {
-        margin: 5px 0;
-    }
-
-    #büyüteçModal #büyüteçTextarea {
-        width: 460px;
-        max-width: 490px;
-        min-height: 200px;
-        margin-bottom: 3px;
-    }
-
-    /* modals end */
     /* main */
     main {
         width: 100%;
+        margin-bottom: 57px;
     }
 
     /* Containers */

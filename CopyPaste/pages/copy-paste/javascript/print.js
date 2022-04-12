@@ -73,6 +73,18 @@ function print() {
     // açıklamalar yazısını toggle button yap. ikinci kısma aşağıdaki yorumu yaz
     // yorum.value = yorumVisual + commentSelfTest + commentProximal + commentDistal;
     descriptions.value = "N/A";
+    const softwares = {
+        plumTr: "SOFTWARE : TR 11.610 V9",
+        plumEn: "SOFTWARE : EN 11.610 V2",
+        plum360: "SOFTWARE : 15.11.00.018",
+    };
+    if ($("#plumTr").is(":checked")) {
+        $("#software").text(softwares.plumTr);
+    } else if ($("#plumEn").is(":checked")) {
+        $("#software").text(softwares.plumEn);
+    } else if ($("#plum360").is(":checked")) {
+        $("#software").text(softwares.plum360);
+    }
     var y;
     y = firstSentence + yorumVisual + commentSelfTest + commentProximal + commentDistal;
     yorum.value = y;
