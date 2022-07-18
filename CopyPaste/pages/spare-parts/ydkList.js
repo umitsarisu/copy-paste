@@ -405,7 +405,7 @@ let plum360SparePartsObj = {
         model: model.plum360,
         definition: definition.cases
     },
-    keypname: {
+    keypad: {
         name: "Keypad",
         code: "YDK-840-97669-401",
         fullName: function () {
