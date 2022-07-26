@@ -214,7 +214,7 @@ let plumaSparePartsObj = {
 let mechanismSparePartsObj = {
     pressurededector: {
         name: "Pressure Dedector",
-        code: "YDK-840-95019-409",
+        code: "YDK-SUB0000538",
         fullName: function () {
             return `${this.name} (${this.code})`;
         },
