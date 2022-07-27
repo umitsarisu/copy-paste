@@ -6,7 +6,7 @@ Bu uygulama, teknik serviste tamir edilen cihazlar ile ilgili doldurulması gere
 
 ## Link
 
-[Copy Paste](https://umitsarisu.github.io/copy-paste/#)
+[https://umitsarisu.github.io/copy-paste/#](https://umitsarisu.github.io/copy-paste/#)
 
 ---
 
