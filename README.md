@@ -4,6 +4,10 @@
 
 Bu uygulama, teknik serviste tamir edilen cihazlar ile ilgili doldurulması gereken formlar için hazır veriler sunmaktadır. 
 
+## Link
+
+[Copy Paste](https://umitsarisu.github.io/copy-paste/#)
+
 ---
 
 __Uygulama Responsive tasarımlıdır. 500px üzerindeki bütün ekran boyutlarında stabil çalışmaktadır.__<br>
