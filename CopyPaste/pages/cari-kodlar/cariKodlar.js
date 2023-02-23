@@ -20,7 +20,8 @@ const privateHospitals = [
     ["M01S072", "istanbul Medeniyet Üniversitesi, Göztepe"],
     ["M01İ007", "Başakşehir Şehir Hastanesi, Çam ve Sakura"],
     ["M01S076", "Cemil Taşçıoğlu Şehir Hastanesi, Okmeydanı"],
-    ["M04A001", "Beykent Üniversitesi Hastanesi"]
+    ["M04A001", "Beykent Üniversitesi Hastanesi"],
+    ["M05M038", "Medikal Park İstanbul, Pendik"]
 ];
 // İstanbul İçi Hastanelerin Bilgileri
 const istanbulHospitals = [
@@ -64,7 +65,8 @@ const hospitalsOutsideOfIstanbul = [
     ["M03U001", "Uludağ Üniversitesi"],
     ["M01S050", "Bursa Çekirge Devlet Hastanesi"],
     ["M03N001", "Namık Kemal Üniversitesi"],
-    ["M03D005", "Düzce Üniversitesi"]
+    ["M03D005", "Düzce Üniversitesi"],
+    ["M01K103", "Kocaeli İl Sağlık Hastanesi"],
 ];
 // Servis isimleri
 const departments = [
