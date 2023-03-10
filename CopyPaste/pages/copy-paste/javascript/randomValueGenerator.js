@@ -44,13 +44,23 @@ function rvgFunc(x) {
         //Home Page
         $("#rvg2").empty();
         $("#egt2").empty();
-        $("#rvg2").append('<p class="rvg2p">' + psi6 + '</p> <p class="rvg2p">' + psi10 + '</p>');
+        $("#rvg2").append('<p class="rvg2p m-auto"><button onclick="copyPsi(' + psi6 + ')" style="width: 80px; text-align: center" class="btn btn-outline-dark align-self-center">' + psi6 + '</button></p>');
+        $("#rvg2").append('<p class="rvg2p m-auto mt-3"><button onclick="copyPsi(' + psi10 + ')" style="width: 80px; text-align: center" class="btn btn-outline-dark align-self-center">' + psi10 + '</button></p>');
         $("#egt2").append('<h5>PVT</h5><hr>')
         $("#egt2").append('<p class="egt2p">' + egt1 + '</p><p class="egt2p">' + egt2 + '</p><p class="egt2p">' + egt3 + '</p><p class="egt2p">' + egt4 + '</p><p class="egt2p">' + egt5 + '</p>');
     }
     else {
         //Kopyala Yapıştır
-        $(".rvg").append('<p class="rvg2p">' + psi6 + '</p> <p class="rvg2p">' + psi10 + '</p>');
+        $(".rvg").append('<p class="rvg2p m-auto"><button onclick="copyPsi(' + psi6 + ')" style="width: 80px; text-align: center" class="btn btn-outline-dark align-self-center">' + psi6 + '</button></p>');
+        $(".rvg").append('<p class="rvg2p m-auto"><button onclick="copyPsi(' + psi10 + ')" style="width: 80px; text-align: center" class="btn btn-outline-dark align-self-center">' + psi10 + '</button></p>');
         $(".egt").append('<p class="egt2p">' + egt1 + '</p><p class="egt2p">' + egt2 + '</p><p class="egt2p">' + egt3 + '</p><p class="egt2p">' + egt4 + '</p><p class="egt2p">' + egt5 + '</p>');
     }
+}
+function copyPsi(psi) {
+    let clipboard = document.createElement("textarea");
+    clipboard.value = psi.toFixed(2) + " PSI";
+    document.body.appendChild(clipboard);
+    clipboard.select();
+    document.execCommand("copy");
+    document.body.removeChild(clipboard);
 }
