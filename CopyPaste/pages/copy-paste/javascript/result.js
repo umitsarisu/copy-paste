@@ -9,6 +9,17 @@
     $("#mainPage").hide();
     $("#sonuc").show();
     $("#forward").click();
+    let date2;
+    if (localStorage.getItem("date")) {
+        date2 = localStorage.getItem("date");
+    }
+    else {
+        let date = new Date();
+        let month = date.getMonth() + 1;
+        let day = date.getDate();
+        date2 = `${date.getFullYear()}-${month.toString().padStart(2, 0)}-${day.toString().padStart(2, 0)}`;
+    }
+    $("#date1").val(date2);
     //950 durumu cihaz sağlamsa
     if ($("#yes2").is(":checked")) {
         saglamObj = {
@@ -440,7 +451,11 @@ function AAcodes() {
     }
     tamirKodu.value = repairCode.join(" - ");
     analizKodu.value = analysisCode.join(" - ");
-    arastirmaKodu.value = investigationCode.join(" - ");
+    arastirmaKodu.value = investigationCode.map((item) => {
+        if (item == "SXC") return experience;
+        else return item;
+    }).join(" - ");
+
     var plumaPumpTests = {
         // Plum A tests
         166: "VISUAL INSPECTION TEST",

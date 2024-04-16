@@ -133,7 +133,7 @@ $(function () {
                 document.body.appendChild(ydkListCopy);
                 let a;
                 a = allSparePartsJSON[i].fullName()
-                a += " Adet: " + c;
+                
                 ydkListCopy.value = a;
                 ydkListCopy.select();
                 document.execCommand("copy");

@@ -31,7 +31,7 @@ const istanbulHospitals = [
     ["M01S068", "istanbul Eğitim ve Araştırma Hastanesi, Samatya"],
     ["M01H002", "Haseki EAH"],
     ["M01B003", "Sadi Konuk, Bakırköy Devlet Hastanesi"],
-    ["M01S074", "Kanuni Sultan Süleyman Hastanesi, KSS"],
+    ["M01İ014", "Kanuni Sultan Süleyman Hastanesi, KSS"],
     ["M01T027", "Sultanbeyli Devlet Hastanesi"],
     ["M01G007", "Gaziosmanpaşa EAH, GOP"],
     ["M01T084", "Taksim EAH"],
@@ -66,7 +66,7 @@ const hospitalsOutsideOfIstanbul = [
     ["M01S050", "Bursa Çekirge Devlet Hastanesi"],
     ["M03N001", "Namık Kemal Üniversitesi"],
     ["M03D005", "Düzce Üniversitesi"],
-    ["M01K103", "Kocaeli İl Sağlık Hastanesi"],
+    ["M01K126", "Kocaeli Şehir Hastanesi"],
 ];
 // Servis isimleri
 const departments = [

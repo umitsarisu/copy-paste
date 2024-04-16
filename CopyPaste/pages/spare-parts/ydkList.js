@@ -38,7 +38,7 @@ let plumaSparePartsObj = {
         name: "Front Case",
         code: "YDK-712-95086-009",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "Ön kasa",
         model: model.pluma,
@@ -48,7 +48,7 @@ let plumaSparePartsObj = {
         name: "Rear Case",
         code: "YDK-712-95087-010",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "Arka kasa",
         model: model.pluma,
@@ -58,7 +58,7 @@ let plumaSparePartsObj = {
         name: "Maın Chasıs",
         code: "YDK-712-95085-009",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "İç kasa main chasis",
         model: model.pluma,
@@ -68,7 +68,7 @@ let plumaSparePartsObj = {
         name: "Asm Door",
         code: "YDK-841-12388-001",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "Kaset kapağı",
         model: model.pluma,
@@ -78,7 +78,7 @@ let plumaSparePartsObj = {
         name: "Shıeld",
         code: "YDK-840-95012-016",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "Sıvı kalkanı shield",
         model: model.pluma,
@@ -88,7 +88,7 @@ let plumaSparePartsObj = {
         name: "Handle Door",
         code: "YDK-712-95076-001",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "Kaset kolu",
         model: model.pluma,
@@ -98,7 +98,7 @@ let plumaSparePartsObj = {
         name: "Battery Door",
         code: "YDK-712-95088-003",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "Batarya kapağı",
         model: model.pluma,
@@ -108,7 +108,7 @@ let plumaSparePartsObj = {
         name: "Retaıner Cord",
         code: "YDK-712-95065-006",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "Power kablo tutucu retainer cord",
         model: model.pluma,
@@ -118,7 +118,7 @@ let plumaSparePartsObj = {
         name: "Cover Perıpheral",
         code: "YDK-712-95090-006",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "Peripheral kasası",
         model: model.pluma,
@@ -135,7 +135,7 @@ let plumaSparePartsObj = {
         name: "Keypad TR",
         code: "YDK-840-95015-017",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "Türkçe tuş takımı",
         model: model.pluma,
@@ -145,7 +145,7 @@ let plumaSparePartsObj = {
         name: "Keypad EN",
         code: "YDK-840-95015-008",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "İngilizce tuş takımı",
         model: model.pluma,
@@ -155,7 +155,7 @@ let plumaSparePartsObj = {
         name: "Power PWA",
         code: "YDK-810-95242-027",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "Güç kartı, elektrik",
         model: model.pluma,
@@ -165,7 +165,7 @@ let plumaSparePartsObj = {
         name: "Pole Clamp Assembly",
         code: "YDK-840-95115-003",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "Demirli sıkma kolu",
         model: model.pluma,
@@ -175,7 +175,7 @@ let plumaSparePartsObj = {
         name: "Pole Clamp Knob",
         code: "YDK-820-95443-008",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "Demirsiz sıkma kolu",
         model: model.pluma,
@@ -216,7 +216,7 @@ let mechanismSparePartsObj = {
         name: "Pressure Dedector",
         code: "YDK-SUB0000538",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "Basınç sensörü strain gauge",
         model: model.mechanism,
@@ -236,7 +236,7 @@ let mechanismSparePartsObj = {
         name: "Mechanısm",
         code: "YDK-855-95004-010",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "mechanism mechanism",
         model: model.mechanism,
@@ -246,7 +246,7 @@ let mechanismSparePartsObj = {
         name: "Mechanısm Plum 360",
         code: "YDK-855-95715-015",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "Plum 360 mechanism mechanism",
         model: model.mechanism,
@@ -256,7 +256,7 @@ let mechanismSparePartsObj = {
         name: "Drıver PWA",
         code: "YDK-810-95018-510",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "Arka kart driver pwa",
         model: model.mechanism,
@@ -266,7 +266,7 @@ let mechanismSparePartsObj = {
         name: "L/S Motor",
         code: "YDK-830-95101-001",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "Sol motor",
         model: model.mechanism,
@@ -276,7 +276,7 @@ let mechanismSparePartsObj = {
         name: "I/O Motor",
         code: "YDK-830-95102-001",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "Alt motor",
         model: model.mechanism,
@@ -286,17 +286,17 @@ let mechanismSparePartsObj = {
         name: "Plunger Motor",
         code: "YDK-830-95097-002",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "Arka motor",
         model: model.mechanism,
         definition: definition.other
     },
     switchpwa: {
-        name: "Swıtch PWA",
-        code: "YDK-810-95022-404",
+        name: "Switches PWA",
+        code: "YDK-SUB0000170",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "Yan kart switch pwa",
         model: model.mechanism,
@@ -309,7 +309,7 @@ let plum360SparePartsObj = {
         name: "Housıng Front",
         code: "YDK-MEC0000925",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "Ön kasa",
         model: model.plum360,
@@ -319,7 +319,7 @@ let plum360SparePartsObj = {
         name: "Housıng Back",
         code: "YDK-MEC0000923",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "Arka kasa",
         model: model.plum360,
@@ -329,7 +329,7 @@ let plum360SparePartsObj = {
         name: "Maın Chasıs",
         code: "YDK-712-94860-405",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "İç Kasa",
         model: model.plum360,
@@ -339,7 +339,7 @@ let plum360SparePartsObj = {
         name: "Asm Door",
         code: "YDK-840-94850-407",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "Kaset kapağı",
         model: model.plum360,
@@ -349,19 +349,9 @@ let plum360SparePartsObj = {
         name: "Shıeld",
         code: "YDK-840-94852-404",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "Sıvı kalkanı shield",
-        model: model.plum360,
-        definition: definition.other
-    },
-    handledoor: {
-        name: "Handle Door",
-        code: "YDK-712-94858-405",
-        fullName: function () {
-            return `${this.name} (${this.code})`;
-        },
-        explanation: "Kaset kolu",
         model: model.plum360,
         definition: definition.other
     },
@@ -369,17 +359,27 @@ let plum360SparePartsObj = {
         name: "Battery Door",
         code: "YDK-712-94855-403",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "Batarya kapağı",
         model: model.plum360,
         definition: definition.cases
     },
+    handledoor: {
+        name: "Handle Door",
+        code: "YDK-712-94858-405",
+        fullName: function () {
+            return `${this.name} ${this.code}`;
+        },
+        explanation: "Kaset kolu",
+        model: model.plum360,
+        definition: definition.other
+    },
     retainercord: {
         name: "Retaıner Cord",
         code: "YDK-712-95065-407",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "Power kablo tutucu retainer cord",
         model: model.plum360,
@@ -389,7 +389,7 @@ let plum360SparePartsObj = {
         name: "Pole Clamp Knob",
         code: "YDK-840-94075-402",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "Sıkma kolu",
         model: model.plum360,
@@ -399,7 +399,7 @@ let plum360SparePartsObj = {
         name: "Cover Peripheral",
         code: "YDK-712-94869-402",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "Peripheral Kasası",
         model: model.plum360,
@@ -409,7 +409,7 @@ let plum360SparePartsObj = {
         name: "Keypad",
         code: "YDK-840-97669-401",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "Tuş takımı",
         model: model.plum360,
@@ -419,7 +419,7 @@ let plum360SparePartsObj = {
         name: "Dısplay",
         code: "YDK-692-95036-514",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "Ekran display",
         model: model.plum360,
@@ -449,7 +449,7 @@ let plum360SparePartsObj = {
         name: "Perıpheral PWA",
         code: "YDK-810-97400-506",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "Peripheral kartı",
         model: model.plum360,
@@ -459,7 +459,7 @@ let plum360SparePartsObj = {
         name: "Bom PWA Common A+ CE3",
         code: "YDK-810-97401-503",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "Peripheral parçası",
         model: model.plum360,
@@ -467,9 +467,9 @@ let plum360SparePartsObj = {
     },
     battery: {
         name: "Battery",
-        code: "YDK-840-95066-405",
+        code: "YDK-SUB0000864",
         fullName: function () {
-            return `${this.name} (${this.code})`;
+            return `${this.name} ${this.code}`;
         },
         explanation: "Batarya",
         model: model.plum360,
@@ -745,8 +745,8 @@ let littlePartsObj = {
         definition: definition.littleParts
     },
     littlepart23: {
-        name: "Proxımal Tubıng Guıde",
-        code: "YDK-712-94072-402",
+        name: "Holder Proximal Tubing",
+        code: "YDK-SUB0000558",
         explanation: "Ön kasa mor parça",
         model: model.plum360,
         definition: definition.littleParts
@@ -1672,7 +1672,7 @@ function madeJson(x) {
             "explanation": Object.values(x)[i].explanation,
             "alt": "(" + Object.values(x)[i].name + ") ",
             "fullName": function () {
-                return `${this.name} (${this.code})`;
+                return `${this.name} ${this.code}`;
             }
         })
     }

@@ -22,6 +22,7 @@ function dateFunc() {
 
         }
     }
+    localStorage.setItem("date", year + "-" + month.toString().padStart(2, 0) + "-" + day.toString().padStart(2, 0))
     $("#dateResult").text(`${randomDate()} TO ${day} ${months[month - 1]} ${year}`);
 }
 function rvgFunc(x) {
