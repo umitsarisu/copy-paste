@@ -31,7 +31,7 @@ function printCihazinDurumu() {
 }
 function printDegisenParca() {
     if (changedPartsArray == 0) changedPartsArray.push("N/A");
-    degisenParca.value = changedPartsArray.join(", ");
+    degisenParca.value = changedPartsArray.join(", ").toUpperCase();
 }
 
 function print() {

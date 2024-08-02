@@ -337,7 +337,7 @@ let plum360SparePartsObj = {
     },
     asmdoor: {
         name: "Asm Door",
-        code: "YDK-840-94850-407",
+        code: "YDK-SUB0001145",
         fullName: function () {
             return `${this.name} ${this.code}`;
         },
