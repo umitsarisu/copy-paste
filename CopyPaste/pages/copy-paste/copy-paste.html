@@ -635,6 +635,24 @@
                     <h6 name="resulth6">Electric Safety Analyser</h6>
                     <div class="egt float-left"></div>
                 </div>
+                <div class="sonucContent">
+                    <h6 name="resulth6">Primary</h6>
+                    <button type="button" name="resultButtons">Copy</button>
+                    <textarea name="resultTextareas" id="primary" rows="1" readonly></textarea>
+                </div>
+                <div class="sonucContent">
+                    <h6 name="resulth6">Secondary</h6>
+                    <button type="button" name="resultButtons">Copy</button>
+                    <textarea name="resultTextareas" id="secondary" rows="1" readonly></textarea>
+                </div>
+                <script>
+                    let primary = document.getElementById("primary");
+                    let secondary = document.getElementById("secondary");
+                    primary.innerHTML = "";
+                    primary.innerHTML = 13850921;
+                    secondary.innerHTML = "";
+                    secondary.innerHTML = "112044W";
+                </script>
                 <div class="sonucContent heightRow" id="div-degisen-parca">
                     <h6 name="resulth6">Değişen Parça Açıklaması</h6>
                     <button type="button" name="resultButtons">Copy</button>
