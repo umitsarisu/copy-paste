@@ -13,28 +13,31 @@ $(function () {
 // Background Color Atamaları
 $(function () {
     var color = {
-        plumTr: "linear-gradient(to bottom, #7abcff 0%,#4096ee 17%,#4096ee 17%,#4096ee 31%,#4096ee 44%,#4096ee 53%,#60abf8 76%,#4096ee 94%)",
-        plumEn: "linear-gradient(to bottom, rgba(59,103,158,1) 0%,rgba(43,136,217,1) 15%,rgba(0,174,255,1) 53%,rgba(43,136,217,1) 86%,rgba(43,136,217,1) 88%,rgba(43,136,217,1) 92%,rgba(43,136,217,1) 100%)",
+        // plumTr: "linear-gradient(to bottom, #7abcff 0%,#4096ee 17%,#4096ee 17%,#4096ee 31%,#4096ee 44%,#4096ee 53%,#60abf8 76%,#4096ee 94%)",
+        plumTr: "linear-gradient(to bottom, rgba(59,103,158,1) 0%,rgba(43,136,217,1) 15%,rgba(0,174,255,1) 53%,rgba(43,136,217,1) 86%,rgba(43,136,217,1) 88%,rgba(43,136,217,1) 92%,rgba(43,136,217,1) 100%)",
         plum360: "linear-gradient(to bottom, rgba(147,83,163,1) 0%,rgba(173,109,214,1) 20%,rgba(173,109,214,1) 29%,rgba(147,83,163,1) 52%,rgba(173,109,214,1) 75%,rgba(173,109,214,1) 83%,rgba(147,83,163,1) 100%)",
         contentColor: "rgba(202, 211, 200,0.5)"
     }
     $(".bgColor").css("background", color.plumTr);
     $(".models:nth(0)").css("background", color.plumTr);
-    $(".models:nth(1)").css("background", color.plumEn);
-    $(".models:nth(2)").css("background", color.plum360);
+    // $(".models:nth(0)").css("background", color.plumEn);
+    $(".models:nth(1)").css("background", color.plum360);
     $(".contentBgColor").css("background", color.contentColor);
     $(function () {
         $("#plumTr").click(function () {
             $(".bgColor").css("background", color.plumTr);
-            $("#coverperipheral").prop("disabled", false);
+            $(".bracketHandle").prop("disabled", true);
+            $(".tubingGuide").prop("disabled", true);
         })
-        $("#plumEn").click(function () {
-            $(".bgColor").css("background", color.plumEn);
-            $("#coverperipheral").prop("disabled", false);
-        })
+        // $("#plumEn").click(function () {
+        //     $(".bgColor").css("background", color.plumEn);
+        //     $(".bracketHandle").prop("disabled", true);
+        //     $(".tubingGuide").prop("disabled", true);
+        // })
         $("#plum360").click(function () {
             $(".bgColor").css("background", color.plum360);
-            $("#coverperipheral").prop("disabled", true);
+            $(".bracketHandle").prop("disabled", false);
+            $(".tubingGuide").prop("disabled", false);
         })
     })
 })
@@ -277,8 +280,14 @@ $(function () {
             n252.checked = false;
             n250Shield.checked = false;
             n250Asmdoor.checked = false;
+            n250pivot.checked = false;
+            n250handle.checked = false;
+            n250link.checked = false;
             n251Asmdoor.checked = false;
             n251Shield.checked = false;
+            n251pivot.checked = false;
+            n251handle.checked = false;
+            n251link.checked = false;
             e439.checked = false;
             e302.checked = false;
             powerBool = true;
@@ -337,7 +346,12 @@ $(function () {
                 n250.classList.add("hoverUpDownli")
             }
             else if ($(this).is(":not(:checked)")) {
-                if (n250Shield.checked != true) {
+                if (n250Shield.checked == true
+                    || n250pivot.checked == true
+                    || n250handle.checked == true
+                    || n250link.checked == true
+                ) { }
+                else {
                     n250.classList.remove("hoverUpDownli");
                 }
             }
@@ -351,7 +365,11 @@ $(function () {
                 n251.classList.add("hoverUpDownli")
             }
             else if ($(this).is(":not(:checked)")) {
-                if (n251Shield.checked != true) {
+                if (n251Shield.checked == true
+                    || n251pivot.checked == true
+                    || n251handle.checked == true
+                    || n251link.checked == true) { }
+                else {
                     n251.classList.remove("hoverUpDownli");
                 }
             }
@@ -365,7 +383,12 @@ $(function () {
                 n250.classList.add("hoverUpDownli")
             }
             else if ($(this).is(":not(:checked)")) {
-                if (n250Asmdoor.checked != true) {
+                if (n250Asmdoor.checked == true
+                    || n250pivot.checked == true
+                    || n250handle.checked == true
+                    || n250link.checked == true
+                ) { }
+                else {
                     n250.classList.remove("hoverUpDownli");
                 }
             }
@@ -379,7 +402,120 @@ $(function () {
                 n251.classList.add("hoverUpDownli")
             }
             else if ($(this).is(":not(:checked)")) {
-                if (n251Asmdoor.checked != true) {
+                if (n251Asmdoor.checked == true
+                    || n251pivot.checked == true
+                    || n251handle.checked == true
+                    || n251link.checked == true
+                ) { }
+                else {
+                    n251.classList.remove("hoverUpDownli");
+                }
+            }
+        })
+        $("#n250pivot").click(function () {
+            if ($("#n251pivot").is(":checked")) {
+                alert("n251pivot ile aynı anda seçilemez!");
+                $("#n250pivot").prop("checked", false);
+            }
+            if ($(this).is(":checked")) {
+                n250.classList.add("hoverUpDownli")
+            }
+            else if ($(this).is(":not(:checked)")) {
+                if (n250Shield.checked == true
+                    || n250Asmdoor.checked == true
+                    || n250handle.checked == true
+                    || n250link.checked == true) { }
+                else {
+                    n250.classList.remove("hoverUpDownli");
+                }
+            }
+        })
+        $("#n251pivot").click(function () {
+            if ($("#n250pivot").is(":checked")) {
+                alert("n250pivot ile aynı anda seçilemez!");
+                $("#n251pivot").prop("checked", false);
+            }
+            if ($(this).is(":checked")) {
+                n251.classList.add("hoverUpDownli")
+            }
+            else if ($(this).is(":not(:checked)")) {
+                if (n251Shield.checked == true
+                    || n251Asmdoor.checked == true
+                    || n251handle.checked == true
+                    || n251link.checked == true) { }
+                else {
+                    n251.classList.remove("hoverUpDownli");
+                }
+            }
+        })
+        $("#n250handle").click(function () {
+            if ($("#n251handle").is(":checked")) {
+                alert("n251handle ile aynı anda seçilemez!");
+                $("#n250handle").prop("checked", false);
+            }
+            if ($(this).is(":checked")) {
+                n250.classList.add("hoverUpDownli")
+            }
+            else if ($(this).is(":not(:checked)")) {
+                if (n250Shield.checked == true
+                    || n250pivot.checked == true
+                    || n250Asmdoor.checked == true
+                    || n250link.checked == true) { }
+                else {
+                    n250.classList.remove("hoverUpDownli");
+                }
+            }
+        })
+        $("#n251handle").click(function () {
+            if ($("#n250handle").is(":checked")) {
+                alert("n250handle ile aynı anda seçilemez!");
+                $("#n251handle").prop("checked", false);
+            }
+            if ($(this).is(":checked")) {
+                n251.classList.add("hoverUpDownli")
+            }
+            else if ($(this).is(":not(:checked)")) {
+                if (n251Shield.checked == true
+                    || n251pivot.checked == true
+                    || n251Asmdoor.checked == true
+                    || n251link.checked == true) { }
+                else {
+                    n251.classList.remove("hoverUpDownli");
+                }
+            }
+        })
+        $("#n250link").click(function () {
+            if ($("#n251link").is(":checked")) {
+                alert("n251link ile aynı anda seçilemez!");
+                $("#n250link").prop("checked", false);
+            }
+            if ($(this).is(":checked")) {
+                n250.classList.add("hoverUpDownli")
+            }
+            else if ($(this).is(":not(:checked)")) {
+                if (n250Shield.checked == true
+                    || n250pivot.checked == true
+                    || n250handle.checked == true
+                    || n250Asmdoor.checked == true) { }
+                else {
+                    n250.classList.remove("hoverUpDownli");
+                }
+            }
+        })
+        $("#n251link").click(function () {
+            if ($("#n250link").is(":checked")) {
+                alert("n250link ile aynı anda seçilemez!");
+                $("#n251link").prop("checked", false);
+            }
+            if ($(this).is(":checked")) {
+                n251.classList.add("hoverUpDownli")
+            }
+            else if ($(this).is(":not(:checked)")) {
+                if (n251Shield.checked == true
+                    || n251pivot.checked == true
+                    || n251handle.checked == true
+                    || n251Asmdoor.checked == true) { }
+                else {
                     n251.classList.remove("hoverUpDownli");
                 }
             }
@@ -665,7 +801,7 @@ function mainPageFormsVerification() {
     if (visualInspectionFail.checked || selfTestFail.checked || proximalOccFail.checked || distalOccFail.checked) {
         if (visualBool == true) {
             if (selfTestFail.checked) {
-                if (battery.checked || sDBattery.checked || n252.checked || e439.checked || e302.checked || power.checked || cpu.checked || n250Shield.checked || n250Asmdoor.checked || n251Asmdoor.checked || n251Shield.checked || selfTestMechanism.checked) {
+                if (battery.checked || sDBattery.checked || n252.checked || e439.checked || e302.checked || power.checked || cpu.checked || n250Shield.checked || n250Asmdoor.checked || n251Asmdoor.checked || n251Shield.checked || n251pivot.checked || n250pivot.checked || n250handle.checked || n251handle.checked || n250link.checked || n251link.checked || selfTestMechanism.checked) {
                     verificationContinue();
                 }
                 else alert("Cassette Alarm Testte herhangi bir işaretleme yapmadınız.\nCassette Alarm Testte bir arıza yoksa kutucuğundaki işareti kaldırınız.");
@@ -728,8 +864,14 @@ function resetFindings() {
     e302.checked = false;
     n250Shield.checked = false;
     n250Asmdoor.checked = false;
+    n250pivot.checked = false;
+    n250handle.checked = false;
+    n250link.checked = false;
     n251Asmdoor.checked = false;
     n251Shield.checked = false;
+    n251pivot.checked = false;
+    n251handle.checked = false;
+    n251link.checked = false;
     $("#power").prop("checked", false);
     $("#cpu").prop("checked", false);
     $("#selfTestMechanism").prop("checked", false);

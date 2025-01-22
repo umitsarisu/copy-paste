@@ -73,6 +73,80 @@ var selfTestN250ShieldObj = {
         else return plumaYdkObj.shield(1);
     },
 }
+var selfTestN250PivotObj = {
+    replaced: "PIVOT",
+    errorCode: function () {
+        return "N250";
+    },
+    code: " CODE ",
+    itWas: "REPLACED",
+    probableCause: "BROKEN PIVOT",
+    changedPart: function () {
+        return plum360YdkObj.pivot(1);
+    },
+}
+var selfTestN251PivotObj = {
+    replaced: "PIVOT",
+    errorCode: function () {
+        return "N251";
+    },
+    code: " CODE ",
+    itWas: "REPLACED",
+    probableCause: "BROKEN PIVOT",
+    changedPart: function () {
+        return plum360YdkObj.pivot(1);
+    },
+}
+var selfTestN250HandleObj = {
+    replaced: "HANDLE DOOR",
+    errorCode: function () {
+        return "N250";
+    },
+    code: " CODE ",
+    itWas: "REPLACED",
+    probableCause: "DEFECTIVE HANDLE DOOR",
+    changedPart: function () {
+        if (plum360.checked) return plum360YdkObj.handledoor(1);
+        else return plumaYdkObj.handledoor(1);
+    },
+}
+var selfTestN251HandleObj = {
+    replaced: "HANDLE DOOR",
+    errorCode: function () {
+        return "N251";
+    },
+    code: " CODE ",
+    itWas: "REPLACED",
+    probableCause: "DEFECTIVE HANDLE DOOR",
+    changedPart: function () {
+        if (plum360.checked) return plum360YdkObj.handledoor(1);
+        else return plumaYdkObj.handledoor(1);
+    },
+}
+var selfTestN250LinkObj = {
+    replaced: "LINK DOOR",
+    errorCode: function () {
+        return "N250";
+    },
+    code: " CODE ",
+    itWas: "REPLACED",
+    probableCause: "BROKEN LINK DOOR",
+    changedPart: function () {
+        return plum360YdkObj.linkdoor(1);
+    },
+}
+var selfTestN251LinkObj = {
+    replaced: "LINK DOOR",
+    errorCode: function () {
+        return "N251";
+    },
+    code: " CODE ",
+    itWas: "REPLACED",
+    probableCause: "BROKEN LINK DOOR",
+    changedPart: function () {
+        return plum360YdkObj.linkdoor(1);
+    },
+}
 var selfTestN251ShieldObj = {
     replaced: "SHIELD",
     errorCode: function () {
@@ -110,7 +184,7 @@ var selfTestE439Obj = {
     changedPart: function () {
         if (plum360.checked) return plum360YdkObj.keypad360(1);
         else if (plumTr.checked) return plumaYdkObj.keypadTr(1);
-        else return plumaYdkObj.keypadEn(1);
+        // else return plumaYdkObj.keypadEn(1);
     },
 }
 var selfTestE302Obj = {

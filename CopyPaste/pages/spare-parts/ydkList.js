@@ -744,10 +744,13 @@ let littlePartsObj = {
         model: model.mechanism,
         definition: definition.littleParts
     },
-    littlepart23: {
-        name: "Holder Proximal Tubing",
+    tubingGuide: {
+        name: "Tubing Guide",
         code: "YDK-SUB0000558",
         explanation: "Ön kasa mor parça",
+        fullName: function () {
+            return `${this.name} ${this.code}`;
+        },
         model: model.plum360,
         definition: definition.littleParts
     },
@@ -758,10 +761,13 @@ let littlePartsObj = {
         model: model.littleParts,
         definition: definition.littleParts
     },
-    littlepart25: {
+    bracketHandle: {
         name: "Bracket Handle",
         code: "YDK-712-94861-402",
         explanation: "Arka Kapak Mor Parça",
+        fullName: function () {
+            return `${this.name} ${this.code}`;
+        },
         model: model.plum360,
         definition: definition.littleParts
     },
@@ -835,9 +841,12 @@ let littlePartsObj = {
         model: model.mechanism,
         definition: definition.littleParts
     },
-    littlepart36: {
-        name: "Pıvot",
+    pivot: {
+        name: "Pivot",
         code: "YDK-712-95067-401",
+        fullName: function () {
+            return `${this.name} ${this.code}`;
+        },
         explanation: "Turuncu parça",
         model: model.mechanism,
         definition: definition.littleParts
@@ -884,11 +893,14 @@ let littlePartsObj = {
         model: model.mechanism,
         definition: definition.littleParts
     },
-    littlepart44: {
+    linkdoor: {
         name: "Link Door",
         code: "YDK-712-97667-401",
         explanation: "mechanism Parçaları",
         model: model.mechanism,
+        fullName: function () {
+            return `${this.name} ${this.code}`;
+        },
         definition: definition.littleParts
     },
     littlepart45: {

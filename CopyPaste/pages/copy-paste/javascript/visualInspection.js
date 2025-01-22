@@ -51,7 +51,13 @@ function visualPrint() {
         if (damaged[i] == "COVER PERIPHERAL") {
             if ($("#plum360").is(":checked")) changedPartsArray.push(plum360SparePartsObj.coverperipheral.fullName());
             else changedPartsArray.push(plumaSparePartsObj.coverperipheral.fullName());
-        } 
+        }
+        if (damaged[i] == "BRACKET HANDLE") {
+            if ($("#plum360").is(":checked")) changedPartsArray.push(littlePartsObj.bracketHandle.fullName());
+        }
+        if (damaged[i] == "TUBING GUIDE") {
+            if ($("#plum360").is(":checked")) changedPartsArray.push(littlePartsObj.tubingGuide.fullName());
+        }
     }
     // case assembly situation start //
     if (damaged.includes("FRONT CASE") && damaged.includes("REAR CASE") && damaged.includes("MAIN CHASIS")) {

@@ -75,6 +75,12 @@
             if (n250Shield.checked) selfTestPrint(selfTestN250ShieldObj);
             if (n251Asmdoor.checked) selfTestPrint(selfTestN251AsmdoorObj);
             if (n251Shield.checked) selfTestPrint(selfTestN251ShieldObj);
+            if (n250pivot.checked) selfTestPrint(selfTestN250PivotObj);
+            if (n251pivot.checked) selfTestPrint(selfTestN251PivotObj);
+            if (n250handle.checked) selfTestPrint(selfTestN250HandleObj);
+            if (n251handle.checked) selfTestPrint(selfTestN251HandleObj);
+            if (n250link.checked) selfTestPrint(selfTestN250LinkObj);
+            if (n251link.checked) selfTestPrint(selfTestN251LinkObj);
             if (e439.checked) selfTestPrint(selfTestE439Obj);
             if (e302.checked) selfTestPrint(selfTestE302Obj);
             // POWER
@@ -392,6 +398,21 @@ function AAcodes() {
             if (experience == "141") investigation("SXC");
             else investigation("781");
         }
+        if (damaged.includes("COVER PERIPHERAL")) {
+            repair("E56");
+            if (experience == "141") investigation("SXC");
+            else investigation("781");
+        }
+        if (damaged.includes("BRACKET HANDLE")) {
+            repair("E56");
+            if (experience == "141") investigation("SXC");
+            else investigation("781");
+        }
+        if (damaged.includes("TUBING GUIDE")) {
+            repair("E56");
+            if (experience == "122") investigation("SXC");
+            else investigation("781");
+        }
     }
     if (battery.checked || sDBattery.checked) {
         repair("E27");
@@ -431,6 +452,44 @@ function AAcodes() {
             else investigation("N250");
         }
         else if (n251Asmdoor.checked) {
+            if (experience == "N251") investigation("SXC");
+            else investigation("N251");
+        }
+    }
+    if (selfTestprobableCauseArray.includes("BROKEN PIVOT")) {
+        repair("M23");
+        analysis("M23");
+        analysis("894");
+        if (n250pivot.checked) {
+            if (experience == "N250") investigation("SXC");
+            else investigation("N250");
+        }
+        else if (n251pivot.checked) {
+            if (experience == "N251") investigation("SXC");
+            else investigation("N251");
+        }
+    }
+    if (selfTestprobableCauseArray.includes("DEFECTIVE HANDLE DOOR")) {
+        repair("A13");
+        analysis("M38");
+        analysis("973");
+        if (n250handle.checked) {
+            if (experience == "N250") investigation("SXC");
+            else investigation("N250");
+        }
+        else if (n251handle.checked) {
+            if (experience == "N251") investigation("SXC");
+            else investigation("N251");
+        }
+    }
+    if (selfTestprobableCauseArray.includes("BROKEN LINK DOOR")) {
+        repair("A13");
+        analysis("E56");
+        if (n250link.checked) {
+            if (experience == "N250") investigation("SXC");
+            else investigation("N250");
+        }
+        else if (n251link.checked) {
             if (experience == "N251") investigation("SXC");
             else investigation("N251");
         }

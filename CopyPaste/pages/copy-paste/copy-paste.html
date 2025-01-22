@@ -48,20 +48,14 @@
                 <form action="javascript:$('#checkicon').show()" id="customerExperienceForm">
                     <h3>Cihaz Modelini Seçin</h3>
                     <!-- Model Seçimi: -->
-                    <div id="headerCheckModel" class="clearfix">
+                    <div class="d-flex justify-content-center">
                         <!-- kaynak: main.js Background Color Atamaları -->
                         <!-- kaynak: visualInspection.js visualObj.keypad() -->
                         <!-- kaynak: cassetteAlarm.js selfTestE439Obj.changedPart() -->
-                        <div class="models">
+                        <div class="models mx-2">
                             <label for="plumTr">
                                 <input type="radio" id="plumTr" name="radio" required>
-                                <strong>Plum A TR</strong>
-                            </label>
-                        </div>
-                        <div class="models">
-                            <label for="plumEn">
-                                <input type="radio" id="plumEn" name="radio" required>
-                                <strong>Plum A EN</strong>
+                                <strong>Plum A</strong>
                             </label>
                         </div>
                         <div class="models">
@@ -72,7 +66,7 @@
                         </div>
                     </div>
                     <!--Müşteri Şikayeti:-->
-                    <div id="errCode">
+                    <div id="errCode" class="d-flex">
                         <!-- kaynak: main.js Main Page Buttons customerExperienceForm -->
                         <!-- müşteri şikayetini işler ve 122-141 hatalarına göre visual inspection testini düzenler. -->
                         <p>Müşteri Şikayeti:</p>
@@ -99,7 +93,7 @@
                     </div>
                 </form>
             </header>
-            <section id="findings" class="limitedContainer border-lr contentBgColor none">
+            <section id="findings" class="limitedContainer border-lr contentBgColor non">
                 <div id="findingsDiv">
                     <h4>Bulgular</h4>
                     <div id="divTests">
@@ -129,7 +123,7 @@
                 </ul>
                 <div style="clear: both;"></div>
             </section>
-            <section id="theTests" class="contentBgColor none">
+            <section id="theTests" class="contentBgColor non">
                 <!--Visual İnspection Test-->
                 <form id="visualInspection" action="javascript: $('#checkicon1').show(); $('#checkicon11').show();"
                     class="sectionContent border-lr none">
@@ -144,14 +138,16 @@
                                     <option>MAIN CHASIS</option>
                                     <option>ASM DOOR</option>
                                     <option>SHIELD</option>
+                                    <option class="tubingGuide">TUBING GUIDE</option>
+                                    <option class="bracketHandle">BRACKET HANDLE</option>
+                                    <option>HANDLE DOOR</option>
                                     <option>KEYPAD</option>
                                     <option>DISPLAY</option>
-                                    <option>HANDLE DOOR</option>
                                     <option>BATTERY DOOR</option>
                                     <option>RETAINER CORD</option>
                                     <option>POLE CLAMP ASS</option>
                                     <option>POLE CLAMP KNOB</option>
-                                    <option id="coverperipheral">COVER PERIPHERAL</option>
+                                    <option>COVER PERIPHERAL</option>
                                 </select>
                             </label>
                             <div id="divShowVisual">
@@ -176,6 +172,7 @@
                                     <option>ASM DOOR</option>
                                     <option>SHIELD</option>
                                     <option>HANDLE DOOR</option>
+                                    <option class="tubingGuide">TUBING GUIDE</option>
                                     <option>KEYPAD</option>
                                     <option>DISPLAY</option>
                                 </select>
@@ -189,10 +186,11 @@
                             <label for="spareParts141">141'den arızalı YDK
                                 <select multiple id="spareParts141" ondblclick="selectedVisual(2)">
                                     <option>REAR CASE</option>
-                                    <option>POLE CLAMP ASS</option>
                                     <option>POLE CLAMP KNOB</option>
+                                    <option class="bracketHandle">BRACKET HANDLE</option>
                                     <option>COVER PERIPHERAL</option>
                                     <option>RETAINER CORD</option>
+                                    <option>POLE CLAMP ASS</option>
                                 </select>
                             </label>
                             <div id="divShow141">
@@ -208,7 +206,7 @@
                         <input type="reset" value="Reset" class="btn btn-outline-danger">
                     </div>
                 </form>
-                <div id="selfTest" class="sectionContent border-lr none">
+                <div id="selfTest" class="sectionContent border-lr non">
                     <h5>Cassette Alarm Test Fail</h5>
                     <ul>
                         <li><label for="battery">
@@ -240,6 +238,24 @@
                                     <span>SHIELD</span>
                                 </label>
                             </div>
+                            <div class="hoverUpPivot">
+                                <label for="n250pivot">
+                                    <input type="checkbox" id="n250pivot">
+                                    <span>Pivot</span>
+                                </label>
+                            </div>
+                            <div class="hoverUpHandle">
+                                <label for="n250handle">
+                                    <input type="checkbox" id="n250handle">
+                                    <span style="margin-left: -7px;">Handle D.</span>
+                                </label>
+                            </div>
+                            <div class="hoverUpLink">
+                                <label for="n250link">
+                                    <input type="checkbox" id="n250link">
+                                    <span style="margin-left: -7px;">Link Door</span>
+                                </label>
+                            </div>
                         </li>
                         <li><label for="n252">
                                 <input type="checkbox" id="n252">
@@ -260,6 +276,24 @@
                                 <label for="n251Shield">
                                     <input type="checkbox" id="n251Shield">
                                     <span>SHIELD</span>
+                                </label>
+                            </div>
+                            <div class="hoverUpPivot">
+                                <label for="n251pivot">
+                                    <input type="checkbox" id="n251pivot">
+                                    <span>Pivot</span>
+                                </label>
+                            </div>
+                            <div class="hoverUpHandle">
+                                <label for="n251handle">
+                                    <input type="checkbox" id="n251handle">
+                                    <span style="margin-left: -7px;">Handle D.</span>
+                                </label>
+                            </div>
+                            <div class="hoverUpLink">
+                                <label for="n251link">
+                                    <input type="checkbox" id="n251link">
+                                    <span style="margin-left: -7px;">Link Door</span>
                                 </label>
                             </div>
                         </li>

@@ -20,6 +20,15 @@ const plum360YdkObj = {
     shield: () => {
         return plum360SparePartsObj.shield.fullName();
     },
+    pivot: () => {
+        return littlePartsObj.pivot.fullName();
+    },
+    handledoor: () => {
+        return plum360SparePartsObj.handledoor.fullName();
+    },
+    linkdoor: () => {
+        return littlePartsObj.linkdoor.fullName();
+    },
     keypad360: () => {
         return plum360SparePartsObj.keypad.fullName();
     },
@@ -66,6 +75,9 @@ const plumaYdkObj = {
     },
     display: () => {
         return plum360SparePartsObj.display.fullName();
+    },
+    handledoor: () => {
+        return plumaSparePartsObj.handledoor.fullName();
     },
     power: () => {
         return plumaSparePartsObj.powerpwa.fullName();

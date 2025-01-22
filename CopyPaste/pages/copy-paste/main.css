@@ -21,7 +21,7 @@ h6 {
 }
 
 body {
-    background-color: lightslategray;
+    background-color: #a5b1c2
 }
 
 body::-webkit-scrollbar {
@@ -1479,7 +1479,10 @@ a.nav-link i {
     section#theTests div.sectionContent ul li div.hoverDown,
     div.hoverUp,
     div.hoverUpAsmdoor,
-    div.hoverDownShield {
+    div.hoverDownShield,
+    div.hoverUpPivot,
+    div.hoverUpHandle,
+    div.hoverUpLink {
         width: 98px;
         height: 40px;
         line-height: 40px;
@@ -1517,7 +1520,24 @@ a.nav-link i {
         right: 49px;
         background: rgb(253, 137, 84);
     }
-
+    li:hover div.hoverUpPivot {
+        z-index: 1;
+        top: -40px;
+        right: 0px;
+        background: rgb(216, 171, 104);
+    }
+    li:hover div.hoverUpHandle {
+        z-index: 1;
+        top: -80px;
+        left: 49px;
+        background: #D99D81;
+    }
+    li:hover div.hoverUpLink {
+        z-index: 1;
+        top: -80px;
+        right: 49px;
+        background: #F6C794;
+    }
     div.hoverUpAsmdoor,
     div.hoverDownShield {
         padding: 0;
