@@ -800,6 +800,10 @@ $(function () {
         $("#checkicon5").hide();
         proximalBool = false;
     })
+    $("#proximalTestPressureReplaced").click(function () {
+        $("#checkicon5").hide();
+        proximalBool = false;
+    })
     $("#proximalOcclusion").submit(function () {
         if ($("#proximalTestErrorCode").val() == 0) {
             alert("Mekanizma hata kodunu girin!");

@@ -110,6 +110,7 @@ var selfTestAppSerialNumber = document.getElementById("selfTestAppSerialNumber")
 
 //Proximal Occlusion Test Variables
 var proximalOcclusion = document.getElementById("proximalOcclusion");
+var proximalOccFail = document.getElementById("proximalOccFail");
 //Mechanism
 var proximalTestSentToIzmir = document.getElementById("proximalTestSentToIzmir");
 var proximalTestMechanismReplaced = document.getElementById("proximalTestMechanismReplaced");
@@ -120,6 +121,7 @@ var ifProxTestMechanismChecked = document.getElementById("ifProxTestMechanismChe
 var ifProxTestAppChecked = document.getElementById("ifProxTestAppChecked");
 var proximalTestAppReplaced = document.getElementById("proximalTestAppReplaced");
 var proximalTestAppCalibrated = document.getElementById("proximalTestAppCalibrated");
+var proximalTestPressureReplaced = document.getElementById("proximalTestPressureReplaced");
 var proximalAppSN = document.getElementById("proximalAppSN");
 var commentProximal = "";
 

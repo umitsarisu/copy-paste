@@ -21,6 +21,15 @@ var proximalAppRepObj = {
     },
     lastSentence: "",
 }
+var proximalPressureRepObj = {
+    replaced: "PRESSURE DEDECTOR",
+    itWas: "REPLACED",
+    probableCause: "DEFECTIVE PRESSURE DEDECTOR",
+    changedPart: function () {
+        return commonYdkObj.pressurededector(1);
+    },
+    lastSentence: "",
+}
 var proximalAppCalObj = {
     replaced: "APP PWA",
     itWas: "CALIBRATED",

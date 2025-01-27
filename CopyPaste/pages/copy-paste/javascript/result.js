@@ -161,6 +161,7 @@
             if (proximalTestMechanismReplaced.checked) proximalPrint(proximalMechObj);
             else if (proximalTestAppReplaced.checked) proximalPrint(proximalAppRepObj);
             else if (proximalTestAppCalibrated.checked) proximalPrint(proximalAppCalObj);
+            else if (proximalTestPressureReplaced.checked) proximalPrint(proximalPressureRepObj);
         }
         if ($("#distalOccFail").is(":checked")) {
             findingsArray.push("DISTAL OCCLUSION (3-9) TEST FAIL");
@@ -235,6 +236,10 @@ function AAcodes() {
         if (distalOccFail.checked) {
             if (experience == "716" || experience == "N180" || experience == "N186") investigation("SXC");
             else investigation("716");
+        }
+        else if (proximalOccFail.checked) {
+            if (experience == $("#proximalTestErrorCode").val().toUpperCase()) investigation("SXC");
+            else investigation($("#proximalTestErrorCode").val().toUpperCase());
         }
         else {
             if (experience == $("#selfTestMechanismErrorCode").val().toUpperCase()) investigation("SXC");
