@@ -56,9 +56,30 @@ const plum360YdkObj = {
     switchPwa: () => {
         return mechanismSparePartsObj.switchpwa.fullName();
     },
-    peripheralPwa: () => {
-        return plum360SparePartsObj.peripheralpwa.fullName();
-    }
+    peripheral: () => {
+        return plum360SparePartsObj.peripheral.fullName();
+    },
+    spring: () => {
+        return littlePartsObj.spring.fullName();
+    },
+    cableMotorPower: () => {
+        return littlePartsObj.cableMotorPower.fullName();
+    },
+    cableCpuDriver: () => {
+        return littlePartsObj.cableCpuDriver.fullName();
+    },
+    cablePowerBattery: () => {
+        return littlePartsObj.cablePowerBattery.fullName();
+    },
+    cableCableFlat20: () => {
+        return littlePartsObj.cableCableFlat20.fullName();
+    },
+    cableFlat8: () => {
+        return littlePartsObj.cableFlat8.fullName();
+    },
+    powerCable: () => {
+        return littlePartsObj.powerCable.fullName();
+    },
 };
 const plumaYdkObj = {
     asmdoor: () => {
@@ -84,5 +105,8 @@ const plumaYdkObj = {
     },
     mechanism: () => {
         return mechanismSparePartsObj.mechanism.fullName();
+    },
+    peripheral: () => {
+        return plumaSparePartsObj.peripheral.fullName();
     }
 };

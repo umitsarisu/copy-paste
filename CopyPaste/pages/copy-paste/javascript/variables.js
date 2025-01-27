@@ -4,6 +4,8 @@ var sonuc = document.getElementById("sonuc");
 var visualBool = true;
 var powerBool = true;
 var cpuBool = true;
+var peripheralBool = true;
+var cablesBool = true;
 var selfMechanismBool = true;
 var proximalBool = true;
 var distalBool = true;
@@ -59,11 +61,31 @@ var powerExperience = "";
 //Cpu
 var cpu = document.getElementById("cpu");
 var cpuDisplay = document.getElementById("cpuDisplay");
+var cpuForm = document.getElementById("cpuForm");
 var cpuErrorCode = document.getElementById("cpuErrorCode");
 var cpuSN = document.getElementById("cpuSN");
 var cpuSerialNumber = "";
 var cpuExperience = "";
 var selfTestAppErrorCode = "";
+//Peripheral
+var peripheral = document.getElementById("peripheral");
+var peripheralForm = document.getElementById("peripheralForm");
+var peripheralErrorCode = document.getElementById("peripheralErrorCode");
+var peripheralSN = document.getElementById("peripheralSN");
+var peripheralSerialNumber = "";
+var peripheralExperience = "";
+// Cables
+var cables = document.getElementById("cables");
+var cablesForm = document.getElementById("cablesForm");
+var cablesErrorCode = document.getElementById("cablesErrorCode");
+var cablesExperience = "";
+var powerCableReplaced = document.getElementById("powerCableReplaced");
+var cpuDriverCableReplaced = document.getElementById("cpuDriverCableReplaced");
+var cableFlat20Replaced = document.getElementById("cableFlat20Replaced");
+var cablePowerBatteryReplaced = document.getElementById("cablePowerBatteryReplaced");
+var cableMotorPowerReplaced = document.getElementById("cableMotorPowerReplaced");
+var cableFlat8Replaced = document.getElementById("cableFlat8Replaced");
+
 //Mechanism
 var ifSelfTestMechanismChecked = document.getElementById("ifSelfTestMechanismChecked");
 var ifSelfTestAppChecked = document.getElementById("ifSelfTestAppChecked");
@@ -76,6 +98,7 @@ var selfTestPressureCalibrated = document.getElementById("selfTestPressureCalibr
 var selfTestMechanismReplaced = document.getElementById("selfTestMechanismReplaced");
 var selfTestDRPCalibrated = document.getElementById("selfTestDRPCalibrated");
 var selfTestDRPReplaced = document.getElementById("selfTestDRPReplaced");
+var selfTestSpringReplaced = document.getElementById("selfTestSpringReplaced");
 var selfTestLSMReplaced = document.getElementById("selfTestLSMReplaced");
 var selfTestIOMReplaced = document.getElementById("selfTestIOMReplaced");
 var selfTestPLMReplaced = document.getElementById("selfTestPLMReplaced");

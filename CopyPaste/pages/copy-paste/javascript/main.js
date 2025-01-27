@@ -292,16 +292,24 @@ $(function () {
             e302.checked = false;
             powerBool = true;
             cpuBool = true;
+            peripheralBool = true;
+            cablesBool = true;
             selfMechanismBool = true;
             $("#power").prop("checked", false);
             $("#cpu").prop("checked", false);
+            $("#peripheral").prop("checked", false);
+            $("#cables").prop("checked", false);
             $("#selfTestMechanism").prop("checked", false);
             $("#selfTestForMechanismPCI").prop("checked", false);
             $("#powerForm").hide();
             $("#cpuForm").hide();
+            $("#peripheralForm").hide();
+            $("#cablesForm").hide();
             $("#selfTestMechanismForm").hide();
             $("#powerForm").find(":reset").click();
             $("#cpuForm").find(":reset").click();
+            $("#cablesForm").find(":reset").click();
+            $("#peripheralForm").find(":reset").click();
             $("#selfTestMechanismForm").find(":reset").click();
         }
     })
@@ -577,6 +585,66 @@ $(function () {
             $("#checkicon3").hide();
         })
     }) // Cpu End //
+    // Peripheral Start //
+    $(function () {
+        $("#peripheral").click(function () {
+            if ($(this).is(":checked")) {
+                peripheralBool = false;
+                $("#peripheralForm").show();
+            }
+            else if ($(this).is(":not(:checked)")) {
+                $("#peripheralForm").find(":reset").click();
+                peripheralBool = true;
+                $("#peripheralForm").hide();
+            }
+        })
+        $("#peripheralForm").find(":submit").click(function () {
+            if ($("#peripheralErrorCode").val() == 0) {
+                alert("Peripheral hata kodunu girin!");
+                return false;
+            } else {
+                if ($("#peripheralSN").val() == 0) {
+                    alert("Peripheral seri numarasını girin!");
+                    return false;
+                }
+            }
+        })
+        $("#peripheralForm").find(":reset").click(function () {
+            $("#checkicon31").hide();
+        })
+    }) // Peripheral End //
+    // Cables Start //
+    $(function () {
+        $("#cables").click(function () {
+            if ($(this).is(":checked")) {
+                cablesBool = false;
+                $("#cablesForm").show();
+            }
+            else if ($(this).is(":not(:checked)")) {
+                $("#cablesForm").find(":reset").click();
+                cablesBool = true;
+                $("#cablesForm").hide();
+            }
+        })
+        $("#cablesForm").find(":submit").click(function () {
+            if ($("#cablesErrorCode").val() == 0) {
+                alert("Cables hata kodunu girin!");
+                return false;
+            }
+            else {
+                if (powerCableReplaced.checked ||
+                    cpuDriverCableReplaced.checked || cableFlat20Replaced.checked ||
+                    cablePowerBatteryReplaced.checked || cableMotorPowerReplaced.checked || cableFlat8Replaced.checked) { }
+                else {
+                    alert("Cables ile ilgili bir seçim yapın!");
+                    return false;
+                }
+            }
+        })
+        $("#cablesForm").find(":reset").click(function () {
+            $("#checkicon32").hide();
+        })
+    }) // Cables End //
     // Self Test Mechanism Start //
     $(function () {
         $("#selfTestMechanism").click(function () {
@@ -634,6 +702,9 @@ $(function () {
         $("#selfTestLSMReplaced").click(function () {
             removeMechanism();
         })
+        $("#selfTestSpringReplaced").click(function () {
+            removeMechanism();
+        })
         $("#selfTestIOMReplaced").click(function () {
             removeMechanism();
         })
@@ -659,7 +730,7 @@ $(function () {
             } else {
                 if (selfTestMechanismReplaced.checked ||
                     selfTestAppReplaced.checked || selfTestPressureReplaced.checked ||
-                    selfTestPressureCalibrated.checked || selfTestDRPReplaced.checked ||
+                    selfTestPressureCalibrated.checked || selfTestDRPReplaced.checked || selfTestSpringReplaced.checked ||
                     selfTestLSMReplaced.checked || selfTestIOMReplaced.checked ||
                     selfTestPLMReplaced.checked || selfTestSWPReplaced.checked ||
                     selfTestDRPCalibrated.checked) {
@@ -801,7 +872,7 @@ function mainPageFormsVerification() {
     if (visualInspectionFail.checked || selfTestFail.checked || proximalOccFail.checked || distalOccFail.checked) {
         if (visualBool == true) {
             if (selfTestFail.checked) {
-                if (battery.checked || sDBattery.checked || n252.checked || e439.checked || e302.checked || power.checked || cpu.checked || n250Shield.checked || n250Asmdoor.checked || n251Asmdoor.checked || n251Shield.checked || n251pivot.checked || n250pivot.checked || n250handle.checked || n251handle.checked || n250link.checked || n251link.checked || selfTestMechanism.checked) {
+                if (battery.checked || sDBattery.checked || n252.checked || e439.checked || e302.checked || power.checked || cpu.checked || peripheral.checked || n250Shield.checked || n250Asmdoor.checked || n251Asmdoor.checked || n251Shield.checked || n251pivot.checked || n250pivot.checked || n250handle.checked || n251handle.checked || n250link.checked || n251link.checked || selfTestMechanism.checked || cables.checked) {
                     verificationContinue();
                 }
                 else alert("Cassette Alarm Testte herhangi bir işaretleme yapmadınız.\nCassette Alarm Testte bir arıza yoksa kutucuğundaki işareti kaldırınız.");
@@ -812,23 +883,29 @@ function mainPageFormsVerification() {
             function verificationContinue() {
                 if (powerBool == true) {
                     if (cpuBool == true) {
-                        if (selfMechanismBool == true) {
-                            if (proximalBool == true) {
-                                if (distalBool == true) {
-                                    if ($("#no2").is(":checked")) result();
-                                    if ($("#yes2").is(":checked")) {
-                                        if (visualInspectionFail.checked) alert("Cihaz sağlamsa Visual Inspection Test kutucuğundaki işareti kaldırınız.");
-                                        else if (selfTestFail.checked) alert("Cihaz sağlamsa Cassette Alarm Test kutucuğundaki işareti kaldırınız.");
-                                        else if (proximalOccFail.checked) alert("Cihaz sağlamsa Proximal Occlusion Test kutucuğundaki işareti kaldırınız.");
-                                        else if (proximalOccFail.checked) alert("Cihaz sağlamsa Distal Occlusion Test kutucuğundaki işareti kaldırınız.");
-                                        else result()
+                        if (peripheralBool == true) {
+                            if (cablesBool == true) {
+                                if (selfMechanismBool == true) {
+                                    if (proximalBool == true) {
+                                        if (distalBool == true) {
+                                            if ($("#no2").is(":checked")) result();
+                                            if ($("#yes2").is(":checked")) {
+                                                if (visualInspectionFail.checked) alert("Cihaz sağlamsa Visual Inspection Test kutucuğundaki işareti kaldırınız.");
+                                                else if (selfTestFail.checked) alert("Cihaz sağlamsa Cassette Alarm Test kutucuğundaki işareti kaldırınız.");
+                                                else if (proximalOccFail.checked) alert("Cihaz sağlamsa Proximal Occlusion Test kutucuğundaki işareti kaldırınız.");
+                                                else if (proximalOccFail.checked) alert("Cihaz sağlamsa Distal Occlusion Test kutucuğundaki işareti kaldırınız.");
+                                                else result()
+                                            }
+                                        }
+                                        else alert("Distal Occlusion Test bilgileri gönderilmemiştir!")
                                     }
+                                    else alert("Proximal Occlusion Test bilgileri gönderilmemiştir!")
                                 }
-                                else alert("Distal Occlusion Test bilgileri gönderilmemiştir!")
+                                else alert("Mekanizma bilgileri gönderilmemiştir!")
                             }
-                            else alert("Proximal Occlusion Test bilgileri gönderilmemiştir!")
+                            else alert("Cables bilgileri gönderilmemiştir!")
                         }
-                        else alert("Mekanizma bilgileri gönderilmemiştir!")
+                        else alert("Peripheral bilgileri gönderilmemiştir!")
                     }
                     else alert("Cpu bilgileri gönderilmemiştir!");
                 }
@@ -874,11 +951,17 @@ function resetFindings() {
     n251link.checked = false;
     $("#power").prop("checked", false);
     $("#cpu").prop("checked", false);
+    $("#peripheral").prop("checked", false);
+    $("#cables").prop("checked", false);
     $("#selfTestMechanism").prop("checked", false);
     $("#powerForm").hide();
     $("#cpuForm").hide();
+    $("#peripheralForm").hide();
+    $("#cablesForm").hide();
     $("#selfTestMechanismForm").hide();
     $("#powerForm").find(":reset").click();
     $("#cpuForm").find(":reset").click();
+    $("#peripheralForm").find(":reset").click();
+    $("#cablesForm").find(":reset").click();
     $("#selfTestMechanismForm").find(":reset").click();
 }

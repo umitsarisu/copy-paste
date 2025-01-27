@@ -210,7 +210,7 @@ var selfTestPowerObj = {
     itWas: "REPLACED",
     probableCause: "DEFECTIVE POWER PWA",
     changedPart: function () {
-        if (plum360.checked) return plum360YdkObj.power(1) + $("#powerSN").val().toUpperCase() + ")";
+        if (plum360.checked) return plum360YdkObj.power(1) + " SN: " + $("#powerSN").val().toUpperCase() + ")";
         else return plumaYdkObj.power(1) + " SN: " + $("#powerSN").val().toUpperCase() + ")";
     },
 }
@@ -227,6 +227,99 @@ var selfTestCpuObj = {
         return commonYdkObj.cpu(1) + $("#cpuSN").val().toUpperCase() + ")";
     },
 }
+var selfTestPeripheralObj = {
+    replaced: "PERIPHERAL PWA",
+    errorCode: function () {
+        if ($("#peripheralErrorCode").val() == 503) return "DEVICE WILL NOT TURN ON";
+        else return $("#peripheralErrorCode").val().toUpperCase();
+    },
+    code: " CODE ",
+    itWas: "REPLACED",
+    probableCause: "DEFECTIVE PERIPHERAL PWA",
+    changedPart: function () {
+        if (plum360.checked) return plum360YdkObj.peripheral(1) + " SN: " + $("#peripheralSN").val().toUpperCase() + ")";
+        else return plumaYdkObj.peripheral(1) + " SN: " + $("#peripheralSN").val().toUpperCase() + ")";
+    },
+}
+var powerCableObj = {
+    replaced: "POWER CABLE",
+    errorCode: function () {
+        if ($("#cablesErrorCode").val() == 503) return "DEVICE WILL NOT TURN ON";
+        else return $("#cablesErrorCode").val().toUpperCase();
+    },
+    code: " CODE ",
+    itWas: "REPLACED",
+    probableCause: "DEFECTIVE POWER CABLE",
+    changedPart: function () {
+        return plum360YdkObj.powerCable(1);
+    },
+}
+var cpuDriverCableObj = {
+    replaced: "CPU DRIVER CABLE",
+    errorCode: function () {
+        if ($("#cablesErrorCode").val() == 503) return "DEVICE WILL NOT TURN ON";
+        else return $("#cablesErrorCode").val().toUpperCase();
+    },
+    code: " CODE ",
+    itWas: "REPLACED",
+    probableCause: "DEFECTIVE CPU DRIVER CABLE",
+    changedPart: function () {
+        return plum360YdkObj.cableCpuDriver(1);
+    },
+}
+var cableFlat20Obj = {
+    replaced: "CABLE FLAT 20 COND",
+    errorCode: function () {
+        if ($("#cablesErrorCode").val() == 503) return "DEVICE WILL NOT TURN ON";
+        else return $("#cablesErrorCode").val().toUpperCase();
+    },
+    code: " CODE ",
+    itWas: "REPLACED",
+    probableCause: "DEFECTIVE CABLE FLAT 20 COND",
+    changedPart: function () {
+        return plum360YdkObj.cableCableFlat20(1);
+    },
+}
+var cablePowerBatteryObj = {
+    replaced: "CABLE POWER/BATTERY",
+    errorCode: function () {
+        if ($("#cablesErrorCode").val() == 503) return "DEVICE WILL NOT TURN ON";
+        else return $("#cablesErrorCode").val().toUpperCase();
+    },
+    code: " CODE ",
+    itWas: "REPLACED",
+    probableCause: "DEFECTIVE " + this.replaced,
+    changedPart: function () {
+        return plum360YdkObj.cablePowerBattery(1);
+    },
+}
+var cableMotorPowerObj = {
+    replaced: "CABLE MOTOR POWER",
+    errorCode: function () {
+        if ($("#cablesErrorCode").val() == 503) return "DEVICE WILL NOT TURN ON";
+        else return $("#cablesErrorCode").val().toUpperCase();
+    },
+    code: " CODE ",
+    itWas: "REPLACED",
+    probableCause: "DEFECTIVE " + this.replaced,
+    changedPart: function () {
+        return plum360YdkObj.cableMotorPower(1);
+    },
+}
+var cableFlat8Obj = {
+    replaced: "CABLE FLAT 8 COND",
+    errorCode: function () {
+        if ($("#cablesErrorCode").val() == 503) return "DEVICE WILL NOT TURN ON";
+        else return $("#cablesErrorCode").val().toUpperCase();
+    },
+    code: " CODE ",
+    itWas: "REPLACED",
+    probableCause: "DEFECTIVE " + this.replaced,
+    changedPart: function () {
+        return plum360YdkObj.cableFlat8(1);
+    },
+}
+
 var selfTestMechObj = {
     replaced: "MECHANISM",
     errorCode: function () {
@@ -311,6 +404,18 @@ var selfTestLSMotorObj = {
         return plum360YdkObj.lsMotor(1);
     },
 }
+var selfTestSpringObj = {
+    replaced: "SPRING",
+    errorCode: function () {
+        return $("#selfTestMechanismErrorCode").val().toUpperCase();
+    },
+    code: " CODE ",
+    itWas: "REPLACED",
+    probableCause: "DEFECTIVE SPRING",
+    changedPart: function () {
+        return plum360YdkObj.spring(1);
+    },
+}
 var selfTestIOMotorObj = {
     replaced: "I/O MOTOR",
     errorCode: function () {
@@ -347,6 +452,7 @@ var selfTestSwitchPwaObj = {
         return plum360YdkObj.switchPwa(1);
     },
 }
+
 function selfTestPrint(x) {
     var comment = x.errorCode() + " ERROR" + x.code + "WAS SEEN" + duringSelfTest() + ". THE " + x.replaced +
         " WAS " + x.itWas + " AND THE TEST WAS REPEATED AND ";
@@ -369,7 +475,7 @@ function selfTestPrint(x) {
             (battery.checked || sDBattery.checked)) commentSelfTest.splice(2, 0, comment);
         else if (powerErrorCode.value == 503 || cpuErrorCode.value == 503 || selfTestMechanismErrorCode.value == 503) commentSelfTest.splice(1, 0, comment);
         else {
-            if (selfTestPressureCalibrated.checked) {}
+            if (selfTestPressureCalibrated.checked) { }
             else commentSelfTest.push(comment);
         }
         selfTestPowerCpuCounter--;

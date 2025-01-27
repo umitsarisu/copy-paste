@@ -195,10 +195,13 @@ let plumaSparePartsObj = {
         model: model.pluma,
         definition: definition.cards
     },
-    peripheralpwa3: {
+    peripheral: {
         name: "Peripheral PWA",
         code: "YDK-810-95006-011",
         explanation: "Peripheral kartı",
+        fullName: function () {
+            return `${this.name} ${this.code}`;
+        },
         model: model.pluma,
         definition: definition.cards
     },
@@ -445,8 +448,8 @@ let plum360SparePartsObj = {
         model: model.plum360,
         definition: definition.cards
     },
-    peripheralpwa: {
-        name: "Perıpheral PWA",
+    peripheral: {
+        name: "Peripheral PWA",
         code: "YDK-810-97400-506",
         fullName: function () {
             return `${this.name} ${this.code}`;
@@ -533,17 +536,23 @@ let littlePartsObj = {
         model: model.littleParts,
         definition: definition.littleParts
     },
-    cable1: {
+    cableFlat8: {
         name: "Cable Flat 8 Cond",
         code: "YDK-683-67000-401",
         explanation: "switch pwa kablosu beyaz",
+        fullName: function () {
+            return `${this.name} ${this.code}`;
+        },
         model: model.mechanism,
         definition: definition.cables
     },
-    cable2: {
+    cableCableFlat20: {
         name: "Cable Flat 20 Cond",
         code: "YDK-683-67000-402",
         explanation: "mechanism, üstteki beyaz kablo",
+        fullName: function () {
+            return `${this.name} ${this.code}`;
+        },
         model: model.mechanism,
         definition: definition.cables
     },
@@ -554,24 +563,33 @@ let littlePartsObj = {
         model: model.plum360,
         definition: definition.cables
     },
-    cable4: {
+    cablePowerBattery: {
         name: "Asm Cable Power Sply/Btry",
         code: "YDK-826-95058-402",
         explanation: "Power batarya arasındaki kablo",
+        fullName: function () {
+            return `${this.name} ${this.code}`;
+        },
         model: model.plum360,
         definition: definition.cables
     },
-    cable5: {
-        name: "Cpu Driver",
+    cableCpuDriver: {
+        name: "Cpu Driver Cable",
         code: "YDK-826-95059-402",
         explanation: "Cpu mechanism gri kablo",
+        fullName: function () {
+            return `${this.name} ${this.code}`;
+        },
         model: model.plum360,
         definition: definition.cables
     },
-    cable6: {
+    cableMotorPower: {
         name: "Asm Cable Motor Power",
         code: "YDK-826-95060-401",
         explanation: "Power mechanism kırmızı kablo",
+        fullName: function () {
+            return `${this.name} ${this.code}`;
+        },
         model: model.plum360,
         definition: definition.cables
     },
@@ -579,13 +597,19 @@ let littlePartsObj = {
         name: "Asm Cable Battery",
         code: "YDK-826-95062-001",
         explanation: "Batarya kablosu",
+        fullName: function () {
+            return `${this.name} ${this.code}`;
+        },
         model: model.plum360,
         definition: definition.cables
     },
-    cable8: {
+    powerCable: {
         name: "Power Kablo",
         code: "YDK-804",
         explanation: "Power kablo",
+        fullName: function () {
+            return `${this.name} ${this.code}`;
+        },
         model: model.plum360,
         definition: definition.cables
     },
@@ -851,6 +875,16 @@ let littlePartsObj = {
         model: model.mechanism,
         definition: definition.littleParts
     },
+    spring: {
+        name: "Spring Extension",
+        code: "YDK-717-23000-403",
+        fullName: function () {
+            return `${this.name} ${this.code}`;
+        },
+        explanation: "Plunger küçük yay, Spring Extension 0.063 DIA, 0.25 LG",
+        model: model.mechanism,
+        definition: definition.littleParts
+    },
     littlepart37: {
         name: "Pl Rear Mech",
         code: "YDK-712-95100-404",
@@ -1012,13 +1046,6 @@ let littlePartsObj = {
         name: "Spring Outlet Valve Leaf (CCLT)",
         code: "YDK-717-00684-404",
         explanation: "mechanism parçaları",
-        model: model.mechanism,
-        definition: definition.littleParts
-    },
-    littlepart62: {
-        name: "Spring Extension 0.063 DIA, 0.25 LG",
-        code: "YDK-717-23000-403",
-        explanation: "Plunger küçük yay",
         model: model.mechanism,
         definition: definition.littleParts
     },

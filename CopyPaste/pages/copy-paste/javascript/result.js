@@ -99,6 +99,28 @@
                 selfTestPowerCpuCounter = 1;
                 selfTestPrint(selfTestCpuObj);
             }
+            // PERIPHERAL
+            if (peripheral.checked) {
+                if (peripheralErrorCode.value == 503) {
+                    selfTestPeripheralObj.code = " ";
+                }
+                selfTestPowerCpuCounter = 1;
+                selfTestPrint(selfTestPeripheralObj);
+            }
+            // Cables
+            if (cables.checked) {
+                if (cablesErrorCode.value == 503) {
+                    selfTestPeripheralObj.code = " ";
+                }
+                selfTestPowerCpuCounter = 1;
+                if (powerCableReplaced.checked) selfTestPrint(powerCableObj);
+                if (cpuDriverCableReplaced.checked) selfTestPrint(cpuDriverCableObj);
+                if (cableFlat20Replaced.checked) selfTestPrint(cableFlat20Obj);
+                if (cablePowerBatteryReplaced.checked) selfTestPrint(cablePowerBatteryObj);
+                if (cableMotorPowerReplaced.checked) selfTestPrint(cableMotorPowerObj);
+                if (cableFlat8Replaced.checked) selfTestPrint(cableFlat8Obj);
+            }
+
             //MECHANISM
             if (selfTestMechanism.checked) {
                 var lastSentence = "";
@@ -122,6 +144,7 @@
                 }
                 if (selfTestDRPReplaced.checked) selfTestPrint(selfTestDriverPwaObj);
                 if (selfTestLSMReplaced.checked) selfTestPrint(selfTestLSMotorObj);
+                if (selfTestSpringReplaced.checked) selfTestPrint(selfTestSpringObj);
                 if (selfTestIOMReplaced.checked) selfTestPrint(selfTestIOMotorObj);
                 if (selfTestPLMReplaced.checked) selfTestPrint(selfTestPlungerMotorObj);
                 if (selfTestSWPReplaced.checked) selfTestPrint(selfTestSwitchPwaObj);
@@ -294,6 +317,13 @@ function AAcodes() {
         if (experience == $("#cpuErrorCode").val().toUpperCase()) investigation("SXC");
         else investigation($("#cpuErrorCode").val().toUpperCase());
     }
+    if (selfTestprobableCauseArray.includes("DEFECTIVE PERIPHERAL PWA")) {
+        repair("K156");
+        analysis("E156");
+        analysis("973");
+        if (experience == $("#peripheralErrorCode").val().toUpperCase()) investigation("SXC");
+        else investigation($("#peripheralErrorCode").val().toUpperCase());
+    }
     if (selfTestprobableCauseArray.includes("CALIBRATION DRIVER PWA, MECHANISM PRESSURE DEDECTOR OUT OF CALIBRATION")) {
         repair("K11");
         // analysis("M86");
@@ -305,6 +335,12 @@ function AAcodes() {
         repair("K11");
         // analysis("M86");
         analysis("E11");
+        if (experience == $("#selfTestMechanismErrorCode").val().toUpperCase()) investigation("SXC");
+        else investigation($("#selfTestMechanismErrorCode").val().toUpperCase());
+    }
+    if (selfTestprobableCauseArray.includes("DEFECTIVE SPRING")) {
+        repair("M104");
+        analysis("E56");
         if (experience == $("#selfTestMechanismErrorCode").val().toUpperCase()) investigation("SXC");
         else investigation($("#selfTestMechanismErrorCode").val().toUpperCase());
     }
@@ -328,6 +364,18 @@ function AAcodes() {
         analysis("E158");
         if (experience == $("#selfTestMechanismErrorCode").val().toUpperCase()) investigation("SXC");
         else investigation($("#selfTestMechanismErrorCode").val().toUpperCase());
+    }
+    if (selfTestprobableCauseArray.includes("DEFECTIVE POWER CABLE") ||
+        selfTestprobableCauseArray.includes("DEFECTIVE CPU DRIVER CABLE") ||
+        selfTestprobableCauseArray.includes("DEFECTIVE CABLE FLAT 20 COND") ||
+        selfTestprobableCauseArray.includes("DEFECTIVE CABLE POWER/BATTERY") ||
+        selfTestprobableCauseArray.includes("DEFECTIVE CABLE MOTOR POWER") ||
+        selfTestprobableCauseArray.includes("DEFECTIVE CABLE FLAT 8 COND")
+    ) {
+        repair("M82");
+        analysis("E55");
+        if (experience == $("#cablesErrorCode").val().toUpperCase()) investigation("SXC");
+        else investigation($("#cablesErrorCode").val().toUpperCase());
     }
     if (damaged != 0) {
         analysis("901");

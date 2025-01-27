@@ -5,7 +5,7 @@ function printerrorHistoryLogs() {
         firstSentence = experience + " CAN'T BE SHOWN ON A PUMP AS AN ERROR CODE. ";
     }
     else {
-        if (powerErrorCode.value == 503 || selfTestMechanismErrorCode.value == 503 || cpuErrorCode.value == 503) {
+        if (powerErrorCode.value == 503 || selfTestMechanismErrorCode.value == 503 || cpuErrorCode.value == 503 || peripheralErrorCode.value == 503 || cablesErrorCode.value == 503) {
             errorHistoryLogs.value = experience + " ERROR CODE WAS NOT SEEN IN HISTORY LOG DUE TO DEVICE WILL NOT TURN ON PROBLEM. ";
             firstSentence = experience + " ERROR CODE WAS NOT SEEN IN HISTORY LOG DUE TO DEVICE WILL NOT TURN ON PROBLEM. ";
         }

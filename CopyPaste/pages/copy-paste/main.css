@@ -1618,7 +1618,19 @@ a.nav-link i {
         float: left;
         text-align: left;
     }
+    /* cables */
+    section#theTests div.cablesOptions {
+        box-sizing: border-box;
+        margin-top: 5px;
+    }
 
+    section#theTests div.cablesOptions label {
+        height: 40px;
+        margin: 5px;
+        border: 1px solid white;
+        border-radius: 10px;
+        box-sizing: border-box;
+    }
     /* Mechanism */
     section#theTests .mechanismContent {
         width: 700px;

@@ -315,7 +315,7 @@
                         </li>
                     </ul>
                     <div style="clear: both;"></div>
-                    <div class="d-flex mt-2 flex-column flex-md-row" style="justify-content: space-evenly;">
+                    <div class="d-flex mt-2 flex-wrap" style="justify-content: space-evenly;">
                         <!-- Power -->
                         <div>
                             <div class="selfTestHeaderCheckBox cpuPowerContent">
@@ -392,6 +392,105 @@
                                 <div style="clear: both;"></div>
                             </form>
                         </div>
+                        <!-- Peripheral -->
+                        <div class="mt-1 mt-md-0">
+                            <div class="selfTestHeaderCheckBox cpuPowerContent">
+                                <label for="peripheral">
+                                    <div class="selfTestHeaderCheckBoxDiv">
+                                        <input type="checkbox" id="peripheral">
+                                    </div>
+                                    <div class="selfTestHeaderCheckBoxDiv">
+                                        <strong>PERIPHERAL</strong>
+                                    </div>
+                                </label>
+                            </div>
+                            <form action='javascript: $("#checkicon31").show(); peripheralBool = true;'
+                                id="peripheralForm" class="cpuPowerContent none selfTestContent">
+                                <div class="d-flex mt-2" style="justify-content: space-evenly;">
+                                    <div style="width: 156px;">
+                                        <span class="mechanismLabelSpans">Hata kodunu girin:</span>
+                                        <span class="mechanismLabelSpans">Peripheral seri no:</span>
+                                    </div>
+                                    <div>
+                                        <label for="peripheralErrorCode" class="mechanismLabels">
+                                            <input type="text" id="peripheralErrorCode" maxlength="4" placeholder="Hata"
+                                                onkeydown="enterKeyPress(event)">
+                                        </label>
+                                        <label for="peripheralSN" class="mechanismLabels">
+                                            <input type="text" id="peripheralSN" maxlength="12"
+                                                placeholder="Seri Numarası" onkeydown="enterKeyPress(event)">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="d-flex" style="justify-content: space-evenly;">
+                                    <input type="reset" value="Reset" class="btn btn-outline-danger">
+                                    <img src="../../images/checkicon.png" id="checkicon31" class="none">
+                                    <input type="submit" value="Gönder" class="btn btn-outline-warning">
+                                </div>
+                                <div style="clear: both;"></div>
+                            </form>
+                        </div>
+                        <!-- Cables -->
+                        <div class="mt-1 mt-md-0">
+                            <div class="selfTestHeaderCheckBox cpuPowerContent">
+                                <label for="cables">
+                                    <div class="selfTestHeaderCheckBoxDiv">
+                                        <input type="checkbox" id="cables">
+                                    </div>
+                                    <div class="selfTestHeaderCheckBoxDiv">
+                                        <strong>CABLES</strong>
+                                    </div>
+                                </label>
+                            </div>
+                            <form action='javascript: $("#checkicon32").show(); cablesBool = true;' id="cablesForm"
+                                class="cpuPowerContent none selfTestContent">
+                                <div>
+                                    <div class="d-flex mt-2" style="justify-content:start;">
+                                        <div style="width: 156px;" class="ms-2">
+                                            <span class="mechanismLabelSpans">Hata kodunu girin:</span>
+                                        </div>
+                                        <div class="ms-2">
+                                            <label for="cablesErrorCode" class="mechanismLabels">
+                                                <input type="text" id="cablesErrorCode" maxlength="4"
+                                                    placeholder="Hata" onkeydown="enterKeyPress(event)">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="cablesOptions">
+                                        <label for="powerCableReplaced" class="mechanismLabels">
+                                            <input type="checkbox" id="powerCableReplaced">
+                                            POWER CABLE
+                                        </label>
+                                        <label for="cpuDriverCableReplaced" class="mechanismLabels">
+                                            <input type="checkbox" id="cpuDriverCableReplaced">
+                                            CPU DRIVER CABLE
+                                        </label>
+                                        <label for="cableFlat20Replaced" class="mechanismLabels">
+                                            <input type="checkbox" id="cableFlat20Replaced">
+                                            CABLE FLAT 20 COND
+                                        </label>
+                                        <label for="cablePowerBatteryReplaced" class="mechanismLabels">
+                                            <input type="checkbox" id="cablePowerBatteryReplaced">
+                                            CABLE POWER/BATTERY
+                                        </label>
+                                        <label for="cableMotorPowerReplaced" class="mechanismLabels">
+                                            <input type="checkbox" id="cableMotorPowerReplaced">
+                                            CABLE MOTOR POWER
+                                        </label>
+                                        <label for="cableFlat8Replaced" class="mechanismLabels">
+                                            <input type="checkbox" id="cableFlat8Replaced">
+                                            CABLE FLAT 8 COND
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="d-flex" style="justify-content: space-evenly;">
+                                    <input type="reset" value="Reset" class="btn btn-outline-danger">
+                                    <img src="../../images/checkicon.png" id="checkicon32" class="none">
+                                    <input type="submit" value="Gönder" class="btn btn-outline-warning">
+                                </div>
+                                <div style="clear: both;"></div>
+                            </form>
+                        </div>
                     </div>
                     <!-- Mekanizma -->
                     <div class="selfTestHeaderCheckBox mechanismContent mt-1">
@@ -447,6 +546,10 @@
                                     <label for="selfTestDRPReplaced" class="mechanismLabels">
                                         <input type="checkbox" id="selfTestDRPReplaced">
                                         DRIVER PWA REPLACED
+                                    </label>
+                                    <label for="selfTestSpringReplaced" class="mechanismLabels">
+                                        <input type="checkbox" id="selfTestSpringReplaced">
+                                        SPRING REPLACED
                                     </label>
                                     <label for="selfTestLSMReplaced" class="mechanismLabels">
                                         <input type="checkbox" id="selfTestLSMReplaced">
