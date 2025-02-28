@@ -183,7 +183,7 @@ var selfTestE439Obj = {
     probableCause: "DEFECTIVE KEYPAD",
     changedPart: function () {
         if (plum360.checked) return plum360YdkObj.keypad360(1);
-        else if (plumTr.checked) return plumaYdkObj.keypadTr(1);
+        else if (plumA.checked) return plumaYdkObj.keypadTr(1);
         // else return plumaYdkObj.keypadEn(1);
     },
 }

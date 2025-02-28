@@ -1,14 +1,40 @@
 // Main.js Variables
-var selfTestMechanism = document.getElementById("selfTestMechanism");
-var sonuc = document.getElementById("sonuc");
 var visualBool = true;
+let mechanismBool = true;
 var powerBool = true;
 var cpuBool = true;
 var peripheralBool = true;
 var cablesBool = true;
-var selfMechanismBool = true;
-var proximalBool = true;
-var distalBool = true;
+const defaultResultObj = {
+    primary: "13850921",
+    secondary: "112044W",
+    customerExperience: "",
+    repairCodes: [],
+    errorHistoryLogs: "",
+    deviceSituation: "",
+    runInTestResult: "N/A",
+    findings: [],
+    changedParts: [],
+    analysisCodes: [],
+    investigationCodes: [],
+    isApproved: false,
+    firstSentence: "",
+    comment: [],
+    moreComment: [],
+    probableCauses: []
+}
+const defaultRvgObj = {
+    rv6psi: 0,
+    rv10psi: 0,
+    rv1: 0,
+    rv2: 0,
+    rv3: 0,
+    rv4: 0,
+    rv5: 0
+}
+let resultObj = { ...defaultResultObj }
+let rvgObj = { ...defaultRvgObj }
+
 
 // Findings Variables
 var visualInspectionFail = document.getElementById("visualInspectionFail");

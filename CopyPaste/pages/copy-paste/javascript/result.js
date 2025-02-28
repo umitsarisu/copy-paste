@@ -1,66 +1,62 @@
 ﻿function result() {
-    sonucReset();
-    $(".rvg").empty();
-    $(".egt").empty();
-    $("[name='resultButtons']").removeClass();
-    $("[name='resultTextareas']").removeClass();
-    $("[name='resulth6']").removeClass();
+    resultObj = { ...defaultResultObj }
+    rvgObj = { ...defaultRvgObj }
+    resultPageRemoveClass();
     resultPageAddClasses();
     $("#mainPage").hide();
     $("#sonuc").show();
-    $("#forward").click();
-    let date2;
-    if (localStorage.getItem("date")) {
-        date2 = localStorage.getItem("date");
-    }
-    else {
-        let date = new Date();
-        let month = date.getMonth() + 1;
-        let day = date.getDate();
-        date2 = `${date.getFullYear()}-${month.toString().padStart(2, 0)}-${day.toString().padStart(2, 0)}`;
-    }
-    $("#date1").val(date2);
+    rvgFunc();
+    setDateInputValue();
+
+    resultObj.customerExperience = $("#customerExperience").val()
+
     //950 durumu cihaz sağlamsa
-    if ($("#yes2").is(":checked")) {
-        saglamObj = {
-            //descriptions: "REPAIRS NOT REQUIRED",
-            errorHistoryLogs: experience + " ERROR CODE WAS NOT SEEN IN HISTORY LOG.",
-            firstSentence: "DURING LEVEL 1 PCI CUSTOMER EXPERIENCE " + experience + " ERROR CODE WAS NOT SEEN. NO PROBABLE CAUSE. ",
-            findings: "THE TEST NO PROBLEM FOUND",
-            runInTestResult: "DEVICE 16 RUN IN TEST PASSED WITHOUT FAIL",
-            changedParts: "N/A",
-            ekYorum: "NO PROBLEM FOUND",
-            probableCause: "NO PROBABLE CAUSE",
-            printSaglam: function () {
-                //descriptions.value = this.descriptions;
-                errorHistoryLogs.value = this.errorHistoryLogs;
-                firstSentence = this.firstSentence;
-                findingsArray.push(this.findings);
-                runInTestResult.value = this.runInTestResult;
-                changedPartsArray.push(this.changedParts);
-                ekYorumDizisi.push(this.ekYorum);
-                probableCauseArray.push(this.probableCause);
-            }
-        }
-        resultYesNoDifferent();
-        $("#resultNo").prop("checked", true).prop("disabled", false);
-        if (experience.length < 4) {
-            saglamObj.errorHistoryLogs = experience + " CAN'T BE SHOWN ON A PUMP AS AN ERROR CODE.";
-            saglamObj.firstSentence = experience + " CAN'T BE SHOWN ON A PUMP AS AN ERROR CODE. NO PROBABLE CAUSE. ";
-            saglamObj.printSaglam();
+    if ($("#yes1").is(":checked")) {
+        resultObj.repairCodes = ["N00"];
+        resultObj.deviceSituation = ""; // null
+        resultObj.runInTestResult = "DEVICE 16 RUN IN TEST PASSED WITHOUT FAIL";
+        resultObj.findings = ["THE TEST NO PROBLEM FOUND"];
+        resultObj.changedParts = ["N/A"];
+        resultObj.analysisCodes = ["950"];
+        resultObj.investigationCodes = ["950"];
+        resultObj.isApproved = false;
+        resultObj.moreComment = ["NO PROBLEM FOUND"];
+        resultObj.probableCauses = ["NO PROBABLE CAUSE"];
+        if (resultObj.customerExperience.length < 4) {
+            resultObj.errorHistoryLogs = resultObj.customerExperience + " CAN'T BE SHOWN ON A PUMP AS AN ERROR CODE.";
+            resultObj.firstSentence = resultObj.customerExperience + " CAN'T BE SHOWN ON A PUMP AS AN ERROR CODE. NO PROBABLE CAUSE. ";
         }
         else {
-            saglamObj.errorHistoryLogs = experience + " ERROR CODE WAS NOT SEEN IN HISTORY LOG.";
-            saglamObj.firstSentence = "DURING LEVEL 1 PCI CUSTOMER EXPERIENCE " + experience + " ERROR CODE WAS NOT SEEN. NO PROBABLE CAUSE. ";
-            saglamObj.printSaglam();
+            resultObj.errorHistoryLogs = resultObj.customerExperience + " ERROR CODE WAS NOT SEEN IN HISTORY LOG.";
+            resultObj.firstSentence = "DURING LEVEL 1 PCI CUSTOMER EXPERIENCE " + resultObj.customerExperience + " ERROR CODE WAS NOT SEEN. NO PROBABLE CAUSE. ";
         }
+        resultObj.comment = [resultObj.firstSentence];
     }
     //cihazda arıza varsa
     else {
-        if ($("#visualInspectionFail").is(":checked")) {
-            findingsArray.push("VISUAL INSPECTION FAIL");
+        if (damaged.length != 0) {
+            resultObj.findings.push("VISUAL INSPECTION FAIL");
             visualPrint();
         }
+        // Comment
+        if (errorCodes.CATCodes.length != 0) {
+            resultObj.findings.push("CASSETTE ALARM TEST FAIL");
+            resultObj.comment = `WHILE TESTING ${errorCodes.CATCodes.join(", ")} ERROR CODE${errorCodes.CATCodes.length > 1 ? "S" : ""} WERE OBSERVED ON CASSETTE ALARM TEST.`
+            console.log(resultObj.comment)
+        }
+        else if (errorCodes.POTCode.length != 0) {
+            resultObj.findings.push("PROXIMAL OCCLUSION TEST FAIL");
+            if (errorCodes.CATCodes.length != 0) {
+                resultObj.comment += `AND ${mechanismObj.errorCode} ERROR CODE ON PROXIMAL OCCLUSION TEST.`
+            }
+            else {
+                resultObj.comment = `WHILE TESTING ${mechanismObj.errorCode} ERROR CODE WERE OBSERVED ON PROXIMAL OCCLUSION TEST.`
+            }
+        }
+        if (mechanismObj.errorCode != 0) {
+            resultObj.comment += `\nFOR THE ${mechanismObj.errorCode} ERROR ${mechanismObj.errorCode == 503 ? "" : "CODE"}, MECHANISM CALIBRATION STARTED. ${mechanismObj.replaced.join(", ")} ${mechanismObj.replaced.length > 1 ? "WERE REPLACED AND" : "WAS REPLACED AND"} ${mechanismObj.calibrated.length != 0 ? mechanismObj.calibrated + " WAS CALIBRATED AND" : ""} MECHANISM CALIBRATION COMPLETED.`
+        }
+
         if ($("#selfTestFail").is(":checked")) {
             findingsArray.push("CASSETTE ALARM TEST FAIL");
             if (battery.checked) selfTestPrint(selfTestBatteryObj);
@@ -156,24 +152,10 @@
                     " THE PROBABLE CAUSE OF THE FAILED CASSETTE ALARM TEST WAS " + selfTestprobableCauseArray.join(", ") + ". ";
             }
         }
-        if ($("#proximalOccFail").is(":checked")) {
-            findingsArray.push("PROXIMAL OCCLUSION TEST FAIL");
-            if (proximalTestMechanismReplaced.checked) proximalPrint(proximalMechObj);
-            else if (proximalTestAppReplaced.checked) proximalPrint(proximalAppRepObj);
-            else if (proximalTestAppCalibrated.checked) proximalPrint(proximalAppCalObj);
-            else if (proximalTestPressureReplaced.checked) proximalPrint(proximalPressureRepObj);
-        }
-        if ($("#distalOccFail").is(":checked")) {
-            findingsArray.push("DISTAL OCCLUSION (3-9) TEST FAIL");
-            if (distalTestMechanismReplaced.checked) distalPrint(distalMechObj);
-            else if (distalTestPressureReplaced.checked) distalPrint(distalPressRepObj);
-            else if (distalTestPressureCalibrated.checked) distalPrint(distalPressCalObj);
-        }
-        resultYesNoDifferent();
-        $("#resultDifferent").prop("checked", true).prop("disabled", false);
+        resultObj.isApproved = null;
     }
     $(function () {
-        if (experience.length < 4) {
+        if (resultObj.customerExperience.length < 4) {
             $("#randomdate").hide();
             $("#dateResult").text("N/A");
         }
@@ -182,11 +164,23 @@
             $("#dateResult").text("");
         }
     })
-    rvgFunc();
     AAcodes();
     print();
 }
-function resultPageAddClasses() {
+const setDateInputValue = () => {
+    let date2;
+    if (localStorage.getItem("date")) {
+        date2 = localStorage.getItem("date");
+    }
+    else {
+        let date = new Date();
+        let month = date.getMonth() + 1;
+        let day = date.getDate();
+        date2 = `${date.getFullYear()}-${month.toString().padStart(2, 0)}-${day.toString().padStart(2, 0)}`;
+    }
+    $("#date1").val(date2);
+}
+const resultPageAddClasses = () => {
     var resultButtons = document.getElementsByName("resultButtons");
     for (i = 0; i < resultButtons.length; i++) {
         resultButtons[i].classList.add("btn");
@@ -205,43 +199,81 @@ function resultPageAddClasses() {
         resulth6[i].classList.add("align-self-center");
     }
 }
-$(function () {
-    $("[name='ydkButtons']").each(function () {
-        $(this).addClass("btn");
-        $(this).addClass("btn-outline-light");
-        $(this).addClass("align-self-center");
-    })
-})
+const resultPageRemoveClass = () => {
+    $("[name='resultButtons']").removeClass();
+    $("[name='resultTextareas']").removeClass();
+    $("[name='resulth6']").removeClass();
+}
 
+function rvgFunc(x) {
+    while (true) {
+        let random = Math.random() * (8 - 5) + 5;
+        rvgObj.rv6psi = random.toFixed(2);
+        random = Math.random() * (12 - 10) + 10;
+        rvgObj.rv10psi = random.toFixed(2);
+        if (rvgObj.rv10psi - rvgObj.rv6psi > 3.5 && rvgObj.rv10psi - rvgObj.rv6psi < 5) {
+            break;
+        }
+    }
+    rvgObj.rv3 = Math.floor(Math.random() * (17 - 10) + 10);
+    rvgObj.rv4 = Math.floor(Math.random() * (50 - 30) + 30);
+    rvgObj.rv5 = Math.floor(Math.random() * (120 - 70) + 70);
+}
+
+const dateFunc = () => {
+    let date = document.getElementById("date1").value;
+    date = date.replace(/-/g, "");
+    var year = parseInt(date.slice(0, 4));
+    var month = parseInt(date.slice(4, 6));
+    var day = parseInt(date.slice(6, 8));
+    var months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+    function randomDate() {
+        if (month == 1) {
+            randomMonth = Math.floor((Math.random() * 3) + 10);
+            randomDay = Math.floor((Math.random() * 28) + 1);
+            return `${randomDay} ${months[randomMonth - 1]} ${year - 1}`;
+        }
+        else {
+            while (true) {
+                randomMonth = Math.floor((Math.random() * month) + 1);
+                randomDay = Math.floor((Math.random() * 28) + 1);
+                if ((randomMonth < month && randomMonth > month - 3) || (randomMonth == month && randomDay < day)) {
+                    return `${randomDay} ${months[randomMonth - 1]} ${year}`;
+                }
+            }
+
+        }
+    }
+    localStorage.setItem("date", year + "-" + month.toString().padStart(2, 0) + "-" + day.toString().padStart(2, 0))
+    $("#dateResult").text(`${randomDate()} TO ${day} ${months[month - 1]} ${year}`);
+}
 function AAcodes() {
     function analysis(x) {
-        if (!analysisCode.includes(x)) analysisCode.push(x);
+        if (!resultObj.analysisCodes.includes(x)) {
+            resultObj.analysisCodes.push(x);
+        }
     }
     function investigation(x) {
-        if (!investigationCode.includes(x)) investigationCode.push(x);
+        if (!resultObj.investigationCodes.includes(x)) {
+            resultObj.investigationCodes.push(x);
+        }
     }
     function repair(x) {
-        if (!repairCode.includes(x)) repairCode.push(x);
+        if (!resultObj.repairCodes.includes(x)) {
+            resultObj.repairCodes.push(x);
+        }
     }
 
-    if (probableCauseArray.includes("NO PROBABLE CAUSE")) {
+    if (resultObj.probableCauses.includes("NO PROBABLE CAUSE")) {
         repair("N00");
         investigation("950");
         analysis("950");
     }
-    if (probableCauseArray.includes("DEFECTIVE PRESSURE DEDECTOR") || selfTestprobableCauseArray.includes("DEFECTIVE PRESSURE DEDECTOR")) {
+    if (resultObj.probableCauses.includes("DEFECTIVE PRESSURE DEDECTOR")) {
         repair("E87");
         // analysis("M86");
         analysis("EE02");
         if (distalOccFail.checked) {
-            if (experience == "716" || experience == "N180" || experience == "N186") investigation("SXC");
-            else investigation("716");
-        }
-        else if (proximalOccFail.checked) {
-            if (experience == $("#proximalTestErrorCode").val().toUpperCase()) investigation("SXC");
-            else investigation($("#proximalTestErrorCode").val().toUpperCase());
-        }
-        else {
             if (experience == $("#selfTestMechanismErrorCode").val().toUpperCase()) investigation("SXC");
             else investigation($("#selfTestMechanismErrorCode").val().toUpperCase());
         }
@@ -561,12 +593,7 @@ function AAcodes() {
         if (experience == "E302") investigation("SXC");
         else investigation("E302");
     }
-    tamirKodu.value = repairCode.join(" - ");
-    analizKodu.value = analysisCode.join(" - ");
-    arastirmaKodu.value = investigationCode.map((item) => {
-        if (item == "SXC") return experience;
-        else return item;
-    }).join(" - ");
+
 
     var plumaPumpTests = {
         // Plum A tests
@@ -579,7 +606,7 @@ function AAcodes() {
         172: "KEYPAD VERIFICATION",
         173: "ALARM LOUDNESS",
         174: "LOCKOUT SWITCH",
-        175: "PROXIMAL OCCLUSION",
+        175: "PROXIMAL OCCLUSION TEST",
         176: "PROXIMAL AIR-IN-LINE",
         177: "DISTAL AIR-IN-LINE",
         178: "DISTAL OCCLUSION (3-9 PSI)",
@@ -722,49 +749,43 @@ function AAcodes() {
     function sxcvarmı() {
         for (i = 0; i < investigationCode.length; i++) {
             if (investigationCode[i] == "SXC") {
-                resultYesNoDifferent();
-                $("#resultYes").prop("checked", true).prop("disabled", false);
+                resultRadioReset();
+                resultObj.isApproved = true;
                 return true;
             }
         }
     }
 }
-function resultYesNoDifferent() {
-    for (i = 0; i < $('[name = "resultRadio"]').length; i++) {
-        $('[name = "resultRadio"]').eq(i).prop("checked", false).attr("disabled", "disabled")
+function printerrorHistoryLogs() {
+    // Hata Geçmiş Kayıtları ve First Sentence
+    if (resultObj.customerExperience.length < 4) {
+        resultObj.errorHistoryLogs = "N/A";
+        resultObj.firstSentence = `${resultObj.customerExperience} CAN'T BE SHOWN ON A PUMP AS AN ERROR CODE.`;
     }
-}
-function sonucReset() {
-    selfTestCommentCounter = 0;
-    noReplacedCounter = 0;
-    selfTestPowerCpuCounter = 0;
-    forwardCounter = 0;
-    firstSentence = "";
-    findingsArray = [];
-    descriptionsDizisi = [];
-    probableCauseArray = [];
-    changedPartsArray = [];
-    ekYorumDizisi = [];
-    replacedArray = [];
-    calibratedArray = [];
-    sDBatteryArray = [];
-    repairCode = [];
-    analysisCode = [];
-    investigationCode = [];
-    commentSelfTest = [];
-    pumpTestsArray = [];
-    mechanismTestsArray = [];
-    selfTestprobableCauseArray = [];
-    descriptions.value = "";
-    tamirKodu.value = "";
-    errorHistoryLogs.value = "";
-    cihazinDurumu.value = "";
-    runInTestResult.value = "N/A";
-    bulgular.value = "";
-    degisenParca.value = "";
-    analizKodu.value = "";
-    arastirmaKodu.value = "";
-    yorum.value = "";
-    ekYorum.value = "";
-    probableCause = "";
+    else {
+        if (errorCodes.CATCodes.includes(503)) {
+            resultObj.errorHistoryLogs = `${resultObj.customerExperience} ERROR CODE WAS NOT SEEN IN HISTORY LOG DUE TO DEVICE WILL NOT TURN ON PROBLEM.`;
+            resultObj.firstSentence = `${resultObj.customerExperience} ERROR CODE WAS NOT SEEN IN HISTORY LOG DUE TO DEVICE WILL NOT TURN ON PROBLEM.`;
+        }
+        else if (resultObj.investigationCodes.includes("SXC")) {
+            const randomDay = () => {
+                return Math.floor(Math.random() * 10) + 3;
+            }
+            resultObj.errorHistoryLogs = `${resultObj.customerExperience} ERROR CODE WAS SEEN ${randomDay()} TIMES IN HISTORY LOG.`;
+            resultObj.firstSentence = `DURING LEVEL 1 PCI CUSTOMER EXPERIENCE ${resultObj.customerExperience} ERROR CODE WAS SEEN.`;
+        }
+        else if (!resultObj.investigationCodes.includes("SXC")) {
+            resultObj.errorHistoryLogs = `${resultObj.customerExperience} ERROR CODE WAS NOT SEEN IN HISTORY LOG.`;
+            resultObj.firstSentence = `DURING LEVEL 1 PCI CUSTOMER EXPERIENCE ${resultObj.customerExperience} ERROR CODE WAS NOT SEEN.`;
+        }
+    }
+    // Cihazın Durumu
+    if (damaged.length != 0) {
+        resultObj.deviceSituation = damaged.join(", ") + " DAMAGED";
+        $("#cihazinDurumu").show();
+    }
+    else $("#cihazinDurumu").hide();
+    //Değişen Parça Açıklaması
+    if (resultObj.changedParts == 0) resultObj.changedParts.push("N/A");
+
 }

@@ -1,99 +1,45 @@
-function printerrorHistoryLogs() {
-    if (experience.length < 4) {
-        //errorHistoryLogs.value = experience + " CAN'T BE SHOWN ON A PUMP AS AN ERROR CODE.";
-        errorHistoryLogs.value = "N/A";
-        firstSentence = experience + " CAN'T BE SHOWN ON A PUMP AS AN ERROR CODE. ";
+function print() {
+    console.log(resultObj)
+    $("#tamirKodu").val(resultObj.repairCodes.join(" - "))
+    $("#errorHistoryLogs").val(resultObj.errorHistoryLogs)
+    $("#cihazinDurumu").val(resultObj.deviceSituation);
+    if (damaged.length == 0) {
+        $("#cihazinDurumu").hide();
     }
     else {
-        if (powerErrorCode.value == 503 || selfTestMechanismErrorCode.value == 503 || cpuErrorCode.value == 503 || peripheralErrorCode.value == 503 || cablesErrorCode.value == 503) {
-            errorHistoryLogs.value = experience + " ERROR CODE WAS NOT SEEN IN HISTORY LOG DUE TO DEVICE WILL NOT TURN ON PROBLEM. ";
-            firstSentence = experience + " ERROR CODE WAS NOT SEEN IN HISTORY LOG DUE TO DEVICE WILL NOT TURN ON PROBLEM. ";
-        }
-        else if (investigationCode.includes("SXC")) {
-            function rastgele() {
-                return Math.floor(Math.random() * 10) + 3;
-            }
-            errorHistoryLogs.value = experience + " ERROR CODE WAS SEEN " + rastgele() + " TIMES IN HISTORY LOG.";
-            firstSentence = "DURING LEVEL 1 PCI CUSTOMER EXPERIENCE " + experience + " ERROR CODE WAS SEEN. ";
-        }
-        else if (!investigationCode.includes("SXC")) {
-            errorHistoryLogs.value = experience + " ERROR CODE WAS NOT SEEN IN HISTORY LOG.";
-            firstSentence = "DURING LEVEL 1 PCI CUSTOMER EXPERIENCE " + experience + " ERROR CODE WAS NOT SEEN. ";
-        }
-    }
-}
-function printCihazinDurumu() {
-    if (damaged.length != 0) {
-        cihazinDurumu.value = damaged.join(", ") + " DAMAGED";
         $("#cihazinDurumu").show();
     }
-    else $("#cihazinDurumu").hide();
-}
-function printDegisenParca() {
-    if (changedPartsArray == 0) changedPartsArray.push("N/A");
-    degisenParca.value = changedPartsArray.join(", ").toUpperCase();
-}
-
-function print() {
-    printerrorHistoryLogs();
-    printCihazinDurumu();
-    printDegisenParca();
+    $("#runInTestResult").val(resultObj.runInTestResult);
+    $("#bulgular").val(resultObj.findings.join(", "));
+    $("#primary").val(resultObj.primary);
+    $("#secondary").val(resultObj.secondary);
+    $("#degisenParca").val(resultObj.changedParts.join(", ").toUpperCase());
+    $("#analizKodu").val(resultObj.analysisCodes.join(" - "));
+    $("#arastirmaKodu").val(resultObj.investigationCodes.map((item) => {
+        if (item == "SXC") return resultObj.customerExperience;
+        else return item;
+    }).join(" - "));
     $("#pumpTests").val(pumpTestsArray.join(" - "));
-    $("#mechanismTests").val(mechanismTestsArray.join(" - "));
-    bulgular.value = findingsArray.join(", ");
-    probableCauseArray = probableCauseArray.concat(selfTestprobableCauseArray);
-    $("#probableCause").val(probableCauseArray.join(", "));
-    replacedArray = replacedArray.concat(damaged);
-    for (i = sDBatteryArray.length; i > 1; i--) {
-        sDBatteryArray.pop();
-    }
-    for (i = 0; i <= replacedArray.length; i++) {
-        if (replacedArray[i] == "CHANGED BATTERY BUTTON") {
-            replacedArray.splice(i, 1);
-        }
-    }
-    for (i = 0; i <= calibratedArray.length; i++) {
-        if (calibratedArray[i] == "CHANGED BATTERY BUTTON") {
-            calibratedArray.splice(i, 1);
-        }
-    }
-    if (replacedArray.length != 0) {
-        //descriptions.value += replacedArray.join(", ") + " WAS REPLACED. ";
-        ekYorum.value += replacedArray.join(", ") + " WILL BE CHANGED. ";
-    }
-    if (calibratedArray.length != 0) {
-        //descriptions.value += calibratedArray.join(", ") + " WAS CALIBRATED. ";
-        ekYorum.value += calibratedArray.join(", ") + " WILL BE CALIBRATED. ";
-    }
-    if (replacedArray.length == 0 && calibratedArray == 0) {
-        ekYorum.value = ekYorumDizisi;
-    }
-    ekYorum.value += sDBatteryArray;
-    //descriptions.value += sDBatteryArray;
-    // açıklamalar yazısını toggle button yap. ikinci kısma aşağıdaki yorumu yaz
-    // yorum.value = yorumVisual + commentSelfTest + commentProximal + commentDistal;
-    descriptions.value = "N/A";
-    const softwares = {
-        plumTr: "SOFTWARE : TR 11.610 V9",
-        plumEn: "SOFTWARE : EN 11.610 V2",
-        plum360: "SOFTWARE : 15.11.00.018",
-    };
-    if ($("#plumTr").is(":checked")) {
-        $("#software").text(softwares.plumTr);
-    } else if ($("#plumEn").is(":checked")) {
-        $("#software").text(softwares.plumEn);
-    } else if ($("#plum360").is(":checked")) {
-        $("#software").text(softwares.plum360);
-    }
-    var y;
-    y = firstSentence + yorumVisual + commentSelfTest + commentProximal + commentDistal;
-    yorum.value = y;
-    if (y.length > 1000) {
-        alert("Yorum kısmı Oracle'daki 1000 karakter sınırlamasını aşıyor! Toplam karakter: " + y.length);
-    }
+    printRvg();
+    $("#probableCause").val(resultObj.probableCauses.join(", "));
+    $("#ekYorum").val(resultObj.moreComment.join(", "));
+    $("#yorum").val(resultObj.comment.join(", "));
     if (changedPartsArray.includes("N/A")) {
         degisenParca.classList.remove("bg-light");
         degisenParca.classList.add("sonucSectionColor");
+    }
+    // result page radio buttons
+    for (i = 0; i < $('[name = "resultRadio"]').length; i++) {
+        $('[name = "resultRadio"]').eq(i).prop("checked", false).attr("disabled", "disabled")
+    }
+    if (resultObj.isApproved == true) {
+        $("#resultYes").prop("checked", true).prop("disabled", false);
+    }
+    else if (resultObj.isApproved == false) {
+        $("#resultNo").prop("checked", true).prop("disabled", false);
+    }
+    else {
+        $("#resultDifferent").prop("checked", true).prop("disabled", false);
     }
 }
 //Copy
@@ -105,11 +51,19 @@ $(function () {
         $(this).siblings("textarea").addClass("sonucSectionColor");
     })
 })
-$(function () {
-    $("button[name ='havuzButton']").click(function () {
-        $(this).siblings("textarea").select();
-        document.execCommand("copy");
-        $(this).siblings("textarea").removeClass("bg-light");
-        $(this).siblings("textarea").addClass("sonucSectionColor");
-    })
-})
+
+const printRvg = () => {
+    $(".rvg").empty();
+    $(".egt").empty();
+    $(".rvg").append('<p class="rvg2p m-auto"><button onclick="copyPsi(' + rvgObj.rv6psi + ')" style="width: 80px; text-align: center" class="btn btn-outline-dark align-self-center">' + rvgObj.rv6psi + '</button></p>');
+    $(".rvg").append('<p class="rvg2p m-auto mt-3"><button onclick="copyPsi(' + rvgObj.rv10psi + ')" style="width: 80px; text-align: center" class="btn btn-outline-dark align-self-center">' + rvgObj.rv10psi + '</button></p>');
+    $(".egt").append('<p class="egt2p">' + rvgObj.rv1 + '</p><p class="egt2p">' + rvgObj.rv2 + '</p><p class="egt2p">' + rvgObj.rv3 + '</p><p class="egt2p">' + rvgObj.rv4 + '</p><p class="egt2p">' + rvgObj.rv4 + '</p>');
+}
+const copyPsi = (psi) => {
+    let clipboard = document.createElement("textarea");
+    clipboard.value = psi.toFixed(2) + " PSI";
+    document.body.appendChild(clipboard);
+    clipboard.select();
+    document.execCommand("copy");
+    document.body.removeChild(clipboard);
+}
