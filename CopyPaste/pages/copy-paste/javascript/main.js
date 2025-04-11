@@ -124,39 +124,3 @@ function mainPageFormsVerification() {
         result();
     }
 }
-const resetFindings = () => {
-    $("#visualInspection").find(":reset").click()
-    $('#battery').prop('checked', false)
-    $('#sDBattery').prop('checked', false)
-    $('#n252').prop('checked', false)
-    $('#e439').prop('checked', false)
-    $('#e302').prop('checked', false)
-    $('#n250Shield').prop('checked', false)
-    $('#n250Asmdoor').prop('checked', false)
-    $('#n250pivot').prop('checked', false)
-    $('#n250handle').prop('checked', false)
-    $('#n250link').prop('checked', false)
-    $('#n251Asmdoor').prop('checked', false)
-    $('#n251Shield').prop('checked', false)
-    $('#n251pivot').prop('checked', false)
-    $('#n251handle').prop('checked', false)
-    $('#n251link').prop('checked', false)
-    $('#power').prop('checked', false)
-    $('#cpu').prop('checked', false)
-    $('#peripheral').prop('checked', false)
-    $('#cables').prop('checked', false)
-    $('#battery').prop('checked', false)
-    $('#battery').prop('checked', false)
-    $('#battery').prop('checked', false)
-    $('#battery').prop('checked', false)
-    $('#battery').prop('checked', false)
-    $("#powerForm").hide();
-    $("#cpuForm").hide();
-    $("#peripheralForm").hide();
-    $("#cablesForm").hide();
-    $("#powerForm").find(":reset").click();
-    $("#cpuForm").find(":reset").click();
-    $("#peripheralForm").find(":reset").click();
-    $("#cablesForm").find(":reset").click();
-    $("#mechanismForm").find(":reset").click();
-}
