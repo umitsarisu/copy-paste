@@ -26,13 +26,21 @@ $(".contentBgColor").css("background", color.contentColor);
 
 const plum360Click = () => {
     $(".bgColor").css("background", color.plum360);
-    $("#brackethandle").prop("disabled", false);
-    $("#tubingguide").prop("disabled", false);
+    setVisualOptions();
+    VisualObj.damaged_parts = [];
+    VisualObj.damaged_part_names = [];
+    setOtherParts("Plum 360");
+    $("#showVisual").val("")
+    $("#checkicon2").hide();
 }
 const plumAClick = () => {
     $(".bgColor").css("background", color.plumA);
-    $("#brackethandle").prop("disabled", true);
-    $("#tubingguide").prop("disabled", true);
+    setVisualOptions();
+    VisualObj.damaged_parts = [];
+    VisualObj.damaged_part_names = [];
+    setOtherParts("Plum A");
+    $("#showVisual").val("")
+    $("#checkicon2").hide();
 }
 $("#plumA").click(() => plumAClick())
 $("#plum360").click(() => plum360Click())
@@ -66,8 +74,7 @@ $(function () {
     $("#no1").click(function () {
         $("#findings").show();
         $("#theTests").show();
-        $("#visualInspection").show();
-        active("#liVI");
+        $("#liOT").click();
         $("#footer1").show();
         $("#plum360").is(":checked") ? plum360Click() : plumAClick();
     })
@@ -97,43 +104,15 @@ let testShow = (x) => {
     $("#otherSpareParts").hide();
     $(x).show();
 }
-$("#battery").click(() => {
-    if ($('#sDBattery').is(":checked") || $('#n252').is(":checked")) {
-        alert("S.D. 305 ve N252 ile aynı anda seçilemez!")
-        $('#battery').prop('checked', false)
-    }
-})
-$("#sDBattery").click(() => {
-    if ($('#battery').is(":checked") || $('#n252').is(":checked")) {
-        alert("305 ve N252 ile aynı anda seçilemez!")
-        $('#sDBattery').prop('checked', false)
-    }
-})
-$("#n252").click(() => {
-    if ($('#sDBattery').is(":checked") || $('#battery').is(":checked")) {
-        alert("S.D. 305 ve 305 ile aynı anda seçilemez!")
-        $('#n252').prop('checked', false)
-    }
-})
 function mainPageFormsVerification() {
     if ($("#no1").is(":checked")) {
-        if (visualBool == true) {
+        if (VisualObj.visual_bool == true) {
             if (mechanismBool == true) {
-                if (powerBool == true) {
-                    if (cpuBool == true) {
-                        if (peripheralBool == true) {
-                            if (cablesBool == true) {
-                                $("#backwardButton").show();
-                                $("#forwardButton").hide();
-                                result();
-                            }
-                            else alert("Cables bilgileri gönderilmedi!")
-                        }
-                        else alert("Peripheral bilgileri gönderilmedi!")
-                    }
-                    else alert("CPU bilgileri gönderilmedi!")
+                if (otherPartsBool == true) {
+                    $("#backwardButton").show();
+                    $("#forwardButton").hide();
+                    result();
                 }
-                else alert("Power bilgileri gönderilmedi!")
             }
             else alert("Mekanizma bilgileri gönderilmedi!")
         }

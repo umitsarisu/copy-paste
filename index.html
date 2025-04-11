@@ -31,7 +31,7 @@
     <title>Anasayfa</title>
 </head>
 
-<body class="d-flex">
+<body class="w-100 d-flex">
     <aside>
         <a href="#" class="ml-2 mt-2 text-white" onclick="pageTransition(0)" tag="li" name="navlink-a">
             <i class="fas fa-home fa-2x fa-fw" aria-hidden="true"></i>
@@ -73,6 +73,10 @@
                     <i class="fa fa-search fa-lg fa-fw ms-2 me-2"></i>
                     Büyüteç</a>
             </li>
+            <li class="d-flex justify-content-center">
+                <input type="text" onchange="password(this)" id="password_id" autocomplete="off">
+                <input type="button" class="btn btn-close btn-outline-danger m-1" onclick="deletePassword()">
+            </li>
         </ul>
     </aside>
     <main class="d-flex justify-content-center">
@@ -81,12 +85,12 @@
         <iframe class="non" id="copyPasteFrame" src="CopyPaste/pages/copy-paste/copy-paste.html"
             frameborder="0"></iframe>
         <iframe class="none" name="iframeCari" frameborder="0"></iframe>
-        <iframe class="none" id="loadingFrame" src="CopyPaste/pages/copy-paste/loading.html" frameborder="0"></iframe>
         <iframe class="none" name="iframeRandom" frameborder="0"></iframe>
         <iframe class="none" name="iframeBuyutec" frameborder="0"></iframe>
         <iframe class="none" name="iframeSpareParts" frameborder="0"></iframe>
         <iframe class="none" name="iframeRunin" frameborder="0"></iframe>
     </main>
+
     <!-- dahili javascript -->
     <script src="index.js"></script>
     <script src="innovations.js"></script>
@@ -155,17 +159,7 @@
                 // window.document.write(Images)
             })
     </script> -->
-    
-    <!-- <script>
-        // Loading Bar Turn Off
-        const interval = setInterval(() => {
-            if (localStorage.getItem("isLoading") == "false") {
-                $("#loadingFrame").hide();
-                // $("#copyPasteFrame").show();
-                clearInterval(interval);
-            }
-        }, 500);
-    </script> -->
+
 </body>
 
 </html>
