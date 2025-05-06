@@ -24,6 +24,63 @@ $(".models:nth(0)").css("background", color.plumA);
 $(".models:nth(1)").css("background", color.plum360);
 $(".contentBgColor").css("background", color.contentColor);
 
+const getAllPreviousForms = () => {
+    return JSON.parse(localStorage.getItem("printObj"));
+}
+const setPreviousForms = (payload) => {
+    let previousForms = [];
+    console.log(localStorage.getItem("printObj"));
+    if (localStorage.getItem("printObj") != null
+        && localStorage.getItem("printObj") != undefined) {
+        previousForms = getAllPreviousForms();
+    }
+    previousForms.push(payload);
+    if (previousForms.length == 6) {
+        previousForms.splice(0, 1);
+    }
+    localStorage.setItem("printObj", JSON.stringify(previousForms));
+    writePreviousForms();
+}
+const writePreviousForms = () => {
+    console.log("writePreviousForms");
+    $("#dropdownOptions").empty();
+    let previousForms = getAllPreviousForms();
+    if (previousForms != null) {
+        previousForms.reverse();
+        previousForms.map(form => {
+            let previousArr = [form.date_previous_form, form.repair_codes.join(", ")]
+            $("#dropdownOptions").append(`
+                <li>
+                    <button class="btn btn-primary m-1" value="${previousArr.join()}" onclick="previousForm('${previousArr.join()}')">
+                        <span class="text-warning">${previousArr[1]}</span>
+                        <span>${previousArr[0]}</span>
+                    </button>
+                </li>
+            `)
+        })
+    }
+}
+writePreviousForms();
+const getPreviousForms = (repair_codes) => {
+    console.log("getPreviousForms")
+    let previousForms = getAllPreviousForms();
+    console.log(PrintObj)
+    previousForms.filter(form => {
+        if (repair_codes == [form.date_previous_form, form.repair_codes.join(", ")].join()) {
+            return PrintObj = form;
+        }
+    })
+    console.log(PrintObj)
+    print();
+}
+const previousForm = (payload) => {
+    getPreviousForms(payload);
+    console.log("button used")
+}
+$("ul#dropdownOptions li button").on("click", function () {
+    getPreviousForms($(this).val());
+    console.log("button used")
+})
 const plum360Click = () => {
     $(".bgColor").css("background", color.plum360);
     setVisualOptions();
@@ -51,13 +108,19 @@ $(function () {
         $("#mainPage").hide();
         $("#sonuc").show();
         $("#backwardButton").show();
+        $("#previousFormsButton").show();
         $("#forwardButton").hide();
     })
     $("#backwardButton").click(function () {
         $("#mainPage").show();
         $("#sonuc").hide();
         $("#backwardButton").hide();
+        $("#previousFormsButton").hide();
         $("#forwardButton").show();
+        $("#dropdownOptions").hide();
+    })
+    $("#previousFormsButton").click(function () {
+        $("#dropdownOptions").toggle();
     })
     $("#deviceİnfoForm").submit(function () {
         $("#isIt950").css("display", "flex");
@@ -74,14 +137,15 @@ $(function () {
     $("#no1").click(function () {
         $("#findings").show();
         $("#theTests").show();
-        $("#liOT").click();
+        $("#liVI").click();
         $("#footer1").show();
         $("#plum360").is(":checked") ? plum360Click() : plumAClick();
+        $("#deviceİnfoForm").show();
     })
     // Bulgular
     function active(x) {
         $("#liVI").removeClass("bg-success text-light");
-        $("#liOT").removeClass("bg-success text-light");
+        $("#liOP").removeClass("bg-success text-light");
         $("#liMC").removeClass("bg-success text-light");
         $(x).addClass("bg-success text-light");
     }
@@ -89,13 +153,16 @@ $(function () {
         active(this);
         testShow("#visualInspection");
     })
-    $("#liOT").click(function () {
+    $("#liOP").click(function () {
         active(this);
         testShow("#otherSpareParts")
     })
     $("#liMC").click(function () {
         active(this);
         testShow("#mechanismForm")
+    })
+    $("#otherPartsToggle").click(function () {
+        $("#otherForm").toggle();
     })
 })
 let testShow = (x) => {
@@ -105,6 +172,7 @@ let testShow = (x) => {
     $(x).show();
 }
 function mainPageFormsVerification() {
+    $("#previousFormsButton").show();
     if ($("#no1").is(":checked")) {
         if (VisualObj.visual_bool == true) {
             if (mechanismBool == true) {

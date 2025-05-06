@@ -2,6 +2,7 @@
 let mechanismBool = true;
 let otherPartsBool = true;
 let password_text = "";
+let previousForms = [];
 const defaultTestFail = {
     vi_test: {
         fail: false,
@@ -43,8 +44,12 @@ const defaultPrintObj = {
     more_comment: [],
     probable_causes: [],
     error_codes: [],
-}
-const defaultRvgObj = {
+    repairedMechanism: false,
+    unusualSituation: true,
+    visual_probable_causes: [],
+    cassette_alarm_probable_causes: [],
+    proximal_probable_causes: [],
+    notRequired_probable_causes: [],
     rv6psi: 0,
     rv10psi: 0,
     rv1: 0,
@@ -53,6 +58,7 @@ const defaultRvgObj = {
     rv4: 0,
     rv5: 0
 }
+PrintObj = JSON.parse(JSON.stringify(defaultPrintObj))
 const defaultErrorCodesObj = {
     cassette_alarm_test_error_codes: [],
     proximal_occlusion_test_error_code: ""

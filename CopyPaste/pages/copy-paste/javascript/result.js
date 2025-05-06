@@ -1,9 +1,11 @@
 ﻿function result() {
     ResultObj = JSON.parse(JSON.stringify(defaultResultObj))
     PrintObj = JSON.parse(JSON.stringify(defaultPrintObj))
-    RvgObj = JSON.parse(JSON.stringify(defaultRvgObj))
     TestFail = JSON.parse(JSON.stringify(defaultTestFail))
-    ResultObj.customer_experience = $("#customerExperience").val().toLocaleUpperCase("en")
+    ResultObj.customer_experience = $("#customerExperience").val().toLocaleUpperCase("en-US")
+    $("#repairedMechanism").hide();
+    $("#unusualSituation").show();
+    PrintObj.unusualSituation = true;
     resultPageRemoveClass();
     resultPageAddClasses();
     $("#mainPage").hide();
@@ -21,10 +23,10 @@
         otherPartsResult();
         setErrorCodesObj();
         firstSentence();
-        PrintObj.comment.push("THE TESTS WAS REPEATED AND DEVICE PASSED WITHOUT GIVING ANY ALARM.");
+        PrintObj.comment.push("THE TESTS WERE REPEATED AND DEVICE PASSED WITHOUT GIVING ANY ALARM.");
         if ($("#lowbattery").is(":checked")) {
             PrintObj.more_comment.push("CHANGED BATTERY BUTTON WAS USED IN THE BIOMED MENU");
-            PrintObj.probable_causes.push("LOW BATTERY")
+            PrintObj.cassette_alarm_probable_causes.push("LOW BATTERY")
         }
         if (ResultObj.replaced.length != 0) {
             PrintObj.more_comment.push(ResultObj.replaced.join(", ") + " WILL BE CHANGED");
@@ -33,16 +35,50 @@
             PrintObj.more_comment.push(ResultObj.calibrated + " WILL BE CALIBRATED");
         }
         if (TestFail.ca_test.fail == true) {
-            PrintObj.comment.push(`THE PROBABLE CAUSE OF THE FAILED CASSETTE ALARM TEST WAS ${PrintObj.probable_causes.join(", ")}.`)
+            PrintObj.comment.push(`THE PROBABLE CAUSE OF THE FAILED CASSETTE ALARM TEST WAS ${PrintObj.cassette_alarm_probable_causes.join(", ")}.`)
         }
         if (TestFail.po_test.fail == true) {
-            PrintObj.comment.push(`THE PROBABLE CAUSE OF THE FAILED PROXIMAL OCCLUSION TEST WAS ${PrintObj.probable_causes.join(", ")}.`)
+            PrintObj.comment.push(`THE PROBABLE CAUSE OF THE FAILED PROXIMAL OCCLUSION TEST WAS ${PrintObj.proximal_probable_causes.join(", ")}.`)
         }
     }
+    PrintObj.probable_causes = [...PrintObj.visual_probable_causes, ...PrintObj.cassette_alarm_probable_causes, ...PrintObj.proximal_probable_causes, ...PrintObj.notRequired_probable_causes]
+    let isSxc = PrintObj.investigation_codes.includes("SXC");
     AAcodes();
     pumpTests();
-    print();
+    if (!isSxc) {
+        $("#staticBackdrop").modal("show");
+    }
+    else {
+        print();
+    }
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const date = new Date();
+    PrintObj.date_previous_form = `${date.getDate()}-${months[date.getMonth()]}-${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+    if (isSxc) {
+        setPreviousForms(PrintObj);
+    }
 }
+$("#yes2").click(() => {
+    if (ResultObj.customer_experience.length == 4) {
+        PrintObj.first_sentence = `DURING LEVEL 1 PCI,\n${ResultObj.customer_experience} ERROR CODE WAS SEEN IN THE HISTORY LOGS BUT WAS NOT REPLICATED DURING THE TESTS.`
+        PrintObj.analysis_codes.push("966");
+        const randomDay = () => {
+            return Math.floor(Math.random() * 10) + 3;
+        }
+        PrintObj.error_history_logs = `THE ${ResultObj.customer_experience} ERROR CODE WAS SEEN ${randomDay()} TIMES IN THE HISTORY LOG.`;
+        PrintObj.is_approved = true;
+    }
+    setPreviousForms(PrintObj);
+    $('#yes2').prop('checked', false)
+    $("#staticBackdrop").modal("hide");
+    print();
+})
+$("#no2").click(() => {
+    $('#no2').prop('checked', false)
+    $("#staticBackdrop").modal("hide");
+    setPreviousForms(PrintObj);
+    print();
+})
 // Cihaz Sağlamsa
 const notRequired = () => {
     PrintObj.repair_codes = ["N00"];
@@ -54,7 +90,7 @@ const notRequired = () => {
     PrintObj.investigation_codes = ["950"];
     PrintObj.is_approved = false;
     PrintObj.more_comment = ["NO PROBLEM FOUND"];
-    PrintObj.probable_causes = ["NO PROBABLE CAUSE"];
+    PrintObj.notRequired_probable_causes = ["NO PROBABLE CAUSE"];
     if (ResultObj.customer_experience.length < 4) {
         PrintObj.error_history_logs = ResultObj.customer_experience + " CAN'T BE SHOWN ON A PUMP AS AN ERROR CODE.";
         PrintObj.first_sentence = ResultObj.customer_experience + " CAN'T BE SHOWN ON A PUMP AS AN ERROR CODE. NO PROBABLE CAUSE. ";
@@ -63,16 +99,27 @@ const notRequired = () => {
         PrintObj.error_history_logs = ResultObj.customer_experience + " ERROR CODE WAS NOT SEEN IN HISTORY LOG.";
         PrintObj.first_sentence = "DURING LEVEL 1 PCI,\nTHE CUSTOMER EXPERIENCE " + ResultObj.customer_experience + " ERROR CODE WAS NOT SEEN. NO PROBABLE CAUSE. ";
     }
+    // ifExperienceSeen();
+}
+//Buraya daha sonra bakılacak
+const ifExperienceSeen = () => {
+    if ($("#yes2").is(":checked")) {
+        if (ResultObj.customer_experience.length == 4) {
+            if (!PrintObj.investigation_codes.includes(ResultObj.customer_experience)) {
+                PrintObj.first_sentence = `${ResultObj.customer_experience} ERROR CODE WAS SEEN IN THE HISTORY BUT WAS NOT REPLICATED DURING THE TESTS.`
+            }
+        }
+    }
 }
 const setErrorCodesObj = () => {
     ErrorCodesObj = JSON.parse(JSON.stringify(defaultErrorCodesObj));
     // Mekanizma Arızası Varsa
     if (MechanismObj.error_code != "") {
         if (MechanismObj.test_fail == "CASSETTE ALARM TEST") {
-            ErrorCodesObj.cassette_alarm_test_error_codes.push(MechanismObj.error_code.toLocaleUpperCase("en"))
+            ErrorCodesObj.cassette_alarm_test_error_codes.push(MechanismObj.error_code.toLocaleUpperCase("en-US"))
         }
         else {
-            ErrorCodesObj.proximal_occlusion_test_error_code = MechanismObj.error_code.toLocaleUpperCase("en");
+            ErrorCodesObj.proximal_occlusion_test_error_code = MechanismObj.error_code.toLocaleUpperCase("en-US");
         }
     }
     // Other Parts Hata Varsa
@@ -124,9 +171,17 @@ const firstSentence = () => {
     let catTestLength = ErrorCodesObj.cassette_alarm_test_error_codes.length;
     let catTestValue = ErrorCodesObj.cassette_alarm_test_error_codes;
     let proxTestValue = ErrorCodesObj.proximal_occlusion_test_error_code;
+    catTestValue.forEach((item, i) => {
+        if (item == "305") {
+            catTestValue[i] = "DEAD BATTERY"
+        }
+        else if (item == "503") {
+            catTestValue[i] = "DEVICE WILL NOT TURN ON"
+        }
+    });
     // firstSentence while testing
     if (catTestLength > 0) {
-        PrintObj.first_sentence += ` WHILE THE TESTS WERE PERFORMING, ERROR CODE${catTestLength > 1 ? "S" : ""} ${catTestValue.join(", ")} ${catTestLength > 1 ? "WERE" : "WAS"} OBSERVED IN THE CASSETTE ALARM TEST${proxTestValue == "" ? "." : ""}`
+        PrintObj.first_sentence += ` WHILE THE TESTS WERE PERFORMING, ${catTestValue.join(", ")} ERROR${catTestLength > 1 ? "S" : ""} ${catTestLength > 1 ? "WERE" : "WAS"} OBSERVED IN THE CASSETTE ALARM TEST${proxTestValue == "" ? "." : ""}`
     }
     if (proxTestValue != "") {
         PrintObj.first_sentence += `${catTestLength > 0 ? " AND" : " WHILE THE TESTS WERE PERFORMING"} ${proxTestValue} ERROR CODE WAS OBSERVED IN THE PROXIMAL OCCLUSION TEST.`
@@ -137,14 +192,13 @@ const visualResult = () => {
         TestFail.vi_test.fail = true;
         // Cihazın Durumu
         PrintObj.device_situation = VisualObj.damaged_part_names.join(", ") + " DAMAGED";
-        $("#cihazinDurumu").show();
         PrintObj.findings.push("VISUAL INSPECTION FAIL");
         PrintObj.comment.push(`WHILE TESTING DAMAGED ${VisualObj.damaged_part_names.join(", ")} WAS SEEN DURING VISUAL INSPECTION${$("#plum360").is(":checked") ? "" : " TEST"}. THE PROBABLE CAUSE OF THE FAILED VISUAL INSPECTION${$("#plum360").is(":checked") ? " " : " TEST "}WAS CUSTOMER ABUSE.`)
         PrintObj.changed_parts.push(...VisualObj.damaged_parts.map(part => part.name + ": " + part.code))
         ResultObj.replaced.push(...VisualObj.damaged_part_names)
-        PrintObj.probable_causes.push("CUSTOMER ABUSE")
+        PrintObj.visual_probable_causes.push("CUSTOMER ABUSE")
+        PrintObj.unusualSituation = false;
     }
-    else $("#cihazinDurumu").hide();
     if (ResultObj.customer_experience == 122) {
         VisualObj.damaged_parts.map(part => {
             if (part.viCode == 122) {
@@ -184,29 +238,45 @@ const mechanismResult = () => {
             return `${part.name}: ${part.code}`
         }
     }))
-    PrintObj.comment.push(`FOR THE ${MechanismObj.error_code} ERROR CODE, MECHANISM CALIBRATION STARTED.`);
+    let errorCode = MechanismObj.error_code;
+    if (MechanismObj.error_code == "503") {
+        errorCode = "DEVICE WILL NOT TURN ON";
+    }
+    PrintObj.comment.push(`FOR THE ${errorCode} ERROR${MechanismObj.error_code.length < 4 ? "" :
+        " CODE"}, MECHANISM CALIBRATION STARTED.`);
     let mechanismComment = [];
     if (MechanismObj.replaced.length != 0) {
         mechanismComment.push(`THE ${MechanismObj.replaced.map(item => item.name).join(", ")} WAS REPLACED`);
         ResultObj.replaced.push(...MechanismObj.replaced.map(item => item.name));
         MechanismObj.replaced.map(item => {
-            PrintObj.probable_causes.push("DEFECTIVE " + item.name.toLocaleUpperCase("en"));
+            if (MechanismObj.test_fail == "PROXIMAL OCCLUSION TEST") {
+                PrintObj.proximal_probable_causes.push("DEFECTIVE " + item.name.toLocaleUpperCase("en-US"));
+            }
+            else {
+                PrintObj.cassette_alarm_probable_causes.push("DEFECTIVE " + item.name.toLocaleUpperCase("en-US"));
+            }
         })
     }
     if (MechanismObj.calibrated != "" && MechanismObj.calibrated != undefined) {
         mechanismComment.push(`THE ${MechanismObj.calibrated} WAS CALIBRATED`);
         ResultObj.calibrated = MechanismObj.calibrated;
-        PrintObj.probable_causes.push("CALIBRATION " + MechanismObj.calibrated.toLocaleUpperCase("en"));
+        if (MechanismObj.test_fail == "PROXIMAL OCCLUSION TEST") {
+            PrintObj.proximal_probable_causes.push("CALIBRATION " + MechanismObj.calibrated.toLocaleUpperCase("en-US"));
+        }
+        else {
+            PrintObj.cassette_alarm_probable_causes.push("CALIBRATION " + MechanismObj.calibrated.toLocaleUpperCase("en-US"));
+        }
     }
     PrintObj.comment.push(mechanismComment.join(", "));
     PrintObj.comment.push("AND MECHANISM CALIBRATION COMPLETED.")
+    PrintObj.repairedMechanism = true;
 }
 const otherPartsResult = () => {
     OtherPartsObj = JSON.parse(JSON.stringify(defaultOtherPartsObj));
     // Parça seri numaralarını nesneye işliyor
-    OtherPartsObj.power.serial_number = $("#powerSN").val().toLocaleUpperCase("en");
-    OtherPartsObj.cpu.serial_number = $("#cpuSN").val().toLocaleUpperCase("en");
-    OtherPartsObj.peripheral.serial_number = $("#peripheralSN").val().toLocaleUpperCase("en");
+    OtherPartsObj.power.serial_number = $("#powerSN").val().toLocaleUpperCase("en-US");
+    OtherPartsObj.cpu.serial_number = $("#cpuSN").val().toLocaleUpperCase("en-US");
+    OtherPartsObj.peripheral.serial_number = $("#peripheralSN").val().toLocaleUpperCase("en-US");
     // Other parts sayfasındaki checkbox grouplardan gelen değişen parçaların isimlerini replaced array'in de topluyor
     const replaced1 = $("input:checkbox[name=ospCheckbox]:checked").map(function () {
         return $(this).val();
@@ -233,14 +303,14 @@ const otherPartsResult = () => {
             if (rep_part == "KEYPAD" && $("#plumA").is(":checked")) {
                 rep_part = "KEYPAD TR";
             }
-            if (part.name.toLocaleUpperCase("en") == rep_part) {
+            if (part.name.toLocaleUpperCase("en-US") == rep_part) {
                 OtherPartsObj.replaced.push(part)
                 if (rep_part == "BATTERY") {
-                    PrintObj.probable_causes.push("DEAD " + part.name.toLocaleUpperCase("en"))
+                    PrintObj.cassette_alarm_probable_causes.push("DEAD " + part.name.toLocaleUpperCase("en-US"))
                     ResultObj.replaced.push(part.name)
                 }
                 else {
-                    PrintObj.probable_causes.push("DEFECTIVE " + part.name.toLocaleUpperCase("en"))
+                    PrintObj.cassette_alarm_probable_causes.push("DEFECTIVE " + part.name.toLocaleUpperCase("en-US"))
                     ResultObj.replaced.push(part.name)
                 }
             }
@@ -274,10 +344,17 @@ const otherPartsResult = () => {
     }
     const otherPartsComment = () => {
         const setComment = (error_code, replacedList) => {
-            PrintObj.comment.push(`FOR THE ${error_code} ERROR CODE, THE ${replacedList.join(", ")} ${$("#lowbattery").is(":checked") ? "" : "WAS REPLACED"}`)
+            let errorCode = error_code;
+            if (error_code == "503") {
+                errorCode = "DEVICE WILL NOT TURN ON";
+            }
+            else if (error_code == "305") {
+                errorCode = "DEAD BATTERY";
+            }
+            PrintObj.comment.push(`FOR THE ${errorCode} ERROR CODE, THE ${replacedList.join(", ")} ${$("#lowbattery").is(":checked") ? "" : "WAS REPLACED"}`)
         }
         if (replaced4.length != 0 || replaced5.length != 0) {
-            const error_code = $("#otherFormErrorCode").val();
+            const error_code = $("#otherFormErrorCode").val().toLocaleUpperCase("en-US");
             setErrorCode(error_code);
             if (replaced4.length != 0 && replaced5.length == 0) {
                 setComment(error_code, [...replaced4]);
@@ -292,27 +369,27 @@ const otherPartsResult = () => {
         if ($("#chasis").is(":checked")) {
             const error_code = "503";
             setErrorCode(error_code);
-            setComment(error_code, [$("#chasis").val().toLocaleUpperCase("en")])
+            setComment(error_code, [$("#chasis").val().toLocaleUpperCase("en-US")])
         }
         if ($("#305").is(":checked")) {
             const error_code = "305";
             setErrorCode(error_code);
-            setComment(error_code, [$("#305").val().toLocaleUpperCase("en")])
+            setComment(error_code, [$("#305").val().toLocaleUpperCase("en-US")])
         }
         if ($("#n252").is(":checked")) {
             const error_code = "N252";
             setErrorCode(error_code);
-            setComment(error_code, [$("#n252").val().toLocaleUpperCase("en")])
+            setComment(error_code, [$("#n252").val().toLocaleUpperCase("en-US")])
         }
         if ($("#e439").is(":checked")) {
             const error_code = "E439";
             setErrorCode(error_code);
-            setComment(error_code, [$("#e439").val().toLocaleUpperCase("en")])
+            setComment(error_code, [$("#e439").val().toLocaleUpperCase("en-US")])
         }
         if ($("#e302").is(":checked")) {
             const error_code = "E302";
             setErrorCode(error_code);
-            setComment(error_code, [$("#e302").val().toLocaleUpperCase("en")])
+            setComment(error_code, [$("#e302").val().toLocaleUpperCase("en-US")])
         }
         if (n250Replaced.length != "") {
             const error_code = "N250";
@@ -369,21 +446,19 @@ const resultPageRemoveClass = () => {
     $("[name='resultTextareas']").removeClass();
     $("[name='resulth6']").removeClass();
 }
-// commentSelfTest = commentSelfTest.join("") + "DEVICE PASSED WITHOUT GIVING ANY ALARM." +
-//     " THE PROBABLE CAUSE OF THE FAILED CASSETTE ALARM TEST WAS " + selfTestprobableCauseArray.join(", ") + ". ";
 const rvgFunc = (x) => {
     while (true) {
         let random = Math.random() * (8 - 5) + 5;
-        RvgObj.rv6psi = random.toFixed(2);
+        PrintObj.rv6psi = random.toFixed(2);
         random = Math.random() * (12 - 10) + 10;
-        RvgObj.rv10psi = random.toFixed(2);
-        if (RvgObj.rv10psi - RvgObj.rv6psi > 3.5 && RvgObj.rv10psi - RvgObj.rv6psi < 5) {
+        PrintObj.rv10psi = random.toFixed(2);
+        if (PrintObj.rv10psi - PrintObj.rv6psi > 3.5 && PrintObj.rv10psi - PrintObj.rv6psi < 5) {
             break;
         }
     }
-    RvgObj.rv3 = Math.floor(Math.random() * (17 - 10) + 10);
-    RvgObj.rv4 = Math.floor(Math.random() * (50 - 30) + 30);
-    RvgObj.rv5 = Math.floor(Math.random() * (120 - 70) + 70);
+    PrintObj.rv3 = Math.floor(Math.random() * (17 - 10) + 10);
+    PrintObj.rv4 = Math.floor(Math.random() * (50 - 30) + 30);
+    PrintObj.rv5 = Math.floor(Math.random() * (120 - 70) + 70);
 }
 const dateFunc = () => {
     let date = document.getElementById("date1").value;
@@ -506,7 +581,7 @@ const AAcodes = () => {
     }
     // Mekanizma Parçaları Analiz ve Araştırma Kodları
     if (MechanismObj.error_code != "") {
-        investigation(MechanismObj.error_code.toLocaleUpperCase("en"));
+        investigation(MechanismObj.error_code.toLocaleUpperCase("en-US"));
         if (PrintObj.probable_causes.includes("DEFECTIVE PRESSURE DEDECTOR")) {
             repair("E87");
             analysis("EE02");
@@ -554,19 +629,19 @@ const AAcodes = () => {
         repair("K01");
         analysis("E01");
         analysis("973");
-        investigation(OtherPartsObj.power.error_code.toLocaleUpperCase("en"));
+        investigation($("#otherFormErrorCode").val().toLocaleUpperCase("en-US"));
     }
     if (PrintObj.probable_causes.includes("DEFECTIVE CPU PWA")) {
         repair("K05");
         analysis("E05");
         analysis("973");
-        investigation(OtherPartsObj.cpu.error_code.toLocaleUpperCase("en"));
+        investigation($("#otherFormErrorCode").val().toLocaleUpperCase("en-US"));
     }
     if (PrintObj.probable_causes.includes("DEFECTIVE PERIPHERAL PWA")) {
         repair("K156");
         analysis("E156");
         analysis("973");
-        investigation(OtherPartsObj.peripheral.error_code.toLocaleUpperCase("en"));
+        investigation($("#otherFormErrorCode").val().toLocaleUpperCase("en-US"));
     }
     if (PrintObj.probable_causes.includes("DEFECTIVE POWER CABLE") ||
         PrintObj.probable_causes.includes("DEFECTIVE CPU DRIVER CABLE") ||
@@ -577,7 +652,7 @@ const AAcodes = () => {
     ) {
         repair("M82");
         analysis("E55");
-        investigation(OtherPartsObj.cable.error_code.toLocaleUpperCase("en"));
+        investigation($("#otherFormErrorCode").val().toLocaleUpperCase("en-US"));
     }
 
     if (PrintObj.probable_causes.includes("DEAD BATTERY")
@@ -585,6 +660,11 @@ const AAcodes = () => {
         repair("E27");
         analysis("E27");
         $("#n252").is(":checked") ? investigation("N252") : investigation("305");
+    }
+    if (PrintObj.probable_causes.includes("DEFECTIVE MAIN CHASIS")) {
+        repair("M37");
+        analysis("973");
+        investigation("503");
     }
     if (PrintObj.probable_causes.includes("DEFECTIVE SHIELD")) {
         repair("E314");
@@ -615,7 +695,8 @@ const AAcodes = () => {
         analysis("E56");
         $("#n250Linkdoor").is(":checked") ? investigation("N250") : investigation("N251");
     }
-    if (PrintObj.probable_causes.includes("DEFECTIVE KEYPAD")) {
+    if (PrintObj.probable_causes.includes("DEFECTIVE KEYPAD")
+        || PrintObj.probable_causes.includes("DEFECTIVE KEYPAD TR")) {
         repair("E65");
         analysis("E19");
         analysis("973");
@@ -767,7 +848,7 @@ const pumpTests = () => {
         }
         // --- 2. Visual Inspection Test Kuralları ---
         if (test.name === "VISUAL INSPECTION TEST" && TestFail.vi_test.fail) {
-            $('#pumpTests').append(`<p class="red">${test.name}</p>`);
+            $('#pumpTests').append(`<p class="red">${test.number}- ${test.name}</p>`);
             if (TestFail.vi_test.sxc && !TestFail.ca_test.fail && !TestFail.po_test.fail) {
                 return false; // Müşteri şikayeti görüldüğü için döngüyü durdur 
             }
@@ -775,8 +856,8 @@ const pumpTests = () => {
         }
         // --- 3. Cassette Alarm Test Kuralları ---
         if (test.name === "CASSETTE ALARM TEST" && TestFail.ca_test.fail) {
-            $('#pumpTests').append(`<p class="red">${test.name}</p>`);
-            $('#pumpTests').append(`<p class="green">${test.name}</p>`);
+            $('#pumpTests').append(`<p class="red">${test.number}- ${test.name}</p>`);
+            $('#pumpTests').append(`<p class="green">${test.number}- ${test.name}</p>`);
             if ((TestFail.ca_test.sxc || TestFail.vi_test.sxc) && !TestFail.po_test.fail) {
                 return false; // Müşteri şikayeti görüldüğü için döngüyü durdur 
             }
@@ -784,8 +865,8 @@ const pumpTests = () => {
         }
         // --- 4. Proximal Occlusion Test Kuralları ---
         if (test.name === "PROXIMAL OCCLUSION TEST" && TestFail.po_test.fail) {
-            $('#pumpTests').append(`<p class="red">${test.name}</p>`);
-            $('#pumpTests').append(`<p class="green">${test.name}</p>`);
+            $('#pumpTests').append(`<p class="red">${test.number}- ${test.name}</p>`);
+            $('#pumpTests').append(`<p class="green">${test.number}- ${test.name}</p>`);
             if ((TestFail.ca_test.sxc || TestFail.vi_test.sxc || TestFail.po_test.sxc)) {
                 return false; // Müşteri şikayeti görüldüğü için döngüyü durdur 
             }

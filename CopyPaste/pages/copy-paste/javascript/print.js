@@ -2,12 +2,7 @@ function print() {
     $("#tamirKodu").val(PrintObj.repair_codes.join(" - ").toLocaleUpperCase("en"))
     $("#errorHistoryLogs").val(PrintObj.error_history_logs.toLocaleUpperCase("en"))
     $("#cihazinDurumu").val(PrintObj.device_situation.toLocaleUpperCase("en"));
-    if (VisualObj.damaged_part_names.length == 0) {
-        $("#cihazinDurumu").hide();
-    }
-    else {
-        $("#cihazinDurumu").show();
-    }
+    $("#cihazinDurumu").val() != "" ? $("#cihazinDurumu").show() : $("#cihazinDurumu").hide();
     $("#runInTestResult").val(PrintObj.run_in_test_result.toLocaleUpperCase("en"));
     $("#bulgular").val(PrintObj.findings.join(", ").toLocaleUpperCase("en"));
     $("#primary").val(PrintObj.primary.toLocaleUpperCase("en"));
@@ -39,6 +34,15 @@ function print() {
     else {
         $("#resultDifferent").prop("checked", true).prop("disabled", false);
     }
+    // Mekanizma Tamir ve Olağandışı Durum Bilgisi
+    $("#repairedMechanism").hide();
+    $("#unusualSituation").show();
+    if (PrintObj.repairedMechanism == true) {
+        $("#repairedMechanism").show();
+    }
+    if (PrintObj.unusualSituation == false) {
+        $("#unusualSituation").hide();
+    }
 }
 //Copy
 $(function () {
@@ -53,9 +57,34 @@ $(function () {
 const printRvg = () => {
     $(".rvg").empty();
     $(".egt").empty();
-    $(".rvg").append('<p class="rvg2p m-auto"><button onclick="copyPsi(' + RvgObj.rv6psi + ')" style="width: 80px; text-align: center" class="btn btn-outline-dark align-self-center">' + RvgObj.rv6psi + '</button></p>');
-    $(".rvg").append('<p class="rvg2p m-auto mt-3"><button onclick="copyPsi(' + RvgObj.rv10psi + ')" style="width: 80px; text-align: center" class="btn btn-outline-dark align-self-center">' + RvgObj.rv10psi + '</button></p>');
-    $(".egt").append('<p class="egt2p">' + RvgObj.rv1 + '</p><p class="egt2p">' + RvgObj.rv2 + '</p><p class="egt2p">' + RvgObj.rv3 + '</p><p class="egt2p">' + RvgObj.rv4 + '</p><p class="egt2p">' + RvgObj.rv5 + '</p>');
+    const makeRVGHtml = (range, psi) => {
+        return `
+            <div class="d-flex justify-content-between">
+                <div style="width:95px" class="d-flex justify-content-between">
+                    <span class="font-monospace">${range}</span>
+                    <span>=></span>
+                </div>
+                <button onclick="copyPsi(${psi})" style="width: 80px; text-align: center" 
+                class="btn btn-outline-dark fw-bold">${psi}</button>                    
+            </div>`
+    }
+    const makeEGTHtml = (range, value) => {
+        return `
+            <div class="d-flex justify-content-between">
+                <div style="width:75px" class="d-flex justify-content-between">
+                    <span class="font-monospace">${range}</span>
+                    <span>=></span>
+                </div>
+                <span class="fw-bold">${value}</span>
+            </div>`
+    }
+    $(".rvg").append(makeRVGHtml("3-9 PSI", PrintObj.rv6psi));
+    $(".rvg").append(makeRVGHtml("7-13 PSI", PrintObj.rv10psi));
+    $(".egt").append(makeEGTHtml("100µA", PrintObj.rv1));
+    $(".egt").append(makeEGTHtml("500µA", PrintObj.rv2));
+    $(".egt").append(makeEGTHtml("500µA", PrintObj.rv3));
+    $(".egt").append(makeEGTHtml("1000µA", PrintObj.rv4));
+    $(".egt").append(makeEGTHtml("200mΩ", PrintObj.rv5));
 }
 const copyPsi = (psi) => {
     let clipboard = document.createElement("textarea");

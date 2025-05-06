@@ -94,6 +94,10 @@
         box-sizing: border-box;
     }
 
+    .border-bottom-white {
+        border-bottom: 1px solid white;
+    }
+
     .white-border {
         border: 1px solid white;
         border-top: 0;
@@ -166,28 +170,19 @@
 
     .rvg,
     .egt {
-        width: 100px;
         padding: 5px;
         border: 1px solid black;
+        border-radius: 5px;
         text-align: center;
         background-color: white;
-        border-radius: 5px;
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
 
-    .rvg p {
-        line-height: 25px;
-        font-size: 17px;
-        font-weight: bold;
+    .rvg div {
+        line-height: 38px;
         margin: 5px 0;
-    }
-
-    .egt p {
-        line-height: 25px;
-        font-size: 17px;
-        font-weight: bold;
     }
 
     #date1 {
@@ -220,6 +215,11 @@
         border-radius: 10px;
     }
 
+    .headerTopButtons:hover {
+        background-color: rgba(128, 128, 128, 0.5);
+        border-radius: 10px;
+    }
+
     #headerTopSticky .headerTopButtons:active {
         border: 2px coral solid;
         border-radius: 10px;
@@ -232,20 +232,61 @@
     #backwardButton {
         left: 0;
         margin-left: 10px;
+        height: 100%;
+        cursor: pointer;
     }
 
     #forwardButton {
         right: 0;
+        height: 100%;
         margin-right: 10px;
         cursor: pointer;
     }
 
+    #previousFormsDropdown {
+        position: relative;
+        right: 0;
+        height: 100%;
+        margin-right: 10px;
+    }
+
+    #previousFormsButton {
+        right: 0;
+        height: 100%;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+
+    #previousFormsButton img {
+        width: 36px;
+        height: 36px;
+    }
+
+    #dropdownOptions {
+        width: 200px;
+        min-height: 150px;
+        position: absolute;
+        top: 60px;
+        right: 40px;
+        background-color: whitesmoke;
+        border: 1px solid #ff7e00;
+        border-radius: 5px;
+        list-style-type: decimal;
+        list-style-position: inside;
+    }
+
+    #dropdownOptions button {
+        width: 150px;
+        white-space: initial;
+        word-wrap: break-word
+    }
+
     #backwardButton,
-    #forwardButton {
+    #forwardButton,
+    #previousFormsButton {
         position: absolute;
         top: 0;
         background-color: transparent;
-        height: 100%;
         padding: 3px;
         border: 2px solid transparent;
         border-radius: 10px;
@@ -253,7 +294,8 @@
     }
 
     #backwardButton span,
-    #forwardButton span {
+    #forwardButton span,
+    #previousFormsButton span {
         line-height: 5vh;
         font-size: 1.2em;
         font-weight: 700;
@@ -265,6 +307,11 @@
 
 /* Cihaz Modelini Seçin + Customer Experience */
 @media screen and (min-width:1px) {
+    button#openDeviceMenu {
+        width: 100%;
+        line-height: 40px;
+    }
+
     #deviceİnfoForm h3 {
         font-size: 20px;
         font-weight: bold;
@@ -298,7 +345,6 @@
     /* Müşteri Şikayeti*/
     #deviceİnfoForm div#errCode {
         height: 50px;
-        border-bottom: 1px solid white;
         box-sizing: border-box;
         display: flex;
         justify-content: space-around;
@@ -319,18 +365,13 @@
         background-color: whitesmoke;
     }
 
-    /* Hata Görüldü Mü? */
-    #deviceİnfoForm div#isIt950 input[type="submit"] {
-        width: 80px;
-    }
-
-    #deviceİnfoForm div#isIt950 p {
+    div.yesNoQuestions p {
         display: inline-flex;
         line-height: 40px;
         font-size: 18px;
     }
 
-    #deviceİnfoForm label.yes {
+    label.yes {
         width: 80px;
         height: 40px;
         display: flex;
@@ -342,12 +383,12 @@
         cursor: pointer;
     }
 
-    #deviceİnfoForm label.yes:hover {
+    label.yes:hover {
         background-color: rgba(40, 167, 69, 1);
         transform: scale(1.05);
     }
 
-    #deviceİnfoForm label.no {
+    label.no {
         width: 80px;
         height: 40px;
         display: flex;
@@ -358,7 +399,7 @@
         cursor: pointer;
     }
 
-    #deviceİnfoForm label.no:hover {
+    label.no:hover {
         background-color: rgba(220, 53, 69, 1);
         transform: scale(1.05);
     }
@@ -368,7 +409,10 @@
 @media screen and (min-width:1px) {
     #findings {
         margin: 3px 0;
-        background-color: rgb(243, 243, 248)
+        background-color: rgb(243, 243, 248);
+        border-left: 1px solid #707070;
+        border-right: 1px solid #707070;
+        box-sizing: border-box;
     }
 
     #findings ul {
@@ -402,7 +446,7 @@
         border-radius: 0px 0px 50px 50px;
     }
 
-    #liOT {
+    #liOP {
         border-radius: 50px 0px 50px 0px;
     }
 }
@@ -718,6 +762,17 @@
         box-sizing: border-box;
         float: left;
         text-align: left;
+    }
+
+    #otherPartsToggleDiv label {
+        width: 100%;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #d68787;
+        border-top: 0;
+        background-color: #fbfbfb;
     }
 
     #otherForm .cpuPowerBox {
