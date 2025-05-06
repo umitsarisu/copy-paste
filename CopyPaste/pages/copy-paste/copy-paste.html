@@ -16,851 +16,695 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
     <!-- jquery cdn -->
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.js"
-        integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- css dosyası -->
     <link rel="stylesheet" href="main.css">
     <!-- font-awesome -->
     <script src="https://kit.fontawesome.com/4ebb137696.js" crossorigin="anonymous"></script>
     <!-- sayfa bilgileri -->
+    <link rel="SHORTCUT ICON" type="image/x-icon" href="./CopyPaste/images/logo1.png">
     <title>Kopyala Yapıştır</title>
 </head>
 
 <body class="d-flex">
     <main>
-        <div id="headerTopSticky" class="largeContainer bgColor">
-            <a href="copy-paste.html">
-                <h2>KOPYALA-YAPIŞTIR</h2>
-            </a>
-            <div id="forward">
-                <!-- ileri butonu kaynak: main.js Main Page Buttons-->
+        <header class="position-sticky top-0 text-center px-4" id="headerTopSticky">
+            <h1 class="m-auto col-7">
+                <a href="copy-paste.html">Kopyala-Yapıştır</a>
+            </h1>
+            <!-- ileri butonu kaynak: main.js Main Page Buttons-->
+            <button class="headerTopButtons" id="forwardButton">
+                <span class="text-dark me-2">Sonuç</span>
                 <img src="../../images/forward.png">
-                <span id="forwardSpan1">SONUÇ</span>
-            </div>
-            <div id="backward">
-                <!-- geri butonu kaynak: main.js Main Page Buttons -->
+            </button>
+            <!-- geri butonu kaynak: main.js Main Page Buttons -->
+            <button class="headerTopButtons none" id="backwardButton">
                 <img src="../../images/backward.png">
-                <span id="backwardSpan1">ANASAYFA</span>
-            </div>
-        </div>
-        <div id="mainPage" class="largeContainer bgColor border-lr">
-            <header class="limitedContainer contentBgColor border-lr">
-                <form action="javascript:$('#checkicon').show()" id="customerExperienceForm">
-                    <h3>Cihaz Modelini Seçin</h3>
-                    <!-- Model Seçimi: -->
-                    <div class="d-flex justify-content-center">
-                        <!-- kaynak: main.js Background Color Atamaları -->
-                        <!-- kaynak: visualInspection.js visualObj.keypad() -->
-                        <!-- kaynak: cassetteAlarm.js selfTestE439Obj.changedPart() -->
-                        <div class="models mx-2">
-                            <label for="plumTr">
-                                <input type="radio" id="plumTr" name="radio" required>
-                                <strong>Plum A</strong>
-                            </label>
-                        </div>
-                        <div class="models">
-                            <label for="plum360">
-                                <input type="radio" id="plum360" name="radio" required>
-                                <strong>Plum 360</strong>
-                            </label>
-                        </div>
-                    </div>
-                    <!--Müşteri Şikayeti:-->
-                    <div id="errCode" class="d-flex">
-                        <!-- kaynak: main.js Main Page Buttons customerExperienceForm -->
-                        <!-- müşteri şikayetini işler ve 122-141 hatalarına göre visual inspection testini düzenler. -->
-                        <p>Müşteri Şikayeti:</p>
-                        <input type="text" id="customerExperience" placeholder="Hata" maxlength="4"
-                            autocapitalize="characters" required>
-                        <input type="submit" class="btn btn-outline-warning" value="Gönder">
-                        <img src="../../images/checkicon.png" class="none" id="checkicon">
-                        <a href="http://www.meditera.com.tr" target="_blank"><img src="../../images/logo.png"
-                                alt="mediteralogo"></a>
-                    </div>
-                    <!-- Hata Görüldü Mü? -->
-                    <div class="none" id="isIt950">
-                        <p>Cihaz sağlam mı?</p>
-                        <label for="yes2" class="yes border-lr">
-                            <!-- kaynak: main.js Main Page Buttons bulguları ve testleri gizler. sonuç butonunu gösterir.-->
-                            <input type="radio" id="yes2" name="failControl2">
-                            Evet
-                        </label>
-                        <label for="no2" class="no border-lr">
-                            <!-- kaynak: main.js Main Page Buttons bulguları ve testleri gösterir. -->
-                            <input type="radio" id="no2" name="failControl2">
-                            Hayır
-                        </label>
-                    </div>
-                </form>
-            </header>
-            <section id="findings" class="limitedContainer border-lr contentBgColor none">
-                <div id="findingsDiv">
-                    <h4>Bulgular</h4>
-                    <div id="divTests">
-                        <label for="visualInspectionFail">
-                            <input type="checkbox" id="visualInspectionFail" name="tests">
-                            <strong>VISUAL INSPECTION FAIL</strong>
-                        </label>
-                        <label for="selfTestFail">
-                            <input type="checkbox" id="selfTestFail" name="tests">
-                            <strong>CASSETTE ALARM TEST FAIL</strong>
-                        </label>
-                        <label for="proximalOccFail">
-                            <input type="checkbox" id="proximalOccFail" name="tests">
-                            <strong>PROXIMAL OCCLUSION TEST FAIL</strong>
-                        </label>
-                        <label for="distalOccFail">
-                            <input type="checkbox" id="distalOccFail" name="tests">
-                            <strong>DISTAL OCC. (3-9) TEST FAIL</strong>
-                        </label>
-                    </div>
-                </div>
-                <ul id="downMenu" class="none mb-1">
-                    <li id="liVI" class="none">Visual Inspection</li>
-                    <li id="liST" class="none">Cassette A. Test</li>
-                    <li id="liPO" class="none">Proximal Occlusion</li>
-                    <li id="liDO" class="none">Distal Occlusion</li>
+                <span id="backwardSpan1">Geri</span>
+            </button>
+            <!-- önceki formu getir kaynak: main.js Main Page Buttons-->
+            <div class="previousFormsDropdown">
+                <button class="headerTopButtons none" id="previousFormsButton">
+                    <span class="text-dark me-2">Önceki Formu Getir</span>
+                    <img src="../../images/backward.png">
+                </button>
+                <ul id="dropdownOptions" class="none m-1 p-2">
+                    <p class="text-start fw-bold">Tamir Kodları:</p>
                 </ul>
-                <div style="clear: both;"></div>
-            </section>
-            <section id="theTests" class="contentBgColor none">
-                <!--Visual İnspection Test-->
-                <form id="visualInspection" action="javascript: $('#checkicon1').show(); $('#checkicon11').show();"
-                    class="sectionContent border-lr none">
-                    <h5>Visual İnspection Fail</h5>
-                    <p class="doubleclick">Seçim Yapmak İçin Çift Tıklayın</p>
-                    <div class="d-flex justify-content-center">
-                        <div id="divSparePartsVisual" class="sparePartsContainer">
-                            <label for="sparePartsVisual">Visual Inspection'dan arızalı YDK
-                                <select multiple id="sparePartsVisual" ondblclick="selectedVisual(3)">
-                                    <option>FRONT CASE</option>
-                                    <option>REAR CASE</option>
-                                    <option>MAIN CHASIS</option>
-                                    <option>ASM DOOR</option>
-                                    <option>SHIELD</option>
-                                    <option class="tubingGuide">TUBING GUIDE</option>
-                                    <option class="bracketHandle">BRACKET HANDLE</option>
-                                    <option>HANDLE DOOR</option>
-                                    <option>KEYPAD</option>
-                                    <option>DISPLAY</option>
-                                    <option>BATTERY DOOR</option>
-                                    <option>RETAINER CORD</option>
-                                    <option>POLE CLAMP ASS</option>
-                                    <option>POLE CLAMP KNOB</option>
-                                    <option>COVER PERIPHERAL</option>
-                                </select>
-                            </label>
-                            <div id="divShowVisual">
-                                <label for="showVisual"><span id="visualText1">Visual Inspection'dan kalan yedek
-                                        parçalar</span>
-                                    <span id="visualText2" class="none">Visual'dan kalan parçalar</span>
-                                    <textarea id="showVisual" rows="2" readonly></textarea>
+            </div>
+        </header>
+        <div id="mainPage" class="m-auto m-0 p-0">
+            <div class="row mx-0 px-0">
+                <div class="col-12 col-md-11 col-lg-9 col-xl-8 px-0 m-auto">
+                    <form action="javascript:$('#checkicon1').show()" id="deviceİnfoForm"
+                        class="bgColor lr-black-border">
+                        <h3>Cihaz Modelini Seçin</h3>
+                        <!-- Model Seçimi: -->
+                        <div class="d-flex justify-content-center">
+                            <div class="models me-2">
+                                <label for="plumA">
+                                    <input type="radio" id="plumA" name="radio" required>
+                                    <strong>Plum A</strong>
+                                </label>
+                            </div>
+                            <div class="models">
+                                <label for="plum360">
+                                    <input type="radio" id="plum360" name="radio" required>
+                                    <strong>Plum 360</strong>
                                 </label>
                             </div>
                         </div>
-                        <!-- Visual Buttons -->
-                        <div id="visualInspectionButtons">
-                            <input type="submit" value="Gönder" class="btn btn-outline-warning">
-                            <img src="../../images/checkicon.png" id="checkicon1" width="25px;" class="none">
-                            <input type="reset" value="Reset" class="btn btn-outline-danger">
+                        <!--Müşteri Şikayeti:-->
+                        <div id="errCode" class="d-flex justify-content-center border-bottom-white">
+                            <p>Müşteri Şikayeti:</p>
+                            <input type="text" id="customerExperience" autocapitalize="characters" placeholder="Hata"
+                                maxlength="4" required>
+                            <img src="../../images/checkicon.png" class="none checkicon" id="checkicon1">
+                            <input type="submit" class="btn btn-outline-warning ms-1" value="Gönder">
+                            <a href="http://www.meditera.com.tr" target="_blank" class="d-none d-md-block">
+                                <img src="../../images/logo.png" alt="mediteralogo">
+                            </a>
                         </div>
-                        <!-- 122 Error Code -->
-                        <div id="divSpareParts122" class="sparePartsContainer none">
-                            <label for="spareParts122">122'den arızalı YDK
-                                <select multiple id="spareParts122" ondblclick="selectedVisual(1)">
-                                    <option>FRONT CASE</option>
-                                    <option>ASM DOOR</option>
-                                    <option>SHIELD</option>
-                                    <option>HANDLE DOOR</option>
-                                    <option class="tubingGuide">TUBING GUIDE</option>
-                                    <option>KEYPAD</option>
-                                    <option>DISPLAY</option>
-                                </select>
+                        <div id="isIt950" class="flex-wrap justify-content-center m-auto py-1 none yesNoQuestions">
+                            <p>Cihaz sağlam mı?</p>
+                            <label for="yes1" class="yes lr-border">
+                                <input type="radio" id="yes1" name="failControl2">
+                                Evet
                             </label>
-                            <label for="show122">122'den kalan yedek parçalar
-                                <textarea id="show122" rows="2" readonly></textarea>
+                            <label for="no1" class="no lr-border">
+                                <input type="radio" id="no1" name="failControl2">
+                                Hayır
                             </label>
                         </div>
-                        <!-- 141 Error Code -->
-                        <div id="divSpareParts141" class="sparePartsContainer none">
-                            <label for="spareParts141">141'den arızalı YDK
-                                <select multiple id="spareParts141" ondblclick="selectedVisual(2)">
-                                    <option>REAR CASE</option>
-                                    <option>POLE CLAMP KNOB</option>
-                                    <option class="bracketHandle">BRACKET HANDLE</option>
-                                    <option>COVER PERIPHERAL</option>
-                                    <option>RETAINER CORD</option>
-                                    <option>POLE CLAMP ASS</option>
-                                </select>
-                            </label>
-                            <div id="divShow141">
-                                <label for="show141">141'den kalan yedek parçalar
-                                    <textarea id="show141" rows="2" readonly></textarea>
-                                </label>
-                            </div>
+                    </form>
+                    <!-- Findings -->
+                    <section id="findings" class="none m-0">
+                        <div class="p-0 m-0">
+                            <ul class="p-1">
+                                <li id="liVI">Visual Inspection</li>
+                                <li id="liMC">Mekanizma</li>
+                                <li id="liOP">Diğer</li>
+                            </ul>
                         </div>
-                    </div>
-                    <div id="visualInspectionButtons-xs-display">
-                        <input type="submit" value="Gönder" class="btn btn-outline-warning">
-                        <img src="../../images/checkicon.png" id="checkicon11" width="25px;" class="none">
-                        <input type="reset" value="Reset" class="btn btn-outline-danger">
-                    </div>
-                </form>
-                <div id="selfTest" class="sectionContent border-lr none">
-                    <h5>Cassette Alarm Test Fail</h5>
-                    <ul>
-                        <li><label for="battery">
-                                <input type="checkbox" id="battery">
-                                <span>305</span>
-                            </label>
-                            <div class="hoverDown">
-                                <span>BATTERY</span>
-                            </div>
-                        </li>
-                        <li><label for="sDBattery">
-                                <input type="checkbox" id="sDBattery">
-                                <span>S.D. 305</span>
-                            </label>
-                            <div class="hoverUp">
-                                <span>STOK DIŞI</span>
-                            </div>
-                        </li>
-                        <li id="n250"><span class="hoverUpDown">N250</span>
-                            <div class="hoverUpAsmdoor">
-                                <label for="n250Asmdoor">
-                                    <input type="checkbox" id="n250Asmdoor">
-                                    <span>Asmdoor</span>
-                                </label>
-                            </div>
-                            <div class="hoverDownShield">
-                                <label for="n250Shield">
-                                    <input type="checkbox" id="n250Shield">
-                                    <span>SHIELD</span>
-                                </label>
-                            </div>
-                            <div class="hoverUpPivot">
-                                <label for="n250pivot">
-                                    <input type="checkbox" id="n250pivot">
-                                    <span>Pivot</span>
-                                </label>
-                            </div>
-                            <div class="hoverUpHandle">
-                                <label for="n250handle">
-                                    <input type="checkbox" id="n250handle">
-                                    <span style="margin-left: -7px;">Handle D.</span>
-                                </label>
-                            </div>
-                            <div class="hoverUpLink">
-                                <label for="n250link">
-                                    <input type="checkbox" id="n250link">
-                                    <span style="margin-left: -7px;">Link Door</span>
-                                </label>
-                            </div>
-                        </li>
-                        <li><label for="n252">
-                                <input type="checkbox" id="n252">
-                                <span>N252</span>
-                            </label>
-                            <div class="hoverUp">
-                                <span>BATTERY</span>
-                            </div>
-                        </li>
-                        <li id="n251"><span class="hoverUpDown">N251</span>
-                            <div class="hoverUpAsmdoor">
-                                <label for="n251Asmdoor">
-                                    <input type="checkbox" id="n251Asmdoor">
-                                    <span>Asmdoor</span>
-                                </label>
-                            </div>
-                            <div class="hoverDownShield">
-                                <label for="n251Shield">
-                                    <input type="checkbox" id="n251Shield">
-                                    <span>SHIELD</span>
-                                </label>
-                            </div>
-                            <div class="hoverUpPivot">
-                                <label for="n251pivot">
-                                    <input type="checkbox" id="n251pivot">
-                                    <span>Pivot</span>
-                                </label>
-                            </div>
-                            <div class="hoverUpHandle">
-                                <label for="n251handle">
-                                    <input type="checkbox" id="n251handle">
-                                    <span style="margin-left: -7px;">Handle D.</span>
-                                </label>
-                            </div>
-                            <div class="hoverUpLink">
-                                <label for="n251link">
-                                    <input type="checkbox" id="n251link">
-                                    <span style="margin-left: -7px;">Link Door</span>
-                                </label>
-                            </div>
-                        </li>
-                        <li><label for="e439">
-                                <input type="checkbox" id="e439">
-                                <span>E439</span>
-                            </label>
-                            <div class="hoverUp">
-                                <span>KEYPAD</span>
-                            </div>
-                        </li>
-                        <li><label for="e302">
-                                <input type="checkbox" id="e302">
-                                <span>E302</span>
-                            </label>
-                            <div class="hoverDown">
-                                <span>DISPLAY</span>
-                            </div>
-                        </li>
-                    </ul>
-                    <div style="clear: both;"></div>
-                    <div class="d-flex mt-2 flex-wrap" style="justify-content: space-evenly;">
-                        <!-- Power -->
-                        <div>
-                            <div class="selfTestHeaderCheckBox cpuPowerContent">
-                                <label for="power">
-                                    <div class="selfTestHeaderCheckBoxDiv">
-                                        <input type="checkbox" id="power">
-                                    </div>
-                                    <div class="selfTestHeaderCheckBoxDiv">
-                                        <strong>POWER</strong>
-                                    </div>
-                                </label>
-                            </div>
-                            <form action='javascript: $("#checkicon2").show(); powerBool = true;' id="powerForm"
-                                class="cpuPowerContent none selfTestContent">
-                                <div class="d-flex mt-2" style="justify-content: space-evenly;">
-                                    <div style="width: 156px;">
-                                        <span class="mechanismLabelSpans">Hata kodunu girin:</span>
-                                        <span class="mechanismLabelSpans">Power seri no girin:</span>
-                                    </div>
-                                    <div>
-                                        <label for="powerErrorCode" class="mechanismLabels">
-                                            <input type="text" id="powerErrorCode" maxlength="4" placeholder="Hata"
-                                                onkeydown="enterKeyPress(event)">
-                                        </label>
-                                        <label for="powerSN" class="mechanismLabels">
-                                            <input type="text" id="powerSN" maxlength="12" placeholder="Seri Numarası"
-                                                onkeydown="enterKeyPress(event)">
-                                        </label>
+                    </section>
+                    <!-- Main Page -->
+                    <section id="theTests" class="bgColor lr-black-border pb-3 none">
+                        <!--Visual İnspection Test-->
+                        <form id="visualInspection" class="sectionContent none" onsubmit="event.preventDefault()">
+                            <h5>Visual İnspection Fail</h5>
+                            <p class="doubleClickText">Seçim Yapmak İçin Çift Tıklayın</p>
+                            <div class="col-10 d-flex flex-wrap justify-content-around m-auto">
+                                <div class="col-10 col-md-7 justify-content-around">
+                                    <div class="d-flex justify-content-evenly position-relative">
+                                        <!-- Visual Yedek Parçalar -->
+                                        <div class="text-center mt-1">
+                                            <p>Visual Inspection'dan arızalı YDK</p>
+                                            <div id="sparePartsVisual" class="overflow-auto bg-light py-1">
+                                                <!-- Options Come From VisualInspection.js -->
+                                            </div>
+                                        </div>
+                                        <!-- Visual Buttons -->
+                                        <div id="visualInspectionButtons">
+                                            <input type="submit" value="Gönder" class="btn btn-outline-warning">
+                                            <img src="../../images/checkicon.png" id="checkicon2" width="25px;"
+                                                class="none">
+                                            <input type="reset" value="Reset" class="btn btn-outline-danger">
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="d-flex" style="justify-content: space-evenly;">
-                                    <input type="reset" value="Reset" class="btn btn-outline-danger">
-                                    <img src="../../images/checkicon.png" id="checkicon2" class="none">
-                                    <input type="submit" value="Gönder" class="btn btn-outline-warning">
+                                <div class="col-10 col-md-5 text-center mt-1 d-flex flex-column">
+                                    <p>Hasarlı parçalar</p>
+                                    <div class="h-100 d-flex justify-content-center">
+                                        <textarea class="align-self-center form-control" id="showVisual" rows="3"
+                                            readonly style="resize:none;"></textarea>
+                                    </div>
                                 </div>
-                                <div style="clear: both;"></div>
-                            </form>
-                        </div>
-                        <!-- CPU -->
-                        <div class="mt-1 mt-md-0">
-                            <div class="selfTestHeaderCheckBox cpuPowerContent">
-                                <label for="cpu">
-                                    <div class="selfTestHeaderCheckBoxDiv">
-                                        <input type="checkbox" id="cpu">
-                                    </div>
-                                    <div class="selfTestHeaderCheckBoxDiv">
-                                        <strong>CPU</strong>
-                                    </div>
+                            </div>
+                        </form>
+                        <!-- Mechanism Parts -->
+                        <form id="mechanismForm" class="sectionContent text-center none">
+                            <h5>Mechanism Fail</h5>
+                            <label for="mechanismErrorCode">
+                                <span class="mechanismLabelSpans">Hata kodunu girin:</span>
+                                <input type="text" id="mechanismErrorCode" maxlength="4" placeholder="Hata"
+                                    onkeydown="enterKeyPress(event)" class="m-0">
+                            </label>
+                            <!-- Test Fail -->
+                            <div class="col-8 col-sm-6 m-auto">
+                                <label for="testFail" class="d-flex">
+                                    <span class="mechanismLabelSpans">Test Fail: </span>
+                                    <select class="form-select" id="testFail" aria-label="Default select example">
+                                        <option value="CASSETTE ALARM TEST" selected>CASSETTE ALARM TEST</option>
+                                        <option value="PROXIMAL OCCLUSION TEST">PROXIMAL OCCLUSION TEST</option>
+                                    </select>
                                 </label>
                             </div>
-                            <form action='javascript: $("#checkicon3").show(); cpuBool = true;' id="cpuForm"
-                                class="cpuPowerContent none selfTestContent">
-                                <div class="d-flex mt-2" style="justify-content: space-evenly;">
-                                    <div style="width: 156px;">
-                                        <span class="mechanismLabelSpans">Hata kodunu girin:</span>
-                                        <span class="mechanismLabelSpans">CPU seri no girin:</span>
+                            <!-- Mechanism Options -->
+                            <div class="d-flex flex-wrap w-100">
+                                <div class="col-12 col-sm-10 m-auto mt-2">
+                                    <!-- Mechanism Calibrated Text & Reset Button -->
+                                    <div class="d-flex">
+                                        <p class="text-start mx-2">Calibrated</p>
+                                        <input type="button" class="btn btn-outline-danger btn-close"
+                                            onclick="calibratedReset()"></input>
                                     </div>
-                                    <div>
-                                        <label for="cpuErrorCode" class="mechanismLabels">
-                                            <input type="text" id="cpuErrorCode" maxlength="4" placeholder="Hata"
-                                                onkeydown="enterKeyPress(event)">
+                                    <!-- Mechanism Calibrated Parts -->
+                                    <div class="d-flex flex-wrap justify-content-around white-border text-start"
+                                        style="background-color: rgba(129, 146, 168, 0.5);">
+                                        <label for="pressureCalibrated" class="mechanismLabels">
+                                            <input type="radio" id="pressureCalibrated" name="calibration"
+                                                value="PRESSURE DEDECTOR">
+                                            PRESSURE D. CALIBRATED
                                         </label>
-                                        <label for="cpuSN" class="mechanismLabels">
-                                            <input type="text" id="cpuSN" maxlength="12" placeholder="Seri Numarası"
-                                                onkeydown="enterKeyPress(event)">
+                                        <label for="appCalibrated" class="mechanismLabels">
+                                            <input type="radio" id="appCalibrated" name="calibration" value="APP PWA">
+                                            APP CALIBRATED
+                                        </label>
+                                        <label for="driverPwaCalibrated" class="mechanismLabels">
+                                            <input type="radio" id="driverPwaCalibrated" name="calibration"
+                                                value="DRIVER PWA">
+                                            DRIVER PWA CALIBRATED
                                         </label>
                                     </div>
-                                </div>
-                                <div class="d-flex" style="justify-content: space-evenly;">
-                                    <input type="reset" value="Reset" class="btn btn-outline-danger">
-                                    <img src="../../images/checkicon.png" id="checkicon3" class="none">
-                                    <input type="submit" value="Gönder" class="btn btn-outline-warning">
-                                </div>
-                                <div style="clear: both;"></div>
-                            </form>
-                        </div>
-                        <!-- Peripheral -->
-                        <div class="mt-1 mt-md-0">
-                            <div class="selfTestHeaderCheckBox cpuPowerContent">
-                                <label for="peripheral">
-                                    <div class="selfTestHeaderCheckBoxDiv">
-                                        <input type="checkbox" id="peripheral">
-                                    </div>
-                                    <div class="selfTestHeaderCheckBoxDiv">
-                                        <strong>PERIPHERAL</strong>
-                                    </div>
-                                </label>
-                            </div>
-                            <form action='javascript: $("#checkicon31").show(); peripheralBool = true;'
-                                id="peripheralForm" class="cpuPowerContent none selfTestContent">
-                                <div class="d-flex mt-2" style="justify-content: space-evenly;">
-                                    <div style="width: 156px;">
-                                        <span class="mechanismLabelSpans">Hata kodunu girin:</span>
-                                        <span class="mechanismLabelSpans">Peripheral seri no:</span>
-                                    </div>
-                                    <div>
-                                        <label for="peripheralErrorCode" class="mechanismLabels">
-                                            <input type="text" id="peripheralErrorCode" maxlength="4" placeholder="Hata"
-                                                onkeydown="enterKeyPress(event)">
+                                    <!-- Mechanism Usual Replaced Parts -->
+                                    <p class="text-start ms-2">Replaced</p>
+                                    <div class="d-flex flex-wrap justify-content-around white-border text-start"
+                                        style="background-color: rgba(129, 146, 168, 0.5);">
+                                        <label for="pressureReplaced" class="mechanismLabels">
+                                            <input type="checkbox" id="pressureReplaced" value="Pressure Dedector"
+                                                name="replacedParts">
+                                            PRESSURE D. REPLACED
                                         </label>
-                                        <label for="peripheralSN" class="mechanismLabels">
-                                            <input type="text" id="peripheralSN" maxlength="12"
+                                        <label for="appReplaced" class="mechanismLabels">
+                                            <input type="checkbox" id="appReplaced" value="App Pwa"
+                                                name="replacedParts">
+                                            APP REPLACED
+                                        </label>
+                                        <label for="driverPwaReplaced" class="mechanismLabels">
+                                            <input type="checkbox" id="driverPwaReplaced" value="Driver Pwa"
+                                                name="replacedParts">
+                                            DRIVER PWA REPLACED
+                                        </label>
+                                    </div>
+                                    <!-- Serial Numbers Area -->
+                                    <div class="d-flex flex-wrap justify-content-around mt-1">
+                                        <label for="appSN" class="none appSNDiv">
+                                            <span class="mechanismLabelSpans">App Serial No:</span>
+                                            <input type="text" class="serialInput" id="appSN" maxlength="12"
+                                                placeholder="Seri Numarası" onkeydown="enterKeyPress(event)">
+                                        </label>
+                                        <label for="driverPwaSN" class="none driverPwaSNDiv">
+                                            <span class="mechanismLabelSpans">Driver PWA Serial No:</span>
+                                            <input type="text" class="serialInput" id="driverPwaSN" maxlength="12"
                                                 placeholder="Seri Numarası" onkeydown="enterKeyPress(event)">
                                         </label>
                                     </div>
-                                </div>
-                                <div class="d-flex" style="justify-content: space-evenly;">
-                                    <input type="reset" value="Reset" class="btn btn-outline-danger">
-                                    <img src="../../images/checkicon.png" id="checkicon31" class="none">
-                                    <input type="submit" value="Gönder" class="btn btn-outline-warning">
-                                </div>
-                                <div style="clear: both;"></div>
-                            </form>
-                        </div>
-                        <!-- Cables -->
-                        <div class="mt-1 mt-md-0">
-                            <div class="selfTestHeaderCheckBox cpuPowerContent">
-                                <label for="cables">
-                                    <div class="selfTestHeaderCheckBoxDiv">
-                                        <input type="checkbox" id="cables">
-                                    </div>
-                                    <div class="selfTestHeaderCheckBoxDiv">
-                                        <strong>CABLES</strong>
-                                    </div>
-                                </label>
-                            </div>
-                            <form action='javascript: $("#checkicon32").show(); cablesBool = true;' id="cablesForm"
-                                class="cpuPowerContent none selfTestContent">
-                                <div>
-                                    <div class="d-flex mt-2" style="justify-content:start;">
-                                        <div style="width: 156px;" class="ms-2">
-                                            <span class="mechanismLabelSpans">Hata kodunu girin:</span>
-                                        </div>
-                                        <div class="ms-2">
-                                            <label for="cablesErrorCode" class="mechanismLabels">
-                                                <input type="text" id="cablesErrorCode" maxlength="4"
-                                                    placeholder="Hata" onkeydown="enterKeyPress(event)">
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="cablesOptions">
-                                        <label for="powerCableReplaced" class="mechanismLabels">
-                                            <input type="checkbox" id="powerCableReplaced">
-                                            POWER CABLE
+                                    <!-- Mechanism More Replaced Parts -->
+                                    <p class="text-start ms-2">More</p>
+                                    <div class="d-flex flex-wrap justify-content-around white-border text-start"
+                                        style="background-color: rgba(129, 146, 168, 0.5);">
+                                        <label for="springReplaced" class="mechanismLabels">
+                                            <input type="checkbox" id="springReplaced"
+                                                value="Spring Extension 0.063 Dıa, 0.25 Lg" name="replacedParts">
+                                            MOTOR SPRING REPLACED
                                         </label>
-                                        <label for="cpuDriverCableReplaced" class="mechanismLabels">
-                                            <input type="checkbox" id="cpuDriverCableReplaced">
-                                            CPU DRIVER CABLE
+                                        <label for="LSMReplaced" class="mechanismLabels">
+                                            <input type="checkbox" id="LSMReplaced" value="L/s Motor"
+                                                name="replacedParts">
+                                            LS MOTOR REPLACED
                                         </label>
-                                        <label for="cableFlat20Replaced" class="mechanismLabels">
-                                            <input type="checkbox" id="cableFlat20Replaced">
-                                            CABLE FLAT 20 COND
+                                        <label for="IOMReplaced" class="mechanismLabels">
+                                            <input type="checkbox" id="IOMReplaced" value="I/o Motor"
+                                                name="replacedParts">
+                                            IO MOTOR REPLACED
                                         </label>
-                                        <label for="cablePowerBatteryReplaced" class="mechanismLabels">
-                                            <input type="checkbox" id="cablePowerBatteryReplaced">
-                                            CABLE POWER/BATTERY
+                                        <label for="PLMReplaced" class="mechanismLabels">
+                                            <input type="checkbox" id="PLMReplaced" value="Plunger Motor"
+                                                name="replacedParts">
+                                            PLUNGER M. REPLACED
                                         </label>
-                                        <label for="cableMotorPowerReplaced" class="mechanismLabels">
-                                            <input type="checkbox" id="cableMotorPowerReplaced">
-                                            CABLE MOTOR POWER
-                                        </label>
-                                        <label for="cableFlat8Replaced" class="mechanismLabels">
-                                            <input type="checkbox" id="cableFlat8Replaced">
-                                            CABLE FLAT 8 COND
+                                        <label for="SWPReplaced" class="mechanismLabels">
+                                            <input type="checkbox" id="SWPReplaced" value="Switch Pwa"
+                                                name="replacedParts">
+                                            SWITCH PWA REPLACED
                                         </label>
                                     </div>
-                                </div>
-                                <div class="d-flex" style="justify-content: space-evenly;">
-                                    <input type="reset" value="Reset" class="btn btn-outline-danger">
-                                    <img src="../../images/checkicon.png" id="checkicon32" class="none">
-                                    <input type="submit" value="Gönder" class="btn btn-outline-warning">
-                                </div>
-                                <div style="clear: both;"></div>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- Mekanizma -->
-                    <div class="selfTestHeaderCheckBox mechanismContent mt-1">
-                        <label for="selfTestMechanism">
-                            <div class="selfTestHeaderCheckBoxDiv">
-                                <input type="checkbox" id="selfTestMechanism">
-                            </div>
-                            <div class="selfTestHeaderCheckBoxDiv">
-                                <strong>MECHANISM</strong>
-                            </div>
-                        </label>
-                    </div>
-                    <form action="javascript:$('#checkicon4').show();selfMechanismBool = true;"
-                        id="selfTestMechanismForm" class="mechanismContent none">
-                        <label for="selfTestMechanismErrorCode" class="mechanismLabels">
-                            <div class="mechanismErrCodeDiv">
-                                <span class="mechanismLabelSpans">Hata kodunu girin:</span>
-                                <input type="text" id="selfTestMechanismErrorCode" maxlength="4" placeholder="Hata"
-                                    onkeydown="enterKeyPress(event)">
-                            </div>
-                        </label>
-                        <div class="mechanismSubContent d-flex" style="justify-content: space-evenly;">
-                            <div class="mechanismOptions">
-                                <label for="selfTestMechanismReplaced" class="mechanismLabels">
-                                    <input type="radio" id="selfTestMechanismReplaced" name="radio2">
-                                    MECHANISM REPLACED
-                                </label>
-                                <label for="selfTestAppReplaced" class="mechanismLabels">
-                                    <input type="checkbox" id="selfTestAppReplaced">
-                                    APP REPLACED
-                                </label>
-                                <label for="selfTestPressureReplaced" class="mechanismLabels">
-                                    <input type="radio" id="selfTestPressureReplaced" name="radio2">
-                                    PRESSURE D. REPLACED
-                                </label>
-                                <label for="selfTestPressureCalibrated" class="mechanismLabels">
-                                    <input type="radio" id="selfTestPressureCalibrated" name="radio2">
-                                    PRESSURE D. CALIBRATED
-                                </label>
-                                <label for="selfTestForMechanismPCI" class="mechanismLabels">
-                                    <div class="selfTestHeaderCheckBoxDiv" style="width: 25%;">
-                                        <input type="checkbox" id="selfTestForMechanismPCI">
-                                    </div>
-                                    <div class="selfTestHeaderCheckBoxDiv" style="width: 70%;">
-                                        <strong>More Mechanism Options</strong>
-                                    </div>
-                                </label>
-                                <div id="forMechanismPCI" class="mechanismOptions none">
-                                    <label for="selfTestDRPCalibrated" class="mechanismLabels">
-                                        <input type="checkbox" id="selfTestDRPCalibrated">
-                                        DRIVER PWA CALIBRATED
-                                    </label>
-                                    <label for="selfTestDRPReplaced" class="mechanismLabels">
-                                        <input type="checkbox" id="selfTestDRPReplaced">
-                                        DRIVER PWA REPLACED
-                                    </label>
-                                    <label for="selfTestSpringReplaced" class="mechanismLabels">
-                                        <input type="checkbox" id="selfTestSpringReplaced">
-                                        SPRING REPLACED
-                                    </label>
-                                    <label for="selfTestLSMReplaced" class="mechanismLabels">
-                                        <input type="checkbox" id="selfTestLSMReplaced">
-                                        LS MOTOR REPLACED
-                                    </label>
-                                    <label for="selfTestIOMReplaced" class="mechanismLabels">
-                                        <input type="checkbox" id="selfTestIOMReplaced">
-                                        IO MOTOR REPLACED
-                                    </label>
-                                    <label for="selfTestPLMReplaced" class="mechanismLabels">
-                                        <input type="checkbox" id="selfTestPLMReplaced">
-                                        PLUNGER MOTOR REPLACED
-                                    </label>
-                                    <label for="selfTestSWPReplaced" class="mechanismLabels">
-                                        <input type="checkbox" id="selfTestSWPReplaced">
-                                        SWITCHES PWA REPLACED
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="mechanismSerialNumberDiv">
-                                <div id="ifSelfTestAppChecked" class="none">
-                                    <label for="selfTestAppSN">
-                                        <span class="mechanismLabelSpans">App seri no girin:</span>
-                                        <input type="text" id="selfTestAppSN" maxlength="12" placeholder="Seri Numarası"
-                                            onkeydown="enterKeyPress(event)">
-                                    </label>
-                                </div>
-                                <div id="ifSelfTestMechanismChecked" class="none">
-                                    <label for="selfTestMechanismSN">
-                                        <span class="mechanismLabelSpans">Mekanizma seri no girin:</span>
-                                        <input type="text" id="selfTestMechanismSN" maxlength="7"
-                                            placeholder="Seri Numarası" onkeydown="enterKeyPress(event)">
-                                    </label>
-                                </div>
-                                <div id="ifSelfTestDriverPwaChecked" class="none mt-1">
-                                    <label for="selfTestDriverPwaSN">
-                                        <span class="mechanismLabelSpans">Driver pwa seri no girin:</span>
-                                        <input type="text" id="selfTestDriverPwaSN" maxlength="12"
-                                            placeholder="Seri Numarası" onkeydown="enterKeyPress(event)">
-                                    </label>
-                                </div>
-                                <div class="buttonsCover">
-                                    <div class="d-flex" style="justify-content: space-evenly;">
+                                    <!-- Buttons -->
+                                    <div class="buttonsCover d-flex justify-content-around m-auto">
                                         <input type="reset" value="Reset" class="btn btn-outline-danger">
-                                        <img src="../../images/checkicon.png" id="checkicon4" width="25px;"
-                                            class="none">
+                                        <img src="../../images/checkicon.png" id="checkicon3" class="checkicon none">
                                         <input type="submit" class="btn btn-outline-warning" value="Gönder">
                                     </div>
                                 </div>
                             </div>
-                            <div style="clear: both;"></div>
+                        </form>
+                        <!-- Other Spare Parts -->
+                        <div id="otherSpareParts" class="sectionContent none">
+                            <h5>Cassette Alarm Test Fail</h5>
+                            <div class="col-11 m-auto">
+                                <!-- Main Chasis -->
+                                <ul class="d-flex justify-content-center m-0">
+                                    <li>
+                                        <label for="chasis">
+                                            <input type="checkbox" id="chasis" name="ospCheckbox" value="MAIN CHASIS">
+                                            <span>503</span>
+                                        </label>
+                                        <div class="hoverDown">
+                                            <span>M. CHASIS</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="d-flex flex-wrap justify-content-center m-0">
+                                    <li id="n250">
+                                        <span class="hoverUpDown">N250</span>
+                                        <div class="hoverUpAsmdoor">
+                                            <label for="n250Asmdoor">
+                                                <input type="checkbox" id="n250Asmdoor" name="ospN250Checkbox"
+                                                    value="ASM DOOR">
+                                                <span class="n250HoverUpAllSpan">Asmdoor</span>
+                                            </label>
+                                        </div>
+                                        <div class="hoverDownShield">
+                                            <label for="n250Shield">
+                                                <input type="checkbox" id="n250Shield" name="ospN250Checkbox"
+                                                    value="SHIELD">
+                                                <span class="n250HoverUpAllSpan">SHIELD</span>
+                                            </label>
+                                        </div>
+                                        <div class="hoverUpPivot">
+                                            <label for="n250pivot">
+                                                <input type="checkbox" id="n250pivot" name="ospN250Checkbox"
+                                                    value="PIVOT">
+                                                <span class="n250HoverUpAllSpan">Pivot</span>
+                                            </label>
+                                        </div>
+                                        <div class="hoverUpHandle">
+                                            <label for="n250handle">
+                                                <input type="checkbox" id="n250handle" name="ospN250Checkbox"
+                                                    value="HANDLE DOOR">
+                                                <span class="n250HoverUpAllSpan">Handle D.</span>
+                                            </label>
+                                        </div>
+                                        <div class="hoverUpLink">
+                                            <label for="n250link">
+                                                <input type="checkbox" id="n250link" name="ospN250Checkbox"
+                                                    value="LINK DOOR">
+                                                <span class="n250HoverUpAllSpan">Link Door</span>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <div class="empty-li"></div>
+                                    <li id="n251">
+                                        <span class="hoverUpDown">N251</span>
+                                        <div class="hoverUpAsmdoor">
+                                            <label for="n251Asmdoor">
+                                                <input type="checkbox" id="n251Asmdoor" name="ospN251Checkbox"
+                                                    value="ASM DOOR">
+                                                <span class="n251HoverUpAllSpan">Asmdoor</span>
+                                            </label>
+                                        </div>
+                                        <div class="hoverDownShield">
+                                            <label for="n251Shield">
+                                                <input type="checkbox" id="n251Shield" name="ospN251Checkbox"
+                                                    value="SHIELD">
+                                                <span class="n251HoverUpAllSpan">SHIELD</span>
+                                            </label>
+                                        </div>
+                                        <div class="hoverUpPivot">
+                                            <label for="n251pivot">
+                                                <input type="checkbox" id="n251pivot" name="ospN251Checkbox"
+                                                    value="PIVOT">
+                                                <span class="n251HoverUpAllSpan">Pivot</span>
+                                            </label>
+                                        </div>
+                                        <div class="hoverUpHandle">
+                                            <label for="n251handle">
+                                                <input type="checkbox" id="n251handle" name="ospN251Checkbox"
+                                                    value="HANDLE DOOR">
+                                                <span class="n251HoverUpAllSpan">Handle D.</span>
+                                            </label>
+                                        </div>
+                                        <div class="hoverUpLink">
+                                            <label for="n251link">
+                                                <input type="checkbox" id="n251link" name="ospN251Checkbox"
+                                                    value="LINK DOOR">
+                                                <span class="n251HoverUpAllSpan">Link Door</span>
+                                            </label>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="d-flex flex-wrap justify-content-around justify-content-md-center m-0">
+                                    <!-- E439 Keypad -->
+                                    <li>
+                                        <label for="e439">
+                                            <input type="checkbox" id="e439" name="ospCheckbox" value="KEYPAD">
+                                            <span>E439</span>
+                                        </label>
+                                        <div class="hoverUp">
+                                            <span>KEYPAD</span>
+                                        </div>
+                                    </li>
+                                    <div class="empty-li d-md-block none"></div>
+                                    <!-- Battery -->
+                                    <li id="battery">
+                                        <span class="hoverUpDown" style="margin-left: 17px">BATTERY</span>
+                                        <div class="hoverUpAsmdoor">
+                                            <label for="305">
+                                                <input type="checkbox" id="305" name="ospBatteryCheckbox"
+                                                    value="BATTERY">
+                                                <span class="n250HoverUpAllSpan">305</span>
+                                            </label>
+                                        </div>
+                                        <div class="hoverDownShield">
+                                            <label for="n252">
+                                                <input type="checkbox" id="n252" name="ospBatteryCheckbox"
+                                                    value="BATTERY">
+                                                <span class="n250HoverUpAllSpan">N252</span>
+                                            </label>
+                                        </div>
+                                        <div class="hoverUpPivot">
+                                            <label for="lowbattery">
+                                                <input type="checkbox" id="lowbattery" name="ospBatteryCheckbox"
+                                                    value="LOW BATTERY">
+                                                <span class="n250HoverUpAllSpan">LOW BATT</span>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <div class="empty-li d-md-block none"></div>
+                                    <!-- E302 Display -->
+                                    <li>
+                                        <label for="e302">
+                                            <input type="checkbox" id="e302" name="ospCheckbox" value="DISPLAY">
+                                            <span>E302</span>
+                                        </label>
+                                        <div class="hoverUp">
+                                            <span>DISPLAY</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="otherPartsToggleDiv"
+                                class="sectionContent col-12 col-md-10 mt-3 m-auto text-center">
+                                <label for="otherPartsToggle" class="left_rounded right_rounded">
+                                    <input type="checkbox" id="otherPartsToggle">
+                                    <strong class="ms-2">Diğer Parçalar: Kartlar ve Kablolar</strong>
+                                </label>
+                            </div>
+                            <form id="otherForm"
+                                class="sectionContent col-12 col-md-10 mb-2 py-1 m-auto text-center none">
+                                <div>
+                                    <label for="otherFormErrorCode">
+                                        <span class="otherFormLabelSpan">Hata kodunu girin:</span>
+                                        <input type="text" id="otherFormErrorCode" maxlength="4" placeholder="Hata"
+                                            onkeydown="enterKeyPress(event)" class="m-0">
+                                    </label>
+                                    <!-- Other Options -->
+                                    <div class="d-flex flex-wrap justify-content-around w-100">
+                                        <!-- Power -->
+                                        <div class="col-12 col-md-6 py-1 px-2">
+                                            <div class="cpuPowerBox white_border left_rounded">
+                                                <label for="power" class="cpuPowerInputBox left_rounded">
+                                                    <input type="checkbox" id="power" value="POWER PWA"
+                                                        name="otherPartsReplaced">
+                                                    <strong class="ms-2">POWER</strong>
+                                                </label>
+                                                <div id="powerForm" class="cpuPowerSerialBox none">
+                                                    <div class="d-flex flex-column ms-2">
+                                                        <label for="powerSN" class="my-1">
+                                                            <span class="otherFormLabelSpan">Power seri no:</span>
+                                                            <input type="text" id="powerSN" maxlength="12"
+                                                                placeholder="Seri Numarası"
+                                                                onkeydown="enterKeyPress(event)">
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- CPU -->
+                                        <div class="col-12 col-md-6 py-1 px-2">
+                                            <div class="cpuPowerBox white_border right_rounded">
+                                                <label for="cpu" class="cpuPowerInputBox right_rounded">
+                                                    <input type="checkbox" id="cpu" value="CPU PWA"
+                                                        name="otherPartsReplaced">
+                                                    <strong class="ms-2">CPU</strong>
+                                                </label>
+                                                <div id="cpuForm" class="cpuPowerSerialBox none">
+                                                    <div class="d-flex flex-column ms-2">
+                                                        <label for="cpuSN" class="my-1">
+                                                            <span class="otherFormLabelSpan">CPU seri no:</span>
+                                                            <input type="text" id="cpuSN" maxlength="12"
+                                                                placeholder="Seri Numarası"
+                                                                onkeydown="enterKeyPress(event)">
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Peripheral -->
+                                        <div class="col-12 col-md-6 py-1 px-2">
+                                            <div class="cpuPowerBox white_border left_rounded right_rounded">
+                                                <label for="peripheral"
+                                                    class="cpuPowerInputBox left_rounded right_rounded">
+                                                    <input type="checkbox" id="peripheral" value="PERIPHERAL PWA"
+                                                        name="otherPartsReplaced">
+                                                    <strong class="ms-2">PERIPHERAL</strong>
+                                                </label>
+                                                <div id="peripheralForm" class="cpuPowerSerialBox none">
+                                                    <div class="d-flex flex-column ms-2">
+                                                        <label for="peripheralSN" class="my-1">
+                                                            <span class="otherFormLabelSpan">Peripheral seri no:</span>
+                                                            <input type="text" id="peripheralSN" maxlength="12"
+                                                                placeholder="Seri Numarası"
+                                                                onkeydown="enterKeyPress(event)">
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Cables -->
+                                        <div class="d-flex flex-wrap w-100">
+                                            <div class="col-11 m-auto mt-2">
+                                                <p class="text-start ms-2"><strong>Cables</strong></p>
+                                                <!-- Mechanism Calibrated Parts -->
+                                                <div class="d-flex flex-wrap justify-content-around white-border text-start"
+                                                    style="background-color: rgba(129, 146, 168, 0.5);">
+                                                    <label for="powerCableReplaced" class="cableLabels">
+                                                        <input type="checkbox" name="otherPartsCableReplaced"
+                                                            id="powerCableReplaced" value="POWER CABLE">
+                                                        POWER CABLE
+                                                    </label>
+                                                    <label for="cpuDriverCableReplaced" class="cableLabels">
+                                                        <input type="checkbox" name="otherPartsCableReplaced"
+                                                            id="cpuDriverCableReplaced" value="CPU DRIVER CABLE">
+                                                        CPU DRIVER CABLE
+                                                    </label>
+                                                    <label for="cableFlat20Replaced" class="cableLabels">
+                                                        <input type="checkbox" name="otherPartsCableReplaced"
+                                                            id="cableFlat20Replaced" value="CABLE FLAT 20 COND">
+                                                        CABLE FLAT 20 COND
+                                                    </label>
+                                                    <label for="cablePowerBatteryReplaced" class="cableLabels">
+                                                        <input type="checkbox" name="otherPartsCableReplaced"
+                                                            id="cablePowerBatteryReplaced"
+                                                            value="ASM CABLE POWER SPLY/BTRY">
+                                                        CABLE POWER/BATTERY
+                                                    </label>
+                                                    <label for="cableMotorPowerReplaced" class="cableLabels">
+                                                        <input type="checkbox" name="otherPartsCableReplaced"
+                                                            id="cableMotorPowerReplaced" value="ASM CABLE MOTOR POWER">
+                                                        CABLE MOTOR POWER
+                                                    </label>
+                                                    <label for="cableFlat8Replaced" class="cableLabels">
+                                                        <input type="checkbox" name="otherPartsCableReplaced"
+                                                            id="cableFlat8Replaced" value="CABLE FLAT 8 COND">
+                                                        CABLE FLAT 8 COND
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Buttons -->
+                                    <div class="buttonsCover col-9 col-sm-6 d-flex justify-content-evenly m-auto">
+                                        <input type="reset" value="Reset" class="btn btn-outline-danger">
+                                        <img src="../../images/checkicon.png" id="checkicon4" class="checkicon none">
+                                        <input type="submit" class="btn btn-outline-warning" value="Gönder">
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                    </form>
+                    </section>
+                    <input type="button" id="footer1" class="lr-black-border m-auto none" style="cursor: pointer;"
+                        onclick="mainPageFormsVerification()" value="Sonuç Sayfasına Gitmek İçin Tıklayın ----->">
                 </div>
-                <form action='javascript:$("#checkicon5").show();proximalBool = true;' id="proximalOcclusion"
-                    class="sectionContent border-lr none">
-                    <h5>Proximal Occlusion Test</h5>
-                    <div class="mechanismContent">
-                        <label for="proximalTestErrorCode" class="mechanismLabels">
-                            <div class="mechanismErrCodeDiv">
-                                <span class="mechanismLabelSpans">Hata kodunu girin:</span>
-                                <input type="text" id="proximalTestErrorCode" maxlength="4" placeholder="Hata"
-                                    autocomplete autocapitalize="on" onkeydown="enterKeyPress(event)">
-                            </div>
-                        </label>
-                        <div class="mechanismSubContent d-flex" style="justify-content: space-evenly;">
-                            <div class="mechanismOptions">
-                                <label for="proximalTestMechanismReplaced" class="mechanismLabels">
-                                    <input type="radio" id="proximalTestMechanismReplaced" name="radio3">
-                                    MECHANISM REPLACED
-                                </label>
-                                <label for="proximalTestAppReplaced" class="mechanismLabels">
-                                    <input type="radio" id="proximalTestAppReplaced" name="radio3">
-                                    APP PWA REPLACED
-                                </label>
-                                <label for="proximalTestAppCalibrated" class="mechanismLabels">
-                                    <input type="radio" id="proximalTestAppCalibrated" name="radio3">
-                                    APP PWA CALIBRATED
-                                </label>
-                                <!-- <label for="proximalTestPressureReplaced" class="mechanismLabels">
-                                    <input type="checkbox" id="proximalTestPressureReplaced">
-                                    PRESSURE REPLACED
-                                </label> -->
-                            </div>
-                            <div class="mechanismSerialNumberDiv">
-                                <div id="ifProxTestAppChecked" class="none a">
-                                    <label for="proximalAppSN">
-                                        <span class="mechanismLabelSpans">App seri no girin:</span>
-                                        <input type="text" id="proximalAppSN" maxlength="12" placeholder="Seri Numarası"
-                                            onkeydown="enterKeyPress(event)">
-                                    </label>
-                                </div>
-                                <div id="ifProxTestMechanismChecked" class="none a">
-                                    <label for="proximalMechanismSN">
-                                        <span class="mechanismLabelSpans">Mekanizma seri no girin:</span>
-                                        <input type="text" id="proximalMechanismSN" maxlength="7"
-                                            placeholder="Seri Numarası" onkeydown="enterKeyPress(event)">
-                                    </label>
-                                </div>
-                                <div class="buttonsCover">
-                                    <div class="d-flex" style="justify-content: space-evenly;">
-                                        <input type="reset" value="Reset" class="btn btn-outline-danger">
-                                        <img src="../../images/checkicon.png" id="checkicon5" width="25px;"
-                                            class="none">
-                                        <input type="submit" value="Gönder" class="btn btn-outline-warning">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                <form action='javascript:$("#checkicon6").show();distalBool = true;' id="distalOcclusion"
-                    class="sectionContent border-lr none">
-                    <h5>Distal Occlusion (3-9) Test</h5>
-                    <div class="mechanismContent">
-                        <div class="mechanismSubContent d-flex" style="justify-content: space-evenly;">
-                            <div class="mechanismOptions">
-                                <label for="distalTestMechanismReplaced" class="mechanismLabels">
-                                    <input type="radio" id="distalTestMechanismReplaced" name="radio4" required>
-                                    MECHANISM REPLACED
-                                </label>
-                                <label for="distalTestPressureReplaced" class="mechanismLabels">
-                                    <input type="radio" id="distalTestPressureReplaced" name="radio4" required>
-                                    PRESSURE D. REPLACED
-                                </label>
-                                <label for="distalTestPressureCalibrated" class="mechanismLabels">
-                                    <input type="radio" id="distalTestPressureCalibrated" name="radio4" required>
-                                    PRESSURE D. CALIBRATED
-                                </label>
-                            </div>
-                            <div class="mechanismSerialNumberDiv">
-                                <div id="ifDistalTestMechanismChecked" class="none a">
-                                    <label for="distalMechanismSN">
-                                        <span class="mechanismLabelSpans">Mekanizma seri no girin:</span>
-                                        <input type="text" id="distalMechanismSN" maxlength="7"
-                                            placeholder="Seri Numarası" autocomplete="off"
-                                            onkeydown="enterKeyPress(event)">
-                                    </label>
-                                </div>
-                                <div class="buttonsCover">
-                                    <div class="d-flex" style="justify-content: space-evenly;">
-                                        <input type="reset" value="Reset" class="btn btn-outline-danger">
-                                        <img src="../../images/checkicon.png" class="none" id="checkicon6"
-                                            width="25px;">
-                                        <input type="submit" value="Gönder" class="btn btn-outline-warning">
-                                    </div>
-                                </div>
-                            </div>
-                            <div style="clear: both;"></div>
-                        </div>
-                    </div>
-                </form>
-            </section>
-            <footer id="footer1" class="limitedContainer border-lr none">
-                <input type="button" style="cursor: pointer;" onclick="mainPageFormsVerification()"
-                    value="Sonuç Sayfasına Gitmek İçin Tıklayın ----->">
-            </footer>
+            </div>
         </div>
-
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Müşteri şikayeti hata geçmişinde görüldü mü?
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex flex-row m-auto p-2 yesNoQuestions">
+                        <label for="yes2" class="yes lr-border">
+                            <input type="checkbox" id="yes2">
+                            Evet
+                        </label>
+                        <label for="no2" class="no ms-2 lr-border">
+                            <input type="checkbox" id="no2">
+                            Hayır
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Sonuç çıktılarının alındığı sayfa -->
-        <div id="sonuc" class="largeContainer none">
-            <!-- <div style="display:block; text-align: center;"><a href="büyüteç.html" target="_blank">Büyüteç</a><a
-                        href="Rastgele Değer Üretici.html" target="_blank">Random Value</a></div> -->
-            <section class="sectionContent border-lr">
-                <div class="sonucContent">
-                    <h6 name="resulth6">Açıklamalar</h6>
-                    <button type="button" name="resultButtons">Copy</button>
-                    <textarea name="resultTextareas" class="bg-light" id="descriptions" rows="1" readonly></textarea>
+        <div id="sonuc" class="container-md m-auto mt-1 p-0 none position-relative">
+            <div class="row">
+                <div class="col-12 col-sm-11 col-md-10 col-xl-9 m-auto">
+                    <section class="p-0 ">
+                        <div class="sonucContent aaCodesDiv">
+                            <h6 name="resulth6">Tamir Kodları</h6>
+                            <textarea type="text" name="resultTextareas" class="sonucSectionColor" id="tamirKodu"
+                                rows="1" readonly></textarea>
+                        </div>
+                        <div class="sonucContent none" id="repairedMechanism">
+                            <h6 name="resulth6">Mekanizma Tamir</h6>
+                            <input type="radio" checked></input> <span class="align-self-center"> işaretlenecek!</span>
+                        </div>
+                        <div class="sonucContent">
+                            <h6 name="resulth6">Hata Geçmiş Kayıtları</h6>
+                            <button type="button" name="resultButtons">Copy</button>
+                            <textarea name="resultTextareas" id="errorHistoryLogs" rows="1" readonly></textarea>
+                        </div>
+                        <div class="sonucContent">
+                            <h6 name="resulth6">Cihazın Durumu</h6>
+                            <button type="button" name="resultButtons">Copy</button>
+                            <textarea name="resultTextareas" id="cihazinDurumu" rows="1" readonly></textarea>
+                        </div>
+                        <div class="sonucContent">
+                            <h6 name="resulth6">16 Run In Test Sonuçları</h6>
+                            <button type="button" name="resultButtons">Copy</button>
+                            <textarea name="resultTextareas" id="runInTestResult" rows="1" readonly>N/A</textarea>
+                        </div>
+                        <div class="sonucContent" id="randomdate">
+                            <h6 name="resulth6">Çağrı Açılış Tarihini Girin!</h6>
+                            <form action="javascript: dateFunc()" style="display: flex;">
+                                <input type="date" id="date1" class="form-control p-0"
+                                    style="float: left;width: 130px; align-self: center;" value="2024-01-02"
+                                    min="2022-01-02" max="2050-12-31" required>
+                                <input type="submit" name="resultButtons" value="Çalıştır">
+                            </form>
+                        </div>
+                        <div class="sonucContent">
+                            <h6 name="resulth6">Geçmiş Tarih Aralığı</h6>
+                            <button type="button" name="resultButtons">Copy</button>
+                            <textarea name="resultTextareas" id="dateResult" rows="1" readonly></textarea>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="sonucContent none" id="unusualSituation">
+                            <h6 name="resulth6">Olağan Dışı Durum</h6>
+                            <input type="radio" checked></input><span class="align-self-center"> işaretlenecek!</span>
+                        </div>
+                        <div class="sonucContent">
+                            <h6 name="resulth6">Bulgular</h6>
+                            <button type="button" name="resultButtons">Copy</button>
+                            <textarea name="resultTextareas" id="bulgular" rows="1" readonly></textarea>
+                        </div>
+                        <div class="sonucContent flex">
+                            <h6 name="resulth6">Pompa Test Bilgileri</h6>
+                            <div id="pumpTests" class="testsDiv"></div>
+                        </div>
+                        <div class="sonucContent">
+                            <h6 name="resulth6">Reference Value</h6>
+                            <div class="rvg"></div>
+                            <h6 name="resulth6">Electric Safety Analyser</h6>
+                            <div class="egt float-left"></div>
+                        </div>
+                        <div class="sonucContent">
+                            <h6 name="resulth6">Primary</h6>
+                            <button type="button" name="resultButtons">Copy</button>
+                            <textarea name="resultTextareas" id="primary" rows="1" readonly></textarea>
+                        </div>
+                        <div class="sonucContent">
+                            <h6 name="resulth6">Secondary</h6>
+                            <button type="button" name="resultButtons">Copy</button>
+                            <textarea name="resultTextareas" id="secondary" rows="1" readonly></textarea>
+                        </div>
+                        <div class="sonucContent heightRow" id="div-degisen-parca">
+                            <h6 name="resulth6">Değişen Parça Açıklaması</h6>
+                            <button type="button" name="resultButtons">Copy</button>
+                            <textarea name="resultTextareas" id="degisenParca" rows="4" readonly></textarea>
+                        </div>
+                        <div class="sonucContent aaCodesDiv">
+                            <h6 name="resulth6">Analiz Kodları</h6>
+                            <textarea name="resultTextareas" class="sonucSectionColor" id="analizKodu" rows="1"
+                                readonly></textarea>
+                        </div>
+                        <div class="sonucContent aaCodesDiv">
+                            <h6 name="resulth6">Araştırma Kodları</h6>
+                            <textarea name="resultTextareas" class="sonucSectionColor" id="arastirmaKodu" rows="1"
+                                readonly></textarea>
+                        </div>
+                        <div class="sonucContent aaCodesDiv">
+                            <h6 name="resulth6">Şikayet Onaylandı</h6>
+                            <label for="resultYes" class="resultLabel">
+                                <input type="radio" id="resultYes" name="resultRadio"> EVET
+                            </label>
+                            <label for="resultNo" class="resultLabel">
+                                <input type="radio" id="resultNo" name="resultRadio"> HAYIR
+                            </label>
+                            <label for="resultDifferent" class="resultLabel">
+                                <input type="radio" id="resultDifferent" name="resultRadio"> FARKLI
+                            </label>
+                            <style>
+                                .resultLabel {
+                                    line-height: 41px;
+                                    font-size: 15px;
+                                    font-weight: bold;
+                                    color: rgb(53, 47, 47);
+                                    text-shadow: 0.5px 0.5px 5px rgb(196 115 115 / 77%);
+                                    margin-left: 10px;
+                                }
+                            </style>
+                        </div>
+                        <div class="sonucContent heightRow position-relative">
+                            <h6 name="resulth6">Yorum</h6>
+                            <button type="button" name="resultButtons">Copy</button>
+                            <textarea name="resultTextareas" id="yorum" rows="4" readonly></textarea>
+                            <div class="characterCount text-danger ">
+                                <h5 id="charactersCount" class="mx-1"></h5>
+                            </div>
+                        </div>
+                        <div class="sonucContent">
+                            <h6 name="resulth6">Ek Yorum</h6>
+                            <button type="button" name="resultButtons">Copy</button>
+                            <textarea name="resultTextareas" id="ekYorum" rows="1" readonly></textarea>
+                        </div>
+                        <div class="sonucContent">
+                            <h6 name="resulth6">Temel Sebep</h6>
+                            <button type="button" name="resultButtons">Copy</button>
+                            <textarea name="resultTextareas" id="probableCause" rows="1" readonly></textarea>
+                        </div>
+                        <div style="clear: both;"></div>
+                    </section>
                 </div>
-                <div class="sonucContent">
-                    <h6 name="resulth6">Ek Bilgi</h6>
-                    <button type="button" name="resultButtons">Copy</button>
-                    <textarea name="resultTextareas" class="bg-light" id="software" rows="1" readonly></textarea>
-                </div>
-                <div class="sonucContent aaCodesDiv">
-                    <h6 name="resulth6">Tamir Kodları</h6>
-                    <textarea type="text" name="resultTextareas" class="sonucSectionColor" id="tamirKodu" rows="1"
-                        readonly></textarea>
-                </div>
-                <div class="sonucContent">
-                    <h6 name="resulth6">Hata Geçmiş Kayıtları</h6>
-                    <button type="button" name="resultButtons">Copy</button>
-                    <textarea name="resultTextareas" id="errorHistoryLogs" rows="1" readonly></textarea>
-                </div>
-                <div class="sonucContent">
-                    <h6 name="resulth6">Cihazın Durumu</h6>
-                    <button type="button" name="resultButtons">Copy</button>
-                    <textarea name="resultTextareas" id="cihazinDurumu" rows="1" readonly></textarea>
-                </div>
-                <div class="sonucContent">
-                    <h6 name="resulth6">16 Run In Test Sonuçları</h6>
-                    <button type="button" name="resultButtons">Copy</button>
-                    <textarea name="resultTextareas" id="runInTestResult" rows="1" readonly>N/A</textarea>
-                </div>
-                <div class="sonucContent" id="randomdate">
-                    <h6 name="resulth6">Çağrı Açılış Tarihini Girin!</h6>
-                    <form action="javascript: dateFunc()" style="display: flex;">
-                        <input type="date" id="date1" class="form-control p-0"
-                            style="float: left;width: 130px; align-self: center;" value="2024-01-02" min="2022-01-02"
-                            max="2050-12-31" required>
-                        <input type="submit" name="resultButtons" value="Çalıştır">
-                    </form>
-                </div>
-                <div class="sonucContent">
-                    <h6 name="resulth6">Geçmiş Tarih Aralığı</h6>
-                    <button type="button" name="resultButtons">Copy</button>
-                    <textarea name="resultTextareas" id="dateResult" rows="1" readonly></textarea>
-                </div>
-                <div class="clearfix"></div>
-                <div class="sonucContent">
-                    <h6 name="resulth6">Bulgular</h6>
-                    <button type="button" name="resultButtons">Copy</button>
-                    <textarea name="resultTextareas" id="bulgular" rows="1" readonly></textarea>
-                </div>
-                <div class="sonucContent flex">
-                    <h6 name="resulth6">Pompa Test Bilgileri</h6>
-                    <div id="pumpTests" class="testsDiv"></div>
-                    <h6 name="resulth6">Mekanizma Test Bilgileri</h6>
-                    <div id="mechanismTests" class="testsDiv"></div>
-                </div>
-                <div class="sonucContent">
-                    <h6 name="resulth6">Random Value</h6>
-                    <div class="rvg float-left"></div>
-                    <h6 name="resulth6">Electric Safety Analyser</h6>
-                    <div class="egt float-left"></div>
-                </div>
-                <div class="sonucContent">
-                    <h6 name="resulth6">Primary</h6>
-                    <button type="button" name="resultButtons">Copy</button>
-                    <textarea name="resultTextareas" id="primary" rows="1" readonly></textarea>
-                </div>
-                <div class="sonucContent">
-                    <h6 name="resulth6">Secondary</h6>
-                    <button type="button" name="resultButtons">Copy</button>
-                    <textarea name="resultTextareas" id="secondary" rows="1" readonly></textarea>
-                </div>
-                <script>
-                    let primary = document.getElementById("primary");
-                    let secondary = document.getElementById("secondary");
-                    primary.innerHTML = "";
-                    primary.innerHTML = 13850921;
-                    secondary.innerHTML = "";
-                    secondary.innerHTML = "112044W";
-                </script>
-                <div class="sonucContent heightRow" id="div-degisen-parca">
-                    <h6 name="resulth6">Değişen Parça Açıklaması</h6>
-                    <button type="button" name="resultButtons">Copy</button>
-                    <textarea name="resultTextareas" id="degisenParca" rows="4" readonly></textarea>
-                </div>
-                <div class="sonucContent aaCodesDiv">
-                    <h6 name="resulth6">Analiz Kodları</h6>
-                    <textarea name="resultTextareas" class="sonucSectionColor" id="analizKodu" rows="1"
-                        readonly></textarea>
-                </div>
-                <div class="sonucContent aaCodesDiv">
-                    <h6 name="resulth6">Araştırma Kodları</h6>
-                    <textarea name="resultTextareas" class="sonucSectionColor" id="arastirmaKodu" rows="1"
-                        readonly></textarea>
-                </div>
-                <div class="sonucContent aaCodesDiv">
-                    <h6 name="resulth6">Şikayet Onaylandı</h6>
-                    <label for="resultYes" class="resultLabel">
-                        <input type="radio" id="resultYes" name="resultRadio"> EVET
-                    </label>
-                    <label for="resultNo" class="resultLabel">
-                        <input type="radio" id="resultNo" name="resultRadio"> HAYIR
-                    </label>
-                    <label for="resultDifferent" class="resultLabel">
-                        <input type="radio" id="resultDifferent" name="resultRadio"> FARKLI
-                    </label>
-                    <style>
-                        .resultLabel {
-                            line-height: 41px;
-                            font-size: 15px;
-                            font-weight: bold;
-                            color: rgb(53, 47, 47);
-                            text-shadow: 0.5px 0.5px 5px rgb(196 115 115 / 77%);
-                            margin-left: 10px;
-                        }
-                    </style>
-                </div>
-                <div class="sonucContent heightRow">
-                    <h6 name="resulth6">Yorum</h6>
-                    <button type="button" name="resultButtons">Copy</button>
-                    <textarea name="resultTextareas" id="yorum" rows="4" readonly></textarea>
-                </div>
-                <div class="sonucContent">
-                    <h6 name="resulth6">Ek Yorum</h6>
-                    <button type="button" name="resultButtons">Copy</button>
-                    <textarea name="resultTextareas" id="ekYorum" rows="1" readonly></textarea>
-                </div>
-                <div class="sonucContent">
-                    <h6 name="resulth6">Temel Sebep</h6>
-                    <button type="button" name="resultButtons">Copy</button>
-                    <textarea name="resultTextareas" id="probableCause" rows="1" readonly></textarea>
-                </div>
-                <div style="clear: both;"></div>
-            </section>
+            </div>
             <footer id="footer2">
-                <input type="button" value="Yine Bekleriz!" class="btn btn-outline-danger btn-block"
+                <input type="button" value="Yine Bekleriz!" class="btn btn-outline-danger btn-block mb-4"
                     onclick="pageReset()">
             </footer>
         </div>
     </main>
-    <script src="javascript/main.js"></script>
     <script src="javascript/variables.js"></script>
+    <script src="javascript/main.js"></script>
+    <script src="../spare-parts/spare-parts.js"></script>
+    <script src="../spare-parts/spare-parts-images.js"></script>
     <script src="javascript/visualInspection.js"></script>
-    <script src="javascript/cassetteAlarm.js"></script>
-    <script src="javascript/proximalOcclusion.js"></script>
-    <script src="javascript/distalOcclusion.js"></script>
-    <script src="javascript/randomValueGenerator.js"></script>
+    <script src="javascript/mechanism.js"></script>
+    <script src="javascript/otherSpareParts.js"></script>
     <script src="javascript/result.js"></script>
     <script src="javascript/print.js"></script>
     <script src="../spare-parts/ydkList.js"></script>

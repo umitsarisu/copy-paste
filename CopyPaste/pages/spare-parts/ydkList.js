@@ -1,6 +1,5 @@
 "use strict";
 let panoArr = [];
-let a = [];
 let definition = {
     cases: "Kasalar",
     screws: "Vidalar",
