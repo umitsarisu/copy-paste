@@ -29,9 +29,9 @@
 <body class="d-flex">
     <main>
         <header class="position-sticky top-0 text-center px-4" id="headerTopSticky">
-            <h1 class="m-auto col-7">
+            <h2 class="m-auto col-7">
                 <a href="copy-paste.html">Kopyala-Yapıştır</a>
-            </h1>
+            </h2>
             <!-- ileri butonu kaynak: main.js Main Page Buttons-->
             <button class="headerTopButtons" id="forwardButton">
                 <span class="text-dark me-2">Sonuç</span>
@@ -61,25 +61,27 @@
                         <h3>Cihaz Modelini Seçin</h3>
                         <!-- Model Seçimi: -->
                         <div class="d-flex justify-content-center">
-                            <div class="models me-2">
-                                <label for="plumA">
+                            <div class="models me-2 d-flex align-self-center">
+                                <label for="plumA" class="d-flex align-self-center">
                                     <input type="radio" id="plumA" name="radio" required>
                                     <strong>Plum A</strong>
                                 </label>
                             </div>
-                            <div class="models">
-                                <label for="plum360">
+                            <div class="models d-flex align-self-center">
+                                <label for="plum360" class="d-flex align-self-center">
                                     <input type="radio" id="plum360" name="radio" required>
                                     <strong>Plum 360</strong>
                                 </label>
                             </div>
                         </div>
                         <!--Müşteri Şikayeti:-->
-                        <div id="errCode" class="d-flex justify-content-center border-bottom-white">
+                        <div id="errCode" class="d-flex justify-content-center align-self-center border-bottom-white">
                             <p>Müşteri Şikayeti:</p>
                             <input type="text" id="customerExperience" autocapitalize="characters" placeholder="Hata"
                                 maxlength="4" required>
-                            <img src="../../images/checkicon.png" class="none checkicon" id="checkicon1">
+                            <div class="d-flex align-self-center">
+                                <img src="../../images/checkicon.png" class="none checkicon" id="checkicon1">
+                            </div>
                             <input type="submit" class="btn btn-outline-warning ms-1" value="Gönder">
                             <a href="http://www.meditera.com.tr" target="_blank" class="d-none d-md-block">
                                 <img src="../../images/logo.png" alt="mediteralogo">
@@ -126,8 +128,10 @@
                                         <!-- Visual Buttons -->
                                         <div id="visualInspectionButtons">
                                             <input type="submit" value="Gönder" class="btn btn-outline-warning">
-                                            <img src="../../images/checkicon.png" id="checkicon2" width="25px;"
-                                                class="none">
+                                            <div class="d-flex align-self-center">
+                                                <img src="../../images/checkicon.png" id="checkicon2" width="25px;"
+                                                    class="none">
+                                            </div>
                                             <input type="reset" value="Reset" class="btn btn-outline-danger">
                                         </div>
                                     </div>
@@ -252,7 +256,10 @@
                                     <!-- Buttons -->
                                     <div class="buttonsCover d-flex justify-content-around m-auto">
                                         <input type="reset" value="Reset" class="btn btn-outline-danger">
-                                        <img src="../../images/checkicon.png" id="checkicon3" class="checkicon none">
+                                        <div class="d-flex align-self-center">
+                                            <img src="../../images/checkicon.png" id="checkicon3"
+                                                class="checkicon none">
+                                        </div>
                                         <input type="submit" class="btn btn-outline-warning" value="Gönder">
                                     </div>
                                 </div>
@@ -526,7 +533,10 @@
                                     <!-- Buttons -->
                                     <div class="buttonsCover col-9 col-sm-6 d-flex justify-content-evenly m-auto">
                                         <input type="reset" value="Reset" class="btn btn-outline-danger">
-                                        <img src="../../images/checkicon.png" id="checkicon4" class="checkicon none">
+                                        <div class="d-flex align-self-center">
+                                            <img src="../../images/checkicon.png" id="checkicon4"
+                                                class="checkicon none">
+                                        </div>
                                         <input type="submit" class="btn btn-outline-warning" value="Gönder">
                                     </div>
                                 </div>
@@ -563,7 +573,7 @@
         <!-- Sonuç çıktılarının alındığı sayfa -->
         <div id="sonuc" class="container-md m-auto mt-1 p-0 none position-relative">
             <div class="row">
-                <div class="col-12 col-sm-11 col-md-10 col-xl-9 m-auto">
+                <div class="col-11 col-sm-11 col-md-10 col-xl-9 m-auto">
                     <section class="p-0 ">
                         <div class="sonucContent aaCodesDiv">
                             <h6 name="resulth6">Tamir Kodları</h6>

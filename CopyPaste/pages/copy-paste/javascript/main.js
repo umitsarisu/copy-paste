@@ -29,7 +29,6 @@ const getAllPreviousForms = () => {
 }
 const setPreviousForms = (payload) => {
     let previousForms = [];
-    console.log(localStorage.getItem("printObj"));
     if (localStorage.getItem("printObj") != null
         && localStorage.getItem("printObj") != undefined) {
         previousForms = getAllPreviousForms();
@@ -42,7 +41,6 @@ const setPreviousForms = (payload) => {
     writePreviousForms();
 }
 const writePreviousForms = () => {
-    console.log("writePreviousForms");
     $("#dropdownOptions").empty();
     let previousForms = getAllPreviousForms();
     if (previousForms != null) {
@@ -62,24 +60,19 @@ const writePreviousForms = () => {
 }
 writePreviousForms();
 const getPreviousForms = (repair_codes) => {
-    console.log("getPreviousForms")
     let previousForms = getAllPreviousForms();
-    console.log(PrintObj)
     previousForms.filter(form => {
         if (repair_codes == [form.date_previous_form, form.repair_codes.join(", ")].join()) {
             return PrintObj = form;
         }
     })
-    console.log(PrintObj)
     print();
 }
 const previousForm = (payload) => {
     getPreviousForms(payload);
-    console.log("button used")
 }
 $("ul#dropdownOptions li button").on("click", function () {
     getPreviousForms($(this).val());
-    console.log("button used")
 })
 const plum360Click = () => {
     $(".bgColor").css("background", color.plum360);

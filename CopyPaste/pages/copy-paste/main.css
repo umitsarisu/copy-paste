@@ -195,17 +195,16 @@
 @media screen and (min-width:1px) {
     #headerTopSticky {
         background-color: rgb(149, 175, 192);
-        height: 10vh;
+        height: 40px;
         z-index: 1;
     }
 
     #headerTopSticky h1 {
-        line-height: 10vh;
+        line-height: 40px;
     }
 
     #headerTopSticky img {
-        width: 36px;
-        margin: 1px 0;
+        width: 30px;
         padding: 0;
         cursor: pointer;
     }
@@ -257,11 +256,6 @@
         cursor: pointer;
     }
 
-    #previousFormsButton img {
-        width: 36px;
-        height: 36px;
-    }
-
     #dropdownOptions {
         width: 200px;
         min-height: 150px;
@@ -287,7 +281,6 @@
         position: absolute;
         top: 0;
         background-color: transparent;
-        padding: 3px;
         border: 2px solid transparent;
         border-radius: 10px;
         box-sizing: border-box;
@@ -296,8 +289,7 @@
     #backwardButton span,
     #forwardButton span,
     #previousFormsButton span {
-        line-height: 5vh;
-        font-size: 1.2em;
+        font-size: 1.1em;
         font-weight: 700;
         color: #212529;
         text-shadow: #4c0000 1px 1px 2px;

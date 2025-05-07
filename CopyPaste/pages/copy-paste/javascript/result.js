@@ -873,6 +873,6 @@ const pumpTests = () => {
             return;  // Bu test işlendi, diğerlerine geç
         }
         // --- Diğer testler ---
-        $('#pumpTests').append(`<p>${test.name}</p>`);
+        $('#pumpTests').append(`<p>${test.number}- ${test.name}</p>`);
     });
 }
