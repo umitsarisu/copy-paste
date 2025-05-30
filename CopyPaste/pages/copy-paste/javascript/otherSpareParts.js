@@ -55,6 +55,14 @@ $("input:checkbox[name=ospBatteryCheckbox]").on("click", (e) => {
         $("#battery").removeClass("bg-danger");
     }
 })
+$("input:checkbox[name=osp503Checkbox]").on("click", (e) => {
+    if ($("input:checkbox[name=osp503Checkbox]:checked").length != 0) {
+        $("#503Parts").addClass("bg-danger");
+    }
+    else {
+        $("#503Parts").removeClass("bg-danger");
+    }
+})
 // Power
 $("#power").click(() => {
     $("#powerForm").toggle();

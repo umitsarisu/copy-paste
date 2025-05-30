@@ -9,12 +9,8 @@
     <!-- dahili bootstrap -->
     <!-- <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
     <!-- bootstrap cdn -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <!-- bootstrap js cdn -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- jquery cdn -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- css dosyası -->
@@ -28,7 +24,7 @@
 
 <body class="d-flex">
     <main>
-        <header class="position-sticky top-0 text-center px-4" id="headerTopSticky">
+        <header class="position-sticky top-0 text-center" id="headerTopSticky">
             <h2 class="m-auto col-7">
                 <a href="copy-paste.html">Kopyala-Yapıştır</a>
             </h2>
@@ -45,7 +41,7 @@
             <!-- önceki formu getir kaynak: main.js Main Page Buttons-->
             <div class="previousFormsDropdown">
                 <button class="headerTopButtons none" id="previousFormsButton">
-                    <span class="text-dark me-2">Önceki Formu Getir</span>
+                    <span class="text-dark me-2">Önceki Formlar</span>
                     <img src="../../images/backward.png">
                 </button>
                 <ul id="dropdownOptions" class="none m-1 p-2">
@@ -75,11 +71,11 @@
                             </div>
                         </div>
                         <!--Müşteri Şikayeti:-->
-                        <div id="errCode" class="d-flex justify-content-center align-self-center border-bottom-white">
+                        <div id="errCode" class="d-flex justify-content-center align-items-center border-bottom-white">
                             <p>Müşteri Şikayeti:</p>
-                            <input type="text" id="customerExperience" autocapitalize="characters" placeholder="Hata"
-                                maxlength="4" required>
-                            <div class="d-flex align-self-center">
+                            <input class="form-control" type="text" id="customerExperience" autocapitalize="characters"
+                                placeholder="Hata" maxlength="4" required>
+                            <div class="d-flex align-self-center ms-1">
                                 <img src="../../images/checkicon.png" class="none checkicon" id="checkicon1">
                             </div>
                             <input type="submit" class="btn btn-outline-warning ms-1" value="Gönder">
@@ -87,7 +83,7 @@
                                 <img src="../../images/logo.png" alt="mediteralogo">
                             </a>
                         </div>
-                        <div id="isIt950" class="flex-wrap justify-content-center m-auto py-1 none yesNoQuestions">
+                        <div id="isIt950" class="flex-wrap justify-content-center m-auto none yesNoQuestions">
                             <p>Cihaz sağlam mı?</p>
                             <label for="yes1" class="yes lr-border">
                                 <input type="radio" id="yes1" name="failControl2">
@@ -150,8 +146,8 @@
                             <h5>Mechanism Fail</h5>
                             <label for="mechanismErrorCode">
                                 <span class="mechanismLabelSpans">Hata kodunu girin:</span>
-                                <input type="text" id="mechanismErrorCode" maxlength="4" placeholder="Hata"
-                                    onkeydown="enterKeyPress(event)" class="m-0">
+                                <input type="text" class="form-control" id="mechanismErrorCode" maxlength="4"
+                                    placeholder="Hata" onkeydown="enterKeyPress(event)" class="m-0">
                             </label>
                             <!-- Test Fail -->
                             <div class="col-8 col-sm-6 m-auto">
@@ -214,13 +210,15 @@
                                     <div class="d-flex flex-wrap justify-content-around mt-1">
                                         <label for="appSN" class="none appSNDiv">
                                             <span class="mechanismLabelSpans">App Serial No:</span>
-                                            <input type="text" class="serialInput" id="appSN" maxlength="12"
-                                                placeholder="Seri Numarası" onkeydown="enterKeyPress(event)">
+                                            <input type="text" class="serialInput form-control" id="appSN"
+                                                maxlength="12" placeholder="Seri Numarası"
+                                                onkeydown="enterKeyPress(event)">
                                         </label>
                                         <label for="driverPwaSN" class="none driverPwaSNDiv">
                                             <span class="mechanismLabelSpans">Driver PWA Serial No:</span>
-                                            <input type="text" class="serialInput" id="driverPwaSN" maxlength="12"
-                                                placeholder="Seri Numarası" onkeydown="enterKeyPress(event)">
+                                            <input type="text" class="serialInput form-control" id="driverPwaSN"
+                                                maxlength="12" placeholder="Seri Numarası"
+                                                onkeydown="enterKeyPress(event)">
                                         </label>
                                     </div>
                                     <!-- Mechanism More Replaced Parts -->
@@ -271,13 +269,21 @@
                             <div class="col-11 m-auto">
                                 <!-- Main Chasis -->
                                 <ul class="d-flex justify-content-center m-0">
-                                    <li>
-                                        <label for="chasis">
-                                            <input type="checkbox" id="chasis" name="ospCheckbox" value="MAIN CHASIS">
-                                            <span>503</span>
-                                        </label>
-                                        <div class="hoverDown">
-                                            <span>M. CHASIS</span>
+                                    <li id="503Parts">
+                                        <span class="hoverUpDown" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">503</span>
+                                        <div class="hoverUpAsmdoor" title="Peripheral Yerine Oturtuldu">
+                                            <label for="peripheral503">
+                                                <input type="checkbox" id="peripheral503" name="osp503Checkbox"
+                                                    value="PERIPHERAL PWA CONNECTOR">
+                                                <span>Peripheral</span>
+                                            </label>
+                                        </div>
+                                        <div class="hoverDownShield">
+                                            <label for="mainChasis503">
+                                                <input type="checkbox" id="mainChasis503" name="osp503Checkbox"
+                                                    value="MAIN CHASIS">
+                                                <span>M. Chasis</span>
+                                            </label>
                                         </div>
                                     </li>
                                 </ul>
@@ -411,7 +417,7 @@
                                 </ul>
                             </div>
                             <div id="otherPartsToggleDiv"
-                                class="sectionContent col-12 col-md-10 mt-3 m-auto text-center">
+                                class="sectionContent col-12 col-md-10 mt-2 m-auto text-center">
                                 <label for="otherPartsToggle" class="left_rounded right_rounded">
                                     <input type="checkbox" id="otherPartsToggle">
                                     <strong class="ms-2">Diğer Parçalar: Kartlar ve Kablolar</strong>
@@ -422,8 +428,8 @@
                                 <div>
                                     <label for="otherFormErrorCode">
                                         <span class="otherFormLabelSpan">Hata kodunu girin:</span>
-                                        <input type="text" id="otherFormErrorCode" maxlength="4" placeholder="Hata"
-                                            onkeydown="enterKeyPress(event)" class="m-0">
+                                        <input type="text" id="otherFormErrorCode" class="form-control" maxlength="4"
+                                            placeholder="Hata" onkeydown="enterKeyPress(event)" class="m-0">
                                     </label>
                                     <!-- Other Options -->
                                     <div class="d-flex flex-wrap justify-content-around w-100">
@@ -437,10 +443,10 @@
                                                 </label>
                                                 <div id="powerForm" class="cpuPowerSerialBox none">
                                                     <div class="d-flex flex-column ms-2">
-                                                        <label for="powerSN" class="my-1">
+                                                        <label for="powerSN">
                                                             <span class="otherFormLabelSpan">Power seri no:</span>
                                                             <input type="text" id="powerSN" maxlength="12"
-                                                                placeholder="Seri Numarası"
+                                                                class="form-control" placeholder="Seri Numarası"
                                                                 onkeydown="enterKeyPress(event)">
                                                         </label>
                                                     </div>
@@ -457,10 +463,10 @@
                                                 </label>
                                                 <div id="cpuForm" class="cpuPowerSerialBox none">
                                                     <div class="d-flex flex-column ms-2">
-                                                        <label for="cpuSN" class="my-1">
+                                                        <label for="cpuSN">
                                                             <span class="otherFormLabelSpan">CPU seri no:</span>
                                                             <input type="text" id="cpuSN" maxlength="12"
-                                                                placeholder="Seri Numarası"
+                                                                class="form-control" placeholder="Seri Numarası"
                                                                 onkeydown="enterKeyPress(event)">
                                                         </label>
                                                     </div>
@@ -478,10 +484,10 @@
                                                 </label>
                                                 <div id="peripheralForm" class="cpuPowerSerialBox none">
                                                     <div class="d-flex flex-column ms-2">
-                                                        <label for="peripheralSN" class="my-1">
+                                                        <label for="peripheralSN">
                                                             <span class="otherFormLabelSpan">Peripheral seri no:</span>
                                                             <input type="text" id="peripheralSN" maxlength="12"
-                                                                placeholder="Seri Numarası"
+                                                                placeholder="Seri Numarası" class="form-control"
                                                                 onkeydown="enterKeyPress(event)">
                                                         </label>
                                                     </div>
@@ -489,8 +495,8 @@
                                             </div>
                                         </div>
                                         <!-- Cables -->
-                                        <div class="d-flex flex-wrap w-100">
-                                            <div class="col-11 m-auto mt-2">
+                                        <div class="d-flex flex-wrap w-100 mb-1">
+                                            <div class="col-11 m-auto mt-1">
                                                 <p class="text-start ms-2"><strong>Cables</strong></p>
                                                 <!-- Mechanism Calibrated Parts -->
                                                 <div class="d-flex flex-wrap justify-content-around white-border text-start"
@@ -582,7 +588,8 @@
                         </div>
                         <div class="sonucContent none" id="repairedMechanism">
                             <h6 name="resulth6">Mekanizma Tamir</h6>
-                            <input type="radio" checked></input> <span class="align-self-center"> işaretlenecek!</span>
+                            <input type="radio" checked class="align-self-center"></input> <span
+                                class="align-self-center"> işaretlenecek!</span>
                         </div>
                         <div class="sonucContent">
                             <h6 name="resulth6">Hata Geçmiş Kayıtları</h6>
@@ -613,10 +620,10 @@
                             <button type="button" name="resultButtons">Copy</button>
                             <textarea name="resultTextareas" id="dateResult" rows="1" readonly></textarea>
                         </div>
-                        <div class="clearfix"></div>
                         <div class="sonucContent none" id="unusualSituation">
                             <h6 name="resulth6">Olağan Dışı Durum</h6>
-                            <input type="radio" checked></input><span class="align-self-center"> işaretlenecek!</span>
+                            <input type="radio" checked class="align-self-center"></input><span
+                                class="align-self-center"> işaretlenecek!</span>
                         </div>
                         <div class="sonucContent">
                             <h6 name="resulth6">Bulgular</h6>

@@ -281,6 +281,9 @@ const otherPartsResult = () => {
     const replaced1 = $("input:checkbox[name=ospCheckbox]:checked").map(function () {
         return $(this).val();
     }).toArray();
+    const checkbox503 = $("input:checkbox[name=osp503Checkbox]:checked").map(function () {
+        return $(this).val();
+    }).toArray();
     const batteryReplaced = $("input:checkbox[name=ospBatteryCheckbox]:checked").map(function () {
         return $(this).val();
     }).toArray();
@@ -296,7 +299,7 @@ const otherPartsResult = () => {
     const replaced5 = $("input:checkbox[name=otherPartsCableReplaced]:checked").map(function () {
         return $(this).val();
     }).toArray();
-    const replaced = [...replaced1, ...batteryReplaced, ...n250Replaced, ...n251Replaced, ...replaced4, ...replaced5];
+    const replaced = [...replaced1, ...checkbox503, ...batteryReplaced, ...n250Replaced, ...n251Replaced, ...replaced4, ...replaced5];
     // Değişen parçaları nesne şeklinde yedek parça listesinden bulup otherpartsobj nesnesinde nesne olarak saklıyor. Aynı döngüde probable_causes defective part listesini de oluşturuyor.
     replaced.map(rep_part => {
         OtherParts.map(part => {
@@ -345,13 +348,35 @@ const otherPartsResult = () => {
     const otherPartsComment = () => {
         const setComment = (error_code, replacedList) => {
             let errorCode = error_code;
+            let is503 = false;
+            let errorText = true;
             if (error_code == "503") {
                 errorCode = "DEVICE WILL NOT TURN ON";
+                is503 = true;
+                errorText = false;
             }
             else if (error_code == "305") {
                 errorCode = "DEAD BATTERY";
+                errorText = false;
             }
-            PrintObj.comment.push(`FOR THE ${errorCode} ERROR CODE, THE ${replacedList.join(", ")} ${$("#lowbattery").is(":checked") ? "" : "WAS REPLACED"}`)
+            if (is503) {
+                console.log(is503)
+                let comment503 = `FOR THE ${errorCode} ${errorText ? "ERROR CODE" : "ERROR"}, `;
+                replacedList.map((part, i) => {
+                    if (part == "MAIN CHASIS") {
+                        comment503 += `THE ${part} WAS REPLACED `;
+                    }
+                    else {
+                        comment503 += `THE ${part} PLACED IN PLACE `;
+                        PrintObj.cassette_alarm_probable_causes.push(part + " NOT PLUGGED IN");
+                        PrintObj.more_comment.push(part + " PLACED IN PLACE");
+                    }
+                })
+                PrintObj.comment.push(comment503)
+            }
+            else {
+                PrintObj.comment.push(`FOR THE ${errorCode} ${errorText ? "ERROR CODE" : "ERROR"}, THE ${replacedList.join(", ")} ${$("#lowbattery").is(":checked") ? "" : "WAS REPLACED"}`)
+            }
         }
         if (replaced4.length != 0 || replaced5.length != 0) {
             const error_code = $("#otherFormErrorCode").val().toLocaleUpperCase("en-US");
@@ -366,10 +391,10 @@ const otherPartsResult = () => {
                 setComment(error_code, [...replaced4, ...replaced5]);
             }
         }
-        if ($("#chasis").is(":checked")) {
+        if (checkbox503.length != "") {
             const error_code = "503";
             setErrorCode(error_code);
-            setComment(error_code, [$("#chasis").val().toLocaleUpperCase("en-US")])
+            setComment(error_code, checkbox503)
         }
         if ($("#305").is(":checked")) {
             const error_code = "305";
@@ -664,6 +689,12 @@ const AAcodes = () => {
     if (PrintObj.probable_causes.includes("DEFECTIVE MAIN CHASIS")) {
         repair("M37");
         analysis("973");
+        investigation("503");
+    }
+    if (PrintObj.probable_causes.includes("PERIPHERAL PWA CONNECTOR NOT PLUGGED IN")) {
+        repair("V140");
+        repair("E156");
+        analysis("P43");
         investigation("503");
     }
     if (PrintObj.probable_causes.includes("DEFECTIVE SHIELD")) {
