@@ -61,13 +61,13 @@
 $("#yes2").click(() => {
     if (ResultObj.customer_experience.length == 4) {
         PrintObj.first_sentence = `DURING LEVEL 1 PCI,\n${ResultObj.customer_experience} ERROR CODE WAS SEEN IN THE HISTORY LOGS BUT WAS NOT REPLICATED DURING THE TESTS.`
-        PrintObj.analysis_codes.push("966");
         const randomDay = () => {
             return Math.floor(Math.random() * 10) + 3;
         }
         PrintObj.error_history_logs = `THE ${ResultObj.customer_experience} ERROR CODE WAS SEEN ${randomDay()} TIMES IN THE HISTORY LOG.`;
-        PrintObj.is_approved = true;
+        PrintObj.analysis_codes.push("966");
     }
+    PrintObj.is_approved = true;
     setPreviousForms(PrintObj);
     $('#yes2').prop('checked', false)
     $("#staticBackdrop").modal("hide");
@@ -75,6 +75,9 @@ $("#yes2").click(() => {
 })
 $("#no2").click(() => {
     $('#no2').prop('checked', false)
+    if (PrintObj.repair_codes[0] != "N00") {
+        PrintObj.is_approved = null;
+    }
     $("#staticBackdrop").modal("hide");
     setPreviousForms(PrintObj);
     print();
@@ -264,7 +267,12 @@ const mechanismResult = () => {
             PrintObj.proximal_probable_causes.push("CALIBRATION " + MechanismObj.calibrated.toLocaleUpperCase("en-US"));
         }
         else {
-            PrintObj.cassette_alarm_probable_causes.push("CALIBRATION " + MechanismObj.calibrated.toLocaleUpperCase("en-US"));
+            if (MechanismObj.calibrated == "DRIVER PWA") {
+                PrintObj.cassette_alarm_probable_causes.push("CALIBRATION DRIVER PWA, MECHANISM PRESSURE DEDECTOR OUT OF CALIBRATION");
+            }
+            else {
+                PrintObj.cassette_alarm_probable_causes.push("CALIBRATION " + MechanismObj.calibrated.toLocaleUpperCase("en-US"));
+            }
         }
     }
     PrintObj.comment.push(mechanismComment.join(", "));
@@ -360,7 +368,6 @@ const otherPartsResult = () => {
                 errorText = false;
             }
             if (is503) {
-                console.log(is503)
                 let comment503 = `FOR THE ${errorCode} ${errorText ? "ERROR CODE" : "ERROR"}, `;
                 replacedList.map((part, i) => {
                     if (part == "MAIN CHASIS") {
@@ -626,6 +633,7 @@ const AAcodes = () => {
             repair("E67");
             analysis("975");
         }
+        console.log(PrintObj.probable_causes)
         if (PrintObj.probable_causes.includes("CALIBRATION DRIVER PWA, MECHANISM PRESSURE DEDECTOR OUT OF CALIBRATION") ||
             PrintObj.probable_causes.includes("DEFECTIVE DRIVER PWA")) {
             repair("K11");
@@ -719,7 +727,7 @@ const AAcodes = () => {
         repair("A13");
         analysis("M38");
         analysis("973");
-        $("#n250Handledoor").is(":checked") ? investigation("N250") : investigation("N251");
+        $("#n250Handle").is(":checked") ? investigation("N250") : investigation("N251");
     }
     if (PrintObj.probable_causes.includes("DEFECTIVE LINK DOOR")) {
         repair("A13");

@@ -76,6 +76,15 @@
                 <input type="text" onchange="password(this)" id="password_id" autocomplete="off">
                 <input type="button" class="btn btn-close btn-outline-danger m-1" onclick="deletePassword()">
             </li>
+            <script>
+                const password = () => {
+                    localStorage.setItem("password_text", $("#password_id").val());
+                }
+                const deletePassword = () => {
+                    $("#password_id").val("")
+                    localStorage.setItem("password_text", "");
+                }
+            </script>
         </ul>
     </aside>
     <main class="d-flex justify-content-center">
