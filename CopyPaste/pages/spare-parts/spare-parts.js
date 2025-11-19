@@ -441,7 +441,7 @@ const SpareParts = [
         viCode: "",
     }, {
         id: "AyF589dQD35AdAFnuQS2",
-        code: "YDK-830-95102-001",
+        code: "YDK-830-95095-502",
         definition: "Mekanizma",
         explanation: "Alt Motor",
         model: "Ortak",
@@ -641,7 +641,7 @@ const SpareParts = [
         viCode: "141",
     }, {
         id: "GhK0TOpKf3zfrHLf0Oz8",
-        code: "YDK-830-95101-001",
+        code: "YDK-830-95094-502",
         definition: "Mekanizma",
         explanation: "Sol Motor",
         model: "Ortak",
