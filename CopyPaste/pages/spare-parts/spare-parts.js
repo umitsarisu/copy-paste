@@ -281,7 +281,7 @@ const SpareParts = [
         viCode: "141",
     }, {
         id: "7AoOFrrb4J51CiCsBIL9",
-        code: "YDK-SUB0000864",
+        code: "YDK-SUB0001420",
         definition: "Diğer",
         explanation: "Batarya",
         model: "Ortak",
