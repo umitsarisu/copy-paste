@@ -64,7 +64,7 @@ const printRvg = () => {
                     <span class="font-monospace">${range}</span>
                     <span>=></span>
                 </div>
-                <button onclick="copyPsi(${psi})" style="width: 80px; text-align: center" 
+                <button onclick="copyPsi('${psi}')" style="width: 80px; text-align: center" 
                 class="btn btn-outline-dark fw-bold">${psi}</button>                    
             </div>`
     }
@@ -86,11 +86,18 @@ const printRvg = () => {
     $(".egt").append(makeEGTHtml("1000µA", PrintObj.rv4));
     $(".egt").append(makeEGTHtml("200mΩ", PrintObj.rv5));
 }
-const copyPsi = (psi) => {
-    let clipboard = document.createElement("textarea");
-    clipboard.value = psi.toFixed(2) + " PSI";
-    document.body.appendChild(clipboard);
-    clipboard.select();
-    document.execCommand("copy");
-    document.body.removeChild(clipboard);
+const copyPsi = async (psi) => {
+    try {
+        const textToCopy = String(psi);
+        await navigator.clipboard.writeText(textToCopy);
+    } catch (err) {
+        // Eğer tarayıcı eskiyse (fallback yöntemi)
+        let clipboard = document.createElement("textarea");
+        clipboard.value = String(psi);
+        document.body.appendChild(clipboard);
+        clipboard.select();
+        document.execCommand("copy");
+        document.body.removeChild(clipboard);
+        console.log("Eski yöntemle kopyalandı.");
+    }
 }

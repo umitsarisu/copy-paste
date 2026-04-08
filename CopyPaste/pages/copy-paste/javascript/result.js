@@ -10,8 +10,8 @@
     resultPageAddClasses();
     $("#mainPage").hide();
     $("#sonuc").show();
-    rvgFunc();
     setDateInputValue();
+    rvgFunc();
     //950 durumu cihaz sağlamsa
     if ($("#yes1").is(":checked")) {
         notRequired();
@@ -479,15 +479,20 @@ const resultPageRemoveClass = () => {
     $("[name='resulth6']").removeClass();
 }
 const rvgFunc = (x) => {
+    let rv6, rv10; 
     while (true) {
-        let random = Math.random() * (8 - 5) + 5;
-        PrintObj.rv6psi = random.toFixed(2);
-        random = Math.random() * (12 - 10) + 10;
-        PrintObj.rv10psi = random.toFixed(2);
-        if (PrintObj.rv10psi - PrintObj.rv6psi > 3.5 && PrintObj.rv10psi - PrintObj.rv6psi < 5) {
-            break;
+        // rv6: 4 ile 8 arasında
+        rv6 = Math.random() * (8 - 4) + 4;
+        // rv10: 8 ile 12.5 arasında
+        rv10 = Math.random() * (12.5 - 8) + 8;
+        let fark = rv10 - rv6;
+        // Fark kontrolü: min 3.5, max 5
+        if (fark >= 3.5 && fark <= 5) {
+            break; // Şartlar sağlanırsa döngüden çık
         }
     }
+    PrintObj.rv6psi = rv6.toFixed(2).replace('.', ','); 
+    PrintObj.rv10psi = rv10.toFixed(2).replace('.', ',');
     PrintObj.rv3 = Math.floor(Math.random() * (17 - 10) + 10);
     PrintObj.rv4 = Math.floor(Math.random() * (50 - 30) + 30);
     PrintObj.rv5 = Math.floor(Math.random() * (120 - 70) + 70);
