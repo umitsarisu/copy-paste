@@ -88,16 +88,14 @@ const printRvg = () => {
 }
 const copyPsi = async (psi) => {
     try {
-        const textToCopy = String(psi);
+        let textToCopy = String(psi).replace('.', ',');
         await navigator.clipboard.writeText(textToCopy);
     } catch (err) {
-        // Eğer tarayıcı eskiyse (fallback yöntemi)
         let clipboard = document.createElement("textarea");
-        clipboard.value = String(psi);
+        clipboard.value = String(psi).replace('.', ',');
         document.body.appendChild(clipboard);
         clipboard.select();
         document.execCommand("copy");
         document.body.removeChild(clipboard);
-        console.log("Eski yöntemle kopyalandı.");
     }
 }
