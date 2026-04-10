@@ -270,7 +270,8 @@
                                 <!-- Main Chasis -->
                                 <ul class="d-flex justify-content-center m-0">
                                     <li id="503Parts">
-                                        <span class="hoverUpDown" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">503</span>
+                                        <span class="hoverUpDown" data-bs-toggle="tooltip" data-bs-placement="top"
+                                            title="Tooltip on top">503</span>
                                         <div class="hoverUpAsmdoor" title="Peripheral Yerine Oturtuldu">
                                             <label for="peripheral503">
                                                 <input type="checkbox" id="peripheral503" name="osp503Checkbox"
@@ -577,136 +578,135 @@
             </div>
         </div>
         <!-- Sonuç çıktılarının alındığı sayfa -->
-        <div id="sonuc" class="container-md m-auto mt-1 p-0 none position-relative">
-            <div class="row">
-                <div class="col-11 col-sm-11 col-md-10 col-xl-9 m-auto">
-                    <section class="p-0 ">
-                        <div class="sonucContent aaCodesDiv">
-                            <h6 name="resulth6">Tamir Kodları</h6>
-                            <textarea type="text" name="resultTextareas" class="sonucSectionColor" id="tamirKodu"
-                                rows="1" readonly></textarea>
+        <div id="sonuc" class="container-fluid mt-1 none position-relative">
+            <div class="row d-flex flex-wrap justify-content-around">
+                <div class="col-12 col-sm-8 col-lg-6">
+                    <div class="table-container custom-scroll">
+                        <h5>Alanlar</h5>
+                        <table class="table table-bordered" id="table1">
+                            <thead>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- Analiz/Araştırma +++
+                    Sarf Malzeme +++
+                    Referans Değerler +++
+                -->
+                <div class="col-12 col-sm-4 col-lg-4">
+                    <div class="table-container">
+                        <h5>Analiz/Araştırma</h5>
+                        <table id="table2" class="table table-bordered">
+                            <thead>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                        <div id="rvgContent" class="none">
+                            <h5 class="mt-2">Sarf Malzeme</h5>
+                            <table id="table3">
+                                <thead>
+                                    <tr>
+                                        <th>Primary Mal.</th>
+                                        <th>Lot</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="p-0 copy-cell">
+                                            <button type="button" class="btn btn-outline-secondary w-100"
+                                                onclick="copyPriSec(this)">14000</button>
+                                        </td>
+                                        <td class="p-0 copy-cell">
+                                            <button type="button" class="btn btn-outline-secondary w-100"
+                                                onclick="copyPriSec(this)">13850921</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <thead>
+                                    <tr>
+                                        <th>Secondary</th>
+                                        <th>Lot</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="p-0 copy-cell">
+                                            <button type="button" class="btn btn-outline-secondary w-100"
+                                                onclick="copyPriSec(this)">DM018-LL</button>
+                                        </td>
+                                        <td class="p-0 copy-cell">
+                                            <button type="button" class="btn btn-outline-secondary w-100"
+                                                onclick="copyPriSec(this)">20250410</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h5 class="mt-2">Referans Değerler</h5>
+                            <table id="table4">
+                                <thead>
+                                    <tr>
+                                        <th>Değerler</th>
+                                        <th>EGT</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="p-0 copy-cell">
+                                            <div class="rvg"></div>
+                                        </td>
+                                        <td>
+                                            <div class="egt"></div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-                        <div class="sonucContent none" id="repairedMechanism">
-                            <h6 name="resulth6">Mekanizma Tamir</h6>
-                            <input type="radio" checked class="align-self-center"></input> <span
-                                class="align-self-center"> işaretlenecek!</span>
-                        </div>
-                        <div class="sonucContent">
-                            <h6 name="resulth6">Hata Geçmiş Kayıtları</h6>
-                            <button type="button" name="resultButtons">Copy</button>
-                            <textarea name="resultTextareas" id="errorHistoryLogs" rows="1" readonly></textarea>
-                        </div>
-                        <div class="sonucContent">
-                            <h6 name="resulth6">Cihazın Durumu</h6>
-                            <button type="button" name="resultButtons">Copy</button>
-                            <textarea name="resultTextareas" id="cihazinDurumu" rows="1" readonly></textarea>
-                        </div>
-                        <div class="sonucContent">
-                            <h6 name="resulth6">16 Run In Test Sonuçları</h6>
-                            <button type="button" name="resultButtons">Copy</button>
-                            <textarea name="resultTextareas" id="runInTestResult" rows="1" readonly>N/A</textarea>
-                        </div>
-                        <div class="sonucContent" id="randomdate">
-                            <h6 name="resulth6">Çağrı Açılış Tarihini Girin!</h6>
-                            <form action="javascript: dateFunc()" style="display: flex;">
-                                <input type="date" id="date1" class="form-control p-0"
-                                    style="float: left;width: 130px; align-self: center;" value="2024-01-02"
-                                    min="2022-01-02" max="2050-12-31" required>
-                                <input type="submit" name="resultButtons" value="Çalıştır">
-                            </form>
-                        </div>
-                        <div class="sonucContent">
-                            <h6 name="resulth6">Geçmiş Tarih Aralığı</h6>
-                            <button type="button" name="resultButtons">Copy</button>
-                            <textarea name="resultTextareas" id="dateResult" rows="1" readonly></textarea>
-                        </div>
-                        <div class="sonucContent none" id="unusualSituation">
-                            <h6 name="resulth6">Olağan Dışı Durum</h6>
-                            <input type="radio" checked class="align-self-center"></input><span
-                                class="align-self-center"> işaretlenecek!</span>
-                        </div>
-                        <div class="sonucContent">
-                            <h6 name="resulth6">Bulgular</h6>
-                            <button type="button" name="resultButtons">Copy</button>
-                            <textarea name="resultTextareas" id="bulgular" rows="1" readonly></textarea>
-                        </div>
-                        <div class="sonucContent flex">
-                            <h6 name="resulth6">Pompa Test Bilgileri</h6>
-                            <div id="pumpTests" class="testsDiv"></div>
-                        </div>
-                        <div class="sonucContent">
-                            <h6 name="resulth6">Reference Value</h6>
-                            <div class="rvg"></div>
-                            <h6 name="resulth6">Electric Safety Analyser</h6>
-                            <div class="egt float-left"></div>
-                        </div>
-                        <div class="sonucContent">
-                            <h6 name="resulth6">Primary</h6>
-                            <button type="button" name="resultButtons">Copy</button>
-                            <textarea name="resultTextareas" id="primary" rows="1" readonly></textarea>
-                        </div>
-                        <div class="sonucContent">
-                            <h6 name="resulth6">Secondary</h6>
-                            <button type="button" name="resultButtons">Copy</button>
-                            <textarea name="resultTextareas" id="secondary" rows="1" readonly></textarea>
-                        </div>
-                        <div class="sonucContent heightRow" id="div-degisen-parca">
-                            <h6 name="resulth6">Değişen Parça Açıklaması</h6>
-                            <button type="button" name="resultButtons">Copy</button>
-                            <textarea name="resultTextareas" id="degisenParca" rows="4" readonly></textarea>
-                        </div>
-                        <div class="sonucContent aaCodesDiv">
-                            <h6 name="resulth6">Analiz Kodları</h6>
-                            <textarea name="resultTextareas" class="sonucSectionColor" id="analizKodu" rows="1"
-                                readonly></textarea>
-                        </div>
-                        <div class="sonucContent aaCodesDiv">
-                            <h6 name="resulth6">Araştırma Kodları</h6>
-                            <textarea name="resultTextareas" class="sonucSectionColor" id="arastirmaKodu" rows="1"
-                                readonly></textarea>
-                        </div>
-                        <div class="sonucContent aaCodesDiv">
-                            <h6 name="resulth6">Şikayet Onaylandı</h6>
-                            <label for="resultYes" class="resultLabel">
-                                <input type="radio" id="resultYes" name="resultRadio"> EVET
-                            </label>
-                            <label for="resultNo" class="resultLabel">
-                                <input type="radio" id="resultNo" name="resultRadio"> HAYIR
-                            </label>
-                            <label for="resultDifferent" class="resultLabel">
-                                <input type="radio" id="resultDifferent" name="resultRadio"> FARKLI
-                            </label>
-                            <style>
-                                .resultLabel {
-                                    line-height: 41px;
-                                    font-size: 15px;
-                                    font-weight: bold;
-                                    color: rgb(53, 47, 47);
-                                    text-shadow: 0.5px 0.5px 5px rgb(196 115 115 / 77%);
-                                    margin-left: 10px;
+                        <style>
+                            @media screen and (min-width: 576px) and (max-width: 768px) {
+                                #table4 thead {
+                                    display: none;
+                                    /* Başlıkları gizle (isteğe bağlı) */
                                 }
-                            </style>
-                        </div>
-                        <div class="sonucContent heightRow position-relative">
-                            <h6 name="resulth6">Yorum</h6>
-                            <button type="button" name="resultButtons">Copy</button>
-                            <textarea name="resultTextareas" id="yorum" rows="4" readonly></textarea>
-                            <div class="characterCount text-danger ">
-                                <h5 id="charactersCount" class="mx-1"></h5>
-                            </div>
-                        </div>
-                        <div class="sonucContent">
-                            <h6 name="resulth6">Ek Yorum</h6>
-                            <button type="button" name="resultButtons">Copy</button>
-                            <textarea name="resultTextareas" id="ekYorum" rows="1" readonly></textarea>
-                        </div>
-                        <div class="sonucContent">
-                            <h6 name="resulth6">Temel Sebep</h6>
-                            <button type="button" name="resultButtons">Copy</button>
-                            <textarea name="resultTextareas" id="probableCause" rows="1" readonly></textarea>
-                        </div>
-                        <div style="clear: both;"></div>
-                    </section>
+
+                                #table4 tbody,
+                                #table4 tr,
+                                #table4 td {
+                                    display: block;
+                                    /* Hücreleri blok yaparak alt alta gelmelerini sağla */
+                                    width: 100% !important;
+                                }
+
+                                #table4 td {
+                                    border-bottom: none;
+                                    /* Görsel düzenleme */
+                                    padding: 10px !important;
+                                }
+
+                                #table4 td:last-child {
+                                    border-bottom: 1px solid #dee2e6;
+                                    /* En alttaki hücreye kenarlık ekle */
+                                }
+
+                                /* Başlıklar gizlendiği için hücrelerin başına ne olduğu yazılabilir (Opsiyonel) */
+                                #table4 td:nth-of-type(1):before {
+                                    content: "Değerler: ";
+                                    font-weight: bold;
+                                    display: block;
+                                    margin-bottom: 5px;
+                                }
+
+                                #table4 td:nth-of-type(2):before {
+                                    content: "EGT: ";
+                                    font-weight: bold;
+                                    display: block;
+                                    margin-bottom: 5px;
+                                }
+                            }
+                        </style>
+                    </div>
                 </div>
             </div>
             <footer id="footer2">
@@ -714,8 +714,36 @@
                     onclick="pageReset()">
             </footer>
         </div>
+        <div id="sonuc2" class="container-md m-auto mt-1 p-0 none position-relative">
+            <div class="row">
+                <div class="col-11 col-sm-11 col-md-10 col-xl-9 m-auto">
+                    <section class="p-0 ">
+                        <div class="sonucContent none" id="unusualSituation">
+                            <h6 name="resulth6">Olağan Dışı Durum</h6>
+                            <input type="radio" checked class="align-self-center"></input><span
+                                class="align-self-center"> işaretlenecek!</span>
+                        </div>
+                        <div class="sonucContent flex">
+                            <h6 name="resulth6">Pompa Test Bilgileri</h6>
+                            <div id="pumpTests" class="testsDiv"></div>
+                        </div>
+                        <style>
+                            .resultLabel {
+                                line-height: 41px;
+                                font-size: 15px;
+                                font-weight: bold;
+                                color: rgb(53, 47, 47);
+                                text-shadow: 0.5px 0.5px 5px rgb(196 115 115 / 77%);
+                                margin-left: 10px;
+                            }
+                        </style>
+                </div>
+                </section>
+            </div>
+        </div>
     </main>
     <script src="javascript/variables.js"></script>
+    <script src="index.js"></script>
     <script src="javascript/main.js"></script>
     <script src="../spare-parts/spare-parts.js"></script>
     <script src="../spare-parts/spare-parts-images.js"></script>
@@ -724,11 +752,6 @@
     <script src="javascript/otherSpareParts.js"></script>
     <script src="javascript/result.js"></script>
     <script src="javascript/print.js"></script>
-    <script>
-        $(function () {
-            resultPageAddClasses();
-        })
-    </script>
 </body>
 
 </html>

@@ -12,3 +12,12 @@ function pageTransition(x) {
     else if (x == 5) { $("iframe[name='iframeRunin']").show(); }
     else if (x == 6) { $("iframe[name='iframeBuyutec']").show(); }
 }
+const setPassword = () => {
+    localStorage.setItem("password_text", $("#password_id").val().toLowerCase());
+    checkPassword();
+}
+$("#password_id").val(localStorage.getItem("password_text") ? localStorage.getItem("password_text") : "");
+const deletePassword = () => {
+    $("#password_id").val("")
+    localStorage.setItem("password_text", "");
+}

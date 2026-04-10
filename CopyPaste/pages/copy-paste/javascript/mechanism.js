@@ -44,7 +44,7 @@ $("#mechanismForm").submit(function (e) {
         }
     }
     password_text = localStorage.getItem("password_text");
-    if (password_text != "Berkcan") {
+    if (password_text != "berkcan") {
         if (MechanismObj.error_code.includes("N23")) {
             if (MechanismObj.test_fail != "PROXIMAL OCCLUSION TEST") {
                 return alert("Bir şeyler yanlış görünüyor! Hava alarmlarında Proximal Occlusion Test Fail seçilmelidir.")

@@ -6,6 +6,11 @@
 function pageReset() {
     document.location.reload();
 }
+const checkPassword = () => {
+    password_text = localStorage.getItem("password_text");
+    password_text == "berkcan" ? $("#rvgContent").show() : $("#rvgContent").hide();
+}
+checkPassword();
 //Seri Numarası girilen yerlerde auto complate kapalı//
 $(function () {
     $("input[placeholder='Seri Numarası'").attr('autocomplete', 'off');
@@ -185,3 +190,163 @@ function mainPageFormsVerification() {
         result();
     }
 }
+$(function () {
+    const tableHeaders = [
+        "Kod",
+        "Alan",
+        "Copy",
+        "Değer"
+    ]
+    const thead = document.querySelector("#table1 thead");
+
+    // tableHeaders dizisindeki her bir elemanı <th> etiketine sarıp birleştiriyoruz
+    const headerRow = `
+        <tr>
+            ${tableHeaders.map(title => `<th>${title}</th>`).join('')}
+        </tr>
+    `;
+    thead.innerHTML = headerRow;
+    const tableData = [
+        // Hata / Geçmiş Kayıtları
+        { id: "errorHistoryLogs", code: "10", label: "Hata / Geçmiş Kayıtları", value: "N/A" },
+        { id: "cihazinDurumu", code: "30", label: "Cihazın Durumu", value: "N/A" },
+        { id: "runInTestResult", code: "40", label: "16 Run in Test Sonuçları", value: "N/A" },
+        { id: "", code: "5", label: "Çağrı Açılış Tarihini Girin!" },
+        { id: "dateResult", code: "50", label: "Geçmiş Tarih Aralığı", value: "N/A" },
+        { id: "bulgular", code: "80", label: "Bulgular", value: "N/A" },
+        { id: "yorum", code: "90", label: "Yorum", value: "N/A" },
+        { id: "ekYorum", code: "100", label: "Ek Yorum", value: "N/A" },
+        { id: "probableCause", code: "110", label: "Temel Sebep", value: "N/A" },
+        { id: "onay", code: "120", label: "Şikayet Onaylandı" },
+        { id: "degisenParca", code: "130", label: "Değiştirilen Parçalar", value: "N/A" },
+    ];
+    const tbody = document.querySelector("#table1 tbody");
+    tbody.innerHTML = ""; // Önce tabloyu temizle
+
+    tableData.forEach(item => {
+        let rightContent = ''; // Sağ tarafa gelecek HTML içeriği
+        // Özel içerikleri burada belirliyoruz
+        switch (item.code.toString()) {
+            case "5":
+                rightContent = `
+                        <td class="value-cell" colspan="2">
+                            <form action="javascript: dateFunc()" style="display: flex;">
+                                <input type="date" id="date1" class="form-control p-0"
+                                        style="width: 130px; align-self: center;" value="2024-01-02"
+                                        min="2022-01-02" max="2050-12-31" required>
+                                <button type="submit" class="btn btn-outline-secondary" name="">Çalıştır</button>
+                            </form>
+                        </td>`;
+                break;
+            // case "120":
+            //     const onay = [
+            //         {
+            //             id: "resultYes",
+            //             status: "EVET",
+            //         },
+            //         {
+            //             id: "resultNo",
+            //             status: "HAYIR",
+            //         },
+            //         {
+            //             id: "resultDifferent",
+            //             status: "FARKLI",
+            //         }
+            //     ]
+            //     rightContent = `
+            //             <td colspan="2" class="align-middle">
+            //                 <div class="radio-group">
+            //                     ${onay.map(opt => `
+            //                         <label for="${opt.id}" class="resultLabel">
+            //                             <input type="radio" name="resultRadio" id="${opt.id}" value="${opt.status}"> ${opt.status}
+            //                         </label>
+            //                     `).join('')}
+            //                 </div>
+            //             </td>`;
+            //     break;
+            default:
+                // Standart satır yapısı (Copy Butonu + Textarea)
+                rightContent = `
+                        <td class="p-0 copy-cell">
+                        <button type="button" class="btn btn-outline-secondary" onclick="copyFromTextarea(this)">Copy</button>
+                        </td>
+                        <td class="value-cell">
+                            <textarea id="${item.id}" class="table-textarea form-control" name="resultTextareas" readonly>${item.value || 'N/A'}</textarea>
+                        </td>`;
+                break;
+        }
+
+        // Ortak şablonu tek seferde oluşturuyoruz
+        const row = `
+        <tr>
+            <td>${item.code}</td>
+            <td>${item.label}</td>
+            ${rightContent}
+        </tr>`;
+
+        tbody.insertAdjacentHTML('beforeend', row);
+    });
+})
+
+/* |||||||||||||||||||||||||||||
+Tablo 2 Analiz ve Araştırma Kodları
+|||||||||||||||||||||||||||||||||*/
+const tableHeaders2 = [
+    "Analiz Kodları",
+    "Araştırma Kodları",
+    "Tamir Kodları"
+];
+
+// Bu fonksiyonu print() fonksiyonunun içinden çağırabilirsin
+const renderTable2 = () => {
+    const thead = document.querySelector("#table2 thead");
+    const tbody = document.querySelector("#table2 tbody");
+
+    // 1. Başlıkları (Header) Oluştur
+    thead.innerHTML = `
+        <tr>
+            ${tableHeaders2.map(title => `<th>${title}</th>`).join('')}
+        </tr>
+    `;
+
+    // 2. Verileri Al (Eğer undefined ise boş dizi [] olarak kabul et ki hata vermesin)
+    const analysis = PrintObj.analysis_codes || [];
+    const investigation = PrintObj.investigation_codes || [];
+    const repair = PrintObj.repair_codes || [];
+
+    // 3. En uzun dizinin eleman sayısını bul
+    const maxRows = Math.max(analysis.length, investigation.length, repair.length);
+
+    let rowsHtml = '';
+
+    // 4. En uzun dizi kadar döngü oluştur
+    for (let i = 0; i < maxRows; i++) {
+        // Eğer o indekste veri yoksa (undefined), hücreyi boş bırak ("" veya "-")
+        const val1 = analysis[i] !== undefined ? analysis[i] : "";
+        const val2 = investigation[i] !== undefined ? investigation[i] : "";
+        const val3 = repair[i] !== undefined ? repair[i] : "";
+
+        rowsHtml += `
+            <tr>
+                <td>${val1}</td>
+                <td>${val2}</td>
+                <td>${val3}</td>
+            </tr>
+        `;
+    }
+
+    // (Opsiyonel) Eğer her iki liste de boşsa bilgi mesajı göster
+    if (maxRows === 0) {
+        rowsHtml = `
+            <tr>
+                <td colspan="2" style="text-align:center; color:gray;">
+                    Kayıt bulunamadı.
+                </td>
+            </tr>
+        `;
+    }
+
+    // 5. Satırları tabloya bas
+    tbody.innerHTML = rowsHtml;
+}
+renderTable2();

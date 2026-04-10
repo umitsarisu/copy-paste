@@ -6,9 +6,9 @@
     $("#repairedMechanism").hide();
     $("#unusualSituation").show();
     PrintObj.unusualSituation = true;
-    resultPageRemoveClass();
-    resultPageAddClasses();
     $("#mainPage").hide();
+    password_text = localStorage.getItem("password_text");
+    password_text == "berkcan" ? $("#rvgContent").show() : $("#rvgContent").hide();
     $("#sonuc").show();
     setDateInputValue();
     rvgFunc();
@@ -454,32 +454,8 @@ const setDateInputValue = () => {
     }
     $("#date1").val(date2);
 }
-const resultPageAddClasses = () => {
-    var resultButtons = document.getElementsByName("resultButtons");
-    for (i = 0; i < resultButtons.length; i++) {
-        resultButtons[i].classList.add("btn");
-        resultButtons[i].classList.add("btn-outline-light");
-        resultButtons[i].classList.add("align-self-center");
-    }
-    var resultTextareas = document.getElementsByName("resultTextareas");
-    for (i = 0; i < resultTextareas.length; i++) {
-        resultTextareas[i].classList.add("form-control");
-        resultTextareas[i].classList.add("bg-light");
-        resultTextareas[i].classList.add("text-uppercase");
-        resultTextareas[i].classList.add("align-self-center");
-    }
-    var resulth6 = document.getElementsByName("resulth6");
-    for (i = 0; i < resulth6.length; i++) {
-        resulth6[i].classList.add("align-self-center");
-    }
-}
-const resultPageRemoveClass = () => {
-    $("[name='resultButtons']").removeClass();
-    $("[name='resultTextareas']").removeClass();
-    $("[name='resulth6']").removeClass();
-}
 const rvgFunc = (x) => {
-    let rv6, rv10; 
+    let rv6, rv10;
     while (true) {
         // rv6: 4 ile 8 arasında
         rv6 = Math.random() * (8 - 4) + 4;
@@ -491,38 +467,33 @@ const rvgFunc = (x) => {
             break; // Şartlar sağlanırsa döngüden çık
         }
     }
-    PrintObj.rv6psi = rv6.toFixed(2).replace('.', ','); 
+    PrintObj.rv6psi = rv6.toFixed(2).replace('.', ',');
     PrintObj.rv10psi = rv10.toFixed(2).replace('.', ',');
     PrintObj.rv3 = Math.floor(Math.random() * (17 - 10) + 10);
     PrintObj.rv4 = Math.floor(Math.random() * (50 - 30) + 30);
     PrintObj.rv5 = Math.floor(Math.random() * (120 - 70) + 70);
 }
 const dateFunc = () => {
-    let date = document.getElementById("date1").value;
-    date = date.replace(/-/g, "");
-    var year = parseInt(date.slice(0, 4));
-    var month = parseInt(date.slice(4, 6));
-    var day = parseInt(date.slice(6, 8));
-    var months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
-    function randomDate() {
-        if (month == 1) {
-            randomMonth = Math.floor((Math.random() * 3) + 10);
-            randomDay = Math.floor((Math.random() * 28) + 1);
-            return `${randomDay} ${months[randomMonth - 1]} ${year - 1} `;
-        }
-        else {
-            while (true) {
-                randomMonth = Math.floor((Math.random() * month) + 1);
-                randomDay = Math.floor((Math.random() * 28) + 1);
-                if ((randomMonth < month && randomMonth > month - 3) || (randomMonth == month && randomDay < day)) {
-                    return `${randomDay} ${months[randomMonth - 1]} ${year} `;
-                }
-            }
-
-        }
-    }
-    localStorage.setItem("date", year + "-" + month.toString().padStart(2, 0) + "-" + day.toString().padStart(2, 0))
-    $("#dateResult").text(`${randomDate()} TO ${day} ${months[month - 1]} ${year} `);
+    const inputDate = document.getElementById("date1").value;
+    if (!inputDate) return;
+    // Seçilen tarihi JS Date objesine çeviriyoruz
+    const end = new Date(inputDate);
+    const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+    // Rastgele bir başlangıç tarihi oluştur (Maksimum 90 gün öncesi olsun diyelim)
+    const start = new Date(end);
+    const randomDaysAgo = Math.floor(Math.random() * 90) + 1; // 1 ile 90 gün arası geri git
+    start.setDate(end.getDate() - randomDaysAgo);
+    // Formatlama Fonksiyonu: "15 MAR 2026"
+    const formatDate = (dateObj) => {
+        const d = dateObj.getDate();
+        const m = months[dateObj.getMonth()];
+        const y = dateObj.getFullYear();
+        return `${d} ${m} ${y}`;
+    };
+    // LocalStorage kaydı (ISO formatını korumak iyidir: YYYY-MM-DD)
+    localStorage.setItem("date", end.toISOString().split('T')[0]);
+    // Sonucu ekrana bas
+    $("#dateResult").text(`${formatDate(start)} TO ${formatDate(end)}`);
 }
 const AAcodes = () => {
     const analysis = (x) => {
@@ -638,7 +609,6 @@ const AAcodes = () => {
             repair("E67");
             analysis("975");
         }
-        console.log(PrintObj.probable_causes)
         if (PrintObj.probable_causes.includes("CALIBRATION DRIVER PWA, MECHANISM PRESSURE DEDECTOR OUT OF CALIBRATION") ||
             PrintObj.probable_causes.includes("DEFECTIVE DRIVER PWA")) {
             repair("K11");
