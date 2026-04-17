@@ -211,7 +211,7 @@ $(function () {
         { id: "errorHistoryLogs", code: "10", label: "Hata / Geçmiş Kayıtları", value: "N/A" },
         { id: "cihazinDurumu", code: "30", label: "Cihazın Durumu", value: "N/A" },
         { id: "runInTestResult", code: "40", label: "16 Run in Test Sonuçları", value: "N/A" },
-        { id: "", code: "5", label: "Çağrı Açılış Tarihini Girin!" },
+        { id: "callDate", code: "5", label: "Çağrı Açılış Tarihini Girin!" },
         { id: "dateResult", code: "50", label: "Geçmiş Tarih Aralığı", value: "N/A" },
         { id: "bulgular", code: "80", label: "Bulgular", value: "N/A" },
         { id: "yorum", code: "90", label: "Yorum", value: "N/A" },
@@ -229,7 +229,7 @@ $(function () {
         switch (item.code.toString()) {
             case "5":
                 rightContent = `
-                        <td class="value-cell" colspan="2">
+                        <td class="value-cell" id="${item.id}" colspan="2">
                             <form action="javascript: dateFunc()" style="display: flex;">
                                 <input type="date" id="date1" class="form-control p-0"
                                         style="width: 130px; align-self: center;" value="2024-01-02"
@@ -238,32 +238,6 @@ $(function () {
                             </form>
                         </td>`;
                 break;
-            // case "120":
-            //     const onay = [
-            //         {
-            //             id: "resultYes",
-            //             status: "EVET",
-            //         },
-            //         {
-            //             id: "resultNo",
-            //             status: "HAYIR",
-            //         },
-            //         {
-            //             id: "resultDifferent",
-            //             status: "FARKLI",
-            //         }
-            //     ]
-            //     rightContent = `
-            //             <td colspan="2" class="align-middle">
-            //                 <div class="radio-group">
-            //                     ${onay.map(opt => `
-            //                         <label for="${opt.id}" class="resultLabel">
-            //                             <input type="radio" name="resultRadio" id="${opt.id}" value="${opt.status}"> ${opt.status}
-            //                         </label>
-            //                     `).join('')}
-            //                 </div>
-            //             </td>`;
-            //     break;
             default:
                 // Standart satır yapısı (Copy Butonu + Textarea)
                 rightContent = `

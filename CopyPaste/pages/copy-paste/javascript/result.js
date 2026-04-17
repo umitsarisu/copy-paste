@@ -97,10 +97,12 @@ const notRequired = () => {
     if (ResultObj.customer_experience.length < 4) {
         PrintObj.error_history_logs = ResultObj.customer_experience + " CAN'T BE SHOWN ON A PUMP AS AN ERROR CODE.";
         PrintObj.first_sentence = ResultObj.customer_experience + " CAN'T BE SHOWN ON A PUMP AS AN ERROR CODE. NO PROBABLE CAUSE. ";
+        $("#callDate").hide();
     }
     else {
         PrintObj.error_history_logs = ResultObj.customer_experience + " ERROR CODE WAS NOT SEEN IN HISTORY LOG.";
         PrintObj.first_sentence = "DURING LEVEL 1 PCI,\nTHE CUSTOMER EXPERIENCE " + ResultObj.customer_experience + " ERROR CODE WAS NOT SEEN. NO PROBABLE CAUSE. ";
+        $("#callDate").show();
     }
     // ifExperienceSeen();
 }
@@ -144,13 +146,13 @@ const firstSentence = () => {
         PrintObj.error_history_logs = "N/A";
         PrintObj.first_sentence = `${ResultObj.customer_experience} CAN'T BE SHOWN ON A PUMP AS AN ERROR CODE.`;
         // Tarih inputunu gizle
-        $("#randomdate").hide();
+        $("#callDate").hide();
         $("#dateResult").text("N/A");
     }
     // Customer Experience 4 Karakterli İse
     else {
         // Tarih inputunu göster
-        $("#randomdate").show();
+        $("#callDate").show();
         $("#dateResult").text("");
         // Cihaz Açılmıyor Arızası Varsa
         if (ErrorCodesObj.cassette_alarm_test_error_codes.includes("503")) {
@@ -517,16 +519,16 @@ const AAcodes = () => {
         if (VisualObj.damaged_part_names.includes("FRONT CASE") ||
             VisualObj.damaged_part_names.includes("HOUSING FRONT")) {
             repair("M92");
-            investigation("809");
+            // investigation("809");
         }
         if (VisualObj.damaged_part_names.includes("REAR CASE") ||
             VisualObj.damaged_part_names.includes("HOUSING BACK")) {
             repair("M93");
-            investigation("809");
+            // investigation("809");
         }
         if (VisualObj.damaged_part_names.includes("MAIN CHASIS")) {
             repair("M37");
-            investigation("809");
+            // investigation("809");
         }
         if (VisualObj.damaged_part_names.includes("ASM DOOR") ||
             VisualObj.damaged_part_names.includes("DOOR COVER AND SCREW")) {
@@ -636,19 +638,19 @@ const AAcodes = () => {
     if (PrintObj.probable_causes.includes("DEFECTIVE POWER PWA")) {
         repair("K01");
         analysis("E01");
-        analysis("973");
+        // analysis("973");
         investigation($("#otherFormErrorCode").val().toLocaleUpperCase("en-US"));
     }
     if (PrintObj.probable_causes.includes("DEFECTIVE CPU PWA")) {
         repair("K05");
         analysis("E05");
-        analysis("973");
+        // analysis("973");
         investigation($("#otherFormErrorCode").val().toLocaleUpperCase("en-US"));
     }
     if (PrintObj.probable_causes.includes("DEFECTIVE PERIPHERAL PWA")) {
         repair("K156");
         analysis("E156");
-        analysis("973");
+        // analysis("973");
         investigation($("#otherFormErrorCode").val().toLocaleUpperCase("en-US"));
     }
     if (PrintObj.probable_causes.includes("DEFECTIVE POWER CABLE") ||
@@ -671,7 +673,7 @@ const AAcodes = () => {
     }
     if (PrintObj.probable_causes.includes("DEFECTIVE MAIN CHASIS")) {
         repair("M37");
-        analysis("973");
+        // analysis("973");
         investigation("503");
     }
     if (PrintObj.probable_causes.includes("PERIPHERAL PWA CONNECTOR NOT PLUGGED IN")) {
@@ -683,13 +685,13 @@ const AAcodes = () => {
     if (PrintObj.probable_causes.includes("DEFECTIVE SHIELD")) {
         repair("E314");
         analysis("314");
-        analysis("973");
+        // analysis("973");
         $("#n250Shield").is(":checked") ? investigation("N250") : investigation("N251");
     }
     if (PrintObj.probable_causes.includes("DEFECTIVE ASM DOOR")) {
         repair("M38");
         analysis("M38");
-        analysis("973");
+        // analysis("973");
         $("#n250Asmdoor").is(":checked") ? investigation("N250") : investigation("N251");
     }
     if (PrintObj.probable_causes.includes("DEFECTIVE PIVOT")) {
@@ -701,7 +703,7 @@ const AAcodes = () => {
     if (PrintObj.probable_causes.includes("DEFECTIVE HANDLE DOOR")) {
         repair("A13");
         analysis("M38");
-        analysis("973");
+        // analysis("973");
         $("#n250Handle").is(":checked") ? investigation("N250") : investigation("N251");
     }
     if (PrintObj.probable_causes.includes("DEFECTIVE LINK DOOR")) {
@@ -713,13 +715,13 @@ const AAcodes = () => {
         || PrintObj.probable_causes.includes("DEFECTIVE KEYPAD TR")) {
         repair("E65");
         analysis("E19");
-        analysis("973");
+        // analysis("973");
         investigation("E439");
     }
     if (PrintObj.probable_causes.includes("DEFECTIVE DISPLAY")) {
         repair("K84");
         analysis("E75");
-        analysis("973");
+        // analysis("973");
         investigation("E302");
     }
     // SXC silme
