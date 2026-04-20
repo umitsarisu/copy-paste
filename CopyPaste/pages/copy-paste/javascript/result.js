@@ -520,15 +520,18 @@ const AAcodes = () => {
             VisualObj.damaged_part_names.includes("HOUSING FRONT")) {
             repair("M92");
             // investigation("809");
+            investigation("781");
         }
         if (VisualObj.damaged_part_names.includes("REAR CASE") ||
             VisualObj.damaged_part_names.includes("HOUSING BACK")) {
             repair("M93");
             // investigation("809");
+            investigation("781");
         }
         if (VisualObj.damaged_part_names.includes("MAIN CHASIS")) {
             repair("M37");
             // investigation("809");
+            investigation("781");
         }
         if (VisualObj.damaged_part_names.includes("ASM DOOR") ||
             VisualObj.damaged_part_names.includes("DOOR COVER AND SCREW")) {
