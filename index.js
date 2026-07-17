@@ -2,6 +2,7 @@
 
 function pageTransition(x) {
     $("iframe").hide();
+    $("#rvgContent").hide();
     $("a[name='navlink-a']").removeClass("nav-active");
     $("a[name='navlink-a']").eq(x).addClass("nav-active");
 
@@ -9,7 +10,7 @@ function pageTransition(x) {
     else if (x == 1) { $("iframe[id='copyPasteFrame']").show(); }
     else if (x == 2) { $("iframe[name='iframeSpareParts']").show(); }
     else if (x == 3) { $("iframe[name='iframeCari']").show(); }
-    else if (x == 4) { $("iframe[id='iframeRandom']").show(); }
+    else if (x == 4) { $("#rvgContent").show(); }
     else if (x == 5) { $("iframe[name='iframeRunin']").show(); }
     else if (x == 6) { $("iframe[name='iframeBuyutec']").show(); }
 }
