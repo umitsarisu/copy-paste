@@ -31,64 +31,71 @@
 </head>
 
 <body class="w-100 d-flex">
-    <aside>
-        <a href="#" class="ml-2 mt-2 text-white" onclick="pageTransition(0)" tag="li" name="navlink-a">
-            <i class="fas fa-home fa-2x fa-fw" aria-hidden="true"></i>
-            <span class="fs-3 ms-1">Anasayfa</span></a>
-        <hr>
-        <ul class="nav flex-column">
-            <li class="nav-item ms-2">
-                <a href="#" class="nav-active nav-link text-white" onclick="pageTransition(1)" name="navlink-a">
-                    <i class="fa fa-copy fa-lg fa-fw ms-2"></i>
-                    Kopyala Yapıştır</a>
-            </li>
-            <li>
-                <a href="https://umitsarisu.github.io/mediterapp/#/spare-parts-page" class="nav-link text-white"
-                    target="iframeSpareParts" onclick="pageTransition(2)" name="navlink-a">
-                    <i class="fa fa-wrench fa-lg fa-fw ms-2 me-2"></i>
-                    Yedek Parçalar</a>
-            </li>
-            <li>
-                <a href="https://umitsarisu.github.io/mediterapp/#/current-codes-page" target="iframeCari"
-                    class="nav-link text-white" onclick="pageTransition(3)" name="navlink-a">
-                    <i class="fa fa-vcard fa-lg fa-fw ms-2 me-2"></i>
-                    Cari Kodlar</a>
-            </li>
-            <li>
-                <a href="https://umitsarisu.github.io/mediterapp/#/random-value-generator" class="nav-link text-white"
-                    target="iframeRandom" onclick="pageTransition(4)" name="navlink-a">
-                    <i class="fa fa-random fa-lg fa-fw ms-2 me-2"></i>
-                    Referans Değer Üretici</a>
-            </li>
-            <li>
-                <a href="https://umitsarisu.github.io/mediterapp/#/run-in-page" class="nav-link text-white"
-                    target="iframeRunin" onclick="pageTransition(5)" name="navlink-a">
-                    <i class="fa fa-file-text-o fa-lg fa-fw ms-2 me-2"></i>
-                    Run-In Formu</a>
-            </li>
-            <li>
-                <a href="https://umitsarisu.github.io/mediterapp/#/magnifying-glass" class="nav-link text-white"
-                    target="iframeBuyutec" onclick="pageTransition(6)" name="navlink-a">
-                    <i class="fa fa-search fa-lg fa-fw ms-2 me-2"></i>
-                    Büyüteç</a>
-            </li>
-            <li class="d-flex justify-content-center">
-                <input type="text" onchange="setPassword(this)" id="password_id" autocomplete="off">
-                <input type="button" class="btn btn-close btn-outline-danger m-1" onclick="deletePassword()">
-            </li>
-        </ul>
-    </aside>
     <main class="d-flex justify-content-center">
         <iframe class="none" id="home" src="home.html" frameborder="0"></iframe>
+        <iframe class="none" id="iframeRandom" src="referenceValue.html" frameborder="0"></iframe>
         <iframe class="non" id="copyPasteFrame" src="CopyPaste/pages/copy-paste/copy-paste.html"
             frameborder="0"></iframe>
         <iframe class="none" name="iframeCari" frameborder="0"></iframe>
-        <iframe class="none" name="iframeRandom" frameborder="0"></iframe>
         <iframe class="none" name="iframeBuyutec" frameborder="0"></iframe>
         <iframe class="none" name="iframeSpareParts" frameborder="0"></iframe>
         <iframe class="none" name="iframeRunin" frameborder="0"></iframe>
     </main>
 
+    <aside>
+        <!-- Anasayfa Linki (0. indeks) -->
+        <a href="#" class="ml-2 mt-2 text-white d-block" onclick="pageTransition(0)" tag="li" name="navlink-a">
+            <i class="fas fa-home fa-2x fa-fw" aria-hidden="true"></i>
+            <span class="fs-3 ms-1">Anasayfa</span>
+        </a>
+        <hr>
+        <ul class="nav flex-column">
+            <!-- Kopyala Yapıştır (1. indeks) -->
+            <li class="nav-item ms-2">
+                <a href="#" class="nav-active nav-link text-white" onclick="pageTransition(1)" name="navlink-a">
+                    <i class="fa fa-copy fa-lg fa-fw ms-2"></i> Kopyala Yapıştır
+                </a>
+            </li>
+            <!-- Yedek Parçalar (2. indeks) -->
+            <li>
+                <a href="https://umitsarisu.github.io/mediterapp/#/spare-parts-page" class="nav-link text-white"
+                    target="iframeSpareParts" onclick="pageTransition(2)" name="navlink-a">
+                    <i class="fa fa-wrench fa-lg fa-fw ms-2 me-2"></i> Yedek Parçalar
+                </a>
+            </li>
+            <!-- Cari Kodlar (3. indeks) -->
+            <li>
+                <a href="https://umitsarisu.github.io/mediterapp/#/current-codes-page" target="iframeCari"
+                    class="nav-link text-white" onclick="pageTransition(3)" name="navlink-a">
+                    <i class="fa fa-vcard fa-lg fa-fw ms-2 me-2"></i> Cari Kodlar
+                </a>
+            </li>
+            <!-- Yeni Referans Değer Üretici (4. indeks) -->
+            <li>
+                <a href="#" class="nav-link text-white" onclick="pageTransition(4)" name="navlink-a">
+                    <i class="fa fa-random fa-lg fa-fw ms-2 me-2"></i> Referans Değer Üretici
+                </a>
+            </li>
+            <!-- Run-In Formu (5. indeks) -->
+            <li>
+                <a href="https://umitsarisu.github.io/mediterapp/#/run-in-page" class="nav-link text-white"
+                    target="iframeRunin" onclick="pageTransition(5)" name="navlink-a">
+                    <i class="fa fa-file-text-o fa-lg fa-fw ms-2 me-2"></i> Run-In Formu
+                </a>
+            </li>
+            <!-- Büyüteç (6. indeks) -->
+            <li>
+                <a href="https://umitsarisu.github.io/mediterapp/#/magnifying-glass" class="nav-link text-white"
+                    target="iframeBuyutec" onclick="pageTransition(6)" name="navlink-a">
+                    <i class="fa fa-search fa-lg fa-fw ms-2 me-2"></i> Büyüteç
+                </a>
+            </li>
+            <li class="d-flex justify-content-center mt-3">
+                <input type="text" onchange="setPassword(this)" id="password_id" autocomplete="off">
+                <input type="button" class="btn btn-close btn-outline-danger m-1" onclick="deletePassword()">
+            </li>
+        </ul>
+    </aside>
     <!-- dahili javascript -->
     <script src="index.js"></script>
     <script src="innovations.js"></script>

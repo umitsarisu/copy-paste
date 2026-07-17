@@ -460,9 +460,9 @@ const rvgFunc = (x) => {
     let rv6, rv10;
     while (true) {
         // rv6: 4 ile 8 arasında
-        rv6 = Math.random() * (8 - 4) + 4;
+        rv6 = Math.random() * (8.30 - 4.5) + 4.5;
         // rv10: 8 ile 12.5 arasında
-        rv10 = Math.random() * (12.5 - 8) + 8;
+        rv10 = Math.random() * (12.30 - 8.30) + 8.30;
         let fark = rv10 - rv6;
         // Fark kontrolü: min 3.5, max 5
         if (fark >= 3.5 && fark <= 5) {
@@ -601,7 +601,7 @@ const AAcodes = () => {
         }
         if (PrintObj.probable_causes.includes("CALIBRATION PRESSURE DEDECTOR")) {
             repair("E87");
-            var m95 = ["N180", "N181", "N186", "N187", "N251", "E343", "E344", "E345", "E346", "E458", "503"];
+            var m95 = ["N180", "N181", "N186", "N187", "N192", "N251", "E343", "E344", "E345", "E346", "E458", "503"];
             var m93 = ["N182", "N183", "N184", "N185", "N188", "N189", "N190", "N191", "E430", "E431", "E432", "E433"];
             if (m95.includes(MechanismObj.error_code)) analysis("M95");
             if (m93.includes(MechanismObj.error_code)) analysis("M93");
