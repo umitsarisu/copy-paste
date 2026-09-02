@@ -456,24 +456,31 @@ const setDateInputValue = () => {
     }
     $("#date1").val(date2);
 }
-const rvgFunc = (x) => {
+// Gerçek ve bağımsız rastgele tam sayı üreten yardımcı fonksiyon
+const getRandomInt = (min, max) => {
+    const array = new Uint32Array(1);
+    window.crypto.getRandomValues(array);
+    // Üretilen kriptografik rastgele sayıyı belirlediğimiz min-max aralığına sıkıştırıyoruz
+    return min + Math.floor((array[0] / (0xFFFFFFFF + 1)) * (max - min + 1));
+}
+const rvgFunc = () => {
     let rv6, rv10;
     while (true) {
-        // rv6: 4 ile 8 arasında
-        rv6 = Math.random() * (8.30 - 4.5) + 4.5;
-        // rv10: 8 ile 12.5 arasında
-        rv10 = Math.random() * (12.30 - 8.30) + 8.30;
+        // Kriptografik veya dinamik ondalık üretimi
+        rv6 = (Math.random() * (8.30 - 4.5) + 4.5);
+        rv10 = (Math.random() * (12.3 - 8.3) + 8.3);
+
         let fark = rv10 - rv6;
-        // Fark kontrolü: min 3.5, max 5
-        if (fark >= 3.5 && fark <= 5) {
-            break; // Şartlar sağlanırsa döngüden çık
+
+        if (fark >= 3.5 && fark <= 4.0) {
+            break;
         }
     }
     PrintObj.rv6psi = rv6.toFixed(2).replace('.', ',');
     PrintObj.rv10psi = rv10.toFixed(2).replace('.', ',');
-    PrintObj.rv3 = Math.floor(Math.random() * (17 - 10) + 10);
-    PrintObj.rv4 = Math.floor(Math.random() * (50 - 30) + 30);
-    PrintObj.rv5 = Math.floor(Math.random() * (120 - 70) + 70);
+    PrintObj.rv3 = getRandomInt(10, 16);
+    PrintObj.rv4 = getRandomInt(30, 49);
+    PrintObj.rv5 = getRandomInt(70, 119);
 }
 const dateFunc = () => {
     const inputDate = document.getElementById("date1").value;
@@ -676,7 +683,7 @@ const AAcodes = () => {
     }
     if (PrintObj.probable_causes.includes("DEFECTIVE MAIN CHASIS")) {
         repair("M37");
-        // analysis("973");
+        analysis("M37");
         investigation("503");
     }
     if (PrintObj.probable_causes.includes("PERIPHERAL PWA CONNECTOR NOT PLUGGED IN")) {
@@ -699,7 +706,6 @@ const AAcodes = () => {
     }
     if (PrintObj.probable_causes.includes("DEFECTIVE PIVOT")) {
         repair("M23");
-        analysis("M23");
         analysis("894");
         $("#n250Pivot").is(":checked") ? investigation("N250") : investigation("N251");
     }

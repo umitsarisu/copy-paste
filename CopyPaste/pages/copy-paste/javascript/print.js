@@ -25,10 +25,10 @@ function print() {
     $("#onay").val(PrintObj.is_approved === true ? "Evet" : (PrintObj.is_approved === false ? "Hayır" : "Farklı"));
     // Tablo Renklerini Sıfırlama
     document.querySelectorAll('.table-textarea').forEach(el => {
-    el.style.backgroundColor = ""; // CSS'deki orijinal rengine (kağıt rengi) döner
-    el.style.borderColor = "";
-    el.style.color = "";
-});
+        el.style.backgroundColor = ""; // CSS'deki orijinal rengine (kağıt rengi) döner
+        el.style.borderColor = "";
+        el.style.color = "";
+    });
 }
 //Copy
 const copyFromTextarea = async (btn) => {
@@ -44,23 +44,10 @@ const copyFromTextarea = async (btn) => {
         await navigator.clipboard.writeText(textToCopy);
 
         // --- TEXTAREA RENGİ (SABİT) ---
-        // Sayfa yenilenene kadar bu renk kalır
+        // Kopyalandığını belli eden yeşil tema (Sayfa yenilenene kadar kalır)
         textarea.style.backgroundColor = "#d4edda";
         textarea.style.borderColor = "#c3e6cb";
-        textarea.style.color = "#155724"; // Yazı rengini de koyu yeşil yapalım
-
-        // --- BUTON GERİ BİLDİRİMİ (GEÇİCİ) ---
-        const originalText = btn.innerText;
-
-        // Butonun rengini yeşil yapıyoruz (Bootstrap sınıfları ile)
-        btn.classList.replace("btn-outline-secondary", "btn-success");
-        btn.innerText = "Kopyalandı!";
-
-        // Buton 1.5 saniye sonra eski haline döner ama textarea yeşil kalmaya devam eder
-        setTimeout(() => {
-            btn.classList.replace("btn-success", "btn-outline-secondary");
-            btn.innerText = originalText;
-        }, 1500);
+        textarea.style.color = "#155724";
 
     } catch (err) {
         // Yedek kopyalama yöntemi
@@ -69,8 +56,19 @@ const copyFromTextarea = async (btn) => {
 
         textarea.style.backgroundColor = "#fff3cd"; // Hata durumunda sarı sabit kalsın
     }
-}
 
+    // --- BUTON GERİ BİLDİRİMİ (GEÇİCİ & ANLIK) ---
+    // Eğer önceden devam eden bir zamanlayıcı varsa temizle (Renkte takılı kalmasını önler)
+    if (btn.timeoutId) clearTimeout(btn.timeoutId);
+
+    // Buton metnine dokunmadan sadece rengini yeşil yapıyoruz
+    btn.classList.replace("btn-outline-secondary", "btn-success");
+
+    // 350 milisaniye sonra buton anında eski rengine döner
+    btn.timeoutId = setTimeout(() => {
+        btn.classList.replace("btn-success", "btn-outline-secondary");
+    }, 350);
+}
 const printRvg = () => {
     $(".rvg").empty();
     $(".egt").empty();
@@ -118,34 +116,27 @@ const copyPsi = async (psi) => {
     }
 }
 const copyPriSec = async (btn) => {
-    // Butonun içindeki metni (Örn: 13850921) alıyoruz
     const textToCopy = btn.innerText;
 
     try {
-        // Modern kopyalama yöntemi
         await navigator.clipboard.writeText(textToCopy);
-
-        // Kullanıcıya görsel geri bildirim verelim
-        const originalText = btn.innerText;
-        btn.innerText = "Kopyalandı!";
-        btn.classList.replace("btn-outline-secondary", "btn-success"); // Butonu yeşil yap
-
-        // 1 saniye sonra eski haline döndür
-        setTimeout(() => {
-            btn.innerText = originalText;
-            btn.classList.replace("btn-success", "btn-outline-secondary");
-        }, 1000);
-
     } catch (err) {
-        // Yedek kopyalama yöntemi (Eski tarayıcılar için)
         const dummy = document.createElement("textarea");
         document.body.appendChild(dummy);
         dummy.value = textToCopy;
         dummy.select();
         document.execCommand("copy");
         document.body.removeChild(dummy);
-
-        btn.innerText = "OK!";
-        setTimeout(() => { btn.innerText = textToCopy; }, 1000);
     }
+
+    // Tıklama çakışmalarını önlemek için varsa eski zamanlayıcıyı temizle
+    if (btn.timeoutId) clearTimeout(btn.timeoutId);
+
+    // Metne dokunmadan sadece rengi yeşil yap
+    btn.classList.replace("btn-outline-secondary", "btn-success");
+
+    // Süre: 350 milisaniye (Çok daha seri)
+    btn.timeoutId = setTimeout(() => {
+        btn.classList.replace("btn-success", "btn-outline-secondary");
+    }, 350);
 }
