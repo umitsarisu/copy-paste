@@ -127,20 +127,26 @@ $("#otherForm").find(":reset").click(function () {
     $("#peripheralForm").hide();
 })
 $("#305").click(() => {
-    if ($('#lowbattery').is(":checked") || $('#n252').is(":checked")) {
+    if ($('#lowbattery').is(":checked") || $('#n252').is(":checked") || $('#e320').is(":checked")) {
         alert("Diğer batarya arızaları ile aynı anda seçilemez!")
         $('#305').prop('checked', false)
     }
 })
 $("#lowbattery").click(() => {
-    if ($('#305').is(":checked") || $('#n252').is(":checked")) {
+    if ($('#305').is(":checked") || $('#n252').is(":checked") || $('#e320').is(":checked")) {
         alert("Diğer batarya arızaları ile aynı anda seçilemez!")
         $('#lowbattery').prop('checked', false)
     }
 })
 $("#n252").click(() => {
-    if ($('#lowbattery').is(":checked") || $('#305').is(":checked")) {
+    if ($('#lowbattery').is(":checked") || $('#305').is(":checked") || $('#e320').is(":checked")) {
         alert("Diğer batarya arızaları ile aynı anda seçilemez!")
         $('#n252').prop('checked', false)
+    }
+})
+$("#e320").click(() => {
+    if ($('#lowbattery').is(":checked") || $('#305').is(":checked") || $('#n252').is(":checked")) {
+        alert("Diğer batarya arızaları ile aynı anda seçilemez!")
+        $('#e320').prop('checked', false)
     }
 })

@@ -117,8 +117,8 @@ body {
 
 /* Textarea alanını kağıt rengine yakın tutarak kontrast sağla */
 #table1 .table-textarea {
-    background-color: #faf9f6 ;
-    border: 1px solid #d1cdc1 ;
+    background-color: #faf9f6;
+    border: 1px solid #d1cdc1;
     color: #2c2c2c;
 }
 
@@ -609,6 +609,7 @@ body {
     div.hoverUpAsmdoor,
     div.hoverDownShield,
     div.hoverUpPivot,
+    div.hoverUpE320,
     div.hoverUpHandle,
     div.hoverUpLink {
         width: 92px;
@@ -666,6 +667,13 @@ body {
         top: -1px;
         right: 46px;
         background: rgb(253, 137, 84);
+    }
+
+    li:hover div.hoverUpE320 {
+        z-index: 1;
+        bottom: -40px;
+        left: 0px;
+        background: #D99D81;
     }
 
     li:hover div.hoverUpPivot {

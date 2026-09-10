@@ -415,6 +415,11 @@ const otherPartsResult = () => {
             setErrorCode(error_code);
             setComment(error_code, [$("#n252").val().toLocaleUpperCase("en-US")])
         }
+        if ($("#e320").is(":checked")) {
+            const error_code = "E320";
+            setErrorCode(error_code);
+            setComment(error_code, [$("#e320").val().toLocaleUpperCase("en-US")])
+        }
         if ($("#e439").is(":checked")) {
             const error_code = "E439";
             setErrorCode(error_code);
@@ -679,7 +684,13 @@ const AAcodes = () => {
         || PrintObj.probable_causes.includes("LOW BATTERY")) {
         repair("E27");
         analysis("E27");
-        $("#n252").is(":checked") ? investigation("N252") : investigation("305");
+        if ($("#n252").is(":checked")) investigation("N252");
+    }
+    if (PrintObj.probable_causes.includes("DEAD BATTERY")
+        || PrintObj.probable_causes.includes("LOW BATTERY")) {
+        repair("E27");
+        analysis("E27");
+        if ($("#e320").is(":checked")) investigation("E320");
     }
     if (PrintObj.probable_causes.includes("DEFECTIVE MAIN CHASIS")) {
         repair("M37");
