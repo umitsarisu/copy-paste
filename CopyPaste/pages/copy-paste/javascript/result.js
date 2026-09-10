@@ -472,12 +472,12 @@ const rvgFunc = () => {
     let rv6, rv10;
     while (true) {
         // Kriptografik veya dinamik ondalık üretimi
-        rv6 = (Math.random() * (8.30 - 4.5) + 4.5);
+        rv6 = (Math.random() * (8.30 - 5) + 5);
         rv10 = (Math.random() * (12.3 - 8.3) + 8.3);
 
         let fark = rv10 - rv6;
 
-        if (fark >= 3.5 && fark <= 4.0) {
+        if (fark >= 4 && fark <= 4.5) {
             break;
         }
     }
@@ -679,18 +679,13 @@ const AAcodes = () => {
         analysis("E55");
         investigation($("#otherFormErrorCode").val().toLocaleUpperCase("en-US"));
     }
-
     if (PrintObj.probable_causes.includes("DEAD BATTERY")
         || PrintObj.probable_causes.includes("LOW BATTERY")) {
         repair("E27");
         analysis("E27");
         if ($("#n252").is(":checked")) investigation("N252");
-    }
-    if (PrintObj.probable_causes.includes("DEAD BATTERY")
-        || PrintObj.probable_causes.includes("LOW BATTERY")) {
-        repair("E27");
-        analysis("E27");
-        if ($("#e320").is(":checked")) investigation("E320");
+        else if ($("#e320").is(":checked")) investigation("E320");
+        else investigation("305")
     }
     if (PrintObj.probable_causes.includes("DEFECTIVE MAIN CHASIS")) {
         repair("M37");
