@@ -11,8 +11,9 @@ function pageTransition(x) {
     else if (x == 2) { $("iframe[name='iframeSpareParts']").show(); }
     else if (x == 3) { $("iframe[name='iframeCari']").show(); }
     else if (x == 4) { $("#rvgContent").show(); }
-    else if (x == 5) { $("iframe[name='iframeRunin']").show(); }
-    else if (x == 6) { $("iframe[name='iframeBuyutec']").show(); }
+    else if (x == 5) { $("iframe[id='iframeCost']").show(); }
+    else if (x == 6) { $("iframe[name='iframeRunin']").show(); }
+    else if (x == 7) { $("iframe[name='iframeBuyutec']").show(); }
 }
 const setPassword = () => {
     localStorage.setItem("password_text", $("#password_id").val().toLowerCase());
