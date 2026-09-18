@@ -16,7 +16,6 @@
 <body>
     <div id="sparePartsModule" class="container-fluid py-2 px-3 px-sm-3"
         style="background-color: #f4f1ea; min-height: 100vh;">
-
         <!-- SEKMELER (TABS - Mobilde kaydırılabilir esnek yapı) -->
         <ul class="nav nav-tabs mb-3 border-bottom border-secondary flex-nowrap overflow-x-auto"
             style="white-space: nowrap;">
@@ -52,8 +51,9 @@
                             <!-- Arama Kutusu -->
                             <div class="input-group mb-2">
                                 <span class="input-group-text bg-light">🔍</span>
-                                <input type="text" id="searchPartInput" class="form-control form-control-lg fs-6" autocomplete="off" spellcheck="false"
-                                    placeholder="Parça no veya adı ile ara..." oninput="onSearchInput()">
+                                <input type="text" id="searchPartInput" class="form-control form-control-lg fs-6"
+                                    autocomplete="off" spellcheck="false" placeholder="Parça no veya adı ile ara..."
+                                    oninput="onSearchInput()">
                             </div>
 
                             <!-- Parça Tablosu -->
@@ -446,34 +446,25 @@
             // Mobilde hesapla butonuna basınca ekranı otomatik sonuç kutusuna kaydırır
             resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
-
-        // 8. ŞİFRE İLE DÜZENLEME İSTEĞİ (Şifre: 2318)
+        // ŞİFRESİZ DÜZENLEME İSTEĞİ (Ana girişte doğrulandığı için direkt açılır)
         function requestEditWithPassword(id) {
-            const pwd = prompt("Parça düzenlemek için yönetici şifresini giriniz:");
+            const part = allParts.find(p => p.id === id);
+            if (!part) return;
 
-            if (pwd === null) return; // İptal edildi
+            // Form alanlarını seçilen parçanın bilgileriyle doldur
+            document.getElementById("partDocId").value = part.id;
+            document.getElementById("inputPartNumber").value = part.partNumber;
+            document.getElementById("inputPartName").value = part.partName;
+            document.getElementById("inputPartCost").value = part.partCost;
 
-            if (pwd === ADMIN_PASSWORD) {
-                const part = allParts.find(p => p.id === id);
-                if (!part) return;
+            // UI'ı düzenleme moduna al
+            document.getElementById("formTitle").innerText = "Parça Düzenle / Sil";
+            document.getElementById("btnSavePart").innerText = "Güncelle";
+            document.getElementById("btnSavePart").className = "btn btn-warning btn-lg fw-bold fs-6 py-2";
+            document.getElementById("btnDeletePart").classList.remove("d-none");
 
-                // Formu doldur
-                document.getElementById("partDocId").value = part.id;
-                document.getElementById("inputPartNumber").value = part.partNumber;
-                document.getElementById("inputPartName").value = part.partName;
-                document.getElementById("inputPartCost").value = part.partCost;
-
-                // UI düzenleme moduna al
-                document.getElementById("formTitle").innerText = "Parça Düzenle / Sil";
-                document.getElementById("btnSavePart").innerText = "Güncelle";
-                document.getElementById("btnSavePart").className = "btn btn-warning fw-bold py-2";
-                document.getElementById("btnDeletePart").classList.remove("d-none");
-
-                // Admin sekmesine geç
-                switchSpareTab('admin');
-            } else {
-                alert("❌ Hatalı şifre! Düzenleme yetkiniz yok.");
-            }
+            // Doğrudan Admin sekmesine geç (Şifre sormadan)
+            switchSpareTab('admin');
         }
 
         // 9. KAYDET VEYA GÜNCELLE
@@ -553,7 +544,7 @@
         document.addEventListener("DOMContentLoaded", () => {
             setTimeout(loadParts, 500);
         });
-        // SEKME GEÇİŞLERİ (Tab Management) - Şifre Korumalı
+        // SEKME GEÇİŞLERİ (Artık Sekmeler Arasında Şifre Sorulmaz)
         function switchSpareTab(tabName) {
             const selectView = document.getElementById("tabSelectView");
             const adminView = document.getElementById("tabAdminView");
@@ -568,23 +559,7 @@
                 tabSelectBtn.classList.remove("text-secondary");
                 tabAdminBtn.classList.remove("active", "text-dark");
                 tabAdminBtn.classList.add("text-secondary");
-            }
-            else if (tabName === 'admin') {
-                // Düzenleme modunda zaten şifre doğrulaması yapıldıysa tekrar sormaz (partDocId kontrolü)
-                const isEditing = document.getElementById("partDocId").value !== "";
-
-                if (!isEditing) {
-                    const pwd = prompt("Parça Yönetimi sekmesine erişmek için şifreyi giriniz:");
-
-                    if (pwd === null) return; // Kullanıcı vazgeçti/iptal etti
-
-                    if (pwd !== ADMIN_PASSWORD) {
-                        alert("❌ Hatalı şifre! Bu sekmeye erişim yetkiniz yok.");
-                        return;
-                    }
-                }
-
-                // Şifre doğruysa veya düzenleme modundaysa sekmeyi aç
+            } else if (tabName === 'admin') {
                 selectView.style.display = "none";
                 adminView.style.setProperty("display", "block", "important");
 
